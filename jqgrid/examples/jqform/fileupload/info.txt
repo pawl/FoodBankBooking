@@ -1,0 +1,3 @@
+jqForm class automatically handle File uploads.
+You can configure your uploads depending on the own needs very easy using
+the setUploadOptions method. See code.

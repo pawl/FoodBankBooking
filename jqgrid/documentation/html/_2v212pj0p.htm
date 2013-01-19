@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Passing parameters</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Passing parameters
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In most cases the SQL should obtain dynamically parameters from other variables. This mean that the query should be parametrized. As can be seen this can be done in the same query, but we highly recommend to use the jqGrid feature to pass the parameter values to the method and not to build your own query.<br>The reason for this is that the query is prepared before it is executed and the parameters are bound to the query for performance and security reasons (e.g in order to prevent SQL Injection attacks)<p><div class="topicname">Related methods</div>exportToExcel<br>queryGrid<br>querySubGrid<br>editGrid<br>renderGrid<p>In order to ilustrate how this can be done We will use the <a href="_2v20q5hpg.htm" >example</a> we have used before. Let say that we want to display the rows with OrderID bigger than a certain number (session variable) which should be set before executing the script.The script can look like this:<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the PDO driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+
+<span class="codecomment">// get the variable</span>
+$param1 = $_SESSION[<span class="codestring">'ordernum'</span>];
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGrid($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders WHERE OrderID &gt; ? '</span>;
+
+$grid-&gt;dataType = <span class="codestring">"json"</span>;
+
+<span class="codecomment">// pass the parameter </span>
+$grid-&gt;queryGrid(<span class="literals">null</span>, <span class="datatypes">array</span>($param1));
+?&gt;</div></pre><p>All the parameters should be passed whitin an array and the number of the placeholders <b>?</b> should equal the length of the array. <br>You can pass as many parameters as you want.<p>As you can see the array is passed as second argument of the queryGrid method.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/12/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

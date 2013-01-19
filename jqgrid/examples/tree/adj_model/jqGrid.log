@@ -1,0 +1,52 @@
+Executed 2 query(s) - 2011-03-17 09:48:37
+Array
+(
+    [0] => Array
+        (
+            [time] => 2011-03-17 09:48:37
+            [query] => SELECT t1.id FROM adjacent_table AS t1 LEFT JOIN adjacent_table AS t2 ON t1.id = t2.father_id WHERE t2.id IS NULL
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+    [1] => Array
+        (
+            [time] => 2011-03-17 09:48:37
+            [query] => SELECT * FROM adjacent_table ORDER BY id asc
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+)
+Executed 2 query(s) - 2011-03-17 09:49:47
+Array
+(
+    [0] => Array
+        (
+            [time] => 2011-03-17 09:49:47
+            [query] => SELECT t1.id FROM adjacent_table AS t1 LEFT JOIN adjacent_table AS t2 ON t1.id = t2.father_id WHERE t2.id IS NULL
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+    [1] => Array
+        (
+            [time] => 2011-03-17 09:49:47
+            [query] => SELECT * FROM adjacent_table ORDER BY id asc
+            [data] => 
+            [types] => 
+            [fields] => 
+            [primary] => 
+            [input] => 
+        )
+
+)

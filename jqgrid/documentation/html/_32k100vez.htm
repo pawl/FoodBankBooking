@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Export to PDF</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Export to PDF
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><div class="topicname">Enable PDF export</div>By default export to PDF is disabled when navigator is enabled. The difference in using export to PDF in the<a href="_2v70u6eg2.htm" > jqGridRender class</a>, as opposed to export to PDF in the <a href="_2v212tis2.htm" >jqGridClass</a>, is that the names in header, width and initially hidden columns are taken from column model generated in the jqGridRender class. In that respect, you have more control on the export and how the PDF is formatted upon exporting.<p>To enable the export to PDF in navigator you should set the pdf property to true.<br>$grid-&gt;setNavOptions('navigator', array("pdf"=&gt;true)); <br>Additionaly you can overwrite the export file name  to pdf using the pdffile variable:<p>$grid-&gt;pdffile ='mypdffile.pdf';<p>Additionally you can use setPdfOptions method to set various option of the <a href="_32h0wojvn.htm" >Export To Pdf</a><p><div class="topicname">Enable UTF in PDF export</div>By default the export to PDF in not utf. <br>In order to enable utf data you will need to change the font names in pdf options. <p>The default settings for these are as follow<p>$PDF = array(<br>"font_name_main"=&gt;"helvetica",<br>"font_monospaced"=&gt;"courier",<br>"font_name_data"=&gt;"helvetica",<br>...<br>);<p><br>jqGrid comes only with one font whch support utf - freeserif.<p>In order to enable utf you will need to <p><pre><div class="csharpcode">...
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+...
+
+$grid-&gt;setPdfOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"font_name_data"</span>=&gt;<span class="codestring">"freeserif"</span>,
+    <span class="codestring">"font_name_main"</span>=&gt;<span class="codestring">"freeserif"</span>,
+    <span class="codestring">"font_monospaced"</span>=&gt;<span class="codestring">"freeserif"</span>,
+));
+...</div></pre><p><br>If you want to use other utf fonts you will need to download it from this <a href="http://sourceforge.net/projects/tcpdf/files/" target="top">location</a>:<p>and put them in the tcpdf fonts directory
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/21/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Java Script Reference</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Java Script Reference
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><b>The Chart object</b><p>The chart object is the JavaScript object representing a single chart in the web page. The pointer to your chart object is returned when a chart is created using the Highcharts.Chart() constructor:<p>var chart = new Highcharts.Chart(options);<p>The reference to the variable can be set in PHP renderChart method - see parameter $chart<p><b>Methods</b><p><div class="banner">addSeries (Object options, [Boolean redraw], [Mixed animation]) : Series</div><p>Add a series to the chart after render time. Note that this method should never be used when adding data synchronously at chart render time, as it adds expense to the calculations and rendering. When adding data at the same time as the chart is initiated, add the series as a configuration option instead.<p><i>Parameters</i><p><ul><li> options: Object<br>The series options, as documented under plotOptions.series and under the plotOptions for each series type.<br><li> redraw: Boolean<br>Defaults to true. Whether to redraw the chart after the series is added. See the redraw() method below.<br><li> animation: Mixed<br>Defaults to true. When true, the series' updating will be animated with default animation options. The animation can also be a configuration object with properties duration and easing.<br></ul><p><br><i>Returns</i><p>The series added, if successful.<p><br><div class="banner">destroy () </div><p>Removes the chart and purges memory. This method should be called before writing a new chart into the same container. It is called internally on window unload to prevent leaks.<p><div class="banner">exportChart (Object options, Object chartOptions) : null</div>Submit an SVG version of the chart to a server along with some parameters for conversion.<p><i>Parameters</i><p><ul><li> options: Object<br>Exporting options. Out of the exporting options, the following options can be given as parameters to the exportChart method. All options default to the values given in the exporting config optins. filename: the filename for the export without extension, url: the URL for the server module to do the conversion, width: the width of the PNG or JPEG image generated on the server, type: the MIME type of the converted image.<br><li> chartOptions: Object<br>Additional chart options for the exported chart. For example a different background color can be added here.<br></ul><p><br><div class="banner">get (String id) : Axis|Series|Point</div>Get an axis, series or point by its id as given in the configuration options.<p><i>Parameters</i><br><ul><li> id: String<br>The id of the axis, series or point to get.<br></ul><br><i>Returns</i><br>The first Axis, Series or Point with a matching id if found, null if not.<p><div class="banner">getSelectedPoints () : Array&lt;Point&gt;</div>Returns an array of all currently selected points in the chart. Points can be selected either programmatically by the point.select() method or by clicking.<p><i>Returns</i><p>An array of the selected points.<p><br><div class="banner">getSelectedPoints () : Array&lt;Point&gt;</div>Returns an array of all currently selected points in the chart. Points can be selected either programmatically by the point.select() method or by clicking.<p><i>Returns</i><p>An array of the selected points.<p><div class="banner">getSVG (Object additionalOptions) : </div>Get an SVG string representing the chart.<p><i>Parameters</i><p><ul><li> additionalOptions: Object<br>Chart options to add to the exported chart in addition to the options given for the original chart. For example if series.lineWidth should be greater in the exported chart than in the original, or the chart should have a different background color, this is added here.<br></ul><p><br><div class="banner">hideLoading () : </div>Hide the loading screen. Options for the loading screen are defined at options.loading.<p><br><div class="banner">print () : null </div>Exporting module required. Clears away other elements in the page and prints the chart as it is displayed. By default, when the exporting module is enabled, a button at the upper left calls this method.<p><div class="banner">redraw () : null </div>Redraw the chart after changes have been done to the data or axis extremes. All methods for updating axes, series or points have a parameter for redrawing the chart. This is true by default. But in many cases you want to do more than one operation on the chart before redrawing, for example add a number of points. In those cases it is a waste of resources to redraw the chart for each new point added. So you add the points and call chart.redraw() after.<p>The chart.redraw() method only redraws those parts of the chart that are actually changed. If the data of a series is changed and it doesn't affect the axes, only the series itself is redrawn. If the new data requires the axis extremes to be altered, the axis and all other series depending on it are redrawn.<p><div class="banner">setSize (Number width, Number height, [Mixed animation]) :</div>Resize the chart to a given width and height.<p><i>Parameters</i><p><ul><li> width: Number<br>The new pixel width of the chart.<br><li> height: Number<br>The new pixel height of the chart.<br><li> animation: Mixed<br>Defaults to true. When true, the resize will be animated with default animation options. The animation can also be a configuration object with properties duration and easing.<br></ul><p><br><div class="banner">setTitle (Object title, object subtitle) :</div>Set a new title or subtitle for the chart<p><i>Parameters</i><p><ul><li> title: Object<br>A configuration object for the new title as defined at #title.<br><li> subtitle: Object<br>A configuration object for the new subtitle as defined at #subtitle.<br></ul><p><br><div class="banner">showLoading (String str) : null </div>Dim the chart's plot area and show a loading label text. Options for the loading screen are defined at options.loading. A custom text can be given as a parameter for loadind
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/10/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

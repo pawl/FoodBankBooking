@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Grid Events</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Grid Events
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">The event is action that is rasied on the client side when something is hapen in the grid. Since this is a client side job in order to use the grid events you will need to write a java script code. Bellow is example in which when a row is selected a we alert a message to the user. <br>The PHP method that initializes the event is <b>setGridEvent</b>.<p><pre><div class="htmlcode">&lt;?php
+...
+// Create the jqGridEdit instance
+$grid = new jqGridRender($conn);
+
+// Write the SQL Query
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders'</span>;
+$grid-&gt;dataType = <span class="codestring">"json"</span>;
+
+
+$myevent = &lt;&lt;&lt;ONSELECT
+function(rowid, <span class="attributes">selected</span>)
+{
+   if (rowid) alert(<span class="codestring">"Row is selected"</span>);
+}
+ONSELECT;
+$grid-&gt;setGridEvent(<span class="codestring">'onSelectRow'</span>,$myevent);
+
+....
+
+$grid-&gt;renderGrid();
+?&gt;</div></pre><p>As can be seen from this example the first parameter of the method is the name of the event and the second is the code associated with that event. Note how $myevent is written - function(params,...) - This will produce in the cleint <p>onSelectRow:function(rowid, selected) {....}<p>Below is the list of events that can be used into the grid:<p><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Event</P>		</TH>		<TH>			<P>Parameters</P>		</TH>		<TH>			<P>Description</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>afterInsertRow</P>		</TD>		<TD>			<P ALIGN=LEFT>rowid <BR> rowdata <BR> rowelem 			</P>		</TD>		<TD>			<P ALIGN=LEFT>This event fires after every inserted row.<BR> <EM>rowid</EM>			is the id of the inserted row <BR> <EM>rowdata</EM> is an array of			the data to be inserted into the row. This is array of type name:			value, where the name is a name from colModel <BR> <EM>rowelem</EM>			is the element from the response. If the data is xml this is the			xml element of the row; if the data is json this is array			containing all the data for the row <BR> Note: this event does not			fire if gridview option is set to true 			</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>beforeRequest</P>		</TD>		<TD>			<P ALIGN=LEFT>none</P>		</TD>		<TD>			<P ALIGN=LEFT>This event fire before requesting any data. Also			does not fire if datatype is function. If the event return false the request is canceled and not send to the server.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>beforeProcessing</P>		</TD>		<TD>			<P ALIGN=LEFT>data - the data from the response, st - status of the request</P>		</TD>		<TD>			<P ALIGN=LEFT>This event fire immediatley after the successed ajax request and before executing the adding new data</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>beforeSelectRow</P>		</TD>		<TD>			<P ALIGN=LEFT>rowid, e</P>		</TD>		<TD>			<P ALIGN=LEFT>This event fire when the user click on the row, but			before select them. <BR> <EM>rowid</EM> is the id of the row. <BR>			<EM>e</EM> is the event object <BR> This event should return			boolean true or false. If the event return true the selection is			done. If the event return false the row is not selected and any			other action if defined does not occur.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>gridComplete</P>		</TD>		<TD>			<P ALIGN=LEFT>none</P>		</TD>		<TD>			<P ALIGN=LEFT>This fires after all the data is loaded into the			grid and all other processes are complete. Also the event fires			independent from the datatype parameter and after sorting paging			and etc.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>loadBeforeSend</P>		</TD>		<TD>			<P ALIGN=LEFT>xhr</P>		</TD>		<TD>			<P ALIGN=LEFT>A pre-callback to modify the XMLHttpRequest object			(<EM>xhr</EM>) before it is sent. Use this to set custom headers			etc. The XMLHttpRequest is passed as the only argument.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>loadComplete</P>		</TD>		<TD>			<P ALIGN=LEFT>xhr</P>		</TD>		<TD>			<P ALIGN=LEFT>This event is executed immediately after every			server request. <BR> <EM>xhr</EM> XMLHttpRequest object</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>loadError</P>		</TD>		<TD>			<P ALIGN=LEFT>xhr,<BR> status,<BR> error</P>		</TD>		<TD>			<P ALIGN=LEFT>A function to be called if the request fails. The			function gets passed three arguments: The XMLHttpRequest object			(<EM>xhr</EM>), a string describing the type of error (<EM>satus</EM>)			that occurred and an optional exception object (<EM>error</EM>),			if one occurred.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onCellSelect</P>		</TD>		<TD>			<P ALIGN=LEFT>rowid,<BR> iCol, <BR> cellcontent,<BR> e</P>		</TD>		<TD>			<P ALIGN=LEFT>Fires when we click on particular cell in the grid.<BR>			<EM>rowid</EM> is the id of the row <BR> <EM>iCol</EM> is the			index of the cell,<BR> <EM>cellcontent</EM> is the content of the			cell,<BR> <EM>e</EM> is the event object element where we click.<BR>			(Note that this available when we not use cell editing module and			is disabled when using cell editing).</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onClickGroup</P>		</TD>		<TD>			<P ALIGN=LEFT>groupid, <BR> collapsed</P>		</TD>		<TD>			<P ALIGN=LEFT>This event fires after clicking group (to expand or collapse group). it has 2 parameters, group id (string) and collapsed (boolean). 'groupid' is a combination of grid id plus 'ghead_' plus the current count number in the grid view. . 'collapsed' is current group's collapse status.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>ondblClickRow</P>		</TD>		<TD>			<P ALIGN=LEFT>rowid, <BR> iRow, <BR> iCol, <BR> e</P>		</TD>		<TD>			<P ALIGN=LEFT>Raised immediately after row was double clicked. <BR>			<EM>rowid</EM> is the id of the row, <BR> <EM>iRow</EM> is the			index of the row (do not mix this with the rowid),<BR> <EM>iCol</EM>			is the index of the cell. <BR> <EM>e</EM> is the event object</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onHeaderClick</P>		</TD>		<TD>			<P ALIGN=LEFT>gridstate</P>		</TD>		<TD>			<P ALIGN=LEFT>Fire after clicking to hide or show grid			(hidegrid:true);<BR> <EM>gridstate</EM> is the state of the grid -			can have two values - visible or hidden</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onPaging</P>		</TD>		<TD>			<P ALIGN=LEFT>pgButton</P>		</TD>		<TD>			<P ALIGN=LEFT>This event fires after click on [page button] and			before populating the data. Also works when the user enters a new			page number in the page input box (and presses [Enter]) and when			the number of requested records is changed via the select box. To			this event we pass only one parameter <EM>pgButton</EM> See <A HREF="http://www.trirand.com/jqgridwiki/doku.php?id=wiki:pager">pager</A>.			<BR> If this event return 'stop' the processing is stopped and you			can define your own custom pagging</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onRightClickRow</P>		</TD>		<TD>			<P ALIGN=LEFT>rowid, <BR> iRow, <BR> iCol, <BR> e</P>		</TD>		<TD>			<P ALIGN=LEFT>Raised immediately after row was right clicked. <BR>			<EM>rowid</EM> is the id of the row, <BR> <EM>iRow</EM> is the			index of the row (do not mix this with the rowid),<BR> <EM>iCol</EM>			is the index of the cell.<BR> <EM>e</EM> is the event object. <BR>			Note - this event does not work in Opera browsers, since Opera			does not support oncontextmenu event</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onSelectAll</P>		</TD>		<TD>			<P ALIGN=LEFT>aRowids,<BR> status 			</P>		</TD>		<TD>			<P ALIGN=LEFT>This event fires when multiselect option is true and			you click on the header checkbox. <BR> <EM>aRowids</EM> array of			the selected rows (rowid's). <BR> <EM>status</EM> - boolean			variable determining the status of the header check box - true if			checked, false if not checked. <BR> Note that the aRowids alway			contain the ids when header checkbox is checked or unchecked.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onSelectRow</P>		</TD>		<TD>			<P ALIGN=LEFT>rowid,<BR> status</P>		</TD>		<TD>			<P ALIGN=LEFT>Raised immediately after row was clicked. <BR> <EM>rowid</EM>			is the id of the row,<BR> <EM>status</EM> is the status of the			selection. Can be used when multiselect is set to true. true if			the row is selected, false if the row is deselected.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onSortCol</P>		</TD>		<TD>			<P ALIGN=LEFT>index,<BR> iCol,<BR> sortorder</P>		</TD>		<TD>			<P ALIGN=LEFT>Raised immediately after sortable column was clicked			and before sorting the data. <BR> <EM>index</EM> is the index name			from colModel, <BR> <EM>iCol</EM> is the index of column, <BR>			<EM>sortorder</EM> is the new sorting order - can be 'asc' or			'desc'. <BR> If this event return 'stop' the sort processing is			stopped and you can define your own custom sorting</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>resizeStart</P>		</TD>		<TD>			<P ALIGN=LEFT>event, index</P>		</TD>		<TD>			<P ALIGN=LEFT>Event which is called when we start resize a column.			<EM>event</EM> is the event object, <EM>index</EM> is the index of			the column in colModel.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>resizeStop</P>		</TD>		<TD>			<P ALIGN=LEFT>newwidth, index</P>		</TD>		<TD>			<P ALIGN=LEFT>Event which is called after the column is resized.			<EM>newwidth</EM> is the is the new width of the column , <EM>index</EM>			is the index of the column in colModel.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>serializeGridData</P>		</TD>		<TD>			<P ALIGN=LEFT>postData</P>		</TD>		<TD>			<P ALIGN=LEFT>If set this event can serialize the data passed to			the ajax request. The function should return the serialized data.			This event can be used when a custom data should be passed to the			server - e.g - JSON string, XML string and etc. <BR> To this event			we pass the postData array.</P>		</TD>	</TR></TABLE><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

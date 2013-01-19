@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Validating Data on the Client Side</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Validating Data on the Client Side
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">jqGrid supports varios rules for client-side validation. They are available through the <b>editrules</b> option for each column. Since this is a collection, you can stack several validation rules at the same time - they will all apply to the respective edit field.<p>For this particular example we will check if the entered Freight value is a number and additionally to this we will validate the number if it is little than zero.<br>For this purpose we will use the <a href="_2v90ks3na.htm" >example 1 from here</a><p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+
+<span class="codecomment">//set a table to be manipulated</span>
+$grid-&gt;table = <span class="codestring">'orders'</span>;
+
+<span class="codecomment">// set the primary key - it is serial</span>
+$grid-&gt;setPrimaryKeyId(<span class="codestring">'OrderID'</span>);
+
+<span class="codecomment">// Let the grid create the model</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain and edit the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+
+<span class="codecomment">//do not allow this field to be editable</span>
+$grid-&gt;setColProperty(<span class="codestring">'OrderID'</span>,<span class="datatypes">array</span>(<span class="codestring">"editable"</span>=&gt;<span class="literals">false</span>));
+
+<span class="codecomment">//set validation rules for Freight</span>
+grid-&gt;setColProperty(<span class="codestring">'Freight'</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"editrules"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"number"</span>=&gt;<span class="literals">true</span>,<span class="codestring">"minValue"</span>=&gt;0)));
+
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>
+));
+
+<span class="codecomment">// enable form editing</span>
+$grid-&gt;navigator = <span class="literals">true</span>;
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 05/02/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

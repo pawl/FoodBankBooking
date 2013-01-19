@@ -1,0 +1,56 @@
+<% lcSeeAlsoTopics = oHelp.InsertSeeAlsoTopics() %>	
+<%= ExecuteTemplate("Header_template.wcs") %>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">
+<%= oHelp.FormatHTML(oHelp.oTopic.Body) %>
+</div>
+
+<% if (!EMPTY(oHelp.oTopic.Inh_Tree) ) %>
+<small>
+<%= oHelp.InsertInheritanceTree() %>
+</small>
+<% endif %>
+
+<% IF !EMPTY(oHelp.oTopic.Syntax) %>
+<pre class="syntaxbox" id="syntax">
+<%= oHelp.FormatHtml( oHelp.oTopic.Syntax ) %>
+</pre>
+<% ENDIF %>
+
+<% IF !EMPTY(oHelp.oTopic.Remarks) %>
+<h3 class="outdent" id="remarks">Remarks</h3>
+<%= oHelp.FormatHTML(oHelp.oTopic.Remarks)%>
+<% ENDIF %>  
+
+<% IF !EMPTY(oHelp.oTopic.Example) %>
+<h3 class="outdent" id="example">Example</h3>
+<pre><%=  oHelp.FormatExample(oHelp.oTopic.Example) %></pre>
+<% ENDIF %>  
+
+<h3 class="outdentmargin" id="classmembers">Class Members</h3>
+<%= ClassMemberTableHtml(oHelp,.t.,"width='95%'") %>
+
+<% IF !EMPTY(oHelp.oTopic.Contract) %>
+<h3 class="outdent" id="contracts">Contracts</h3>
+<%= oHelp.FormatHTML(oHelp.oTopic.Contract)%>
+<% ENDIF %>
+
+<h3 class="outdent" id="requirements">Requirements</h3>
+   <% IF !EMPTY(oHelp.oTopic.Namespace) %>
+<b>Namespace:</b> <%= oHelp.oTopic.Namespace %><br>
+   <% endif %>
+   <% IF !EMPTY(oHelp.oTopic.Assembly) %>
+<b>Assembly:</b> <%= oHelp.oTopic.Assembly %>
+<br>
+   <% endif %>
+
+<% if !EMPTY(oHelp.oTopic.SeeAlso) %>
+<h3 class="outdent" id="seealso">See also:</h3>
+<%= lcSeeAlsoTopics %>
+<%  endif %>
+
+</div>
+
+<%= ExecuteTemplate("Footer_Template.wcs") %>

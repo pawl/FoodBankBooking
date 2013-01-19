@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Variables</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Variables
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">
+<table class="detailtable" width="96%">
+<tbody>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Access</th></tr>
+
+<tr>
+<td>static mixed</td>
+
+<td>$queryLog</td>
+
+<td>Array that holds the log information</td>
+
+<td>empty array</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$dataType</td>
+
+<td>The output format for the grid. Can be json or xml</td>
+
+<td>xml</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>array</td>
+
+<td>$datearray</td>
+
+<td>Store the names that are of "Date" type. The names should correspond&nbsp;to the names in colModel. Used in search to convert the user date to db date</td>
+
+<td>empty array</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$dbdateformat</td>
+
+<td>Date format accepted in the database. See getDbDate. Used for searching. Also used in CRUD operation - see jqGridEdit class</td>
+
+<td>Y-m-d</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$dbtimeformat</td>
+
+<td>Datetime format accepted in the database. See getDbTime. Used in serching data. Also used in CRUD operation - see jqGridEdit class</td>
+
+<td>Y-m-d H:i:s</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$dbtype</td>
+
+<td>This is detected automatically from the passed connection.</td>
+
+<td>empty string</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>$debug</td>
+
+<td>Enable disable debuging. Depending on the variable $logtofile outputs the information either in file or console</td>
+
+<td>false</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$encoding</td>
+
+<td>Default enconding passed to the browser.</td>
+
+<td>utf-8</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$ExportCommand</td>
+
+<td>Set the sql command for excel export. If this command is empty a $SelectCommand is used</td>
+
+<td>empty string</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>array</td>
+
+<td>$GridParams</td>
+
+<td>Holds the parameters that are send from the grid to the connector. This array correspond to prmNames object in jqGrid Javascript library</td>
+
+<td>array("page" =&gt; "page","rows"=&gt;"rows",<br>"sort" =&gt; "sidx","order"=&gt;"sord",<br>"search" =&gt; "_search","nd"=&gt;"nd",<br>"id" =&gt; "id","filter"=&gt;"filters",<br>"searchField"=&gt;"searchField",<br>"searchOper"=&gt;"searchOper",<br>"searchString"=&gt;"searchString",<br>"oper" =&gt; "oper","query"=&gt;"grid",<br>"addoper" =&gt; "add","editoper"=&gt;"edit",<br>"deloper" =&gt; "del","excel"=&gt;"excel",<br>"subgrid"=&gt;"subgrid"); </td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>integer</td>
+
+<td>$gSQLMaxRows</td>
+
+<td>Maximum number of rows to be exported for the excel</td>
+
+<td>1000</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$I</td>
+
+<td>Used to perform case insensitive search in PostgreSQL. The variable is setted automaticali</td>
+
+<td></td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>$jsonencode</td>
+
+<td>If set to true uses the PHP json_encode if available. If this is set to false a encode is used. This should be changed if the character set in the database is not utf-8</td>
+
+<td>true</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>$logtofile</td>
+
+<td>Determines if the log should be written to file or echoed. By default it is true and when the debugging is enabled a jqGrid.log file is created in the directory where the jqGrid class is called.</td>
+
+<td>true</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>performcount</td>
+
+<td>If set to false does not execute the automatic query for the count of records and summary operation. Use this variable with care</td>
+
+<td>true</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>resourse</td>
+
+<td>$pdo</td>
+
+<td>Stores the connection passed to the constructor</td>
+
+<td>empty</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>$readFromXML</td>
+
+<td>Obtain the SQL qurery from XML file. In this case the SelectCommand should be set as xmlfile.sqlid. The xmlfile is the name of xml file where we store the sql commands, sqlid is the id of the required sql.&nbsp; </td>
+
+<td>false</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$select</td>
+
+<td>Holds the modified select command used into grid</td>
+
+<td>empty</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$SelectCommand</td>
+
+<td>In case if no table is set, this holds the sql command which is executed and the result is sended to the grid</td>
+
+<td>empty</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$SubgridCommand</td>
+
+<td>Set a sql command used for the simple subgrid. Experimental</td>
+
+<td>empty</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>$showError</td>
+
+<td>Allow to send all errors which occur on server to the client. If used with jqGrid and jqGridEdit class the appropriate error events should be written. If used with jqGridRender class these events are created automatically</td>
+
+<td>false</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$table</td>
+
+<td>set a table to display a data to the grid if the $SelectCommand is empty string</td>
+
+<td>empty</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$userdateformat</td>
+
+<td>The date format used by the user when a search is performed. Also used in CRUD operation - see jqGridEdit class</td>
+
+<td>d/m/Y</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>string</td>
+
+<td>$usertimeformat</td>
+
+<td>The datetime format used by the user when a search is performed.Also used in CRUD operation - see jqGridEdit class</td>
+
+<td>d/m/Y H:i:s</td>
+
+<td>protected</td>
+</tr>
+
+<tr>
+<td>function</td>
+
+<td>$customFunc</td>
+
+<td>Custom function which can be called to modify the grid output. Parameters passed to this function are the response object and the db connection. See Tutorials on how to use it.</td>
+
+<td>null</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>$xmlCDATA</td>
+
+<td>Defines if the xml otput should be enclosed in CDATA when xml output is enabled</td>
+
+<td>false</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+
+<td>$optimizeSearch</td>
+
+<td>Optimizes the search SQL when used in MySQL with big data sets.<br>Use this option only in MySQL databases with not very complex queries (queries with subselects)</td>
+
+<td>false</td>
+
+<td>public</td>
+</tr>
+
+<tr>
+<td>array</td>
+
+<td>$PDF</td>
+
+<td>Stores the options for PDF export. To set a vareios PDF options for export use setPdfOptions method</td>
+
+<td><p>array(<br>&nbsp;"page_orientation" =&gt; "P",<br>&nbsp;"unit"=&gt;"mm",<br>&nbsp;"page_format"=&gt;"A4",<br>&nbsp;"creator"=&gt;"jqGrid",<br>&nbsp;"author"=&gt;"jqGrid",<br>&nbsp;"title"=&gt;"jqGrid PDF",<br>&nbsp;"subject"=&gt;"Subject",<br>&nbsp;"keywords"=&gt;"table, grid",<br>&nbsp;"margin_left"=&gt;15,<br>&nbsp;"margin_top"=&gt;7,<br>&nbsp;"margin_right"=&gt;15,<br>&nbsp;"margin_bottom"=&gt;25,<br>&nbsp;"margin_header"=&gt;5,<br>&nbsp;"margin_footer"=&gt;10,<br>&nbsp;"font_name_main"=&gt;"helvetica",<br>&nbsp;"font_size_main"=&gt;10,<br>&nbsp;"header_logo"=&gt;"",<br>&nbsp;"header_logo_width"=&gt;0,<br>&nbsp;"header_title"=&gt;"",<br>&nbsp;"header_string"=&gt;"",<br>&nbsp;"header"=&gt;false,<br>&nbsp;"footer"=&gt;true,<br>&nbsp;"font_monospaced"=&gt;"courier",<br>&nbsp;"font_name_data"=&gt;"helvetica",<br>&nbsp;"font_size_data"=&gt;8,&nbsp;<br>&nbsp;"margin_footer"=&gt;10,<br>&nbsp;"image_scale_ratio"=&gt;1.25,<br>&nbsp;"grid_head_color"=&gt;"#dfeffc",<br>&nbsp;"grid_head_text_color"=&gt;"#2e6e9e",<br>&nbsp;"grid_draw_color"=&gt;"#5c9ccc",<br>&nbsp;"grid_header_height"=&gt;6,&nbsp;<br>&nbsp;"grid_row_color"=&gt;"#ffffff",<br>&nbsp;"grid_row_text_color"=&gt;"#000000",<br>&nbsp;"grid_row_height"=&gt;5,<br>&nbsp;"grid_alternate_rows"=&gt;false,<br>&nbsp;"path_to_pdf_class"=&gt;"tcpdf/tcpdf.php", "shrink_cell"=&gt;true,<br>"reprint_grid_header"=&gt;false,<br>"shrink_header"=&gt;true,<br>"unicode"=&gt;true,<br>"encoding"=&gt;"UTF-8"<br>);</p></td>
+
+<td>protected</td>
+</tr>
+<tr>
+<td>mixed</td>
+<td>$oper</td>
+<td>Return the current grid operation.If the grid file is called first time the varaible has a value false. After that the operation depend on the actions from the users. The list of avilable operations can be get with getGridParams. To change athe name of the opeartion parameter use setGridParams method</td>
+<td>false</td>
+<td>public</td>
+</tr>
+</tbody></table>
+
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/23/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

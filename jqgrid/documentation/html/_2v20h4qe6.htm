@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Connection and database drivers</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Connection and database drivers
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">If you take a look at our <a href="_2v20f82ru.htm" >"Quick installation"</a> topic, you will see that jqGrid for PHP does not create its own connection to the database, but uses a connection that already exists. This is a very flexible approach in complex applications where the connection to the database had already been created. Typically in our examples we will create the connection using PDO rules, but this is not neccessary and you can reuse your own connection.<p><h3>PDO Driver</h3>When a PDO driver is used (for MySQL or PostgreSQL) a file named <b>jqGridPdo.php</b> should be included in addition to the main <b>jqGrid.php</b> file. The file is available in the <b>[php]</b> folder of the jqGrid for PHP download package. Please note, that in this case you do not need to specify explicitly which database should be used - MySQL or PostgreSQL. The script will detect this automatically from the connection. Here is an example:<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the PDO driver class - needed for MySQL and Postgre SQL</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+...
+?&gt;</div></pre><p><h3>Microsoft SQL Driver</h3>When Microsoft SQL Server is used, a file named <b>jqGridSqlsrv.php</b> should be included in addition to the main <b>jqGrid.php</b> file. The file is available in the <b>[php]</b> folder of the jqGrid for PHP download package. <p><div class="notebox"><b>Note</b>: In order to work properly with fields of type "Date", when the connection is created you should also set a property - <b>"ReturnDatesAsStrings"=&gt;true</b> in the connection string. The reason for this is that the driver by default handles dates as PHP date object.</div><p>Here is an example:<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// Example connection</span>
+$connectionInfo = <span class="datatypes">array</span>(<span class="codestring">"UID"</span> =&gt; <span class="codestring">'user'</span>, <span class="codestring">"PWD"</span> =&gt; <span class="codestring">'password'</span>,<span class="codestring">"Database"</span>=&gt;<span class="codestring">"test"</span>, <span class="codestring">"ReturnDatesAsStrings"</span> =&gt; <span class="literals">true</span>);
+$serverName = <span class="codestring">"localhost\SQLEXPRESS"</span>;
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+...
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the SQL Server driver class</span>
+require_once <span class="codestring">"php/jqGridSqlsrv.php"</span>;
+...
+?&gt;</div></pre><p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/24/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

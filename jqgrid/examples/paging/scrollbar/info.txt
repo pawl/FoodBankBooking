@@ -1,0 +1,5 @@
+This is a special paging mode of <b>jqGrid</b> where standard paging is disabled and you can request new pages by scrolling the scrollbar to the bottom. This is very convenient for getting large amounts of data page by page while keeping the interface simple.
+
+In order to use this mode, just set the <b>"scroll"=>1</b> to true in setGridOptions .
+
+You can see the this is optimized for performance - we can page with scrollbar 1,000,000 records with fast response times.

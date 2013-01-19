@@ -1,0 +1,7 @@
+Again with Multiple search we can use another useful  option grouping search
+
+If this option is enabled the user can make a more complex searches in the database:
+
+The query can can look like this :
+
+WHERE (OrderID > 10250 OR OrderID < 10260) AND CustomerID LIKE 'H%'

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.3.2.0</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.3.2.0
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released February 24, 2012<p><h2>Additions</h2><p><h3>Grid</h3><ul><li> Added a driver to support for Microsoft SQL Server with PDO<br><li> Add ODBC driver with support for MSSQL, MySQL, PostgreSQL and SQLite databases. Refer to <a href="_3fv0rnoia.htm" >example</a> on how to use it<br><li> Added a response which contain the primary key and last inserted id when a insert is performed<br><li> New event System - it will be described in 4.4 release.<br></ul><p><h3>jqVisual Builder</h3><ul><li> Add a possibilty to insert custom PHP code in the generated form<br></ul><p><h2>Fixes</h2><p><h3>Grid</h3><p><ul><li> Fix success message<br><li> Fixes in beginTransaction commit and rollback all datanbase drivers<br><li> Renaming Session to jqSession and Template to jqTemplate classes in in jqGridUtil in order to overcomme duplicate names<br><li> Fix autocomplete in searching when modal dialog<br><li> Numerouse fixes in JavaScript - refer here<br></ul><p><h3>jqScheduler</h3><p><ul><li> Doctype should be at first place before any php command<br><li> Fix droping in the calendar in case of AllDay events<br><li> Fix tooltip to release the title correctly in case it is not found.<br></ul><p><h3>jqChart</h3><p><ul><li> Better performance with thousands of points.<br><li> Improved useHTML feature on labels to skip SVG text generation and use true HTML bounding box.<br><li> Added configuration options to the Reset button.<br><li> Added support for logarithmic axes.<br><li> Numerous bug fixes.<br><li> Added partial support for Android 2.x. See the compatibility page for limitations.<br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/24/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

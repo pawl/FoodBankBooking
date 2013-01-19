@@ -1,0 +1,4 @@
+Simple subgrid is way to display quick a tabular data in master detail. In this case the detail data is just a information and nothing more. You can not sort, reorder and etc.  Look into 2 level subgrid in order to do this.
+
+The hierarchy is achieved in this example with  adding another file and tell the main grid from where to get this data.
+All is done with just additional 4 lines of code.

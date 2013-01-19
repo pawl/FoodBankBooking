@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Methods</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Methods
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Publick methods within jqScheduler<p><br><div class="banner">setUrl( $curl )</div>Set the url from where to get the data after the scdedule is created.<p>Parameters:<br><ul><li> string $curl: the url <br></ul><p>API Tags:<br>Access: public<p><br><div class="banner">setLocale( $lng )</div>Set the language used in the schedule. After this string we add a inc suffix and search for this file.<p>Parameters:<br><ul><li> string $lng: The name of the language file. default is English <br></ul><p>API Tags:<br>Access: public<p><br><div class="banner">setTemplate( $html, string [$css=''] )</div>Set the template and css files used for rendering and editing the events<p>Parameters:<br><ul><li> string $html: The name of the html file. Deafult is calendar.html<br><li> string $css: The the name of the css file. Default is calendar.css<br></ul><br>API Tags:<br>Access: public<p><div class="banner">getOption( $option )</div>Return the option of the event calendar<p>Parameters:<br><ul><li> string $option: existing option <br></ul><p>API Tags:<br>Access: public<p><div class="banner">setOption($option, $value=null)</div>Set options for the event calender. See options<p>Parameters:<br><ul><li> mixed $option: the option name for the event calender. Can be a string or array. When used as array a key value pair should be defined, where the key is the name<br><li> mixed $value is the value option in case the $option is string<br></ul><p>API Tags:<br>Access: public<p><div class="banner">setEvent( $event, $code )</div>Set a valid javascript calendar event<p>Parameters:<br><ul><li> string $event: Valid event<br><li> string $code: Javascript code which will be executed when the event raises<br></ul><p>API Tags:<br>Access: public<p><div class="banner">setUser( $user_id, $usesession=true )</div>Set the current user used in event calendar. The function uses sessions to store the current user. This is done if the second parameter is set to true.<p>Parameters:<br><ul><li> integer $user_id: the user<br><li> boolean $usesession: is set to true a session is used, otherwiese a custom mechanism should be used<br></ul><br>API Tags:<br>Access: public<p><div class="banner">setUserNames( $anames )</div>Set the pair value names of the currently used calendar (users). This represent different calendars for the curren user.<p>Parameters:<br><ul><li> array $anames: associative array for the the calendars<br></ul><br>API Tags:<br>Access: public<p><br><div class="banner">setUserDateFormat ($newformat)</div>Set the user date format for entering and displaying dates. A PHP convensions should be used. Default is d/m/Y<p>Parameters:<br><ul><li> string $newformat: new date format<br></ul><p>API Tags:<br>Access: public<p><br><div class="banner">setPdfOptions( $apdf )</div>Set options for PDF export.<p>Parameters:<br><ul><li> array $apdf: pdf options<br></ul><p>API Tags:<br>Access: public<p><div class="banner">exportEvents( )</div>Export events to iCal format. A start and end parameters should be send in<p>Parameters:<br>None<p>API Tags:<br>Access: public<p><div class="banner">printEvents( )</div>Print the result either as html or as pdf depending on the $printformat variable<p>Parameters:<br>None<p>API Tags:<br>Access: public<p><br><div class="banner">render( [$script], [$echo] )</div>Create the scheduler after all options and events are set and the do all the thing regarding adding, editing printing and etc things<p>Parameters:<br><ul><li> boolean $script: if true a javascript tag is outputed<br><li> boolean $echo : if false a the string is returned (where possible)<br></ul><p>API Tags:<br>Access: public<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

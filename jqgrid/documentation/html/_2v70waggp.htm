@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Navigator and Buttons</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Navigator and Buttons
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Navigator is a method that can add predefined actions like editing, adding, deleting, and searching. It is also possible to add custom buttons with custom actions. The built in navigator should be applied to the pager element. In other words, the pager element should be defined. The built in navigator actions correspond to the form editing actions.<p>By default navigaror is disabled. To enable navigator just set the navigator variable to true<p><pre><div class="csharpcode">&lt;?php
+...
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+...
+$grid-&gt;navigator = <span class="literals">true</span>;
+$grid-&gt;renderGrid(...);
+?&gt;</div></pre><p>With this action we enable the following actions in pager - add, edit, del, search, refresh, export to excel.<br>The view action is disabled.<br>To disable some action in navigator use setNavOptions method specifiyng the word navigator. If by example we want to disable adding of records do this<p><pre><div class="csharpcode">&lt;?php
+...
+<span class="codecomment">// Create the jqGridRender instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+...
+$grid-&gt;navigator = <span class="literals">true</span>;
+$grid-&gt;setNavOptions(<span class="codestring">'navigator'</span>,<span class="datatypes">array</span>(<span class="codestring">'add'</span>=&gt;<span class="literals">false</span>));
+$grid-&gt;renderGrid(...);
+?&gt;</div></pre><p><b>Parameters</b><p>When we use the navigator the following options are included from the <a href="_2v20j932j.htm" >language file</a>. <br>Below are the defaults for the English language file.<br><pre><div class="csharpcode">$.jgrid = {
+...
+   search : {
+     caption: <span class="codestring">"Search..."</span>,
+     Find: <span class="codestring">"Find"</span>,
+     Reset: <span class="codestring">"Reset"</span>,
+     odata : [<span class="codestring">'equal'</span>, <span class="codestring">'not equal'</span>, <span class="codestring">'less'</span>, <span class="codestring">'less or equal'</span>,<span class="codestring">'greater'</span>,<span class="codestring">'greater or equal'</span>, <span class="codestring">'begins with'</span>,<span class="codestring">'does not begin with'</span>,<span class="codestring">'is in'</span>,<span class="codestring">'is not in'</span>,<span class="codestring">'ends with'</span>,<span class="codestring">'does not end with'</span>,<span class="codestring">'contains'</span>,<span class="codestring">'does not contain'</span>],
+     groupOps: [ { op: <span class="codestring">"AND"</span>, text: <span class="codestring">"all"</span> }, { op: <span class="codestring">"OR"</span>, text: <span class="codestring">"any"</span> } ],
+     matchText: <span class="codestring">" match"</span>,
+     rulesText: <span class="codestring">" rules"</span>
+   },
+   edit : {
+     addCaption: <span class="codestring">"Add Record"</span>,
+     editCaption: <span class="codestring">"Edit Record"</span>,
+     bSubmit: <span class="codestring">"Submit"</span>,
+     bCancel: <span class="codestring">"Cancel"</span>,
+     bClose: <span class="codestring">"Close"</span>,
+     saveData: <span class="codestring">"Data has been changed! Save changes?"</span>,
+     bYes : <span class="codestring">"Yes"</span>,
+     bNo : <span class="codestring">"No"</span>,
+     bExit : <span class="codestring">"Cancel"</span>,
+  },
+  view : {
+    caption: <span class="codestring">"View Record"</span>,
+    bClose: <span class="codestring">"Close"</span>
+  },
+  del : {
+    caption: <span class="codestring">"Delete"</span>,
+    msg: <span class="codestring">"Delete selected record(s)?"</span>,
+    bSubmit: <span class="codestring">"Delete"</span>,
+    bCancel: <span class="codestring">"Cancel"</span>
+  },
+  nav : {
+    edittext: <span class="codestring">""</span>,
+    edittitle: <span class="codestring">"Edit selected row"</span>,
+    addtext:<span class="codestring">""</span>,
+    addtitle: <span class="codestring">"Add new row"</span>,
+    deltext: <span class="codestring">""</span>,
+    deltitle: <span class="codestring">"Delete selected row"</span>,
+    searchtext: <span class="codestring">""</span>,
+    searchtitle: <span class="codestring">"Find records"</span>,
+    refreshtext: <span class="codestring">""</span>,
+    refreshtitle: <span class="codestring">"Reload Grid"</span>,
+    alertcap: <span class="codestring">"Warning"</span>,
+    alerttext: <span class="codestring">"Please, select row"</span>,
+    viewtext: <span class="codestring">""</span>,
+    viewtitle: <span class="codestring">"View selected row"</span>
+  },
+...</div></pre><p>The options $.jgrid.edit, $.jgrid.add, $.jgrid.del and $.jgrid.search are included to tier modules if enabled.<p>The full list of the parameters is as follow: <br><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Property</P>		</TH>		<TH>			<P>Type</P>		</TH>		<TH>			<P>Description</P>		</TH>		<TH>			<P>Default</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>add</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Enables or disables the add action in the navigator.			When the button is clicked a editGridRow with parameter new method			is executed</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>addicon</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Set a icon to be displayed if the add action is			enabled. Note that currently only icons from UI theme images can			be added</P>		</TD>		<TD>			<P ALIGN=LEFT>ui-icon-plus</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>addtext</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The text than can be set in the add button</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>addtitle</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The title that appear when we mouse over to the add			button (if enabled)</P>		</TD>		<TD>			<P ALIGN=LEFT>Add new row</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>alertcap</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The header of the message that appear when we try to			edit,delete or view a row without to select it</P>		</TD>		<TD>			<P ALIGN=LEFT>Warning</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>alerttext</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The message text that appear when we try to			edit,delete or view a row without to select it</P>		</TD>		<TD>			<P ALIGN=LEFT>Please, select row</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>alertwidth</P>		</TD>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>The width of the alert dialog</P>		</TD>		<TD>			<P ALIGN=LEFT>200</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>alertheight</P>		</TD>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>The height of the alert dialog</P>		</TD>		<TD>			<P ALIGN=LEFT>auto</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>alerttop</P>		</TD>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>The top position of the alert dialog</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>alertleft</P>		</TD>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>The left position of the alert dialog</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>alertzIndex</P>		</TD>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>The zIndex of the alert dialog</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>cloneToTop</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Clones all the actions from the bottom pager to the			top pager if defined. Note that the navGrid can be applied to the			top pager only. The id of the top pager is a combination of grid			id and &ldquo;_toppager&rdquo;</P>		</TD>		<TD>			<P ALIGN=LEFT>false</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>closeOnEscape</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Determine if the alert dialog can be closed if the			user pres ESC key</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>del</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Enables or disables the delete action in the			navigator. When the button is clicked a delGridRow method is			executed.</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>delicon</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Set a icon to be displayed if the delete action is			enabled. Note that currently only icons from UI theme images can			be used</P>		</TD>		<TD>			<P ALIGN=LEFT>ui-icon-trash</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>deltext</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The text than can be set in the delete button</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>deltitle</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The title that appear when we mouse over to the			delete button (if enabled)</P>		</TD>		<TD>			<P ALIGN=LEFT>Delete selected row</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>edit</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Enables or disables the edit action in the			navigator. When the button is clicked a editGridRow method is			executed with parameter the - current selected row</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>editicon</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Set a icon to be displayed if the edit action is			enabled. Note that currently only icons from UI theme images can			be used</P>		</TD>		<TD>			<P ALIGN=LEFT>ui-icon-pencil</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>edittext</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The text than can be set in the edit button</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>edittitle</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The title that appear when we mouse over to the edit			button (if enabled)</P>		</TD>		<TD>			<P ALIGN=LEFT>Edit selected row</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>excel</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Enables/Disables export to Excel</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>position</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Determines the position of the navigator buttons in			the pager. Can be left, center and right. 			</P>		</TD>		<TD>			<P ALIGN=LEFT>left</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>refresh</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Enables or disables the refresh button in the pager.			When the button is clicked a trigger(&ldquo;reloadGrid&rdquo;) is			executed and the search parameters are cleared</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>refreshicon</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Set a icon to be displayed if the refresh action is			enabled. Note that currently only icons from UI theme images can			be used</P>		</TD>		<TD>			<P ALIGN=LEFT>ui-icon-refresh</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>refreshtext</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The text than can be set in the refresh button</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>refreshtitle</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The title that appear when we mouse over to the			refresh button (if enabled)</P>		</TD>		<TD>			<P ALIGN=LEFT>Reload Grid</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>refreshstate</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Determines how the grid should be reloaded <BR> -			<EM>firstpage</EM> - the grid reload the data from the first page.			<BR> - <EM>current</EM> - the reloading should save the current			page and current selection</P>		</TD>		<TD>			<P ALIGN=LEFT>firstpage</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>afterRefresh</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>If defined this event fire after the refresh button			is clicked</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>beforeRefresh</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>If defined this event fire before the refresh button			is clicked</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>search</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Enables or disables the search button in the			pager.When the button is clicked a searchGrid method is executed</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>searchicon</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Set a icon to be displayed if the search action is			enabled. Note that currently only icons from UI theme images can			be used</P>		</TD>		<TD>			<P ALIGN=LEFT>ui-icon-search</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>searchtext</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The text than can be set in the search button</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>searchtitle</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The title that appear when we mouse over to the			search button (if enabled)</P>		</TD>		<TD>			<P ALIGN=LEFT>Find records</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>view</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Enables or disables the view button in the pager.			When the button is clicked a viewGridRow method is executed</P>		</TD>		<TD>			<P ALIGN=LEFT>false</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>viewicon</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Set a icon to be displayed if the search action is			enabled. Note that currently only icons from UI theme images can			be used</P>		</TD>		<TD>			<P ALIGN=LEFT>ui-icon-document</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>viewtext</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The text that can be set in the view button</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>viewtitle</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The title that appear when we mouse over to the view			button (if enabled)</P>		</TD>		<TD>			<P ALIGN=LEFT>View selected row</P>		</TD>	</TR></TABLE><p>Additionally to this there is a way to add a custom button in the navigator with action defined from the developer<p><div class="banner">Custom Buttons</div><p>Custom Buttons are a way to define your own button and action in the pager.<p>The creation of custom button should be done with <br>callGridMethod where the seciond parameter is navButtonAdd <p>something like:<br><pre>
+$grid-&gt;callGridMethod("#grid", "navButtonAdd", $buttonoptions); 
+</pre><p>where $buttonoptions is array containing the options<p>The default options are<p><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Property</P>		</TH>		<TH>			<P>Type</P>		</TH>		<TH>			<P>Description</P>		</TH>		<TH>			<P>Default</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>caption</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The caption of the button</P>		</TD>		<TD>			<P ALIGN=LEFT>New button</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>buttonicon</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>The ui icon name from UI theme icon set</P>		</TD>		<TD>			<P ALIGN=LEFT>ui-icon-newwin</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onClickButton</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>Action to be performed when a button is clicked</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>position</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>(“first” or “last”) The position where the button will be added (i.e., before or after the standard buttons)</P>		</TD>		<TD>			<P ALIGN=LEFT>last</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>title</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>tooltip for the button</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>cursor</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>Determines the cursor when we mouseover the element</P>		</TD>		<TD>			<P ALIGN=LEFT>pointer</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>id</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>if set defines the id of the button (actually the id of TD element) for future manipulation</P>		</TD>		<TD>			<P ALIGN=LEFT>empty</P>		</TD>	</TR></table><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

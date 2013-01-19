@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Programmatically overriding language defaults</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Programmatically overriding language defaults
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In some cases, you may want to keep the majority of the locale settings in your javascript language packs, but still change some of them programmatically based on certain server-side conditions.<p>The way this works is the following - if a specific value for a property is not specified in PHP code, the default from the language pack will be used. If it is specified in code however, it will override the language pack default.<p>A common example for this is customizing the Editing Dialog. By default (if English language pack is used), the default caption of the dialog and the submit/cancel buttons will have these values (taken from <b>grid.locale-en.js</b>):<p><pre><div class="csharpcode">edit : {      
+   editCaption: <span class="codestring">"Edit Record"</span>,
+   bSubmit: <span class="codestring">"Submit"</span>,
+   bCancel: <span class="codestring">"Cancel"</span>
+}</div></pre><p>If you want to change that however, just set the respective settings in the <a href="_2v70w0lkn.htm" >setNavOptions</a> method of the <a href="_2v70u6eg2.htm" >jqGridRender</a> class, e.g.<p><pre><div class="csharpcode">&lt;?php
+...
+
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+...
+$grid-&gt;setNavOptions(<span class="codestring">'edit'</span>,<span class="datatypes">array</span>(<span class="codestring">"editCaption"</span>=&gt;<span class="codestring">"My New Caption"</span>,<span class="codestring">"bSubmit"</span>=&gt;<span class="codestring">"My Submit Text"</span>,<span class="codestring">"bCancel"</span>=&gt;<span class="codestring">"My Cancel Text"</span>) );
+...
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/20/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

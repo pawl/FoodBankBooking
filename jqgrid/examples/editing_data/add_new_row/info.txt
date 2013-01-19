@@ -1,0 +1,3 @@
+You can initiate new row adding from the toolbar ("+" button) or from an external control. In this example, we are using the toolbar <b>navigator=true</b>
+
+Actually you should only set the table to where we should add a data. All other things are handled by the connector. It is important to note that the data binding is high secured. The grid determines automatically the field types and bind the appropriate data.

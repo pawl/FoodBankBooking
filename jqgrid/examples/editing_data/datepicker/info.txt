@@ -1,0 +1,7 @@
+Inline editing is another editing mode of <b>jqGrid</b>. To invoke inline editing, just call the client-side jqGrid <b>editRow</b> method.
+
+In this particular example, we are using the build in formatter "actions" which call <b>editRow</b> on the client-side jqGrid.
+Note that we create a datepicker in colModel using the dataInit event. The event occur when the element is created and is ideal
+for initial bindings and etc.
+
+Please, refer to the PHP tab for the javascript sample.

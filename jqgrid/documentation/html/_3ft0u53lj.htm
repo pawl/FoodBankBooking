@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.1.2.0</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.1.2.0
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released July 16, 2011<p><h2>Additions</h2><p><h3>Grid<br></h3>Improved PDF export<br>- Now the grid header text does not shrink the font so that the text fit the width. If there is no room for the text a new line is created<br>- added new option in PDF options - "shrink_cell" (default is true) if set to false the Font does not increase so that to fit the text in width, but a new line is added if needed.<br>- added new option in PDF options - "reprint_grid_header" (default is false). If set to true the grid header row is reprinted on every new page<p><div class="notebox">Note : This option currently work only if the pdf option "shrink_cell" is set to false<br></div><p><h2>Fixes</h2><p>Fix searching with SQL LIKE operator in array driver<br>Now when debug is set to true the export command is recorded in jqGrid.log file<br>Fix mtype in add/edit/dell form options <br>Fix insert and update data when a non UTF-8 chartset is used<br>Fix database search when non UTF-8 charset is used<br>Fix Autocomplete to work properly when a non UTF-8 charset is used<br>Fix jqScheduler to work correct when a non UTF-8 charset is used<br>Fix client side searching on complex queries<br>Fix client side sorting when index property is missed.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

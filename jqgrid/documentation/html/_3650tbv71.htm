@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>printButton</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;printButton
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Options for the print button.<p><table class="detailtable" width="96%"><tr>     <th>Option name</th>  <th>Type</th>  <th>Default</th></tr><tr>  <td><b>align</b></td>  <td><b>string</b></td>  <td><b>right</b></td></tr><tr>  <td colspan='3'>Aligment for the buttons</td></tr><tr>  <td><b>backgroundColor</b></td>  <td><b>color/td>  <td><b>See below</b></td></tr><tr>  <td colspan='3'>Background color or gradient for the buttonsbackgroundColor=>array(	linearGradient =>  array(0, 0, 0, 20),	stops=>array(		array(0.4, '#F7F7F7'),		array(0.6, '#E3E3E3')	))</td></tr><tr>  <td><b>borderColor</b></td>  <td><b>color</b></td>  <td><b>#B0B0B0</b></td></tr><tr>  <td colspan='3'>The border color of the buttons.</td></tr><tr>  <td><b>borderRadius</b></td>  <td><b>number</b></td>  <td><b>3</b></td></tr><tr>  <td colspan='3'>The border corner radius of the buttons</td></tr><tr>  <td><b>borderWidth</b></td>  <td><b>number</b></td>  <td><b>1</b></td></tr><tr>  <td colspan='3'>The border width of the buttons</td></tr><tr>  <td><b>enabled</b></td>  <td><b>boolean</b></td>  <td><b>true</b></td></tr><tr>  <td colspan='3'>Whether to enable buttons</td></tr><tr>  <td><b>height</b></td>  <td><b>number</b></td>  <td><b>20</b></td></tr><tr>  <td colspan='3'>Pixel height of the buttons</td></tr><tr>  <td><b>hoverBorderColor </b></td>  <td><b>string</b></td>  <td><b>#909090</b></td></tr><tr>  <td colspan='3'>Color of the button border on hover.</td></tr><tr>  <td><b>hoverSymbolFill </b></td>  <td><b>string</b></td>  <td><b>#768F3E.</b></td></tr><tr>  <td colspan='3'>See navigation.buttonOptions => hoverSymbolFill.</td></tr><tr>  <td><b>hoverSymbolStroke</b></td>  <td><b>string</b></td>  <td><b>#4572A5.</b></td></tr><tr>  <td colspan='3'>Stroke (line) color for the symbol within the button on hover</td></tr><tr>  <td><b>onclick</b></td>  <td><b>function (javascript)</b></td>  <td><b></b></td></tr><tr>  <td colspan='3'>A click handler callback to use on the button directly. By default this onclick calls chart.print(), but it can be overridden to do other actions.</td></tr><tr>  <td><b>symbol</b></td>  <td><b>string</b></td>  <td><b>printIcon</b></td></tr><tr>  <td colspan='3'>The symbol for the button. Points to a definition function in the Highcharts.Renderer.symbols collection. The default print function is part of the exporting module.</td></tr><tr>  <td><b>symbolFill</b></td>  <td><b>string</b></td>  <td><b>#A8BF77.</b></td></tr><tr>  <td colspan='3'>See navigation.buttonOptions => symbolFill.</td></tr><tr>  <td><b>symbolSize</b></td>  <td><b>number</b></td>  <td><b>12</b></td></tr><tr>  <td colspan='3'>The pixel size of the symbol on the button</td></tr><tr>  <td><b>symbolStroke</b></td>  <td><b>string</b></td>  <td><b>#A0A0A0</b></td></tr><tr>  <td colspan='3'>The color of the symbol's stroke or line</td></tr><tr>  <td><b>symbolStrokeWidth</b></td>  <td><b>number</b></td>  <td><b>1</b></td></tr><tr>  <td colspan='3'>The pixel stroke width of the symbol on the button</td></tr><tr>  <td><b>symbolX</b></td>  <td><b>number</b></td>  <td><b>11.5</b></td></tr><tr>  <td colspan='3'>The x position of the center of the symbol inside the button.</td></tr><tr>  <td><b>symbolY</b></td>  <td><b>number</b></td>  <td><b>10.5</b></td></tr><tr>  <td colspan='3'>The y position of the center of the symbol inside the button.</td></tr><tr>  <td><b>verticalAlign</b></td>  <td><b>string</b></td>  <td><b>top</b></td></tr><tr>  <td colspan='3'>The vertical alignment of the buttons. Can be one of "top", "middle" or "bottom".</td></tr><tr>  <td><b>width</b></td>  <td><b>number</b></td>  <td><b>24</b></td></tr><tr>  <td colspan='3'>The pixel width of the button</td></tr><tr>  <td><b>y</b></td>  <td><b>number</b></td>  <td><b>10</b></td></tr><tr>  <td colspan='3'>The vertical offset of the button's position relative to its verticalAlign.</td></tr><tr>  <td><b>x</b></td>  <td><b>number</b></td>  <td><b>10</b></td></tr><tr>  <td colspan='3'>The horizontal positioin of the button relative to the align option.</td></tr></table>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/13/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

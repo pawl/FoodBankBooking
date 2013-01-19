@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Toolbar Filter</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Toolbar Filter
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">This method construct searching creating input elements just below the header elements of the grid. When the header elements are re sized the input search elements are also re sized according to the new width. <p>By default this feature is disabled. To enable the fature it is needed to set the toolbarfilter option to true.<p><pre><div class="csharpcode">&lt;?php
+...
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+...
+$grid-&gt;toolbarfilter = <span class="literals">true</span>;
+$grid-&gt;renderGrid(...);
+?&gt;</div></pre><p><img src="images/toolbarsearch.gif" /><p>To change a option(s) (listed below) in toolbar filter  a <b>setFilterOptions</b> method should be used. By default the search is performed when the user type the search word and press Enter. If we want to change this behaviour -i.e perform immediate search we can do this.<p><pre><div class="csharpcode">&lt;?php
+...
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+...
+$grid-&gt;toolbarfilter = <span class="literals">true</span>;
+$grid-&gt;setFilterOptions(<span class="datatypes">array</span>(<span class="codestring">"searchOnEnter"</span>=&gt;<span class="literals">false</span>));
+$grid-&gt;renderGrid(...);
+?&gt;</div></pre><p>The options in filterToolbar method are:<p><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Option</P>		</TH>		<TH>			<P>type</P>		</TH>		<TH>			<P>Description</P>		</TH>		<TH>			<P>Default</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>autosearch</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Search is performed according to the following			rules: for text element when a Enter key is pressed while			inputting values and search is performed. For select element when			the value changes. The search parameter in grid is set to true and			ajax call is made.</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>beforeSearch</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>event which fires before a search. It is called			before triggering the grid. If the event return true triggering			does not occur. In this case you can construct your own search			parameters and trigger the grid to search the data. Any other			return value causes triggering. 			</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>afterSearch</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>event which fires after a search</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>beforeClear</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>event which fires before clearing entered values			(i.e.,clearToolbar is activated).It is called before clearing the			data from search elements. If the event return true triggering			does not occur. In this case you can construct your own search			parameters and trigger the grid. Any other return value causes			triggering.</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>afterClear</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>event which fires after clearing entered values			(i.e., clearToolbar activated)</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>searchOnEnter</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Determines how the search should be applied. If this			option is true see the autosearch option. If the option is false			then the search is performed immediately when the user pres some			character</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>stringResult</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>Determines how to post the data on which we perform			searching. When the this option is false the posted data is in			key:value pair, if the option is true, the posted data is equal on			those as in searchGrid method			</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>groupOp</P>		</TD>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>This option is valid only if the option			stringReasult is set to true and determines the group operation.			Can have values AND and OR.			</P>		</TD>		<TD>			<P ALIGN=LEFT>AND</P>		</TD>	</TR></TABLE><p>When we create toolbar search with filterToolbar we create additional methods as follow. The method should be called with JavaScript code.<p><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Method</P>		</TH>		<TH>			<P>Description</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>triggerToolbar</P>		</TD>		<TD>			<P ALIGN=LEFT>When this method is called a search is performed,			the search parameter in grid becomes true and ajax call is made to			the server</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>clearToolbar</P>		</TD>		<TD>			<P ALIGN=LEFT>When called clear the search values send a request			with search option set to false and set the default one if			available</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>toggleToolbar</P>		</TD>		<TD>			<P ALIGN=LEFT>Toggeles the toolbar with the search elements</P>		</TD>	</TR></TABLE><p><b>Using the additional methods</b><p>The methods listed above should be used this way:<p><pre><div class="csharpcode">...
+<span class="programcontrol">var</span> sgrid = $(<span class="codestring">"#grid"</span>)[0];
+sgrid.triggerToolbar();
+...</div></pre><p>This will perform a search dynamically.<p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/19/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

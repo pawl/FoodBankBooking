@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Caching data at client</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Caching data at client
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In some cases due to trafic to the server it is needed to cache the data at client in order to save requests to the server.<br>In this scenario we will cache the data at client. The cached data then will be used again to select a item. If the data is not found in the cache then we made request to the server. The returned data is cached again and so on.<p>We will use the index.php from the <a href="_3130wm032.htm" >Simple Autocomplete</a><p><br>The autocomplete.php code is:<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the Database driver class (we will use PDO).</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+
+<span class="codecomment">// include the jqUtils Class. The class is needed in all jqSuite components.</span>
+require_once <span class="codestring">"php/jqUtils.php"</span>;
+
+<span class="codecomment">// include the jqAutocomplete Class</span>
+require_once <span class="codestring">"php/jqAutocomplete.php"</span>;
+
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// create autocomplete instance</span>
+$ac = <span class="programcontrol">new</span> jqAutocomplete($conn);
+<span class="codecomment">//write the select command</span>
+$ac-&gt;SelectCommand = <span class="codestring">"SELECT CompanyName FROM customers WHERE CompanyName LIKE ? ORDER BY CompanyName"</span>;
+<span class="codecomment">// set the source from where to get data. In this case it is the same file.</span>
+$ac-&gt;setSource(<span class="codestring">"autocomplete.php"</span>);
+
+<span class="codecomment">// Set the cache option</span>
+$ac-&gt;cache =  <span class="literals">true</span>;
+
+<span class="codecomment">// Enjoy</span>
+$ac-&gt;renderAutocomplete(<span class="codestring">"#company"</span>);
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 09/15/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

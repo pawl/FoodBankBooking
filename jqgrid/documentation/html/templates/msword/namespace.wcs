@@ -1,0 +1,28 @@
+<%= ExecuteTemplate("Header_template.wcs") %>
+<div class="contentpane">
+<br>
+<%= oHelp.FormatHTML(oHelp.oTopic.Body) %>
+<br>
+<br>
+
+<% IF !EMPTY(oHelp.oTopic.Remarks) %>
+<h3 class="outdent">Remarks</h3>
+    <%= oHelp.FormatHTML(oHelp.oTopic.Remarks) %>
+<% ENDIF %>  
+
+<% IF !EMPTY(oHelp.oTopic.Example) %>
+<h3 class="Outdent">Example</h3>
+<pre><%= oHelp.FormatHTML(oHelp.oTopic.Example)%></pre>
+<% ENDIF %>  
+
+<%
+lcHtml = ChildTopicsTableHtml(oHelp,"CLASSHEADER,INTERFACE,ENUM,DELEGATE","Type","Body") 
+lcHtml = STRTRAN(lcHtml,"Class ","")
+lcHtml = StrTran(lcHtml,"Interface ","")
+lcHTML = StrTran(lcHtml,"Enumeration ","")
+lcHtml = StrTran(lcHtml,"Delegate ","")
+Response.Write(lcHtml)
+%>
+<p>
+</div>
+<%= ExecuteTemplate("Footer_Template.wcs") %>

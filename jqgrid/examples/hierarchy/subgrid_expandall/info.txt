@@ -1,0 +1,3 @@
+It is possible to expand all the rows automatically when the rows are loaded.
+This is done just with one option - see the code.
+

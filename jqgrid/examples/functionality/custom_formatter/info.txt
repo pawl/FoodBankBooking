@@ -1,0 +1,7 @@
+If one of the predefined cell formatters (integer, link, email, number, currency, checkbox) is not suitable in your scenario, you can use custom formatters.
+
+With custom formatters you can define your own javascript client-side format and unformat functions. Format function are used to display the cell and unformat is used to unformat the cell in display mode and show it in edit mode.
+Note the using of the special tag "js:"  in PHP code before the definition of the formatter function.
+This tell the grid instance that this is a JS function which should be executed.
+In the setJSCode you can write valid JS code. The code is putted at end of
+all grid executions.

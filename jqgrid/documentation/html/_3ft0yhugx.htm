@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>General Display/View</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;General Display/View
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><b>header</b><p>Defines the buttons and title at the top of the calendar.<p><div class="banner">Type: mixed - array/false, default:</div><p>array(<br>'left'=&gt; 'prev, next today',<br>'center=&gt; 'title',<br>'right'=&gt; 'agendaDay, agendaWeek, month'<br>)<p>Setting the header options to false will display no header. An array can be supplied with properties left, center, and right. These properties contain strings with comma/space separated values. Values separated by a comma will be displayed adjacently. Values separated by a space will be displayed with a small gap in between. Strings can contain any of the following values:<p><i>title</i><br>text containing the current month/week/day<br><i>prev</i><br>button for moving the calendar back one month/week/day<br><i>next</i><br>button for moving the calendar forward one month/week/day<br><i>prevYear</i><br>button for moving the calendar back on year<br><i>nextYear</i><br>button for moving the calendar forward one year<br><i>today</i><br>button for moving the calendar to the current month/week/day<br><i>a view name</i><br>button that will switch the calendar to any of the Available Views<p>Example:<p>$eventcal-&gt;setOption("header"=&gt;array('left'=&gt; 'title','center'=&gt; '', 'right'=&gt; 'today prev,next'));<p><br><b>buttonIcons</b><p>Determines which theme icons appear on the header buttons.<p><div class="banner">Type: array. default:</div><p>array(<br>'prev'=&gt; 'circle-triangle-w',<br>'next'=&gt; 'circle-triangle-e'<br>)<p>A hash must be supplied that maps button names (from the header) to icon strings. The icon strings determine the CSS class that will be used on the button. For example, the string 'circle-triangle-w' will result in the class 'ui-icon-triangle-w'.<p>If a button does not have an entry, it falls back to using buttonText.<p>If you are using a jQuery UI theme and would prefer not to display any icons and would rather use buttonText instead, you can set the buttonIcons option to false.<p>Example:<p>$eventcal-&gt;setOption("buttonIcons"=&gt;array( 'prev'=&gt; 'circle-triangle-w', 'next'=&gt; 'circle-triangle-e'));<p><br><b>firstDay</b><br>The day that each week begins.<p><div class="banner">Type: integer default: 0 (Sunday)</div>The value must be a number that represents the day of the week.<p>Sunday=0, Monday=1, Tuesday=2, etc.<p>This option is useful for UK users who need the week to start on Monday (1).<p><b>weekends</b><br>Whether to include Saturday/Sunday columns in any of the calendar views.<p><div class="banner">Type: Boolean, default: true</div><p><b>weekMode</b><br>Determines the number of weeks displayed in a month view. Also determines each week's height.<p><div class="banner">Type: String, default: 'fixed'</div>Available options:<p><i>'fixed'</i><br>The calendar will always be 6 weeks tall. The height will always be the same, as determined by height, contentHeight, or aspectRatio.<br><i>'liquid'</i><br>The calendar will have either 4, 5, or 6 weeks, depending on the month. The height of the weeks will stretch to fill the available height, as determined by height, contentHeight, or aspectRatio.<br><i>'variable'</i><br>The calendar will have either 4, 5, or 6 weeks, depending on the month. Each week will have the same constant height, meaning the calendar’s height will change month-to-month.<p><b>height</b><br>Will make the entire calendar (including header) a pixel height.<p><div class="banner">Type: Integer</div>By default, this option is unset and the calendar's height is calculated by aspectRatio.<p>Example usage of height:<br>Example:<p>$eventcal-&gt;setOption("height"=&gt;650);<p>Setter<br>You can dynamically set a calendar's height after initialization with javaScript:<p>$('#calendar').fullCalendar('option', 'height', 700);<p><b>contentHeight</b><br>Will make the calendar's content area a pixel height.<p><div class="banner">Type: Integer</div>By default, this option is unset and the calendar's height is calculated by aspectRatio.<p>Example usage of contentHeight:<br>Example:<p>$eventcal-&gt;setOption("contentHeight"=&gt;600);<p>Setter<br>You can dynamically set a calendar's content height after initialization with javaScript:<p>$('#calendar').fullCalendar('option', 'contentHeight', 700);<p><b>aspectRatio</b><br>Determines the width-to-height aspect ratio of the calendar.<p><div class="banner">Type: Float, default: 1.35</div>A calendar is a block-level element that fills its entire avaiable width. The calendar’s height, however, is determined by this ratio of width-to-height. (Hint: larger numbers make smaller heights).<p>The following example will initialize a calendar who's width is twice its height:<p>$eventcal-&gt;setOption("aspectRatio"=&gt;2);<p><br>Setter<br>You can dynamically set a calendar's aspectRatio after initialization with JavaScript:<p>$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);<p><b>defaultView</b> <br>The initial view when the calendar loads.<p><div class="banner">Type:String, default: 'month'</div>Any of the Available Views (see below)<p><br><b>Available Views</b><br>jqScheduler has a number of different "views", or ways of displaying days and events. The following 6 views are available:<p><ul><li> month <br><li> basicWeek<br><li> basicDay<br><li> agendaWeek<br><li> agendaDay<br><li> year<br></ul><p>You can define header buttons to allow the user to switch between them. You can set the initial view of the calendar with the defaultView option (see above).<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

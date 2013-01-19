@@ -1,0 +1,130 @@
+<div class="calwrapper ui-widget">
+	<div class="content-ui ui-state-default">
+	<div id="leftpane" class="jqleftpane">
+		<div class="custbutton jq-toolbar">
+			<div class="jq-buttonset jq-buttonset-multi">
+				<div class="jq-buttonset ui-helper-clearfix">
+					<a href="#" class="jq-button ui-state-default jq-button-icon-solo ui-corner-left" id="b_search_cal" title='[@b_search]' ><span class="ui-icon ui-icon-search"></span>[@b_search]</a>
+					<a href="#" class="jq-button ui-state-default jq-button-icon-solo" id="b_user_change" title="[@b_user]"><span class="ui-icon ui-icon-calendar"></span> [@b_user]</a>
+					<a href="#" class="jq-button ui-state-default jq-button-icon-solo" id="b_export_ical" title="[@b_export]"><span class="ui-icon ui-icon-extlink"></span> [@b_export]</a>
+					<a href="#" class="jq-button ui-state-default jq-button-icon-solo ui-corner-right"  id="b_print_cal" title="[@b_print]"><span class="ui-icon ui-icon-print"></span> [@b_print]</a>
+				</div>
+			</div>
+		</div>
+		<div id='[@dpid]' class="jqdatepicker"></div>
+		<hr style="width:100%;margin-top:8px;" class='ui-widget-content'/>
+		<div style="padding-bottom: 3px;margin-top:4px;" >[@currentcal]</div>
+		<div id="cal_user" class="jquser ui-widget-content" >[@caluser]</div>
+	</div>
+	<div id='[@calid]' class="jqcalendar" style="height: auto"></div>
+	<div id='[@eventid]' class="jqevent">
+	<form action="">
+		<table>
+			<tr>
+				<td>
+					<label for="title"> [@title] </label>:
+				</td>
+				<td>
+					<input class="ui-widget-content ui-corner-all ui-input" id="title" name="title" size="50"/>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="location">[@location]</label>:
+				</td>
+				<td>
+					<input class="ui-widget-content ui-corner-all ui-input" id='location' name="location" size="50"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="categories">[@categories]</label>:
+				</td>
+				<td>
+					<select id="categories" name="categories">
+						[@option_categories]
+					</select>
+					<label for="access">[@access]</label>:
+					<select id="access" name="access">
+						[@option_access]
+					</select>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<div class="ui-widget-content ui-helper-clearfix" style="margin: 0.6em .0em;"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="checkbox" class="ui-widget-content ui-corner-all" id="all_day" name="all_day" />
+					<label for="all_day" style="padding-bottom:3px;"> [@all_day] </label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="start">[@start]</label>:
+				</td>
+				<td>
+					<input class="ui-widget-content ui-corner-all ui-input" id="start" name="start" size="12" />
+					<input class="ui-widget-content ui-corner-all ui-input" id="starttime" name="starttime" size="8" />					
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="end">[@end]</label>:
+				</td>
+				<td>
+					<input class="ui-widget-content ui-corner-all ui-input" id="end" name="end" size="12" />
+					<input class="ui-widget-content ui-corner-all ui-input" id="endtime" name="endtime" size="8" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="ui-widget-content ui-helper-clearfix" style="margin: 0.6em 0em;"></div>
+				</td>
+			</tr>
+
+			<tr>
+				<td style="vertical-align: top;">
+					<label for="description">[@description]</label>:
+				</td>
+				<td>
+					<textarea class="ui-widget-content ui-corner-all"  id='description' name="description" rows="10" cols="46" ></textarea>
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+	<div style='clear:both'></div>
+<!--	<div id='toolbar' class="jqtoolbar ui-widget ui-state-default">ffff</div> -->
+	<div id='caluser' class="jqevent" style="width:100%;text-align: center;">
+	<form>
+		<label for="switchuser">[@label_user]</label>:
+		<select id="switchuser" name="switchuser">
+			[@available_users]
+		</select>
+	</form>
+	</div>
+	<div id='search_cal' class="jqevent" style="width:100%;"></div>
+	<!-- This is inserted in the calendar as view -->
+	<div class="fc-view fc-view-search" style="position:relative;">
+		<div  class="ui-widget-header fc-view-searchtitle" style="width:100%;text-align:center"> [@header_serach]</div>
+		<div class="fc-view-input" style="height:50px;">
+			<table style="margin: 10px 10px;width:98%"><tr><td style="text-align:left">
+				<input type="text" size="40" maxlength="80" id="common_search" class ="ui-input" name="comon_search" />
+				<button class="jq-button ui-state-default ui-corner-all"  id="b_common_search">[@b_search]</button>
+				<button class="jq-button ui-state-default ui-corner-all"  id="b_adv_search">[@b_adv_search]</button>
+			</td>
+			<td style="text-align:right;width:12%;padding-top:7px;">[@found_events] :&nbsp;&nbsp;</td><td class="fnd-results" style="width:5%;text-align:center;padding-top:7px;"></td></tr></table>
+		</div>
+		<div style="height:97%;overflow-x:hidden;" class="ui-widget-content">
+			<table id="search_table" style = "width:100%;table-layout:auto;"><tbody></tbody></table>
+		</div>
+	</div>
+
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Setting a theme for the grid</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Setting a theme for the grid
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">The install package of jqGrid for PHP comes with just the default Redmond theme. It is available in the <b>[themes] </b>folder of the install package. You can download any additional themes directly from jQuery UI's ThemeRoller site available here:<p><a href="http://jqueryui.com/themeroller/" target="top">http://jqueryui.com/themeroller/</a><p>There are currently 25 professional themes available. You can also create a new theme (either from scratch or based on another theme).<p>In addition to the "Redmond" theme, there is one more file in the <b>[themes]</b> folder - <b>ui.jqgrid.css</b>. This is the one and only Css file jqGrid for PHP needs for themeing in addition to the ThemeRoller theme. Just add it after you add the reference to the ThemeRoller theme in your PHP file.<p>Example:<p><pre><div class="htmlcode"><span class="elements">&lt;head&gt;</span> 
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui-1.7.1.custom.css"</span> /&gt;
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.jqgrid.css"</span> /&gt; 
+...
+<span class="elements">&lt;/head&gt;</span></div></pre><p>If you wish to use one of the other 25 themes ThemeRoller offers or your own theme, just replace the Redmond css file with the CSS file of the respective theme.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/20/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

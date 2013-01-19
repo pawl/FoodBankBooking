@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Queries</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Queries
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">There are situations where the query should be diffrent depending on different conditions. In order to do that we can:<p><ul><li> Use read query from an XML file.<br><li> Use SelectCommant<br><li> Use table<br></ul><p><div class="topicname">Related methods</div>exportToExcel<br>queryGrid<br>editGrid<br>renderGrid<p><div class="topicname">The ralated public variables</div><p>$readFromXML<br>$SelectCommand<br>$table<p>The logic in which the methods read the query is: <br>- First we look if the $readFromXML variable is set to true. If the variable is true we read the query from the XML file (see below). <br>- If the $readFromXML is false we look at $SelectCommand. <br>- If the $SelectCommand is empty at end we look for $table <p><div class="topicname">Read query from XML </div><p>In order to read the query from XML we should use two variables - $readFromXML and $SelectCommand. The $readFromXML should be set to true and the $SelectCommand should meet some conditions. These are as follows:<p>SelectCommand should be set as <b>xmlfile.sqlid</b>. The xmlfile is the name of xml file where we store the sql commands, sqlid is the id of the required sql.  <p><div class="notebox"><b>Note</b> The xmlfile set in the SelectCommand should not end with xml, but the same file should have xml extension</div><p>The xml file should have the following structure<br><pre>
+ &lt; ?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;queries&gt;
+     &lt;sql Id="getUserById"&gt;
+        Select ..  From ..  Where ...
+    &lt;/sql&gt;
+    &lt;sql Id="validateUser"&gt;
+        Select   From  Where 
+    &lt;/sql&gt;
+     ...
+ &lt;/queries&gt;
+</pre><p>Let suppose that we want not to display the Freight field (Using our <a href="_2v20q5hpg.htm" >example</a>) if the user belogs to a group greater than 3. <p>Create a file groupright.xml which should look like this:<br><pre>
+&lt; ?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;queries&gt;
+     &lt;sql Id="allfields"&gt;
+        SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders
+    &lt;/sql&gt;
+    &lt;sql Id="limitedfields"&gt;
+        SELECT OrderID, OrderDate, CustomerID, ShipName FROM orders
+    &lt;/sql&gt;
+     ...
+ &lt;/queries&gt;
+</pre><p>Save the file in certain location and write the following PHP script<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the PDO driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+
+$group = $_SESSION[<span class="codestring">'usergroup'</span>];
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGrid($conn);
+<span class="codecomment">// Enable reading from XML</span>
+$grid-&gt;readFromXML = <span class="literals">true</span>;
+
+<span class="codecomment">// Set the query based on the condition </span>
+<span class="programcontrol">if</span>($group &lt;= 3)
+    $grid-&gt;SelectCommand = <span class="codestring">'pathtothefile/groupright.allfields'</span>;
+<span class="programcontrol">else</span> 
+    $grid-&gt;SelectCommand = <span class="codestring">'pathtothefile/groupright.limitedfields'</span>;
+
+$grid-&gt;dataType = <span class="codestring">"json"</span>;
+$grid-&gt;queryGrid();
+?&gt;</div></pre><p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/09/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

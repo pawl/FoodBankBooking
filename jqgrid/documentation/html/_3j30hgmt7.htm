@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.4.0.0</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.4.0.0
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released June 19, 2012<p><h2>Additions</h2><p><h3>Grid</h3><ul><li> Support grouping on multiple fields (see Grouping examples in demo)<br><li> Added adodb support of the grid. Now is possible to use adodb (www.adodb.sf.net) (see Loading data Adodb example in demo)<br><li> Now it is possible to get all the data from xml file - i.e query, table, primary key<br><li> Code optimizations setColModel function<br></ul><p><h3>jqScheduler</h3><p><ul><li> Support for  odbc driver<br><li> Adodb support. Now is possible to use adodb (www.adodb.sf.net)<br></ul><p><h3>jqForm</h3><p><ul><li> Adodb support. Now is possible to use adodb (www.adodb.sf.net)<br></ul><p><h3>jqTreeGrid</h3><p><ul><li> Adodb support. Now is possible to use adodb (www.adodb.sf.net)<br></ul><p><br><h2>Fixes</h2><p><h3>jqGrid</h3><p><ul><li> Fix aftersave func in inline navigatuion to change the selected row<br><li> Fix search to get the data using the complex filters.<br><li> Fix deprecated ereg and correct parsing of AS in the array driver<br><li> Fix converting special characters in pdf and csv export<br><li> Fix bug in odbc failing to execute complex query with parameters<br><li> Fix ODBC dreiver when delete a record.<br><li> Fix getColumnMeta in Array and mongo drivers to return approximatley the len of the data fields<br><li> Fix some database drivers to return false if the primary key can not be obtained.<br><li> Fix empty values when the type is date. Also a empty string is builded<br><li> Fix callGridMethod to get the id without  having "#" too at the beginning.<br><li> Fix parsing in _getcount function. Fix parsing WHERE clause in array driver and when optimize search is on and some column contain word WHERE<br><li> Fix array driver to parse correct words which contain SQL commands.<br><li><br></ul><p><h3>jqChart</h3><ul><li> Fix jqChart to output (echo) the html and then javascript code.<br></ul><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/19/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Manipulate grid data (customFunc)</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Manipulate grid data (customFunc)
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">There are situations where the data send to the grid should be obtained with a complex calculations and the query in this case can be quite tedious. In order to resolve such situations we have added a custom function (customFunc) where we can modifiy the data before it is send to the grid.<p>In order to ilustarate how this can be done we will use our example and demonstarte the two new options in the grid<p><ul><li> customFunc<br><li> addUserData<br></ul><p>With the help of these we can manipulate the final data send to the grid. customFunc is capable to modify the grid data and userdata , while addUserData can modify the userdata only (usually the summary column) send to the grid. The customFunc is called after the addUserData is set.<p>Now lets begin with our <a href="_2v90jgzqp.htm" >example</a>.<p>Let suppose that our goal is to round the Fright field to 1 if it is little than 0 (zero). The summary row should be updated in the appropriate way and at end we want to add additional text field in the summary row to indicate that this is sum (intead that we can do this using callGridMethod with parameter footerData.<p><br>The customFunc accept two parameters the grid data object and the connection.<br>The function should return the new grid data object.<p><br><b>grid.php</b><p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the database connection settings/configuration</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the database that we use utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// set the SQL select query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid automatically create the model based on the SQL query</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+    <span class="codestring">"footerrow"</span>=&gt;<span class="literals">true</span>,
+    <span class="codestring">"userDataOnFooter"</span>=&gt;<span class="literals">true</span>
+));
+
+
+<span class="codecomment">// Let add the Label Total to the Shipname</span>
+$grid-&gt;addUserData(<span class="datatypes">array</span>(<span class="codestring">"ShipName"</span>=&gt;<span class="codestring">"Total:"</span>));
+
+<span class="codecomment">//Define the custom function</span>
+$grid-&gt;customFunc = <span class="codestring">"FrightUpdate"</span>;
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+
+<span class="codecomment">/// here is the function</span>
+<span class="programcontrol">function</span> FrightUpdate($gdata, $conn)
+{
+$sumFreight = 0;
+<span class="codecomment">// gdata-&gt;rows contain the grid data rows</span>
+<span class="programcontrol">foreach</span>($gdata-&gt;rows <span class="operators">as</span> $row ) 
+{
+       <span class="programcontrol">if</span>($row-&gt;Freight &lt; 1 ) {
+             <span class="codecomment">//NOTE THAT YOU CAN ADD A HTML content to the coulmns</span>
+             $row-&gt;Freight = 1;
+       }
+        $sumFreight += $row-&gt;Freight;
+}
+<span class="codecomment">// set the sumary field </span>
+$gdata-&gt;userdata[<span class="codestring">'Freight'</span>] = $sumFreight;
+
+<span class="codecomment">// return the modified</span>
+<span class="programcontrol">return</span> $gdata;
+
+}
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/12/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

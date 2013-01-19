@@ -1,0 +1,38 @@
+﻿<% lcSeeAlsoTopics = oHelp.InsertSeeAlsoTopics() %>	
+<%= ExecuteTemplate("Header_template.wcs") %>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">
+<%= oHelp.FormatHTML(oHelp.oTopic.Body) %>
+</div>
+
+<% if !EMPTY(oHelp.oTopic.Syntax) %>
+<pre class="syntaxbox" id="syntax">
+<%= oHelp.FormatHtml(oHelp.oTopic.Syntax) %>
+</pre>
+<% endif %>
+
+<% IF !EMPTY(oHelp.oTopic.Exceptions) %>
+<h3 class="outdent" id="exceptions">Exceptions</h3>
+<%= strtran( InsertExceptions(oHelp),"b>","i>") %>	
+<% ENDIF %> 
+
+<% IF !EMPTY(oHelp.oTopic.Remarks) %>
+<h3 class="outdent" id="remarks">Remarks</h3>
+    <%= oHelp.FormatHTML(oHelp.oTopic.Remarks) %>
+<% ENDIF %>  
+
+<% IF !EMPTY(oHelp.oTopic.Example) %>
+<h3 class="outdent" id="example">Example</h3>
+<pre><%= oHelp.FormatExample(oHelp.oTopic.Example)%></pre>
+<% ENDIF %>  
+
+
+<% if !EMPTY(oHelp.oTopic.SeeAlso) %>
+<h3 class="outdent" id="seealso">See also:</h3>
+<%= lcSeeAlsoTopics %>
+<%  endif %>
+<p>
+</div>
+<%= ExecuteTemplate("Footer_Template.wcs") %>

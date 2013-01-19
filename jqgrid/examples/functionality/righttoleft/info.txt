@@ -1,0 +1,1 @@
+jqGrid support Right-to-Left (RTL) language locales, such as Hebrew, some Arabic languages, etc. Just set the <b>direction</b> property to "rtl".

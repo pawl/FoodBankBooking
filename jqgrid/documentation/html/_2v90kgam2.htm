@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Custom formatter</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Custom formatter
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">A "formatter" is a simple javascript function that formats a cell in your jqGrid instance to a different value, based on certain criteria. By default, the value from the database will be used in the grid cell verbatim. There are cases, where the default formatters do not meet the requirments of the project. jqGrid has a built-in property to define custom formatters with custom javascript.<p>Let suppose that in our example we want to display in red the values in the Freight column that have values less than 100. For this purpose, we need to write a small javascript formatting function. We can use the approach from <a href="_2v90k1b2v.htm" >this topic</a> - i.e using the "js:" prefix, but for demonstartion purposes we will use <a href="_2v70w0lkn.htm" >setJSCode</a> method instead. When using this approach we just need to set the formatter to use the desired javascript custom function and output this function with the <a href="_2v70w0lkn.htm" >setJSCode</a> method.<p>Here is the example:<p><pre><div class="htmlcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+// include the jqGrid Class
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+// include the driver class
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+// Connection to the server
+$conn = new PDO(DB_DSN,DB_USER,DB_PASSWORD);
+// Tell the db that we use utf-8
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+// Create the jqGrid instance
+$grid = new jqGridRender($conn);
+// Write the SQL Query
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+// Set output format to json
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+// Let the grid create the model
+$grid-&gt;setColModel();
+
+// point to Fright column to use the function named MyFormatter
+$grid-&gt;setColProperty(<span class="codestring">'Fright'</span>, array(<span class="codestring">'formatter'</span>=&gt;<span class="codestring">'js:MyFormatter'</span>));
+
+// Writh the MyFormatter function
+
+$myformat = &lt;&lt;&lt;FORMATFREIGHT
+function MyFormatter (cellValue, options, rowdata) 
+{
+    var color = (parseFloat(cellValue) &gt; 100) ? <span class="codestring">" style='color=red'"</span> : <span class="codestring">""</span>;
+    var cellHtml = <span class="codestring">"&lt;span"</span> + color +<span class="codestring">"&gt;"</span> + cellValue + <span class="codestring">"&lt;/span&gt;"</span>;
+    return cellHtml; 
+}
+FORMATFREIGHT;
+
+// Output the function with setJSCode
+$grid-&gt;setJSCode($myformat); 
+
+// Set the url from where we obtain the data
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+// Set some grid options
+$grid-&gt;setGridOptions(array(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;array(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>
+));
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,true, null, null, true,true);
+$conn = null;
+?&gt;</div></pre><p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/05/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.0.0.2</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.0.0.2
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released  April 9, 2011<p><h2>Additions</h2><p><h3>jqGrid</h3><ul><li> Added new property in colModel <i>editoptions</i> <a href="_2v80w6oam.htm" >NullIfEmpty</a>. If set to true empty values are posted and set/added in the database as NULLs. <br><li> Added option <a href="_3120zmznr.htm" >fontsize</a> in autocomplete widget to control the font size of the widget. Default is 11px;<br><li> Added option <a href="_314163gc7.htm" >fontsize</a> in calender widget to control the font size of the widget. Default is 70%;<br><li> Added option <a href="_3120zmznr.htm" >strictcheck</a> in autocomplete widget - If target is set determines the behaviour of setting the value. If strictcheck is false the value in autcomplete input field is not cleared if it is not found in  list.<br><li> If to a row in grid is added class <b>ui-state-disabled</b> the row can not be selected. Also work in multiselect mode.<br></ul><br><h2>Fixes</h2><p><h3>jqGrid</h3><ul><li> Fix setSelect (second fix) method to interpret correct ORDER BY clause when present in the query.<br><li> Fix for grid cmTemplate for editable fields.<br><li> Fix for addCol method to add in correct place the column when not first or last.<br><li> Fix for Autocomplete to work correct with Mysqli driver (the driver requiere special handling)<br><li> Fix fetch_bject method in Array driver<br><li> Fix for IE9 to support the height=&gt;auto proerty.<br><li> Fix when scroll option is set to 1 - to return correct the last page<br><li> Fix for multiselect when row ID's contain dots.<br><li> Fixes for showCol/hideCol methods.<br><li> Fix for setGridWidth method for Webkit browsers<br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

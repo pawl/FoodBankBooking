@@ -1,0 +1,5 @@
+As of version 4.0 it is possible to scroll the rows with the keys.
+To do this it is necessary to call the bindKeys javascript method. See code.
+
+Also it is possible to define some events on Enter and a Spacebar key s.
+For more details refer to the documentation.

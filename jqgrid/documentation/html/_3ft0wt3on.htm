@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Modifying/Creating a new language pack</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Modifying/Creating a new language pack
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><h3>Structure of a language pack</h3><p>A language pack is essentially a PHP file with constants for specific strings in the grid that can be localized. In addition to that, there are formats (date format, etc) that can be predefined to match the locale of the specific country. Every language file is defined as a class which contain arrays of the translated strings.<p>In order to modify a language pack, just open the respective php file and edit it with your favourite text editor. For example, let's say we want to modify the English language pack. Opening the <b>/php/localization/en_EN.inc</b> file in a text editor brings are something along the lines of (this is just a part of the file):<p><pre><div class="csharpcode">&lt;?php
+class jqEventLocalization {
+
+<span class="codecomment">//fullcalender translations
+// these locale setting use javascript convensions for date forrmating
+/* * !!!!!!!!! NOTE dateFormat in fullcalender differ from datepicker  </span>
+* Configure both <span class="programcontrol">in</span> appropriate way 
+*/
+public $dateFormat = <span class="codestring">"dd/MM/yyyy"</span>;
+public $fullcalendar = <span class="datatypes">array</span>(   
+   <span class="codestring">'isRTL'</span>=&gt; <span class="literals">false</span>,   
+   <span class="codestring">'firstDay'</span> =&gt; 1,   
+   <span class="codestring">'monthNames'</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">'January'</span>,<span class="codestring">'February'</span>,<span class="codestring">'March'</span>,<span class="codestring">'April'</span>,<span class="codestring">'May'</span>,<span class="codestring">'June'</span>,<span class="codestring">'July'</span>,<span class="codestring">'August'</span>,<span class="codestring">'September'</span>,<span class="codestring">'October'</span>,<span class="codestring">'November'</span>,<span class="codestring">'December'</span>),
+   <span class="codestring">'monthNamesShort'</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">'Jan'</span>,<span class="codestring">'Feb'</span>,<span class="codestring">'Mar'</span>,<span class="codestring">'Apr'</span>,<span class="codestring">'May'</span>,<span class="codestring">'Jun'</span>,<span class="codestring">'Jul'</span>,<span class="codestring">'Aug'</span>,<span class="codestring">'Sep'</span>,<span class="codestring">'Oct'</span>,<span class="codestring">'Nov'</span>,<span class="codestring">'Dec'</span>),   
+   <span class="codestring">'dayNames'</span>=&gt; <span class="datatypes">array</span>(<span class="codestring">'Sunday'</span>,<span class="codestring">'Monday'</span>,<span class="codestring">'Tuesday'</span>,<span class="codestring">'Wednesday'</span>,<span class="codestring">'Thursday'</span>,<span class="codestring">'Friday'</span>,<span class="codestring">'Saturday'</span>),   
+   <span class="codestring">'dayNamesShort'</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">'Sun'</span>,<span class="codestring">'Mon'</span>,<span class="codestring">'Tue'</span>,<span class="codestring">'Wed'</span>,<span class="codestring">'Thu'</span>,<span class="codestring">'Fri'</span>,<span class="codestring">'Sat'</span>),
+   <span class="codestring">'buttonText'</span>=&gt;<span class="datatypes">array</span> (
+      <span class="codestring">'today'</span> =&gt;<span class="codestring">'today'</span>,
+      <span class="codestring">'month'</span> =&gt;<span class="codestring">'month'</span>,
+      <span class="codestring">'week'</span> =&gt;<span class="codestring">'week'</span>,
+      <span class="codestring">'day'</span>=&gt; <span class="codestring">'day'</span>,
+      <span class="codestring">'search'</span>=&gt;<span class="codestring">'search'</span>
+   ),
+   <span class="codestring">'allDayText'</span>=&gt; <span class="codestring">'all-day'</span>,
+   <span class="codestring">'axisFormat'</span>=&gt; <span class="codestring">'h(:mm)tt'</span>,
+   <span class="codestring">'timeFormat'</span>=&gt;<span class="datatypes">array</span>(
+   <span class="codestring">'agenda'</span>=&gt; <span class="codestring">'h:mm{ - h:mm}'</span>   
+   ));
+
+<span class="codecomment">// Time picker
+// slotMinutes: 30 - this is get from calender options
+// the corresponding options is timeIntervalpublic </span>
+$timepicker = <span class="datatypes">array</span>(   
+   <span class="codestring">"minutes"</span>=&gt;<span class="codestring">"mins"</span>,
+   <span class="codestring">"onehour"</span>=&gt;<span class="codestring">"1 hr"</span>,
+   <span class="codestring">"hours"</span>=&gt;<span class="codestring">"hrs"</span>
+);
+...
+?&gt;</div></pre><p>Just modify any of the strings/rules you wish. The naming of the string is self-explanatory - for example in order to modify the all-day text, just modify the 'allDayText variable in the defaults array.<p>Just modify anything you wish. Finally, save the file with another name, for example, "en_EN_custom.inc" and set it in your page instead of the default English language, e.g.<p><pre><div class="csharpcode">...
+$eventcal = <span class="programcontrol">new</span> jqScheduler($conn);
+$eventcal-&gt;setLocale(<span class="codestring">'en_EN_custom'</span>);
+...</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

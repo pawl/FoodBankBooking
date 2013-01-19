@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Subgrid 2 levels</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Subgrid 2 levels
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In this advanced tutorial we will use the code from our <a href="http://www.trirand.net/demophp.aspx" target="top"> online example framework</a>) "SubGrid (2 nested levels)" as a base and add other useful features often needed in real-world scenarios.<p><ol><li> We will enable editing in both parent and child grids.<br><li> We will add an additional parameter to the subgrid (from parent) when a new record is inserted in order to sync both grids.<br><li> When we delete a record in the parent grid, all associated records from the child grid will be deleted as well.<br><li> We will use some of the additional functionality that the jqGrid database driver provides.<br></ol><p>In order to achieve this we will create two PHP code files - one for the parent grid and another for the child grid.<p><b>grid.php code (parent grid)</b><p><pre><div class="csharpcode"><span class="codecomment">// include the database connection settings</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the database that we will be using utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// set the SQL select query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT CustomerID, CompanyName, ContactName, Phone, City FROM customers'</span>;
+<span class="codecomment">// instruct jqgrid to use the "customers" table and set primary keys needed for CRUD (create, read, update, delete) operations</span>
+$grid-&gt;table = <span class="codestring">'customers'</span>;
+$grid-&gt;setPrimaryKeyId(<span class="codestring">'CustomerID'</span>);
+$grid-&gt;serialKey = <span class="literals">false</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// let the grid automatically create the columns model based on the database table</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// set the url to the location of the PHP code file for the respective grid</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"height"</span>=&gt;250,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"CustomerID"</span>
+));
+$grid-&gt;setColProperty(<span class="codestring">'CustomerID'</span>, <span class="datatypes">array</span>(<span class="codestring">"label"</span>=&gt;<span class="codestring">"ID"</span>, <span class="codestring">"width"</span>=&gt;50));
+<span class="codecomment">// set the url to the location of the PHP code file for the respective grid</span>
+$grid-&gt;setSubGridGrid(<span class="codestring">"subgrid.php"</span>);
+
+<span class="codecomment">// enable navigator</span>
+$grid-&gt;navigator = <span class="literals">true</span>;
+
+<span class="codecomment">// disable the delete operation programatically for that table</span>
+$grid-&gt;del = <span class="literals">false</span>;
+
+<span class="codecomment">// we need to write some custom code when we are in delete mode.
+// get the grid operation parameter to see if we are in delete mode
+// jqGrid sends the "oper" parameter to identify the needed action</span>
+$deloper = $_POST[<span class="codestring">'oper'</span>];
+<span class="codecomment">// det the customer id</span>
+$custid = $_POST[<span class="codestring">'CustomerID'</span>];
+
+<span class="codecomment">// if the operation is del and the customerid is set</span>
+<span class="programcontrol">if</span>($deloper == <span class="codestring">'del'</span> &amp;&amp; isset($custid)  )  
+{
+   <span class="codecomment">// the two tables are linked via CustomerID, so let try to delete the records in both tables</span>
+   <span class="programcontrol">try</span> {
+      jqGridDB::beginTransaction($conn);
+      $cust = jqGridDB::prepare($conn, <span class="codestring">"DELETE FROM customers WHERE CustomerID= ?"</span>, <span class="datatypes">array</span>($custid));
+      $order = jqGridDB::prepare($conn,<span class="codestring">"DELETE FROM orders WHERE CustomerID = ?"</span>, <span class="datatypes">array</span>($custid))
+   
+      jqGridDB::execute($cust);
+      jqGridDB::execute($order);
+      jqGridDB::commit($conn);
+   } <span class="programcontrol">catch</span>(Exception $e) {
+      jqGridDB::rollBack($conn);
+      echo $e-&gt;getMessage();
+   }
+}
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre><p>With the command<br><pre><div class="csharpcode">$grid-&gt;setSubGridGrid(<span class="codestring">"subgrid.php"</span>);</div></pre>we set the main grid in subgrid mode expecting content from this url for the child grid.<p>Next we disable jqGrid's automatic deleting of records in the parent grid. By default, automatic deleting will delete the parent row only, whereas we also want to delete all related records in the child grid as well. This is done via<br><pre><div class="csharpcode">$grid-&gt;del = <span class="literals">false</span>;</div></pre>In this case we should manually determine if we are in delete mode and manually delete the parent row and all related child rows. jqGrid does this by setting the "oper" post parameter. If the parameter "oper" equals "del", then we know we are in delete mode and can proceed with the logic needed. In addition to that, the grid sends the data for the row deleted, including the primary key (CustomerID in our case). For example:<p><pre><div class="csharpcode"><span class="codecomment">// get the operation</span>
+$deloper = $_POST[<span class="codestring">'oper'</span>];
+<span class="codecomment">// det the customer id</span>
+$custid = $_POST[<span class="codestring">'CustomerID'</span>];
+<span class="codecomment">// if the operation is del and the customerid is set</span>
+<span class="programcontrol">if</span>($deloper == <span class="codestring">'del'</span> &amp;&amp; isset($custid)  )  
+{
+...</div></pre><p>At end we enclose the deletion in transaction deleting the desired records in both tables in order to make sure the tables are in sync.<p>Now, lets look at the subgrid PHP code file:<p><b>subgrid.php</b><p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// inclide the database connection settings</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the db that we use utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+<span class="codecomment">// Get the needed parameters passed from the main grid
+// By default we add to postData subgrid and rowid parameters in the main grid</span>
+$subtable = jqGridUtils::Strip($_REQUEST[<span class="codestring">"subgrid"</span>]);
+$rowid = jqGridUtils::Strip($_REQUEST[<span class="codestring">"rowid"</span>]);
+<span class="codecomment">// create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// set the SQL select query</span>
+$grid-&gt;SelectCommand = <span class="codestring">"SELECT OrderID, RequiredDate, ShipName, ShipCity, Freight FROM orders WHERE CustomerID = ?"</span>;
+<span class="codecomment">// set the ouput format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// instruct the grid the we are using the "orders" datatable</span>
+$grid-&gt;table = <span class="codestring">"orders"</span>;
+$grid-&gt;setPrimaryKeyId(<span class="codestring">"OrderID"</span>);
+
+<span class="codecomment">// Let the grid create the column model automatically</span>
+$grid-&gt;setColModel(<span class="literals">null</span>,<span class="datatypes">array</span>(&amp;$rowid));
+
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'subgrid.php'</span>);
+
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"width"</span>=&gt;540,
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+    <span class="codestring">"height"</span>=&gt;110,
+    <span class="codestring">"postData"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"subgrid"</span>=&gt;$subtable,<span class="codestring">"rowid"</span>=&gt;$rowid))
+);
+
+<span class="codecomment">// set a option when we add a record to insert a CustomerID too.</span>
+$grid-&gt;setNavOptions(<span class="codestring">"add"</span>,<span class="datatypes">array</span>(<span class="codestring">"editData"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"CustomerID"</span>=&gt;$rowid)));
+
+<span class="codecomment">// Change some property of the field(s)</span>
+$grid-&gt;setColProperty(<span class="codestring">"RequiredDate"</span>, <span class="datatypes">array</span>(
+    <span class="codestring">"formatter"</span>=&gt;<span class="codestring">"date"</span>,
+    <span class="codestring">"formatoptions"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"srcformat"</span>=&gt;<span class="codestring">"Y-m-d H:i:s"</span>,<span class="codestring">"newformat"</span>=&gt;<span class="codestring">"m/d/Y"</span>),
+    <span class="codestring">"search"</span>=&gt;<span class="literals">false</span>
+    )
+);
+
+<span class="codecomment">// enable editing</span>
+$grid-&gt;navigator = <span class="literals">true</span>;
+
+$subtable = $subtable.<span class="codestring">"_t"</span>;
+$pager = $subtable.<span class="codestring">"_p"</span>;
+
+$grid-&gt;renderGrid($subtable,$pager, <span class="literals">true</span>, <span class="literals">null</span>, <span class="datatypes">array</span>(&amp;$rowid), <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre><p>In the subgrid code there is nothing special except this line of code<p>$grid-&gt;setNavOptions("add",array("editData"=&gt;array("CustomerID"=&gt;$rowid)));<p>With this line we set additional parameter when we are in add mode and this is the id of the Customer. The variable is posted and inserted succesfully.<p><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/10/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

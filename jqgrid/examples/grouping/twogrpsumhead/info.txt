@@ -1,0 +1,4 @@
+We can put the summary calculation on the header group.
+To do this just put the summary field in the groupText. The field is enclosed in {}.
+
+If you do not want to show the group footer set groupSummary values to false

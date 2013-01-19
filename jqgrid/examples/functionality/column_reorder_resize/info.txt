@@ -1,0 +1,4 @@
+You can resize and reorder the columns of the grid. Resizing by default is turned on, reordering is turned off by default.
+
+To control resizing, just set the resizable boolean property of the respective column. Column Reordering is controlled by the top-level <b>sortable</b> property.
+Note that the OrderDate column can not be resized.

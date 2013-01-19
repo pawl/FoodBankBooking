@@ -1,0 +1,3 @@
+In this example we show that the datepicker and autocomplete can be used
+in the same time in inline editing-. Also the autocomplete is attached to CustomerID field,
+while the datepicke to orderDate field.

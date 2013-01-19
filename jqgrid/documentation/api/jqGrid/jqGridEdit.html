@@ -1,0 +1,2017 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Docs For Class jqGridEdit</title>
+	<link rel="stylesheet" type="text/css" href="../media/style.css">
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+	<td class="header-top-left"><img src="../media/logo.png" border="0" alt="phpDocumentor " /></td>
+    <td class="header-top-right">jqGrid<br /><div class="header-top-right-subpackage"></div></td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td colspan="2" class="header-menu">
+      
+                        
+                                                                              		[ <a href="../classtrees_jqGrid.html" class="menu">class tree: jqGrid</a> ]
+		[ <a href="../elementindex_jqGrid.html" class="menu">index: jqGrid</a> ]
+            [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="195" class="menu">
+		<div class="package-title">jqGrid</div>
+  <div class="package">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+	</div>
+      <b>Packages:</b><br />
+  <div class="package">
+              <a href="../li_jqGrid.html">jqGrid</a><br />
+              <a href="../li_jqAutocomplete.html">jqAutocomplete</a><br />
+              <a href="../li_jqChart.html">jqChart</a><br />
+              <a href="../li_jqScheduler.html">jqScheduler</a><br />
+              <a href="../li_jqTreeGrid.html">jqTreeGrid</a><br />
+      	</div>
+      <br />
+                        <b>Files:</b><br />
+        <div class="package">
+				<span style="padding-left: 1em;"><a href="../jqGrid/_jqCalendar.php.html">jqCalendar.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../jqGrid/_jqGrid.php.html">jqGrid.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../jqGrid/_jqUtils.php.html">jqUtils.php</a></span><br />
+	  </div>
+            <br />
+                  <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../jqGrid/jqCalendar.html">jqCalendar</a>    	 <br />
+	    		<a href="../jqGrid/jqGrid.html">jqGrid</a>    	 <br />
+	    		<a href="../jqGrid/jqGridEdit.html">jqGridEdit</a>    	 <br />
+	    		<a href="../jqGrid/jqGridRender.html">jqGridRender</a>    	 <br />
+	    		<a href="../jqGrid/jqGridUtils.html">jqGridUtils</a>    	 <br />
+	    		<a href="../jqGrid/Session.html">Session</a>    	 <br />
+	    		<a href="../jqGrid/SimpleXMLExtended.html">SimpleXMLExtended</a>    	 <br />
+	    		<a href="../jqGrid/Template.html">Template</a>    	 <br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: jqGridEdit</h1>
+Source Location: /jqGrid.php<br /><br />
+
+<h2 class="class-name">Class jqGridEdit</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Class Overview</div>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span>
+							| <a href="#sec-descendants">Descendants</a>
+				
+					| <a href="#sec-inherited">Inherited Properties, Constants, and Methods</a>
+											| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								</div>
+	<div class="info-box-body">
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+        		
+		<p class="notes">
+			Located in <a class="field" href="_jqGrid.php.html">/jqGrid.php</a> [<span class="field">line 1903</span>]
+		</p>
+
+		
+		<pre><a href="../jqGrid/jqGrid.html">jqGrid</a>
+   |
+   --jqGridEdit</pre>
+
+		
+				<strong>Author(s):</strong>
+		<ul>
+		  			 			 <li>Tony Tomov, (tony@trirand.com)</li>
+			 		  			 		  			 		  			 		  		</ul>
+		
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td><p>This class extend the main jqGrid class and is used for CRUD operations.  Can work on table. Also the table should have one primary key.</p><p>Usage:</p><p>1.Suppose the table has a primary key and this key is serial (autoincrement)</p><p>$mygrid new jqGridEdit($db);  $mygrid-&gt;setTable('invoices');  $mygrid-&gt;editGrid();</p><p>In this case the parameter names - i.e names with : should correspond to the names  in colModel in jqGrid definition.</p></td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td><strong>Version:</strong>&nbsp;&nbsp;</td><td>4.1.1.0</td></tr>
+				<tr><td><strong>Copyright:</strong>&nbsp;&nbsp;</td><td>TriRand Ltd</td></tr>
+	</table>
+		</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$add">$add</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$buildfields">$buildfields</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$decodeinput">$decodeinput</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$del">$del</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$edit">$edit</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$fields">$fields</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$mtype">$mtype</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$primaryKey">$primaryKey</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$serialKey">$serialKey</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$successmsg">$successmsg</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$trans">$trans</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$_addarray">$_addarray</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$_addarrayb">$_addarrayb</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$_delarray">$_delarray</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$_delarrayb">$_delarrayb</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$_editarray">$_editarray</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#var$_editarrayb">$_editarrayb</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodcheckPrimary">checkPrimary</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methoddelete">delete</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodeditGrid">editGrid</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodgetFields">getFields</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodgetPrimaryKeyId">getPrimaryKeyId</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodinsert">insert</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodsetAfterCrudAction">setAfterCrudAction</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodsetBeforeCrudAction">setBeforeCrudAction</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodsetPrimaryKeyId">setPrimaryKeyId</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodsetSuccessMsg">setSuccessMsg</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodsetTable">setTable</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#methodupdate">update</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#method_actionsCRUDGrid">_actionsCRUDGrid</a></li>
+		  		  <li><a href="../jqGrid/jqGridEdit.html#method_buildFields">_buildFields</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+	</div>
+</div>
+
+	<a name="sec-descendants"></a>
+	<div class="info-box">
+		<div class="info-box-title">Descendants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <span class="disabled">Descendants</span>
+										| <a href="#sec-inherited">Inherited Properties and Methods</a>
+												| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+									</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../jqGrid/jqGridRender.html">jqGridRender</a></td>
+					<td>
+											
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-inherited"></a>
+	<div class="info-box">
+		<div class="info-box-title">Inherited Properties, Constants, and Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+						| <span class="disabled">Inherited Properties, Constants, and Methods</span>
+												| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+																			| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+							    				</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header" width="30%">Inherited Properties</th>
+					<th class="class-table-header" width="40%">Inherited Methods</th>
+					<th class="class-table-header" width="30%">Inherited Constants</th>
+				</tr>
+				<tr>
+					<td width="30%">
+													<p>Inherited From <span class="classname"><a href="../jqGrid/jqGrid.html">jqGrid</a></span></p>
+							<blockquote>
+								<dl>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$cacheCount">jqGrid::$cacheCount</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$customClass">jqGrid::$customClass</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$customFunc">jqGrid::$customFunc</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$dataType">jqGrid::$dataType</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$datearray">jqGrid::$datearray</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$dbdateformat">jqGrid::$dbdateformat</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$dbtimeformat">jqGrid::$dbtimeformat</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$dbtype">jqGrid::$dbtype</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$debug">jqGrid::$debug</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$encoding">jqGrid::$encoding</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$errorMesage">jqGrid::$errorMesage</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$ExportCommand">jqGrid::$ExportCommand</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$getLastInsert">jqGrid::$getLastInsert</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$GridParams">jqGrid::$GridParams</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$gSQLMaxRows">jqGrid::$gSQLMaxRows</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$I">jqGrid::$I</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$jsonencode">jqGrid::$jsonencode</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$lastId">jqGrid::$lastId</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$logtofile">jqGrid::$logtofile</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$mongofields">jqGrid::$mongofields</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$mongointegers">jqGrid::$mongointegers</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$optimizeSearch">jqGrid::$optimizeSearch</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$PDF">jqGrid::$PDF</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$pdo">jqGrid::$pdo</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$performcount">jqGrid::$performcount</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$queryLog">jqGrid::$queryLog</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$readFromXML">jqGrid::$readFromXML</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$select">jqGrid::$select</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$SelectCommand">jqGrid::$SelectCommand</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$showError">jqGrid::$showError</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$SubgridCommand">jqGrid::$SubgridCommand</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$table">jqGrid::$table</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$tmpvar">jqGrid::$tmpvar</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$userdata">jqGrid::$userdata</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$userdateformat">jqGrid::$userdateformat</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$usertimeformat">jqGrid::$usertimeformat</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$version">jqGrid::$version</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#var$xmlCDATA">jqGrid::$xmlCDATA</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition"></span>
+										</dd>
+																	</dl>
+							</blockquote>
+											</td>
+					<td width="40%">
+													<p>Inherited From <span class="classname"><a href="../jqGrid/jqGrid.html">jqGrid</a></span></p>
+							<blockquote>
+								<dl>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#method__construct">jqGrid::__construct()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Constructor</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodaddUserData">jqGrid::addUserData()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Add a custom data to the grid footer row if it is enabled.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodbuildSearch">jqGrid::buildSearch()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Build a search string from filter string posted from the grid</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methoddebugout">jqGrid::debugout()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Prints all executed SQL queries to file or console</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodexecute">jqGrid::execute()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Executes a prepared sql statement. Also if limit is set to true is used</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodexportToCsv">jqGrid::exportToCsv()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Public method to export a grid data to csv data.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodexportToExcel">jqGrid::exportToExcel()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Export the recordset to excel xml file.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodexportToPdf">jqGrid::exportToPdf()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Export the recordset to pdf file.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodgetDbDate">jqGrid::getDbDate()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the current date format used in the undelayed database</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodgetDbTime">jqGrid::getDbTime()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the current datetime format used in the undelayed database</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodgetGridParams">jqGrid::getGridParams()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the associative array which contain the parameters  that are sended from the grid to request, search, update delete data.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodgetSqlElement">jqGrid::getSqlElement()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Read a xml file and the SelectCommand and return the sql string  Return string if the query is found false if not.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodgetStringForGroup">jqGrid::getStringForGroup()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Recursivley build the sql query from a json object</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodgetUserDate">jqGrid::getUserDate()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the current date format used from the client</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodgetUserTime">jqGrid::getUserTime()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the current datetime format used from the client</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodlogQuery">jqGrid::logQuery()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Log query</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodparseSql">jqGrid::parseSql()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Prepares a $sqlElement and binds a parameters $params</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodqueryForObject">jqGrid::queryForObject()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the object from the query</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodqueryGrid">jqGrid::queryGrid()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the result of the query to jqGrid. Support searching</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodquerySubGrid">jqGrid::querySubGrid()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Return the result of the query for the simple subgrid</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodrs2excel">jqGrid::rs2excel()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">From a given recordset returns excel xml file. If the summary array is  defined add summary formula at last row.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodrs2pdf">jqGrid::rs2pdf()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Convert a recordeset to pdf object</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodselectLimit">jqGrid::selectLimit()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Will select, getting rows from $offset (1-based), for $nrows.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodsendErrorHeader">jqGrid::sendErrorHeader()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Function to simulate 500 Internal error so that it sends the error  to the client. It is activated only if $showError is true.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodsetDbDate">jqGrid::setDbDate()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Set a new  database date format using PHP convensions</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodsetDbTime">jqGrid::setDbTime()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Set a new  database datetime format using PHP convensions</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodsetGridParams">jqGrid::setGridParams()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Set a grid parameters to identify the action from the grid  Note that these should be set in the grid - i.e the parameters from the grid  should equal to the GridParams.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodsetPdfOptions">jqGrid::setPdfOptions()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Set options for PDF export.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodsetUserDate">jqGrid::setUserDate()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Set a new user date format using PHP convensions</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#methodsetUserTime">jqGrid::setUserTime()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Set a new user datetime format using PHP convensions</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#method_buildSearch">jqGrid::_buildSearch()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Builds the search where clause when the user perform a search  Return arrray the first element is a strinng with the where clause,  the second element is array containing the value parameters passed to  the sql.</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#method_getcount">jqGrid::_getcount()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Returns object which holds the total records in the query and optionally</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#method_gridResponse">jqGrid::_gridResponse()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Check in which format data should be returned to the grid based on dataType property</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#method_rs">jqGrid::_rs()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Convert the query to record set and set the summary data if available</span>
+										</dd>
+																			<dt>
+											<span class="method-definition"><a href="../jqGrid/jqGrid.html#method_setSQL">jqGrid::_setSQL()</a></span>
+										</dt>
+										<dd>
+											<span class="method-definition">Bulid the sql based on $readFromXML, $SelectCommand and $table variables</span>
+										</dd>
+																	</dl>
+							</blockquote>
+											</td>
+					<td width="30%">
+											</td>
+				</tr>
+			</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Property Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+										| <a href="#sec-inherited">Inherited Properties and Methods</a>
+						| <span class="disabled">Property Summary</span> | <a href="#sec-vars">Properties Detail</a>
+												| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+							    				</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+																																																																																																																			<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$add" title="details" class="var-name-summary">$add</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Enables/disables adding of record into the table</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$buildfields" title="details" class="var-name-summary">$buildfields</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Tell the class if the fields should be get from the query.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">booolen</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$decodeinput" title="details" class="var-name-summary">$decodeinput</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Decodes the input for update and insert opeartions using the html_entity_decode</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$del" title="details" class="var-name-summary">$del</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Enables/disables deleting of record into the table</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$edit" title="details" class="var-name-summary">$edit</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Enables/disables updating of record into the table</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$fields" title="details" class="var-name-summary">$fields</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Field names and data types from the table</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$mtype" title="details" class="var-name-summary">$mtype</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Determines the type of accepting the input data. Can be POST or GET</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$primaryKey" title="details" class="var-name-summary">$primaryKey</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds the primary key for the table</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$serialKey" title="details" class="var-name-summary">$serialKey</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines if the primary key is serial (autoincrement)</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$successmsg" title="details" class="var-name-summary">$successmsg</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the message which will be send to client grid in case of succesfull</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$trans" title="details" class="var-name-summary">$trans</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">If true every CRUD is enclosed within begin transaction - commit/rollback</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$_addarray" title="details" class="var-name-summary">$_addarray</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores all the dataa need to perform SQL command after add is succesfull</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$_addarrayb" title="details" class="var-name-summary">$_addarrayb</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description"></td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$_delarray" title="details" class="var-name-summary">$_delarray</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores all the dataa need to perform SQL command after delete is succesfull</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$_delarrayb" title="details" class="var-name-summary">$_delarrayb</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description"></td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$_editarray" title="details" class="var-name-summary">$_editarray</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores all the dataa need to perform SQL command after edit is succesfull</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$_editarrayb" title="details" class="var-name-summary">$_editarrayb</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description"></td></tr>
+				</div>
+										</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+										| <a href="#sec-inherited">Inherited Properties and Methods</a>
+															| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+							    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+		</div>
+		<div class="info-box-body">
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+																																																																																																																																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#checkPrimary" title="details" class="method-name">checkPrimary</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Check for primary key and if not set try to obtain it  Return true on success</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#delete" title="details" class="method-name">delete</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Delete the data into the database according the table element</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#editGrid" title="details" class="method-name">editGrid</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Perform the all CRUD operations depending on the oper param send from the grid  and the table element  If the primaryKey is not set we try to obtain it using jqGridDB::getPrimaryKey  If the primary key is not set or can not be obtained the operation is aborted.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getFields" title="details" class="method-name">getFields</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the fields generated for CRUD operations</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getPrimaryKeyId" title="details" class="method-name">getPrimaryKeyId</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the primary key of the table</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#insert" title="details" class="method-name">insert</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Insert the data array into the database according to the table element.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setAfterCrudAction" title="details" class="method-name">setAfterCrudAction</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Run a sql command(s) after the operation from the CRUD is succefull.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setBeforeCrudAction" title="details" class="method-name">setBeforeCrudAction</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Run a sql command(s) before the operation from the CRUD.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setPrimaryKeyId" title="details" class="method-name">setPrimaryKeyId</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set a primary key for the table</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setSuccessMsg" title="details" class="method-name">setSuccessMsg</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set the message which will be send to client side grid when succefull CRUD  operation is performed. Usually afterSubmit event should be used in this case.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setTable" title="details" class="method-name">setTable</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set table for CRUD and build the fields</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#update" title="details" class="method-name">update</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Update the data into the database according the table element</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">true</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#_actionsCRUDGrid" title="details" class="method-name">_actionsCRUDGrid</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Executes the sql command after the crud is succefull</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolen</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#_buildFields" title="details" class="method-name">_buildFields</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Build the fields array with a database fields from the table.</td></tr>
+				</div>
+												</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Properties</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+										| <a href="#sec-inherited">Inherited Properties and Methods</a>
+										| <a href="#sec-var-summary">Property Summary</a> | <span class="disabled">Properties Detail</span>
+															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+												</div>
+		<div class="info-box-body">
+			<a name="var$add" id="$add"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$add</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 1954]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Enables/disables adding of record into the table
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$buildfields" id="$buildfields"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$buildfields</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 1944]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Tell the class if the fields should be get from the query.
+</strong></p>
+<span class="description"><p>If set to false the $fields array should be set manually in type  $fields = array(&quot;dbfield1&quot; =&gt; array(&quot;type&quot;=&gt;&quot;integer&quot;)...);</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$decodeinput" id="$decodeinput"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">booolen</span>&nbsp;&nbsp;
+			<span class="var-name">$decodeinput</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 1974]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Decodes the input for update and insert opeartions using the html_entity_decode
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$del" id="$del"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$del</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 1964]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Enables/disables deleting of record into the table
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$edit" id="$edit"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$edit</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 1959]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Enables/disables updating of record into the table
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$fields" id="$fields"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$fields</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 1909]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Field names and data types from the table
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$mtype" id="$mtype"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$mtype</span>
+			 = <span class="var-default"> &quot;POST&quot;</span>			<span class="smalllinenumber">[line 1969]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Determines the type of accepting the input data. Can be POST or GET
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$primaryKey" id="$primaryKey"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$primaryKey</span>
+						<span class="smalllinenumber">[line 1914]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds the primary key for the table
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$serialKey" id="$serialKey"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$serialKey</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 1936]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines if the primary key is serial (autoincrement)
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$successmsg" id="$successmsg"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$successmsg</span>
+			 = <span class="var-default"> &quot;&quot;</span>			<span class="smalllinenumber">[line 1920]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the message which will be send to client grid in case of succesfull
+</strong></p>
+<span class="description"><p>operation</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$trans" id="$trans"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$trans</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 1949]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>If true every CRUD is enclosed within begin transaction - commit/rollback
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$_addarray" id="$_addarray"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$_addarray</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 2049]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores all the dataa need to perform SQL command after add is succesfull
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$_addarrayb" id="$_addarrayb"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$_addarrayb</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 2050]</span>
+		</span>
+	</div>
+
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$_delarray" id="$_delarray"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$_delarray</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 2061]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores all the dataa need to perform SQL command after delete is succesfull
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$_delarrayb" id="$_delarrayb"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$_delarrayb</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 2062]</span>
+		</span>
+	</div>
+
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$_editarray" id="$_editarray"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$_editarray</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 2055]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores all the dataa need to perform SQL command after edit is succesfull
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$_editarrayb" id="$_editarrayb"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$_editarrayb</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 2056]</span>
+		</span>
+	</div>
+
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+										| <a href="#sec-inherited">Inherited Properties and Methods</a>
+															| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+																	| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+					</div>
+		<div class="info-box-body">
+			<a name='method_detail'></a>
+
+<a name="methodcheckPrimary" id="checkPrimary"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">checkPrimary</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2596]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolean checkPrimary(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Check for primary key and if not set try to obtain it  Return true on success
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">delete</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2482]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolean delete(
+
+$data, [
+$where = ''], [
+$params = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Delete the data into the database according the table element
+</strong></p>
+<span class="description"><p>A primaryKey should be set. If the key is not set It can be obtained  from jqGridDB::getPrimaryKey  Return true on success, false when the operation is not succefull</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$data:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> associative array which key values correspond to the  names in the delete command</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$where:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Todo:</strong>&nbsp;&nbsp;</td><td>possibility to set additional where clause</td>
+  </tr>
+</table>
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodeditGrid" id="editGrid"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">editGrid</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2631]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void editGrid(
+[
+$summary = null], [
+$params = null], [string
+$oper = false], [
+$echo = true]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Perform the all CRUD operations depending on the oper param send from the grid  and the table element  If the primaryKey is not set we try to obtain it using jqGridDB::getPrimaryKey  If the primary key is not set or can not be obtained the operation is aborted.
+</strong></p>
+<span class="description"><p>Also the method call the queryGrid to perform the grid ouput</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - set which columns should be sumarized in order to be displayed to the grid  By default this parameter uses SQL SUM function: array(&quot;colmodelname&quot;=&gt;&quot;sqlname&quot;);  It can be set to use the other one this way  array(&quot;colmodelname&quot;=&gt;array(&quot;sqlname&quot;=&gt;&quot;AVG&quot;));  By default the first field correspond to the name of colModel the second to  the database name</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> additional parameters that can be passed to the query</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$oper:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> if set the requested oper operation is performed without to check  the parameter sended from the grid.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$echo:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetFields" id="getFields"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">getFields</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2192]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>array getFields(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the fields generated for CRUD operations
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetPrimaryKeyId" id="getPrimaryKeyId"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getPrimaryKeyId</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1979]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string getPrimaryKeyId(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the primary key of the table
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodinsert" id="insert"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">insert</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2207]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolean insert(
+array
+$data&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Insert the data array into the database according to the table element.
+</strong></p>
+<span class="description"><p>A primaryKey should be set. If the key is not set It can be obtained  from jqGridDB::getPrimaryKey  Return true on succes, false otherwiese.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$data:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> associative array which key values correspond to the  names in the table.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Todo:</strong>&nbsp;&nbsp;</td><td>in the future we should return the last insert id from the table</td>
+  </tr>
+</table>
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetAfterCrudAction" id="setAfterCrudAction"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setAfterCrudAction</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2172]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setAfterCrudAction(
+string
+$oper, string
+$sql, [array
+$params = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Run a sql command(s) after the operation from the CRUD is succefull.
+</strong></p>
+<span class="description"><p>Can run a unlimited</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$oper:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the operation after which the command should be run</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sql:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the sql command</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> <ul><li>parameters passed to the sql query.</li></ul></span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetBeforeCrudAction" id="setBeforeCrudAction"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setBeforeCrudAction</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2148]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setBeforeCrudAction(
+string
+$oper, string
+$sql, [array
+$params = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Run a sql command(s) before the operation from the CRUD.
+</strong></p>
+<span class="description"><p>Can run a unlimited</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$oper:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the operation after which the command should be run</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sql:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the sql command</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> <ul><li>parameters passed to the sql query.</li></ul></span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetPrimaryKeyId" id="setPrimaryKeyId"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setPrimaryKeyId</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1987]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setPrimaryKeyId(
+string
+$keyid&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set a primary key for the table
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$keyid:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetSuccessMsg" id="setSuccessMsg"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setSuccessMsg</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1926]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setSuccessMsg(
+string
+$msg&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set the message which will be send to client side grid when succefull CRUD  operation is performed. Usually afterSubmit event should be used in this case.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$msg:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetTable" id="setTable"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setTable</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1996]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setTable(
+string
+$_newtable&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set table for CRUD and build the fields
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$_newtable:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodupdate" id="update"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">update</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2351]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolean update(
+array
+$data&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Update the data into the database according the table element
+</strong></p>
+<span class="description"><p>A primaryKey should be set. If the key is not set It can be obtained  from jqGridDB::getPrimaryKey  Return true on success, false when the operation is not succefull</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$data:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> associative array which key values correspond to the  names in the table</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Todo:</strong>&nbsp;&nbsp;</td><td>possibility to set additional where clause</td>
+  </tr>
+</table>
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="method_actionsCRUDGrid" id="_actionsCRUDGrid"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">_actionsCRUDGrid</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2068]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>true _actionsCRUDGrid(
+string
+$oper, 
+$event&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Executes the sql command after the crud is succefull
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$oper:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> can be add,edit,del</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$event:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>if ooperation is succefull.</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="method_buildFields" id="_buildFields"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">_buildFields</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 2006]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolen _buildFields(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Build the fields array with a database fields from the table.
+</strong></p>
+<span class="description"><p>Also we get the fields types  Return false if the fields can not be build.</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+
+        <div class="credit">
+		    <hr class="separator" />
+		    Documentation generated on Wed, 22 Jun 2011 14:57:48 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+TreeGrid support both nested and adjacency models. Here we demonstrate the nested model.
+To work with jqTreeGrid three field should be available - left, right and level.
+
+More about this model can be found here:
+http://dev.mysql.com/tech-resources/articles/hierarchical-data.html
+

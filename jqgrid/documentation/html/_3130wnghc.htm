@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Load all data at once</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Load all data at once
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">If the data that will be used for autocomplete is relative not big, then we can use the option to load it at once to the client and to to make requests to the server every time the user type in the autocomplete field. <p>Below is the example which demostartes this. We will use the index.php from the <a href="_3130wm032.htm" >Simple Autocomplete</a><p>One option will be added loadAll.<br>Note how the SelectCommand is written. In this case we do not need to have a where clause.<p>The autocomplete.php file is:<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the Database driver class (we will use PDO).</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+
+<span class="codecomment">// include the jqUtils Class. The class is needed in all jqSuite components.</span>
+require_once <span class="codestring">"php/jqUtils.php"</span>;
+
+<span class="codecomment">// include the jqAutocomplete Class</span>
+require_once <span class="codestring">"php/jqAutocomplete.php"</span>;
+
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// create autocomplete instance</span>
+$ac = <span class="programcontrol">new</span> jqAutocomplete($conn);
+<span class="codecomment">//write the select command</span>
+$ac-&gt;SelectCommand = <span class="codestring">"SELECT CompanyName FROM customers ORDER BY CompanyName"</span>;
+<span class="codecomment">// set the source from where to get data. In this case it is the same file.</span>
+$ac-&gt;setSource(<span class="codestring">"autocomplete.php"</span>);
+
+<span class="codecomment">// Tell the component to load all the data at once</span>
+$ac-&gt;loadAll = <span class="literals">true</span>;
+<span class="codecomment">// Enjoy</span>
+$ac-&gt;renderAutocomplete(<span class="codestring">"#company"</span>);
+?&gt;</div></pre><p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 09/15/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

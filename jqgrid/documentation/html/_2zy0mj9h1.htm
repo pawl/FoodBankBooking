@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Grouping with summary</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Grouping with summary
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Since version 3.8 we introduce a great new feature - <b>Grouping</b>. Grouping allow us to group a data by different criteria. Currently we can group only at one level.<p>It is important to note that grouping and grouping operatins are performed at client side and not at server. The only thing that should be considered is that the data should be sorted in a appropriate way from server - i.e - first on field (column) on which we want to group and then to the desired column. This is done automatically in the PHP component with the option groupDataSorted (see below).<p>In this example we demonstrate this feature.<p>Our goal is to group the Orders by Customer and then show a subtotal Freight for each Customer.<br>This can be done just with few lines of code and adding a summaryType to the Freight column.<p><br>Below is the code where every operation related to the grouping is explained.<p><br><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders'</span>;
+<span class="codecomment">// set the ouput format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid create the model from SQL query</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set alternate background using altRows property</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,50),
+    <span class="codestring">"height"</span>=&gt;<span class="codestring">'auto'</span>,
+<span class="codecomment">// Enable grouping</span>
+    <span class="codestring">"grouping"</span>=&gt;<span class="literals">true</span>,
+<span class="codecomment">// grouping options</span>
+    <span class="codestring">"groupingView"</span>=&gt;<span class="datatypes">array</span>(
+<span class="codecomment">// group by CustomerID</span>
+       <span class="codestring">"groupField"</span> =&gt; <span class="datatypes">array</span>(<span class="codestring">'CustomerID'</span>),
+<span class="codecomment">// show the grouped column</span>
+       <span class="codestring">"groupColumnShow"</span> =&gt; <span class="datatypes">array</span>(<span class="literals">true</span>),
+<span class="codecomment">// Bold the text at header </span>
+       <span class="codestring">"groupText"</span> =&gt;<span class="datatypes">array</span>(<span class="codestring">'&lt;b&gt;{0}&lt;/b&gt;'</span>),
+<span class="codecomment">// Tell the grid that it should sort the data on server in the appropriatre way</span>
+       <span class="codestring">"groupDataSorted"</span> =&gt; <span class="literals">true</span>,
+<span class="codecomment">// Allow summary footer to place a varios summary info</span>
+       <span class="codestring">"groupSummary"</span> =&gt; <span class="datatypes">array</span>(<span class="literals">true</span>)
+    ) 
+    ));
+<span class="codecomment">// Change some property of the field(s)</span>
+$grid-&gt;setColProperty(<span class="codestring">"OrderID"</span>, <span class="datatypes">array</span>(<span class="codestring">"label"</span>=&gt;<span class="codestring">"ID"</span>, <span class="codestring">"width"</span>=&gt;60));
+$grid-&gt;setColProperty(<span class="codestring">"OrderDate"</span>, <span class="datatypes">array</span>(
+    <span class="codestring">"formatter"</span>=&gt;<span class="codestring">"date"</span>,
+    <span class="codestring">"formatoptions"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"srcformat"</span>=&gt;<span class="codestring">"Y-m-d H:i:s"</span>,<span class="codestring">"newformat"</span>=&gt;<span class="codestring">"m/d/Y"</span>)
+    )
+);
+<span class="codecomment">// Add a summary property to the Freight Column</span>
+$grid-&gt;setColProperty(<span class="codestring">"Freight"</span>, <span class="datatypes">array</span>(<span class="codestring">"summaryType"</span>=&gt;<span class="codestring">"sum"</span>, summaryTpl=&gt;<span class="codestring">"Sum: {0}"</span>, <span class="codestring">"formatter"</span>=&gt;<span class="codestring">"number"</span>));
+<span class="codecomment">// Enjoy</span>
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/09/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

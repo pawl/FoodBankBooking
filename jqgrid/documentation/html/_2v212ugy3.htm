@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Simple Subgrid</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Simple Subgrid
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Simple Subgrid (only for viewing subgrid data) is supported throght the <b>querySubGrid</b> method. The method just outputs the data in format acceptable for the grid.<p><div class="topicname">Related Method(s)</div>querySubGrid<p><div class="topicname">Related variable(s)</div>SubgridCommand<br>dataType<p>Example:<br>Again using our <a href="_2v20q5hpg.htm" >example</a> let say that we want to display in subgrid the order details.<br>For this purpose we need first to enable subGrid with the appropriate parameters and create additional PHP file which will deliver the desired data to the subgrid.<p>The html file:<br><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html</span> xmlns=<span class="codestring">"http://www.w3.org/1999/xhtml"</span> xml:lang=<span class="codestring">"en"</span> <span class="attributes">lang=</span><span class="codestring">"en"</span>&gt;
+<span class="elements">&lt;head&gt;</span>
+<span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+<span class="elements">&lt;title&gt;</span>PHP jqGrid Class Example<span class="elements">&lt;/title&gt;</span> 
+
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui-1.7.1.custom.css"</span> /&gt;
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.jqgrid.css"</span> /&gt;
+
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery-1.3.2.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/i18n/grid.locale-en.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.jqGrid.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;
+jQuery(document).ready(function(){
+....
+// Craeate the grid manually
+jQuery(<span class="codestring">"#grid"</span>).jqGrid({
+<span class="codestring">"colModel"</span>:[
+     {<span class="codestring">"name"</span>:<span class="codestring">"OrderID"</span>,<span class="codestring">"index"</span>:<span class="codestring">"OrderID"</span>,<span class="codestring">"label"</span>:<span class="codestring">"ID"</span>,<span class="codestring">"width"</span>:60, <span class="codestring">"key"</span>:true},
+     {<span class="codestring">"name"</span>:<span class="codestring">"OrderDate"</span>,<span class="codestring">"index"</span>:<span class="codestring">"OrderDate"</span>},
+     {<span class="codestring">"name"</span>:<span class="codestring">"CustomerID"</span>,<span class="codestring">"index"</span>:<span class="codestring">"CustomerID"</span>},
+     {<span class="codestring">"name"</span>:<span class="codestring">"Freight"</span>,<span class="codestring">"index"</span>:<span class="codestring">"Freight"</span>},
+     {<span class="codestring">"name"</span>:<span class="codestring">"ShipName"</span>,<span class="codestring">"index"</span>:<span class="codestring">"ShipName"</span>}
+],
+<span class="codestring">"url"</span>:<span class="codestring">"querygrid.php"</span>,
+<span class="codestring">"datatype"</span>:<span class="codestring">"json"</span>,
+<span class="codestring">"jsonReader"</span>:{repeatitems:false},
+<span class="codestring">"pager"</span>:<span class="codestring">"#pager"</span>,
+
+// changes for the subgrid
+<span class="codestring">"subGrid"</span>: true,
+<span class="codestring">"subGridUrl"</span>: <span class="codestring">"subgrid.php"</span>,
+<span class="codestring">"subGridModel"</span> : [ {
+name: [<span class="codestring">'OrderID'</span>, <span class="codestring">'ProductID'</span>, <span class="codestring">'Quantity'</span>, <span class="codestring">'UnitPrice'</span>],
+params: [<span class="codestring">'OrderID'</span>]
+} ]
+// end of changes for subgrid
+
+});
+// Set navigator with search enabled.
+jQuery(<span class="codestring">"#grid"</span>).jqGrid(<span class="codestring">'navGrid'</span>,<span class="codestring">'#pager'</span>,{add:false,edit:false,del:false});
+......
+});
+<span class="elements">&lt;/script&gt;</span>
+
+<span class="elements">&lt;/head&gt;</span>
+<span class="elements">&lt;body&gt;</span>
+......
+<span class="elements">&lt;table</span> <span class="attributes">id=</span><span class="codestring">"grid"</span>&gt;<span class="elements">&lt;/table&gt;</span>
+<span class="elements">&lt;div</span> <span class="attributes">id=</span><span class="codestring">"pager"</span>&gt;<span class="elements">&lt;/div&gt;</span>
+.......
+<span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p>Note that we send additinal parameter OrderID  to the SubGrid url in order to identify which order to display.<br>Let create the new file named <b>subgrid.php</b> with the following content:<p><br><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">'php/jqGrid.php'</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">'php/jqGridPdo.php'</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8
+// Get the needed parameters passed from the main grid</span>
+$rowid = jqGridUtils::Strip($_REQUEST[<span class="codestring">"OrderID"</span>]);
+
+<span class="codecomment">// Create the base jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGrid($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SubgridCommand = <span class="codestring">"SELECT OrderID, ProductID, Quantity, UnitPrice FROM order_details WHERE orderID=?"</span>;
+<span class="codecomment">// set the ouput format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Use the build in function for the simple subgrid</span>
+$grid-&gt;querySubGrid(<span class="datatypes">array</span>(&amp;$rowid));
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 09/13/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

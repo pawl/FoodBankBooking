@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Methods</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Methods
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><div class="banner">void addElement( string $name, string $type, [array $aproperties = array()] )</div><p>Add a input element in elements array with name = $name of type = $type and properties = $aproperties<p>Parameters:<br><ul><li> string $name: the name of the input <br><li> string $type: the type of the input can be: select, textarea, submit, reset, button, input <br><li> array $aproperties: properties <br></ul><br>API Tags:<br>Access: public<p><br><div class="banner">void addEvent( string $field, string $event, string $code )</div><p><br>Add a javascript event = $event with code = $code for field = $field<p>Parameters:<br><ul><li> string $field: namre of the field <br><li> string $event: name of the event <br><li> string $code: java script code <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void addGroup( string $name, array $elemetnts, array $properties )</div><p>Add a group in the elements array with input elements and properties<p>Parameters:<br><ul><li> string $name: group name <br><li> array $elemetnts: array of input elements <br><li> array $properties: of the group <br></ul><p>API Tags:<br>Access: public<p><div class="banner">string createElement( string $name, string $type, array $prop )</div><p><br>Create a input element of type=$type name=$name and propertiies The method is used in renderForm to cretate the form elements based on the elemets optiins array<p>Parameters:<br><ul><li> string $name: the name of the element <br><li> string $type: the type of the input element <br><li> array $prop: valid HTML properties of the element <br></ul><p>API Tags:<br>Access: public<p><div class="banner">string createGroup( string $name, array $elements, [type $prop = null] )</div><p>Creates a group element with name = $name and properties = $properties, containing input elements (array)<p>Parameters:<br><ul><li> string $name: - the name of the group element <br><li> array $elements: - array of the elemets in the group <br><li> type $prop: properties of the group element <br></ul><p>API Tags:<br>Access: public<p><div class="banner">array getPrimaryKeyId( )</div><p><br>Return the primary key(s) of the table as array<p>API Tags:<br>Access: public<p><br><div class="banner">boolean insert( array $data )</div><p>Insert the data array into the database according to the table element. <br>Return true on succes, false otherwiese.<p>Parameters:<br><ul><li> array $data: associative array which key values correspond to the names in the table. <br></ul><p>API Tags:<br>Access: public<p><div class="banner">string renderForm( [ $params = null] )</div><p>The main method which should be called at end whenall other data for the form is prepared. The pethod perform constructiong of the form, obtaining data and save the data posted from the client.<p>Parameters:<br><ul><li> array $params: parameters for the select coomand <br></ul><p>API Tags:<br>Access: public<p><div class="banner">boolean save( array $data )</div><p>Automatically determines if the data posted from the form should be added or updated. The method use insert and update method for this purpose<p>Parameters:<br><ul><li> array $data: data to be saved into the table from the form post <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setAjaxOptions( array $aoptions )</div><p>Set the options for the ajax submit<p>Parameters:<br><ul><li> array $aoptions: options for the ajax submit <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setColumnLayout( [string $layout = 'twocolumn'] )</div><p>Set the layout of the form. Can be: onecolumn - we have label and below this label the input form element. <br>twocolumn - the leabel is at one column left and the data in another right<p>Parameters:<br><ul><li> string $layout: <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setConnection( resource $db )</div><p>Set the connection used for add/update of the form post and when get the certain data.<p>Parameters:<br><ul><li> resource $db: <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setFormFooter( string $content, [array $style = null] )</div><p>Set the form footer and properties.<p>Parameters:<br><ul><li> string $content: content to be set in the header <br><li> array $style: properties in the gheader <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setFormHeader( string $content, [string $icon = ""], [array $style = null] )</div><p>Set the form header and properties.<p>Parameters:<br><ul><li> string $content: content to be set in the header <br><li> string $icon: - icon name from UI Themeroller <br><li> array $style: properties in the gheader <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setFormProperties( string $name, [array $aproperties = array()] )</div><p>Set the form properties in the elements array.<p>Parameters:<br><ul><li> string $name: - the name of the form <br><li> array $aproperties: properties <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setJSCode( string $code )</div><p>Put a valid Java Script code after the form is rendered into the dom<p>Parameters:<br><ul><li> string $code: <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setPrimaryKeys( string $keys )</div><p>Set the primary key(s) for future using in add/update.<p>Parameters:<br><ul><li> string $keys: <br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setTableStyles( [string $table = ''], [string $label = ''], [string $data = ''] )</div><p>Set a common style for the table, labels and data input elements<p>Parameters:<br><ul><li> string $table: table properties<br><li> string $label: common label properties<br><li> string $data: common data properties<br></ul><p>API Tags:<br>Access: public<p><div class="banner">void setUrl( string $nurl )</div><p>Set the url from where to get data and add or update it.<p>Parameters:<br><ul><li> string $nurl: the new url<br></ul><p>API Tags:<br>Access: public<p><div class="banner">boolean update( array $data )</div><p>Update the data into the database according the table element A primaryKey should be set.<br>Parameters:<p><ul><li> array $data: associative array which key values correspond to the names in the table <br></ul><p>API Tags:<br>Access: public
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

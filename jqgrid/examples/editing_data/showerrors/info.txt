@@ -1,0 +1,3 @@
+As of version 4 it is possible to show the errors from the server at clien.
+This is achieved with showError parameter.
+In this case we entered a non existing table to update

@@ -1,0 +1,121 @@
+/* Template by freewebsitetemplates.com */
+
+body {
+	center 187px;
+	color: #585858;
+	font-family: Arial;
+	font-size: 14px;
+	margin: 0;
+	min-width: 960px;
+}
+
+#page {
+	center 180px;
+	width: 100%;	
+	background-color: #EDF5F9;
+}
+
+#header {
+	background-color: #EDF5F9; 
+	overflow: visible;
+	position: relative;
+	height: 174px;
+}
+
+#header div#section {
+	height: 139px;
+	margin: 0 auto;
+	width: 960px;
+}
+
+#header div#section div {
+	float: left;
+	margin-top: 30px;
+	color: #000000;
+}
+
+#content {
+	margin: 0 auto;
+	min-height: 400px;
+	overflow: visible;
+	position: relative;
+	width: 910px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #FFF;
+}
+
+#footer {
+	background-color: #EDF5F9;
+	min-height: 100px;
+	width: 100%;
+}
+
+#footer div {
+	font-size: 12px;
+	margin: 0 auto;
+    padding-top: 37px;
+	position: relative;
+    width: 960px;
+}
+
+#grid {
+	width: 1050px;
+}
+
+.success-msg {
+	display: block;
+	padding: 10px 10px 10px 35px;
+	background-color: #DBFFDC;
+	border: 1px solid #00BC3B;
+	border-top-width: 3px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin: 20px;
+	width: 450px;
+	text-align: left;
+	background-image: url(images/success.gif);
+	background-position: 5px 5px;
+	background-repeat: no-repeat;
+	margin-bottom: 10px;
+}
+
+.form-element {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #A6C9E2;
+	height: 28px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.form-dropdown {
+	padding-right: 0;
+	height: 28px;
+}
+
+.form-element:hover, select:hover {
+	background-color: #FF9;
+}
+
+
+.submit-btn {
+	moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+	font-weight: bold;
+	color: #2E6E9E;
+	font-size: 1.0em;
+	border: 1px solid #C5DBEC;
+	background: #DFEFFC 50% 50% repeat-x;
+	padding: .2em 1em;
+}
+
+.submit-btn:hover, focus { 
+	border: 1px solid #79b7e7;
+	background: #d0e5f5 50% 50% repeat-x;
+	font-weight: bold; 
+	color: #1d5987; 
+}

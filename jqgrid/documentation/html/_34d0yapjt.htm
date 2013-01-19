@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>events</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;events
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Events for the area. All events are a javascript functions.<p><br><table class="detailtable" width="96%"><tr>     <th>Event</th>  <th>Description</th></tr><tr>  <td><b>click</b></td>  <td>Fires when the series is clicked. The this keyword refers to the series object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts. Additionally, event.point holds a pointer to the nearest point on the graph.</td></tr><tr>  <td><b>checkboxClick </b></td>  <td>Fires when the checkbox next to the series' name in the legend is clicked.. The this keyword refers to the series object itself. One parameter, event, is passed to the function. The state of the checkbox is found by event.checked. Return false to prevent the default action which is to toggle the select state of the series.</td></tr><tr>  <td><b>hide</b></td>  <td>Fires when the series is hidden after chart generation time, either by clicking the legend item or by calling .hide(). </td></tr><tr>  <td><b>legendItemClick</b></td>  <td>Fires when the legend item belonging to the series is clicked. The this keyword refers to the series object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts. The default action is to toggle the visibility of the series. This can be prevented by returning false or calling event.preventDefault(). </td></tr><tr>  <td><b>mouseOver</b></td>  <td>Fires when the mouse enters the graph. The this keyword refers to the series object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts. </td></tr><tr>  <td><b>mouseOut</b></td>  <td>Fires when the mouse leaves the graph. The this keyword refers to the series object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts. If the stickyTracking option is true, mouseOut doesn't happen before the mouse enters another graph or leaves the plot area. </td></tr><tr><tr>  <td><b>show</b></td>  <td>Fires when the series is shown after chart generation time, either by clicking the legend item or by calling .show(). </td></tr><tr></table>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/08/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

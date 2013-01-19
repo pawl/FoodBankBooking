@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Java Script Methods</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Java Script Methods
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Below is the list of Java Script jqTreGrid methods. These methods can be either called with callGridMethod or setJSCode.<br>It is recommended to use these methods with setJSCode, since everey method requiere to have parameter record.<p>In the methods below, record means the current record, which can be obtained via the getLocalRow method like this: <br><pre><div class="csharpcode"><span class="programcontrol">var</span> record = jQuery(<span class="codestring">"#grid_id"</span>).jqGrid(<span class="codestring">'getLocalRow'</span>,rowid);</div></pre>where rowid is the id of the row andf grid_id is the id of the grid<p><br><TABLE WIDTH=100% BORDER=1 CELLPADDING=2 CELLSPACING=0>	<TR VALIGN=TOP>		<TH>			<P>Method</P>		</TH>		<TH  >			<P>Parameters</P>		</TH>		<TH  >			<P>Returns</P>		</TH>		<TH  >			<P>Description</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>collapseNode</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>grid object</P>		</TD>		<TD  >			<P ALIGN=LEFT>Collapse the node at specified record	</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>collapseRow</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>grid object</P>		</TD>		<TD  >			<P ALIGN=LEFT>Collapse the current row</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>delTreeNode</P>		</TD>		<TD  >			<P ALIGN=LEFT>rowid</P>		</TD>		<TD  >			<P ALIGN=LEFT>boolean</P>		</TD>		<TD  >			<P ALIGN=LEFT>Where rowid is the id of the row. Deletes the specified node and all child nodes of that node. Does not delete  the node in the server table</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>expandNode</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>grid object</P>		</TD>		<TD  >			<P ALIGN=LEFT>Expand the node at specified record	</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>expandRow</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>grid object</P>		</TD>		<TD  >			<P ALIGN=LEFT>Expand the current row</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>getNodeAncestors</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>array</P>		</TD>		<TD  >			<P ALIGN=LEFT>Returns array of the ancestors of the specified record</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>getNodeDepth</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>number</P>		</TD>		<TD  >			<P ALIGN=LEFT>Returns the depth of the specified record</P>		</TD>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>getNodeParent</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>array</P>		</TD>		<TD  >			<P ALIGN=LEFT>Returns the parent node of the specified record</P>		</TD>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>getNodeChildren</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>array</P>		</TD>		<TD  >			<P ALIGN=LEFT>Returns array of child nodes of the specified record; returns empty array if none </P>		</TD>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>getRootNodes</P>		</TD>		<TD  >			<P ALIGN=LEFT></P>		</TD>		<TD  >			<P ALIGN=LEFT>array</P>		</TD>		<TD  >			<P ALIGN=LEFT>Returns an array of the current root nodes.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>isNodeLoaded</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>boolean</P>		</TD>		<TD  >			<P ALIGN=LEFT>Returns true if the node is already loaded</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>isVisibleNode</P>		</TD>		<TD  >			<P ALIGN=LEFT>record</P>		</TD>		<TD  >			<P ALIGN=LEFT>boolean</P>		</TD>		<TD  >			<P ALIGN=LEFT>Returns true or false if the node is visible or not</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>setTreeRow</P>		</TD>		<TD  >			<P ALIGN=LEFT>rowid, data</P>		</TD>		<TD  >			<P ALIGN=LEFT>boolean</P>		</TD>		<TD  >			<P ALIGN=LEFT>Set a data in specifird rowid. Does not set it at server</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD  >			<P ALIGN=LEFT>SortTree</P>		</TD>		<TD  >			<P ALIGN=LEFT>name, direction</P>		</TD>		<TD  >			<P ALIGN=LEFT>grid object</P>		</TD>		<TD  >			<P ALIGN=LEFT>Direction is 'asc' (meaning ascending) or 'desc' (meaning descending); sorts the tree with the set name (sortname is from grid colModel option)</P>		</TD>	</TR></TABLE>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/21/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

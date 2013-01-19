@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Using array data like SQL</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Using array data like SQL
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">This example demonstrate that jqGrid can work with array data like it is SQL one.<br>For this purpose we have created a special jqGrid Array driver called jqGridArray.<br>The only what is needed in case of working with PHP array data is to include the driver,<br>create the array connection and from this point you can work with array with SQL commands:<p><br>Available SQL command:  <i>SELECT, DISTINCT, FROM, WHERE, ORDER BY, LIMIT, OFFSET </i><br>Operators available : <i>* =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;, !=, IS, IS IN, IS NOT, IS NOT IN, LIKE, ILIKE, NOT LIKE, NOT ILIKE  <br></i>Functions available in WHERE parameters : <i>LOWER(var), UPPER(var), TRIM(var) </i><p>Limitation: Currently CRUD operations are not available:<p>Below is a simple example which demonstrates this:<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'../../../jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once ABSPATH.<span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once ABSPATH.<span class="codestring">"php/jqGridArray.php"</span>;
+
+<span class="codecomment">// create the array connection</span>
+$conn = <span class="programcontrol">new</span> jqGridArray();
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Create a random array data</span>
+<span class="programcontrol">for</span> ($i = 0; $i &lt; 1000; $i++)
+{
+    $data1[$i][<span class="codestring">'id'</span>]    = $i+1;
+    $data1[$i][<span class="codestring">'foo'</span>]    = md5(rand(0, 10000));
+    $data1[$i][<span class="codestring">'bar'</span>]    = <span class="codestring">'bar'</span>.($i+1);
+}
+
+<span class="codecomment">// Always you can use SELECT * FROM data1</span>
+$grid-&gt;SelectCommand = <span class="codestring">"SELECT id, foo, bar FROM data1"</span>;
+
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+$grid-&gt;setPrimaryKeyId(<span class="codestring">'id'</span>);
+
+$grid-&gt;setColModel();
+<span class="codecomment">// Enable navigator
+</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"id"</span>
+));
+
+$grid-&gt;navigator = <span class="literals">true</span>;
+<span class="codecomment">// Enable search</span>
+$grid-&gt;setNavOptions(<span class="codestring">'navigator'</span>, <span class="datatypes">array</span>(<span class="codestring">"excel"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"add"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"edit"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"del"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"view"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"csv"</span>=&gt;<span class="literals">true</span>, <span class="codestring">"pdf"</span>=&gt;<span class="literals">true</span>));
+<span class="codecomment">// Activate single search</span>
+$grid-&gt;setNavOptions(<span class="codestring">'search'</span>,<span class="datatypes">array</span>(<span class="codestring">"multipleSearch"</span>=&gt;<span class="literals">false</span>));
+<span class="codecomment">// Enjoy
+</span>
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/24/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

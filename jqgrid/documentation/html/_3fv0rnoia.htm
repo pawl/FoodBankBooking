@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Configuring ODBC driver</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Configuring ODBC driver
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Before to work with ODBC, please be a sure that the library is installed in PHP and is working properly.<br>More information can be found here:<br>http://www.php.net/manual/en/book.uodbc.php<p>If the driver is installed you should also install the needed libraries for the appropriate database.<br>For example in order to connect from linux machine to the MS SQL server additional software shuld be installed.<p>1. Install ODBC library<br>2. Download and configure FreeTDS with-unixodbc<br>3. install php-odbc and unixODBC<br>4. Setup ODBC links<p>Currently jqGrid support the following databases with the ODBC driver:<p><ul><li> Microsoft SQL Server<br><li> MySQL<br><li> PostgreSQL<br><li> SQLite<br></ul><p>The only diference is that we need to pass a new parammeter to jqGrid instance defining the type of the database.<br>The databases have following name convention which should be passed to the instance in case of ODBC<p>Setup ODBC links<p>Microsoft SQL Server - sqlsrv<br>MySQL - mysql<br>PostgreSQL - pgsql<br>SQLite - sqlite<p>Below is example on connectiong to the MSSQL server.<br><pre><div class="csharpcode">&lt;?php
+....
+<span class="codecomment">//include the jqGrid Class</span>
+require_once <span class="codestring">"jqGrid.php"</span>;
+<span class="codecomment">// include the ODBC driver class</span>
+require_once <span class="codestring">"jqGridODBC.php"</span>;
+
+<span class="programcontrol">try</span> { 
+     <span class="codecomment">// connection</span>
+   $dbh = odbc_connect(<span class="codestring">"Driver={SQL Server Native Client 10.0};Server=MYSERVER;Database=MYDATABASE;"</span>, <span class="codestring">"user"</span>, <span class="codestring">"password"</span>);
+   
+} <span class="programcontrol">catch</span> (Exception $exception) {
+      echo $exception-&gt;getMessage();
+      exit;
+}
+
+<span class="codecomment">// Create the jqGrid instance passing the 'sqlsrv' as second parameter</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($dbh, <span class="codestring">'sqlsrv'</span>);
+
+...
+
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/24/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.2.0.0</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.2.0.0
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released 24, October 2011<p>This version is a major release where a lot of new features modules and classes are added.<p><h2>Additions</h2><p><br><h3>Added new module HTML5 jqForm Visual builder</h3>More can be found <a href="http://www.trirand.net/demo.aspx" target="top">here</a><p><br><h3>Added new class jqForm</h3>See documentatin on documentation page.<br>Demos can be found <a href="http://www.trirand.net/demoformphp.aspx" target="top">here</a><p><h3>jqGrid</h3><h4>Changes in PHP</h4><p><ul><li> Fix autocomplete when used with DB2 driver<br><li> Fix for DB2 driver when afterCrud operation is set<br><li> Add a separator in setSelect method<br><li> Fix dateFormatter in datepicker<br><li> Added new PDF option shrink_header (default false) in order to preserve the old behaviour<br></ul><p><h4>Changes in Java Script Code</h4><p><ul><li> jQuery 1.6.x cmpatible <br><li> Added header grouping <br><li> idPrefix parameter in the grid to allow not have duplicate id in data row ids in case of two or more grids.<br><li> if the beforeRequest event return false the ajax request can be canceled. <br><li> Added beforeProcessing event which raises immediatley after the successed ajax request and before executing the adding new data. <br><li> Adding Croatian localization <br><li> RTL support for the new searchFilter module <br><li> Controlling the positions and dimensions of alert dialog – adding the following parameters in navGrid method – alertwidth, alertheight, alerttop, alertleft. alertzIndex <br><li> Allow user to override request method for inline edits (GET,POST) – i.e added mtype parameter <br><li> Support for optgroup in inline edit <br></ul><p><h4>jqChart</h4><br><ul><li> Added useHTML option for most text related configuration objects.<br><li> Added softConnector option for pie data labels.<br><li> Added chart.selectionMarkerFill option.<br><li> Fixed issues with data label positioning for pies.<br><li> Fixed issue with tooltips covering point in certain cases.<br><li> Worked on memory leak issues.<br><li> Fixed issues as listed at GitHub under dates since the last maintenance version.<br><li> Rewrote data label positioning for pies.<br><li> Fixed issues as listed at GitHub under dates since the last maintenance version.<br><li> Added shadows for pies.<br><li> Exported charts now respect user set min and max after zoom and visibility option.<br><li> Added option series.connectNulls to connect line graphs through null points.<br><li> Added support for exporting image symbols in charts.<br><li> Added data labels for stack totals and improved positioning of column and bar data labels.<br><li> Fixed issues as listed at GitHub under dates since the last maintenance version.<br></ul><p><h4>jqScheduler</h4><p><ul><li> Add public local and templet paths<br><li> Fix seraching to work with different chartsets<br><li> Added option editable. If this option is set to true the scheduler is not editable and the user can not edit or add data<br><li> Added option multiple_cal. If this option is set to true it is possible to view the data in multiple calendar users.<br><li> Added option multiple_size. This option have effect only if multiple_cal is true and determineds the number of visble users in the select (multiple option in the select);<br><li> Added year view<br><li> Added a progress indicator which does not allow interactiong when the data is loaded <br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

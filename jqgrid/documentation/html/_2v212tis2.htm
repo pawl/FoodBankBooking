@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Export to Excel</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Export to Excel
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Exporting to Excel is another useful feature of jqGrid. It is important to note the the generated file is not plain CSV (comma separated values) file, but Microsoft Excel XML file. The reason for that is that in diffrent client machines the variables of type "Date" and "DateTime" and long numbers are not displayed correctly when CSV is used. Using XML file with the appropriate field types makes the file portable to all client machines without loss of information.<p>Moreover, when summary rows (footer formula) are used, the grid creates a formula and the summary fields are displayed at end of the file.<p>When this method is used within jqGrid and jqGridEdit classes they should be called separatley in order to perform the export.<br>When used in jqGridRender class everthing is done automatically when the export to excel is enabled.<p>Also when used separatley and you want to display diffrent header, width and hide some fields a colmodel array should be configured and passed as parameter to the method. If none is set in this case only column names are used<p>The array has the following structure and properties<br><pre>
+Array( 
+    [0]=&gt;Array("label"=&gt;"Some label", "width"=&gt;100, "hidden"=&gt;true, "name"=&gt;"colname"), 
+    [1]=&gt;Array(...),
+     ...
+);
+</pre><p>Where <p><ul><li> <i>label</i> is the header displayed for this field<br><li> <i>width</i> is the width in pixels<br><li> <i>hidden</i> (boolean) if set does not export this column<br><li> <i>name</i> is the name from column model<br></ul><p>If set the length of this array should be equal to the number of fields in the SQL command used.<p><div class="topicname">Related Methods</div>exportToExcel<br>renderGrid<p><div class="topicname">Related variable(s)</div>gSQLMaxRows<br>ExportCommand<p>Example:<br>Let suppose that when we export to excel we want to show additionally the ShipAddress and ShipCity and perform a summary on the field Freight. We will use again our example.<br>For this purpose we will first create a custom button in the navigator and use the build in method for this purpose excelExport. The method is avialble since version 3.6.3 of jqGrid Java Script lib. When used the method passes additinally a variable oper=excel to identify that we want a export to Excel.<p><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html</span> xmlns=<span class="codestring">"http://www.w3.org/1999/xhtml"</span> xml:lang=<span class="codestring">"en"</span> <span class="attributes">lang=</span><span class="codestring">"en"</span>&gt;
+<span class="elements">&lt;head&gt;</span>
+<span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+<span class="elements">&lt;title&gt;</span>PHP jqGrid Class Example<span class="elements">&lt;/title&gt;</span> 
+
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui-1.7.1.custom.css"</span> /&gt;
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.jqgrid.css"</span> /&gt;
+
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery-1.3.2.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/i18n/grid.locale-en.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.jqGrid.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;
+jQuery(document).ready(function(){
+....
+// Craeate the grid manually
+jQuery(<span class="codestring">"#grid"</span>).jqGrid({
+<span class="codestring">"colModel"</span>:[
+     {<span class="codestring">"name"</span>:<span class="codestring">"OrderID"</span>,<span class="codestring">"index"</span>:<span class="codestring">"OrderID"</span>,<span class="codestring">"label"</span>:<span class="codestring">"ID"</span>,<span class="codestring">"width"</span>:60, <span class="codestring">"key"</span>:true},
+     {<span class="codestring">"name"</span>:<span class="codestring">"OrderDate"</span>,<span class="codestring">"index"</span>:<span class="codestring">"OrderDate"</span>},
+     {<span class="codestring">"name"</span>:<span class="codestring">"CustomerID"</span>,<span class="codestring">"index"</span>:<span class="codestring">"CustomerID"</span>},
+     {<span class="codestring">"name"</span>:<span class="codestring">"Freight"</span>,<span class="codestring">"index"</span>:<span class="codestring">"Freight"</span>},
+     {<span class="codestring">"name"</span>:<span class="codestring">"ShipName"</span>,<span class="codestring">"index"</span>:<span class="codestring">"ShipName"</span>}
+],
+<span class="codestring">"url"</span>:<span class="codestring">"querygrid.php"</span>,
+<span class="codestring">"datatype"</span>:<span class="codestring">"json"</span>,
+<span class="codestring">"jsonReader"</span>:{repeatitems:false},
+<span class="codestring">"pager"</span>:<span class="codestring">"#pager"</span>
+});
+// Set navigator with search enabled.
+jQuery(<span class="codestring">"#grid"</span>).jqGrid(<span class="codestring">'navGrid'</span>,<span class="codestring">'#pager'</span>,{add:false,edit:false,del:false});
+
+// add custom button to export the data to excel
+jQuery(<span class="codestring">"#grid"</span>).jqGrid(<span class="codestring">'navButtonAdd'</span>,<span class="codestring">'#pager'</span>,{
+       caption:<span class="codestring">""</span>, 
+       onClickButton : function () { 
+           jQuery(<span class="codestring">"#grid"</span>).jqGrid(<span class="codestring">'excelExport'</span>,{<span class="codestring">"url"</span>:<span class="codestring">"querygrid.php"</span>});
+       } 
+});
+......
+});
+<span class="elements">&lt;/script&gt;</span>
+
+<span class="elements">&lt;/head&gt;</span>
+<span class="elements">&lt;body&gt;</span>
+......
+<span class="elements">&lt;table</span> <span class="attributes">id=</span><span class="codestring">"grid"</span>&gt;<span class="elements">&lt;/table&gt;</span>
+<span class="elements">&lt;div</span> <span class="attributes">id=</span><span class="codestring">"pager"</span>&gt;<span class="elements">&lt;/div&gt;</span>
+.......
+<span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p>In PHP code we will use ExportCommand to perform the export.<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the PDO driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGrid($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders'</span>;
+
+<span class="codecomment">// we want to export additinal data when excel</span>
+$grid-&gt;ExportCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, Freight, ShipName, ShipAddress, ShipCity FROM orders'</span>;
+
+$grid-&gt;dataType = <span class="codestring">"json"</span>;
+
+<span class="codecomment">// now we should check whenever a export is lunched</span>
+$export = $_POST[<span class="codestring">'oper'</span>];
+
+<span class="programcontrol">if</span>($export == <span class="codestring">'excel'</span>)
+    <span class="codecomment">// let set summary field</span>
+   $grid-&gt;exportToExcel(<span class="datatypes">array</span>(<span class="codestring">'Freight'</span>=&gt;<span class="codestring">'Freight'</span>));
+<span class="programcontrol">else</span> 
+   $grid-&gt;queryGrid();
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 05/31/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

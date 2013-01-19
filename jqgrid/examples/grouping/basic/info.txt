@@ -1,0 +1,6 @@
+You can group rows in the grid by a particular column (field). Just add a groupField to the groupingView collection.
+
+There are numerous properties you can customize in each Group Field:
+groupField - the column used for grouping
+groupText - the text used for grouping. You can pass the value of the DataField using the {0} argument
+groupColumnShow - whether to show the grouping column in the grid or not

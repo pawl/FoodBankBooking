@@ -1,0 +1,2 @@
+As from version 4.4.0 we support grouping on more than one column.
+You will need just to extend the groupField array with more fields

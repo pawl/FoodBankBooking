@@ -1,0 +1,6 @@
+By default jqForm class and jqForm Visual builder are designed so that they
+are HTML5 ready.
+Using HTML5 extend incredible the forms and make programming very easy.
+One useful feature is so named placeholder.
+Using this we can inform the user what for field is this and etc.
+This is done just with setting placeholder attribute in the input field

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Methods</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Methods
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><div class="banner">getOption( string $option  )</div><p>Return the the requested option of the datepicker<br>Parameters:<br><ul><li> string   	$option:  	- the requested option or event.<br></ul><br>API Tags:<br>Access:  	public<p><div class="banner">renderCalendar( string $element, [boolean $script = true], [boolean $echo = true]  )</div><p>Main method which do everthing for the datepicker. Should be called after all settings are done. <p>Parameters:<br><ul><li> string   	$element:  	The DOM element on which datepicker should be applied<br><li> boolean   	$script:  	- if set to false the script tag: &lt;script type='text/javascript'&gt; will not be included.<br><li> boolean   	$echo:  	if set to false the result is not echoed but returned<br></ul><br>API Tags:<br>Access:  	public<p><div class="banner">setEvent( string $event, string $code  )</div><p>Set a JavaScript event for the datepicker<br>Parameters:<br><ul><li> string   	$event the event name  	<br><li> string   	$code Javascript code:  	<br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">setOption( string $option, [mixed $value = null]  )</div><p>Set the desired option for datepicker.<br>Parameters:<br>string   	$option option name   	<br>mixed   	$value:  	<p>API Tags:<br>Access:  	public<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 09/15/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

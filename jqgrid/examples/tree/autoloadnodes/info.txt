@@ -1,0 +1,4 @@
+Autoload nodes is a way to show quick  tree items. In this case all the nodes are
+collapsed and we load only the needed data (when click on item)
+This is the default behaviour
+

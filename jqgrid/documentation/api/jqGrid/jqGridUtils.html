@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Docs For Class jqGridUtils</title>
+	<link rel="stylesheet" type="text/css" href="../media/style.css">
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+	<td class="header-top-left"><img src="../media/logo.png" border="0" alt="phpDocumentor " /></td>
+    <td class="header-top-right">jqGrid<br /><div class="header-top-right-subpackage"></div></td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td colspan="2" class="header-menu">
+      
+                        
+                                                                              		[ <a href="../classtrees_jqGrid.html" class="menu">class tree: jqGrid</a> ]
+		[ <a href="../elementindex_jqGrid.html" class="menu">index: jqGrid</a> ]
+            [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="195" class="menu">
+		<div class="package-title">jqGrid</div>
+  <div class="package">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+	</div>
+      <b>Packages:</b><br />
+  <div class="package">
+              <a href="../li_jqGrid.html">jqGrid</a><br />
+              <a href="../li_jqAutocomplete.html">jqAutocomplete</a><br />
+              <a href="../li_jqChart.html">jqChart</a><br />
+              <a href="../li_jqScheduler.html">jqScheduler</a><br />
+              <a href="../li_jqTreeGrid.html">jqTreeGrid</a><br />
+      	</div>
+      <br />
+                        <b>Files:</b><br />
+        <div class="package">
+				<span style="padding-left: 1em;"><a href="../jqGrid/_jqCalendar.php.html">jqCalendar.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../jqGrid/_jqGrid.php.html">jqGrid.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../jqGrid/_jqUtils.php.html">jqUtils.php</a></span><br />
+	  </div>
+            <br />
+                  <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../jqGrid/jqCalendar.html">jqCalendar</a>    	 <br />
+	    		<a href="../jqGrid/jqGrid.html">jqGrid</a>    	 <br />
+	    		<a href="../jqGrid/jqGridEdit.html">jqGridEdit</a>    	 <br />
+	    		<a href="../jqGrid/jqGridRender.html">jqGridRender</a>    	 <br />
+	    		<a href="../jqGrid/jqGridUtils.html">jqGridUtils</a>    	 <br />
+	    		<a href="../jqGrid/Session.html">Session</a>    	 <br />
+	    		<a href="../jqGrid/SimpleXMLExtended.html">SimpleXMLExtended</a>    	 <br />
+	    		<a href="../jqGrid/Template.html">Template</a>    	 <br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: jqGridUtils</h1>
+Source Location: /jqUtils.php<br /><br />
+
+<h2 class="class-name">Class jqGridUtils</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Class Overview</div>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span>
+						
+													| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								</div>
+	<div class="info-box-body">
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+        		
+		<p class="notes">
+			Located in <a class="field" href="_jqUtils.php.html">/jqUtils.php</a> [<span class="field">line 17</span>]
+		</p>
+
+		
+		<pre></pre>
+
+		
+				<strong>Author(s):</strong>
+		<ul>
+		  			 			 <li>Tony Tomov, (tony@trirand.com)</li>
+			 		  			 		  			 		  		</ul>
+		
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td>Helper functions for the jqGrid package</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td><strong>Copyright:</strong>&nbsp;&nbsp;</td><td>TriRand Ltd</td></tr>
+	</table>
+		</td>
+
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodarray_extend">array_extend</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methoddate_parse">date_parse</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methoddecode">decode</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodencode">encode</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodgeneratePattern">generatePattern</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodGetParam">GetParam</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodparseDate">parseDate</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodphpTojsDate">phpTojsDate</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodquote">quote</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodsprintfn">sprintfn</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodStrip">Strip</a></li>
+		  		  <li><a href="../jqGrid/jqGridUtils.html#methodtoXml">toXml</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+	</div>
+</div>
+
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+									    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+		</div>
+		<div class="info-box-body">
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+												<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">array</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#array_extend" title="details" class="method-name">array_extend</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">&quot;Extend&quot; recursively array $a with array $b values (no deletion in $a, just added and updated values)</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">array</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#date_parse" title="details" class="method-name">date_parse</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Converts the string date to array by using the pattern generated by generatePattern() function</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">array</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#decode" title="details" class="method-name">decode</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Decodes json string to PHP array. The function is used</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">string</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#encode" title="details" class="method-name">encode</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Encodes a PHP variable into javascript representation.</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">string</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#generatePattern" title="details" class="method-name">generatePattern</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Internal function which generates regex pattern from date pattern</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">mixed</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#GetParam" title="details" class="method-name">GetParam</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the value from POST or from GET</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">mixed</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#parseDate" title="details" class="method-name">parseDate</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Parses a $format and $date value and return the date formated via $newformat.</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">void</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#phpTojsDate" title="details" class="method-name">phpTojsDate</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Convert the php date string to Java Script date string</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">string</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#quote" title="details" class="method-name">quote</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Quotes a javascript string.</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">string|false</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#sprintfn" title="details" class="method-name">sprintfn</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">version of sprintf for cases where named arguments are desired (php syntax)</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">mixed</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#Strip" title="details" class="method-name">Strip</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Strip slashes from a varaible if PHP magic quotes are on</td></tr>
+				</div>
+																<div class="method-definition">
+					<tr><td class="method-definition">static
+											<span class="method-result">string</span>&nbsp;&nbsp;
+					</td>
+					<td class="method-definition"><a href="#toXml" title="details" class="method-name">toXml</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Function for converting to an XML document.</td></tr>
+				</div>
+																																																																																																																</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+																			| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+					</div>
+		<div class="info-box-body">
+			<a name='method_detail'></a>
+<a name="methodarray_extend" id="array_extend"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method array_extend</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 363]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static array array_extend(
+array
+$a, array
+$b&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>&quot;Extend&quot; recursively array $a with array $b values (no deletion in $a, just added and updated values)
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$a:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$b:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methoddate_parse" id="date_parse"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method date_parse</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 239]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static array date_parse(
+string
+$dateformat, string
+$date, boolean
+$localize&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Converts the string date to array by using the pattern generated by generatePattern() function
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$dateformat:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$date:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$localize:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methoddecode" id="decode"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method decode</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 159]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static array decode(
+string
+$json&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Decodes json string to PHP array. The function is used
+</strong></p>
+<span class="description"><p>when the encoding is diffrent from utf-8</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$json:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> string to decode</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodencode" id="encode"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method encode</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 107]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static string encode(
+mixed
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Encodes a PHP variable into javascript representation.
+</strong></p>
+<span class="description"><p>Example:  <pre> $options=array('key1'=>true,'key2'=>123,'key3'=>'value');
+ echo jqGridUtils::encode($options);
+ // The following javascript code would be generated:
+ // {'key1':true,'key2':123,'key3':'value'}</pre></p><p>For highly complex data structures use jsonEncode and jsonDecode  to serialize and unserialize.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">mixed</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$value:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> PHP variable to be encoded</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>the encoded string</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgeneratePattern" id="generatePattern"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method generatePattern</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 212]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static string generatePattern(
+string
+$dateformat&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Internal function which generates regex pattern from date pattern
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$dateformat:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodGetParam" id="GetParam"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method GetParam</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 346]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static mixed GetParam(
+string
+$parameter_name, [string
+$default_value = &quot;&quot;]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the value from POST or from GET
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$parameter_name:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$default_value:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodparseDate" id="parseDate"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method parseDate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 333]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static mixed parseDate(
+string
+$patternFrom, string
+$date, [string
+$patternTo = '']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Parses a $format and $date value and return the date formated via $newformat.
+</strong></p>
+<span class="description"><p>If the $patternTo is not set return the timestamp.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$patternFrom:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the format of the date to be parsed</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$date:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the value of the data.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$patternTo:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the new format of the $date</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodphpTojsDate" id="phpTojsDate"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method phpTojsDate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 382]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static void phpTojsDate(
+string
+$phpdate&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Convert the php date string to Java Script date string
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$phpdate:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodquote" id="quote"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method quote</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 82]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static string quote(
+string
+$js, [boolean
+$forUrl = false]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Quotes a javascript string.
+</strong></p>
+<span class="description"><p>After processing, the string can be safely enclosed within a pair of  quotation marks and serve as a javascript string.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$js:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> string to be quoted</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$forUrl:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> whether this string is used as a URL</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>the quoted string</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsprintfn" id="sprintfn"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method sprintfn</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 447]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static string|false sprintfn(
+string
+$format, [
+$args = array()]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>version of sprintf for cases where named arguments are desired (php syntax)
+</strong></p>
+<span class="description"><p>with sprintf: sprintf('second: %2$s ; first: %1$s', '1st', '2nd');</p><p>with sprintfn: sprintfn('second: %second$s ; first: %first$s', array(   'first' =&gt; '1st',   'second'=&gt; '2nd'  ));</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$format:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> sprintf format string, with any number of named arguments</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$args:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> array of [ 'arg_name' =&gt; 'arg value', ... ] replacements to be made</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>result of sprintf call, or bool false on error</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodStrip" id="Strip"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">static method Strip</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 186]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static mixed Strip(
+mixed
+$value&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Strip slashes from a varaible if PHP magic quotes are on
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">mixed</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$value:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> to be striped</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodtoXml" id="toXml"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">static method toXml</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 28]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>static string toXml(
+array
+$data, [string
+$rootNodeName = 'root'], [SimpleXMLElement
+$xml = null], [
+$encoding = 'utf-8'], [
+$cdata = false]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Function for converting to an XML document.
+</strong></p>
+<span class="description"><p>Pass in a multi dimensional array or object and this recrusively loops through and builds up an XML document.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$data:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$rootNodeName:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - what you want the root node to be - defaultsto data.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">SimpleXMLElement</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$xml:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - should only be used recursively</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$encoding:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$cdata:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>XML</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+
+		</div>
+	</div>
+
+
+        <div class="credit">
+		    <hr class="separator" />
+		    Documentation generated on Wed, 22 Jun 2011 14:57:51 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

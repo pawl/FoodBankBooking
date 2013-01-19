@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Quick Install</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Quick Install
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Download and unzip the contents of the archive to any convenient location. The package contains the following folders:<p>- <b>[php]</b> - Contains the jqForm PHP class and the optional driver files for the appropriate database. <br>- <b>[themes]</b> - Contains the themes shipped with the product. Since jqForm supports jQuery UI Themeroller, any theme compatible with jQuery UI ThemeRoller will work for jqForm as well. Therefore, the package contains just one theme ("Redmond"). You can download any additional themes directly from jQuery UI's ThemeRoller site available here:<p><a href="http://jqueryui.com/themeroller/" target="top">http://jqueryui.com/themeroller/</a><p>Just add "Redmond" theme in your PHP/HTML file.<p>&lt;link rel="stylesheet" type="text/css" href="themes/redmond/jquery-ui.custom.css" /&gt;<p>- <b>[js]</b> - The javascript files of jqForm (and the needed libraries). You need to include them in your PHP page.<p>The first file is "jquery.js" - this is the official jQuery library.<br>The second file is "jquery.jqForm.js" - this is the jqForm specific libraray. <br>The third file is "jquery.form.js" - this is the jqquery form plugin. <br>The final result you will have in an PHP page containing jqForm would be something similar to that:<p><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html</span> xmlns=<span class="codestring">"http://www.w3.org/1999/xhtml"</span> xml:lang=<span class="codestring">"en"</span> <span class="attributes">lang=</span><span class="codestring">"en"</span>&gt;
+<span class="elements">&lt;head&gt;</span>
+<span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+<span class="elements">&lt;title&gt;</span>My First PHP jqForm <span class="elements">&lt;/title&gt;</span> 
+
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui.custom.css"</span> /&gt;
+
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.jqForm.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.form.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+
+<span class="elements">&lt;/head&gt;</span>
+<span class="elements">&lt;body&gt;</span>
+......
+&lt;?php include <span class="codestring">"firstform.php"</span>;?&gt;
+.......
+<span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p>Save the file as myform.php or any desired name in the root directory and then create a file firstform.php with the following content.<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// Include classes </span>
+include_once <span class="codestring">'php/jqUtils.php'</span>; 
+include_once <span class="codestring">'php/jqForm.php'</span>; 
+<span class="codecomment">// Create instance </span>
+$myform = <span class="programcontrol">new</span> jqForm();
+<span class="codecomment">// Set Form properties</span>
+$myform-&gt;setFormProperties(<span class="codestring">'myform'</span>,<span class="datatypes">array</span>(<span class="codestring">'method'</span> =&gt; <span class="codestring">'post'</span>, <span class="codestring">'id'</span> =&gt; <span class="codestring">'myform'</span>));
+<span class="codecomment">// Set url</span>
+$myform-&gt;setUrl(<span class="codestring">'firstform.php'</span>);
+<span class="codecomment">// Set Form header </span>
+$myform-&gt;setFormHeader(<span class="codestring">'Address Details'</span>,<span class="codestring">'ui-icon-pencil'</span>);
+<span class="codecomment">// Set Form layout </span>
+$myform-&gt;setColumnLayout(<span class="codestring">'twocolumn'</span>);
+$myform-&gt;setTableStyles(<span class="codestring">''</span>,<span class="codestring">'padding-top: 3px'</span>,<span class="codestring">'padding-top: 3px'</span>);
+<span class="codecomment">// Add elements</span>
+$myform-&gt;addElement(<span class="codestring">'name'</span>,<span class="codestring">'text'</span>, <span class="datatypes">array</span>(<span class="codestring">'label'</span> =&gt; <span class="codestring">'Name'</span>, <span class="codestring">'size'</span> =&gt; <span class="codestring">'40'</span>, <span class="codestring">'id'</span> =&gt; <span class="codestring">'myform_name'</span>));
+$myform-&gt;addElement(<span class="codestring">'email'</span>,<span class="codestring">'email'</span>, <span class="datatypes">array</span>(<span class="codestring">'label'</span> =&gt; <span class="codestring">'E-mail'</span>, <span class="codestring">'size'</span> =&gt; <span class="codestring">'40'</span>, <span class="codestring">'id'</span> =&gt; <span class="codestring">'myform_email'</span>));
+$myform-&gt;addElement(<span class="codestring">'address'</span>,<span class="codestring">'text'</span>, <span class="datatypes">array</span>(<span class="codestring">'label'</span> =&gt; <span class="codestring">'Address'</span>, <span class="codestring">'size'</span> =&gt; <span class="codestring">'40'</span>, <span class="codestring">'id'</span> =&gt; <span class="codestring">'myform_address'</span>));
+$myform-&gt;addElement(<span class="codestring">'tel'</span>,<span class="codestring">'tel'</span>, <span class="datatypes">array</span>(<span class="codestring">'label'</span> =&gt; <span class="codestring">'Telephone'</span>, <span class="codestring">'required'</span> =&gt; <span class="codestring">'1'</span>, <span class="codestring">'id'</span> =&gt; <span class="codestring">'myform_tel'</span>));
+$elem_5[]=$myform-&gt;createElement(<span class="codestring">'newSubmit'</span>,<span class="codestring">'submit'</span>, <span class="datatypes">array</span>(<span class="codestring">'value'</span> =&gt; <span class="codestring">'Submit'</span>, <span class="codestring">'id'</span> =&gt; <span class="codestring">'newSubmit'</span>));
+$myform-&gt;addGroup(<span class="codestring">"newGroup"</span>,$elem_5, <span class="datatypes">array</span>(<span class="codestring">'style'</span> =&gt; <span class="codestring">'text-align:right;'</span>, <span class="codestring">'id'</span> =&gt; <span class="codestring">'myform_newGroup'</span>));
+<span class="codecomment">// Render the form </span>
+echo $myform-&gt;renderForm($jqformparams);
+?&gt;</div></pre><p>Run the file myform.php from your web browser. All subsequent requests will be forwarded back to the "firstform.php" file and the component will automatically handle the requests and provide the needed operation - no need for custom coding.<p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

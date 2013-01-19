@@ -1,0 +1,3 @@
+Cell formatters are a set of predefined formatters that can be applied to cells. They will format the cell text on the client-side and present it in a specific way. The list of currently available cell formatters includes <b>Integer</b>, <b>Number</b>, <b>Currency</b>, <b>CheckBox</b>, <b>Link</b> and <b>Mail</b>.
+
+Each formatter comes with its own set of properties, e.g. thousands separator, decimal places, target for links, etc. Please, take a look at the PHP tab for samples.

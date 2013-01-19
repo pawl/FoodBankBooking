@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Custom Formatters</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Custom Formatters
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><h3>Formatting</h3><p>You can define your own formatter for a particular column. Usually this is a function. The code written is in Java Script. <br>The definition of custom function should be done in the current jQuery scope in order to be visible or included from javascript file in the head section of the document.<p>Below is a example:<p><br><pre><div class="htmlcode">&lt;?php
+...
+
+$grid -&gt;setColProperty(<span class="codestring">'field'</span>, array(<span class="codestring">"formatter"</span>=&gt;<span class="codestring">"js:currencyFormatter"</span>));
+
+
+$customCode = <&lt; CUSTOM
+
+function currencyFmatter (cellvalue, options, rowObject)
+{
+   // do something here
+   return new_format_value
+}
+CUSTOM;
+
+
+$grid-&gt;setJSCode( $customCode );
+...
+
+?&gt;</div></pre><p><br>To the custom formatter are passed the following parameters:<p><pre><div class="htmlcode">function myformatter ( cellvalue, options, rowObject )
+{
+// format the cellvalue to new format
+return new_formated_cellvalue;
+}</div></pre><p><div class="notebox">Note the return in the function. This function should always return a value in order to work correctly.</div><p><ul><li> cellvalue - is the value to be formatted<br><li> options - is an object containing the following element<br><li>         options : { rowId: rid, colModel: cm} where <b>rowId</b> - is the id of the row <b>colModel</b> is the object of the properties for this column getted from colModel array of jqGrid<br><li> rowObject - is a row data represented in the format determined from datatype option. If we have datatype: xml/xmlstring - the rowObject is xml node,provided according to the rules from xmlReader If we have datatype: json/jsonstring - the rowObject is array, provided according to the rules from jsonReader<br></ul><p><h3>Unformatting</h3><p>As mentioned in Predefined Formatter chapter all predefined types are compatible with the editing modules. This means that the numbers, links, e-mails, etc., are converted so that they can be edited correctly. Also the methods (like getRowData and getCell) that get data, used this unformat in order to get the original value. The question is: What to do if we use a custom formatter function and want to to have the original value back if we use editing or methods getRowData and getCell?<p>The answer is: You can use your own custom unformatter function to do that. This function can be used in colModel<p><br><pre><div class="htmlcode">&lt;?php
+...
+
+$grid -&gt;setColProperty(<span class="codestring">'field'</span>, array(<span class="codestring">"formatter"</span>=&gt;<span class="codestring">"js:currencyFormatter"</span>, <span class="codestring">"unformat"</span>=&gt;<span class="codestring">"js:unformatCurrency"</span>));
+
+
+$customCode = <&lt; CUSTOM
+
+function currencyFmatter (cellvalue, options, rowObject)
+{
+   // do something here
+   return new_format_value
+}
+
+function  unformatCurrency (cellvalue, options, cell)
+{
+ 
+   return cellvalue.replace(<span class="codestring">"$"</span>,<span class="codestring">""</span>);
+}
+CUSTOM;
+
+
+$grid-&gt;setJSCode( $customCode );
+...
+
+?&gt;</div></pre><p><br>To the custom unformat function are passed the following parameters:<p><ul><li> cellvalue - is the value to be unformated (pure text).<br><li> options - is an object containing the following element<br>          options : { rowId: rid, colModel: cm} where rowId - is the id of the row colModel is the object of the properties for this column getted from colModel array of jqGrid<br><li> cell - is a jQuery cell object. This object can be used to obtain different things from the cell element - by example jQuery(cellobject).html() can be used to get the html content instead of the text.<br></ul><p><h3>Events</h3><p>Because of the nature of the formatter events attached to the values in the cell can not use the jQuery syntax directly. A way to attach event is to use the gridComplete event where all data is loaded and we can attach events. Bellow we will demonstarte how to attach a click event.<p><br><pre><div class="htmlcode">&lt;?php
+...
+
+$grid -&gt;setColProperty(<span class="codestring">'field'</span>, array(<span class="codestring">"formatter"</span>=&gt;<span class="codestring">"js:currencyFormatter"</span>, <span class="codestring">"unformat"</span>=&gt;<span class="codestring">"js:unformatCurrency"</span>));
+
+
+$customCode = <&lt; CUSTOM
+
+ 
+function currencyFmatter (cellvalue, options, rowObject)
+{
+   var id = options.rowId;
+   return <span class="codestring">"&lt;span class='myclass' rowid='"</span>+id+<span class="codestring">"'&gt;$"</span>+cellValue+<span class="codestring">"&lt;/span&gt;"</span>; 
+}
+
+function  unformatCurrency (cellvalue, options, cell)
+{
+ 
+   return $(cell).text().replace(<span class="codestring">"$"</span>,<span class="codestring">""</span>);
+}
+CUSTOM;
+
+$complete = <&lt; COMPL
+function()
+{
+    $(<span class="codestring">".myclass"</span>).bind(<span class="codestring">'click'</span>,function( e ) {
+        var theid = $(this).attr(<span class="codestring">'rowid'</span>);
+        alert(<span class="codestring">'rowId='</span>+theid+<span class="codestring">' cell value'</span>+$(this).text());
+    });
+}
+COMPL;
+
+$grid-&gt;setJSCode( $customCode );
+$grid-&gt;setGridEvent( <span class="codestring">'gridComplete'</span>, $complete );
+...
+
+?&gt;</div></pre><p></CODE>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/10/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

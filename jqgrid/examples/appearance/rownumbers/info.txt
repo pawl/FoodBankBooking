@@ -1,0 +1,3 @@
+You can control a large number of appearance related options using the <b>setGridOption</b> property collection. In this example we take advantage of Showing Row Numbers <b>rownumbers</b> to toggle whether we like to see the index of the rows or not.
+
+You can control the width of the show row numbers columns by settings the <b>rownumWidth</b> property (default is 25).

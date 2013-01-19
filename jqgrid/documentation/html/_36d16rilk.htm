@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Nested set model</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Nested set model
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Nested Set is a solution for storing hierarchical data that provides very fast read access. However, updating nested set trees is more costly. Therefore this solution is best suited for hierarchies that are much more frequently read than written to. And because of the nature of the web, this is the case for most web applications.<br>For more detailed information on the Nested Set, read here:<br><a href="http://www.sitepoint.com/article/hierarchical-data-database/2" target="top">http://www.sitepoint.com/article/hierarchical-data-database/2</a><br><a href="http://dev.mysql.com/tech-resources/articles/hierarchical-data.html" target="top">http://dev.mysql.com/tech-resources/articles/hierarchical-data.html<br></a><p><br>In order to work the nested set model in jqTreeGrid is requiered to have three field - left , right and level.<p><pre><div class="htmlcode">$tableconfigarray = array(<span class="codestring">"left"</span>=&gt;<span class="codestring">"lft"</span>, <span class="codestring">"right"</span>=&gt;<span class="codestring">"rgt"</span>, <span class="codestring">"level"</span>=&gt;<span class="codestring">"level"</span>, <span class="codestring">"id"</span>=&gt;<span class="codestring">"id"</span>)</div></pre><p>Another requirments is to have uniquie id in the table and in most cases this id is requiered to be serial (autoincremet) integer field.<br>For this purpose the id field should be set to. It is not neccesary to set this field if it is set as primary and serial in the tree grid definitions.<p>Two methods are connected with these settings<p><b>$tree-&gt;setTreeMode('nested')</b> - sets the tree model<p>and<p><b>$tree-&gt;setTableConfig(array(....));</b> set the system fields for the tree.<p>By example if the table that holds the tree data is called nested_category and the id primary autoincremented field is called account_id and the other system fields have the default names, the following example prepares correct the tree grid:<p><pre><div class="htmlcode">&lt;?php 
+...
+// set the table and primary key 
+$tree-&gt;table = <span class="codestring">'nested_category'</span>; 
+$tree-&gt;setPrimaryKeyId(<span class="codestring">'category_id'</span>); 
+// set model 
+$tree-&gt;setTreeModel(<span class="codestring">'nested'</span>); 
+//set the table configuration
+$tree-&gt;setTableConfig(array(<span class="codestring">'id'</span>=&gt;<span class="codestring">'category_id'</span>, <span class="codestring">'left'</span>=&gt;<span class="codestring">'lft'</span>, <span class="codestring">'right'</span>=&gt;<span class="codestring">'rgt'</span>, <span class="codestring">'level'</span>=&gt;<span class="codestring">'level'</span>)); 
+
+...
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/21/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,4 @@
+We can configure the tree grid to look like tree. In this example we enabled key navigation.
+
+To achieve this we just disable the cell border and we hide the header.
+Also a frame border can be removed too.

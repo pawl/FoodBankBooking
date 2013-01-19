@@ -1,0 +1,3 @@
+Just like edition it is possible to check the data entered from the user.
+This is done with the new property searchrules.
+Try to enter non numeric value in OrderId field

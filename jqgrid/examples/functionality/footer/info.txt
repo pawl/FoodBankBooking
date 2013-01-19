@@ -1,0 +1,11 @@
+You can show a static footer for each column, which is always visible on scrolling. In order to show a footer, just set the footerrow to true.
+
+Each column has a property called Footer Value. It is a string property and you can set it to any value you need
+using the callGridMethod with footerData (see the example)
+If you need to use formula (like sum, count, average, min, max, etc) - you can use the available property
+summarry rows. This is array, which is passed to the renderer. The first argument is the name
+corresponding to the name in colModel, the second argument is array which describes to
+which field from query should be applied the formula. In this case we set SUM.
+It can be any database valid function which accept single argument
+
+For detailed implementation, please take a look at the PHP source code tab.

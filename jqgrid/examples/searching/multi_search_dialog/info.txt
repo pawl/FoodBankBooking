@@ -1,0 +1,5 @@
+Multiple Search fields by default is enabled. you can do it versy easy enabling the navigator and the serch action
+
+Searching (or also sometimes called "Filtering") is supported through the <b>Search Button</b> option off the <b>ToolBar</b>. This will bring a search dialog with common operations (equal, less or equal, greater, not equal, contains, etc).
+
+You can control the various aspects of the Search Dialog via the <b>searchoptions</b> array and setNavOptions with parameter search. Searching is performed automatically and you should not do anything- just enable it.

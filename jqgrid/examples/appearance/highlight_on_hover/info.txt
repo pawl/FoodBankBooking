@@ -1,0 +1,1 @@
+By default, jqGrid hightlight rows on hover. This is controlled by the <b>hoverrows</b> property - setting it to false will disable that.

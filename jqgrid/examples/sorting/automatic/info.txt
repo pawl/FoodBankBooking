@@ -1,0 +1,7 @@
+Sorting is enabled by default for all jqGrid columns. To sort a column, just click on the header of the respective column.
+
+The default sorting logic of the grid in almost all cases is good enough -- depending on the type of the column (date, int, float, double, etc) it sorts the column while switching ascending and descending orders.
+
+You can choose the initial sorted column (column name) and the initial sort direction (asc, desc) when the grid first loads. This can be achieved by using the <b>sortname</b> collection and <b>sortorder</b> properties.
+
+$grid->setGridOptions(array("sortname"=>"OrderID","sortorder"=>"desc"));

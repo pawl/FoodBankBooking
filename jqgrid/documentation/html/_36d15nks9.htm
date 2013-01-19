@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="HEADER" />
+	<title>TreeGrid models</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/HEADER.gif">&nbsp;TreeGrid models
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">As mentioted into the presentastion jqTreeGrid component can support two type of tree model - nested and adjacency.<br>By default the component uses a nested set model.<p>In order to work the component in a desired manner it is recommended that the tables that hold the tree data should contain certain fields.<br>All of these fields and the type of the model should be set with setTableConfig and and setTreeModel php methods.<p>By example if we use the nested set model and our system fields in the tree table are named lft, rgt and level then the appropriate setting can look like this<p><pre><div>&lt;?php
+....
+// Connection <span class="codec4">to</span> the <span class="codec7">server</span> 
+$conn = new PDO(DB_DSN,DB_USER,DB_PASSWORD); 
+
+// Create the jqTreeGrid instance 
+$tree = new jqTreeGrid($conn); 
+.....
+
+
+// <span class="codec5">set</span> the table and primary key 
+$tree-&gt;table = <span class="codecomment">'nested_category'; </span>
+$tree-&gt;setPrimaryKeyId(<span class="codecomment">'category_id'); </span>
+// <span class="codec5">set</span> model 
+$tree-&gt;setTreeModel(<span class="codecomment">'nested'); </span>
+//set the table configuration
+$tree-&gt;setTableConfig(<span class="codec3">array</span>(<span class="codecomment">'id'=&gt;'category_id', 'left'=&gt;'lft', 'right'=&gt;'rgt')); 
+</span>
+...
+
+?&gt;</div></pre><p>Having this in mind bellow we will discuss the both models.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/21/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

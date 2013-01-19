@@ -1,0 +1,19 @@
+Demonstrates how to use the read from xml file sql commands.
+You can store all your predefined sql commands in simple xml file where
+every command is identfied by id and then just tell the jqGrid which
+file to use and which sql. See the example.
+
+Here in this example we use the following xml file
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;queries&gt;
+ &lt;sql Id="getProducts"&gt;
+  SELECT * FROM products
+ &lt;/sql&gt;
+ &lt;sql Id="getOrders"&gt;
+  SELECT * FROM orders
+ &lt;/sql&gt;
+ &lt;/queries&gt;
+
+
+

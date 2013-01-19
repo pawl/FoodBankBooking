@@ -1,0 +1,2 @@
+This example show the ability to define a different input types.
+This is done just with addElement method.

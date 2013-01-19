@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="WCGapi.js"></script>
+		<script type="text/javascript">
+
+			function RegisterCaller(login, password)
+			{
+				// Media service
+				service = new MediaServices(document.getElementById("url"), login, password, "audio");
+				service.turnConfig = "STUN 10.97.33.50:4242";
+				service.onclose = serviceOnClose;
+				service.onerror = serviceOnError;
+				service.oninvite = serviceOnInvite;
+				service.onready = serviceOnReady;
+				service.onstatechange = serviceOnStateChange;
+			}
+			
+			function StartCall(recipient)
+			{
+				call = service.createCall(recipient, {video:false,audio:true});
+				call.onaddstream = callOnAddStream;
+				call.onbegin = callOnBegin;
+				call.onend = callOnEnd;
+				call.onerror = callOnError;
+				call.onremovestream = callOnRemoveStream;
+				call.onstatechange = callOnStateChange;
+				call.ring();
+			}
+			
+			function playSound(soundfile) 
+			{
+				 document.getElementById("dummy").innerHTML="<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+			}
+
+			/************************************************************************
+			 * Service handlers below												*
+			 ***********************************************************************/
+			
+			function serviceOnClose(event) {
+				console.log("[MediaServices] Closed");
+
+			};
+			
+			function serviceOnClose2(event) {
+				console.log("[MediaServices] Closed");
+
+			};
+			
+			
+			function serviceOnError(event) {
+				console.log("[MediaServices] Error: " + event.type + " " + event.reason + " " + event.target);
+			};
+			
+			function serviceOnInvite(event) {
+				if (event.call) {
+					console.log("[MediaServices] Received call invite");
+
+					
+					/*
+					acceptCall.onclick = function() {
+						videoBox.style.display = "block";
+						call = event.call;
+						call.answer();
+						call.onaddstream = callOnAddStream;
+						call.onbegin = callOnBegin;
+						call.onend = callOnEnd;
+						call.onerror = callOnError;
+						call.onremovestream = callOnRemoveStream;
+						call.onstatechange = callOnStateChange;
+					};
+					*/
+					
+					endCall.onclick = function() {
+						event.call.end();
+
+					};
+				}
+
+			};
+			
+			function serviceOnReady(event) {
+				console.log("[MediaServices] Ready");
+				StartCall("sip:18177398992@vims1.com");
+			};
+			
+			function serviceOnReady2(event) {
+				console.log("[MediaServices] Ready");
+
+			};
+			
+			
+			function serviceOnStateChange(event) {
+				console.log("[MediaServices] State changed: " + event.type + " " + event.state);
+			};
+			
+			/************************************************************************
+			 * Call handlers below													*
+			 ***********************************************************************/
+			
+			function callOnAddStream(event) {
+				if (event.call.localStreams) {
+					console.log("[Call] Local stream added");
+					var url = webkitURL.createObjectURL(event.call.localStreams[0]);
+					localvideo.style.opacity = 1;
+					localvideo.src = url;
+					localStream = event.call.localStreams[0];
+				}
+				if (event.call.remoteStreams) {
+					console.log("[Call] Remote stream added");
+					var url = webkitURL.createObjectURL(event.call.remoteStreams[0]);
+					remotevideo.style.opacity = 1;
+					remotevideo.src = url;
+					remoteStream = event.call.remoteStreams[0];
+				}
+			};
+			
+			function callOnBegin(event) {
+				console.log("[Call] Call has started");
+				playSound("sound.wav");
+			};
+			
+			function callOnEnd(event) {
+				console.log("[Call] Call has ended");
+
+			};
+			
+			function callOnError(event) {
+				console.log("[Call] Error: " + event.type + " " + event.reason + " " + event.target);
+			};
+			
+			function callOnRemoveStream(event) {
+				console.log("[Call] Stream removed");
+				localStream.stop();
+				remoteStream.stop(); 
+				// Do stuff with event.call.remoteStreams
+			};
+			
+			function callOnStateChange(event) {
+				console.log("[Call] State changed: " + call.state);
+			};
+
+		</script>
+	</head>
+
+	<body>
+		
+		<button type="button" onclick="RegisterCaller('sip:16509992364@vims1.com','EECpa$$w0rd')" >Start Test</button>
+
+		
+		<span id="dummy"></span>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>labels</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;labels
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">The axis labels show the number or category for each tick. <p><table class="detailtable" width="96%"><tr>     <th>Option name</th>  <th>Type</th>  <th>Default</th></tr><tr>  <td><b>align</b></td>  <td><b>String</b></td>  <td><b>"center"</b></td></tr><tr>  <td colspan='3'>What part of the string the given position is anchored to. Can be one of "left", "center" or "right". In inverted charts, x axis label alignment and y axis alignment are swapped. </td></tr><tr>  <td><b>enabled </b></td>  <td><b> Boolean</b></td>  <td><b>true</b></td></tr><tr>  <td colspan='3'>Enable or disable the axis labels. </td></tr><tr>  <td><b>formatter</b></td>  <td><b>Function</b></td>  <td><b></b></td></tr><tr>  <td colspan='3'>Callback JavaScript function to format the label. The value is given by this.value.Defaults to: <br/>function() {<br/>	return this.value;<br/>}</td></tr><tr>  <td><b>rotation</b></td>  <td><b>Number</b></td>  <td><b>0</b></td></tr><tr>  <td colspan='3'>Rotation of the labels in degrees.</td></tr><tr>  <td><b>staggerLines</b></td>  <td><b>Number</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>Horizontal axes only. The number of lines to spread the labels over to make room or tighter labels. </td></tr><tr>  <td><b>step</b></td>  <td><b>Number</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>To show only every n'th label on the axis, set the step to n. Setting the step to 2 shows every other label.</td></tr><tr>  <td><b>style</b></td>  <td><b>Array</b></td>  <td><b></b></td></tr><tr>  <td colspan='3'>CSS styles for the label.</td></tr><tr>  <td><b>x</b></td>  <td><b>Number</b></td>  <td><b>0</b></td></tr><tr>  <td colspan='3'>The x position offset of the label relative to the tick position on the axis. </td></tr><tr>  <td><b>y</b></td>  <td><b>Number</b></td>  <td><b>0</b></td></tr><tr>  <td colspan='3'>The y position offset of the label relative to the tick position on the axis.</td></tr></table><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/08/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Methods</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Methods
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><div class="banner">getOption( string $option  )</div><p>Return the the requested option of the autocomplete<br>Parameters:<br><ul><li> string   	$option:  	- the requested option or event.<br></ul><br>API Tags:<br>Access:  	public<p><div class="banner">queryAutocomplete( )</div><p>Return the result for the autocomplete as PHP object. Determines automatically the placeholders (?) used into the SQL command<p>API Tags:<br>Access:  	public<p><div class="banner">renderAutocomplete( string $element, [ $target = false], [boolean $script = true], [boolean $echo = true], [boolean $runme = true]  )</div><p>Main method which do everthing for the autocomplete. Should be called after all settings are done. Note that in one file we can have more than one autocomplete definitions. Construct the autocomplete and perform Query operations.<br>Parameters:<br><ul><li> string   	$element:  	The DOM element on which audocomplete should be applied<br><li>    	$target:  	- if set the value selection from autocomplete will be set to this element<br><li> boolean   	$script:  	- if set to false the script tag: &lt;script type='text/javascript'&gt; will not be included.<br><li> boolean   	$echo:  	if set to false the result is not echoed but returned<br><li> boolean   	$runme:  	- internal variable used into the jqGrid class<br></ul><br>API Tags:<br>Access:  	public<p><div class="banner">setEvent( string $event, string $code  )</div><p>Set a JavaScript event for the autocomplete. For all the possible events refer the documentation<br>Parameters:<br><ul><li> string   	$event the event name <a href="_3120zpnr3.htm" >see events</a>:  	<br><li> string   	$code Javascript code:  	<br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">setLength( mixed $num  )</div><p>Set the limit of the requested data in case of SQL command<br>Parameters:<br><ul><li> mixed   	$num:  	- if set as number determines the number of the requestd itemd from the query. If set to false loads all the data from the query.<br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">setOption( string $option, [mixed $value = null]  )</div><p>Set the desired option for autocomplete. For a full list of the option refer the documentation<br>Parameters:<br>string   	$option option name <a href="_3120zpdt1.htm" >see options</a>:  	<br>mixed   	$value:  	<p>API Tags:<br>Access:  	public<p><div class="banner">setSource( mixed $source  )</div><p>Set the source need for autocomlete to send a data. Can be a string or array. If the option is string then this is the url from where to obtain the data.<br>Parameters:<br>mixed   	$source string or array to be set:  	<p>API Tags:<br>Access:  	public<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/07/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

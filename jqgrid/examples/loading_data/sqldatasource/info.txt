@@ -1,0 +1,12 @@
+Demonstrates how to bind <strong>jqGrid</strong> to custom <b>Sql Data Source</b>.
+The only thing you need to do is to set the <b>SelectCommand</b> property in the PHP code.
+
+Also, all major grid features like sorting (click on a column header), searching (click on the server icon on the bottom toolbar),
+paging, etc work as well by default -- no need to code anything.
+
+Column settings can be customized using the <b>setColProperty</b> function.
+Columns are automatically created when you associate a declarative datasource with the grid at design time.
+
+You can tweak various column properties, like <b>label</b> (in order to set column header text),
+
+

@@ -1,0 +1,5 @@
+The autocomplete method can be configured to be used only in the serch form.
+In this case it is needed only to set the 6 parameter to true.
+Also it is possible to use multiple autocomplete fields in a singel serch form.
+Open the serch form, select ShipName and then try to input some letter in the
+input field.

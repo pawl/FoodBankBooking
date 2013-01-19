@@ -1,0 +1,4 @@
+Again with header we can set a footer in the form to indicate the user 
+which fields are required.
+
+This is achieved with the help of the method setFormFooter

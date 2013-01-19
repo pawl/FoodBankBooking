@@ -1,0 +1,1 @@
+jqChart uses licensed client-side technology from  <a href="http://www.highcharts.com" target="_blank"> Highcharts </a>

@@ -1,0 +1,3 @@
+Searching (or also sometimes called "Filtering") is supported through the <b>navigator</b> option. This will bring a search dialog with common operations (equal, less or equal, greater, not equal, contains, etc).
+To activate a simple search just set multipleSeasrch to false - i.e. $grid->setNavOptions('search',array("multipleSearch"=>false));
+You can control the various aspects of the Search Dialog.

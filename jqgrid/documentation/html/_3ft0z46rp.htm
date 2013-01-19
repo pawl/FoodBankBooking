@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Dragging & Resizing</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Dragging &amp; Resizing
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><b>editable</b><p>Determines whether the events on the calendar can be modified.<p><div class="banner">Type: boolean, default: false</div><p>This determines if the events can be dragged and resized. Enables/disables both at the same time. If you don't want both, use editable in conjunction with disableDragging and disableResizing.<p><b>disableDragging</b><p>Disables all event dragging, even when events are editable.<p><div class="banner">Type: boolean, default: false</div><p><b>disableResizing</b><p>Disables all event resizing, even when events are editable.<p><div class="banner">Type: boolean, default</div><p><b>dragRevertDuration</b><p>Time it takes for an event to revert to its original position after an unsuccessful drag.<p><div class="banner">Type: integer, default: 500</div><p>Time is in milliseconds (1 second = 1000 milliseconds).<p><b>dragOpacity</b><p>The opacity of an event while it is being dragged.<p><div class="banner">Type: float/array, default:</div><p>array(<br>// for agendaWeek and agendaDay<br>"agenda"=&gt; 0.5,<p>// for all other views<br> =&gt; 1.0<br>)<br>Float values range from 0.0 to 1.0.<p>Specify a single number to affect all views, or a View Option Hash to target specific views (which is what the default does).
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

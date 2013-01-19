@@ -1,0 +1,8 @@
+The jqAutocomplete class which uses jQuery UI autocomplete is a separate class
+which can be used easy in any form.
+The class is integrated in jqGrid for PHP and uses a method setAutocomplete.
+This is a single line command wich tell on which field to apply autocomplete and
+the SQL to obtain the data. There are a lot of option parameters where the method
+can be configured.
+In this particular example we use the autocomplete only in form editing.
+When you lunch the edit form try to write some letter on ShipName field.

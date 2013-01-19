@@ -1,0 +1,5 @@
+Inline editing is another editing mode of <b>jqGrid</b>. To invoke inline editing, just call the client-side jqGrid <b>editRow</b> method.
+
+In this particular example, we are calling <b>editRow</b> on the client-side via the build in formatter actions
+
+Please, refer to the PHP tab for the sample.

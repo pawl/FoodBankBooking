@@ -1,0 +1,3 @@
+You can hook custom 3rd party controls in the add and edit dialogs. Just hook the client-side event dataInit in colModel editoptions property using setColProperty and then associate the 3rd party control with the text-field.
+
+For implementation details, please take a look at the PHP tab.

@@ -1,0 +1,3 @@
+jqGrid for PHP comes with a large number of predefined language packs and settings for almost all popular languages. They are located in the installation package, in the /js/i18n folder. Lnaguage packs are in the form of javascript files, containing definitions for all strings in the grid that can be localized - this includes messages, captions, paging information, search/add/delete dialog labels, etc.
+
+In order to use a particular language pack, you need to include the javascript language pack to the head of your page, after the jQuery library reference (since language packs depend on jQuery) and before referencing the jqGrid javascript file (since it is dependent on the language pack).

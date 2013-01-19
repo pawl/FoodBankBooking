@@ -1,0 +1,5 @@
+As of version 4.3 we support frozen columns
+The setup is very easy - you will need just to set the frozen property to true
+and call the setFrozenColumns method
+
+In this example we set the first two columns to be frozen

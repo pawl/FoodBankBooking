@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Debugging</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Debugging
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Sometimes there are situations where something is wrong and the code does not work in a way that we want. For this purpose we have introduced a mini debugger, which tell us waht is happen with the grid.<p>To enable this feature the public variable <b>debug</b> should be set to true. <br>When this variable is enabled a file named jqGrid.log is created in the directory where your script reside.<br>In order to ilustarte this we again will use our <a href="_2v20q5hpg.htm" >example</a>.<p>There is no special requierment wheere to put the debug option. It should just be called after the grid is created.<p>Now the PHP code should look like this<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the PDO driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGrid($conn);
+<span class="codecomment">// enable debugging</span>
+$grid-&gt;debug = <span class="literals">true</span>;
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders'</span>;
+$grid-&gt;dataType = <span class="codestring">"json"</span>;
+$grid-&gt;queryGrid();
+?&gt;</div></pre><p>After runnig the html file a file jqGrid.log will be created with the following structure:<br><pre>
+Executed 2 query(s) - 2010-02-13 16:39:34
+Array
+(
+    [0] =&gt; Array
+        (
+            [time] =&gt; 2010-02-13 16:39:34
+            [query] =&gt; SELECT COUNT(*) AS COUNT  FROM orders
+            [data] =&gt; 
+            [types] =&gt; 
+            [fields] =&gt; 
+            [primary] =&gt; 
+            [input] =&gt; 
+        )
+
+    [1] =&gt; Array
+        (
+            [time] =&gt; 2010-02-13 16:39:34
+            [query] =&gt; SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders ORDER BY OrderID asc LIMIT 0, 10
+            [data] =&gt; 
+            [types] =&gt; 
+            [fields] =&gt; 
+            [primary] =&gt; 
+            [input] =&gt; 
+        )
+
+)
+</pre><p>This tell us that when the script is called two queries are executed.<br>Below we will explain every item in the query.<p><ul><li> [time] is the timestamp of the query execution<br><li> [query] is the executed query. If a parameters are speciefied the query will contain the placeholder ?<br><li> [data] is array with the actual values that are passed in the place of the parameters<br><li> [types] is array that contain the field types (like integer, string) when a CRUD operations are performed This is valid only when jqGridEdit and jqGridRender classes are used.<br><li> [fields] is array containing diffretent information for the fields when a CRUD operations are performed This is valid only when jqGridEdit and jqGridRender classes are used.<br><li> [primary] is a string which tell us the name of the paimary key when a CRUD operations are performed This is valid only when jqGridEdit and jqGridRender classes are used.<br><li> [input] is associative array with the input values (data to be inserted, updated, deleted) when a CRUD operations are performed This is valid only when jqGridEdit and jqGridRender classes are used.<br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/10/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

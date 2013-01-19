@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Methods</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Methods
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">All the methods that ara available at jqGrid, jqEdit and jqRender classes can be used within TreeGrid class<p><div class="banner">  boolean deleteTreeNode( array $data  )</div><p>Delete the data into the database according the table element and tree grid model. Use this method instead of delete method in edit class<p>A primaryKey should be set. If the key is not set It can be obtained from jqGridDB::getPrimaryKey Return true on success, false when the operation is not succefull<br>Parameters:<br><ul><li> array   	$data:  	associative array which key values correspond to the names in the delete command<br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">editTree( [ $summary = null], [ $params = null], [string $oper = false], [ $echo = true]  )</div><p>Perform the all CRUD operations depending on the oper param send from the grid, the table element and the treegrid model If the primaryKey is not set we try to obtain it using jqGridDB::getPrimaryKey If the primary key is not set or can not be obtained the operation is aborted.<p>Also the method call the queryTree to perform the tree ouput<br>Parameters:<br><ul><li> array   	$summary:  	- set which columns should be sumarized in order to be displayed to the grid By default this parameter uses SQL SUM function: array("colmodelname"=&gt;"sqlname"); It can be set to use the other one this way array("colmodelname"=&gt;array("sqlname"=&gt;"AVG")); By default the first field correspond to the name of colModel the second to the database name<br><li> array   	$params:  	additional parameters that can be passed to the query<br><li> string   	$oper:  	if set the requested oper operation is performed without to check the parameter sended from the grid.<br><li> boolean  	$echo:  should the result be echoed or returned<br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">array getTableConfig( )</div><p>Return the curent configuration for the model used<p>API Tags:<br>Access:  	public<p><p><div class="banner">string getTreeModel( )</div><p>Returns the currently used tree model<p>API Tags:<br>Access:  	public<p><br><div class="banner">boolean insertTreeNode( array $data  )</div><p>Insert the data array into the database according to the table element and tree model.<p>A primaryKey should be set. If the key is not set It can be obtained from jqGridDB::getPrimaryKey. The table config for the tree should be set.<br>Parameters:<br><ul><li> array   	$data:  	associative array which key values correspond to the names in the table.<br></ul><br>API Tags:<br>See:  	setTableConfig Return true on succes, false otherwiese.<br>Access:  	public<p><div class="banner">mixed queryTree( [ $summary = null], [ $params = null], [boolen $echo = true]  )</div><p>Return the result of the query to jqTreeGrid. Currently does not support searching.<br>Parameters:<br><ul><li> array   	$summary:  	- set which columns should be sumarized in order to be displayed to the grid By default this parameter uses SQL SUM function: array("colmodelname"=&gt;"sqlname"); It can be set to use the other one this way array("colmodelname"=&gt;array("sqlname"=&gt;"AVG")); By default the first field correspond to the name of colModel the second to the database name<br><li> array   	$params:  	- parameter values passed to the sql<br><li> boolen   	$echo:  	if set to false return the records as object, otherwiese json encoded or xml string depending on the dataType variable<br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">mixed. renderTree( [string $tblelement = ''], [string $pager = ''], [boolean $script = true], [ $summary = null], [ $params = null], [boolean $createtbl = false], [boolean $createpg = false], [boolean $echo = true]  )<br></div>Main method which do allmost everthing for the tree grid.<p>Construct the tree grid, perform CRUD operations, perform Query set a jqGrid method, and javascript code.<br>Parameters:<br><ul><li> string   	$tblelement:  	the id of the table element to costrict the grid<br><li> string   	$pager:  	the id for the pager element<br><li> boolean   	$script:  	if set to true add a script tag before constructin the grid.<br><li> array   	$summary:  	- set which columns should be sumarized in order to be displayed to the grid By default this parameter uses SQL SUM function: array("colmodelname"=&gt;"sqlname"); It can be set to use other one this way : array("colmodelname"=&gt;array("sqlname"=&gt;"AVG")); By default the first field correspond to the name of colModel the second to the database name<br><li> array   	$params:  	parameters passed to the query<br><li> boolean   	$createtbl:  	if set to true the table element is created automatically from this method. Default is false<br><li> boolean   	$createpg:  	if set to true the pager element is created automatically from this script. Default false.<br><li> boolean   	$echo:  	if set to false the function return the string representing the grid<br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">setTableConfig( array $aconfig  )</div><p>Set the configuration fields for the model used. For the adjacency model a 'id' and 'parent' should be set For the nested model 'id', 'left', 'right' and 'level' should be set Optional fields for all models : expanded, icon, leaf, loaded<br>Parameters:<br><ul><li> array   	$aconfig:  	<br></ul><br>API Tags:<br>Access:  	public<p><p><div class="banner">setTreeModel( [string $model = 'nested']  )</div><p>Set the tree mode used. Can be adjacency or nested. Deafault is nested<br>Parameters:<br><ul><li> string   	$model: <br></ul><br>API Tags:<br>Access:  	public<p><br><div class="banner">boolean updateTreeNode( array $data  )</div><p>Update the data into the database according the table element A primaryKey should be set. If the key is not set It can be obtained from jqGridDB::getPrimaryKey.Return true on success, false when the operation is not succefull<p>Parameters:<br><ul><li> array   	$data:  	associative array which key values correspond to the names in the table<br></ul><br>API Tags:<br>Access:  	public<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/20/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

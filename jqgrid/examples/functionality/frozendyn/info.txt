@@ -1,0 +1,1 @@
+We can dynamically change the frozen property. See the code in index file

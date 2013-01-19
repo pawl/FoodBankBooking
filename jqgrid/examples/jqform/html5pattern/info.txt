@@ -1,0 +1,5 @@
+Another useful HTML5 feature is a pattern. This allow us to define a custom
+checking of the user input using a regular expression.
+In the exmple we define that the user if enter a postal code this code can 
+contain digits only and can be 5 or 9 digits.
+See the code for the Zip how is this achieved.

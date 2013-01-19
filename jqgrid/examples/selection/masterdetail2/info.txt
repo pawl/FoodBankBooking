@@ -1,0 +1,6 @@
+You can use row selection in many scenarios. In this sample we are hooking the <b>onSelectRow</b> client-side event of the grid.
+
+You can use the event handler to write custom code and databind a second grid with details. Here, clicking on a Customer will show a details grid with all Orders for that customer (data from Northwind database).
+
+Please, take a look at the code.
+

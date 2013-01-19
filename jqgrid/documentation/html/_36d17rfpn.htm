@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Adjacency model</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Adjacency model
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">This is a simple implementation of the traditional Adjacency List Model for storing trees in relational databases.<p>In the adjacency list model, every node will have a "parent" key, that will be NULL for root nodes.<p>The adjacency list model has the advantage of fast writes at the cost of slow reads. If you read more than you write, use nested set model instead<p>Like the nested set model the table should have a uniquie id which is serial (autoincremented)<p>if our tree salary table has the following structure<p><pre><div class="htmlcode">CREATE TABLE adj_table (
+  emp_id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(30) NOT NULL,
+  salary decimal(10,2) DEFAULT <span class="codestring">'0.00'</span>,
+  boss_id int(11) DEFAULT NULL,
+  PRIMARY KEY (emp_id)
+);</div></pre><p>then the appropriate settings should be:<p><pre><div class="htmlcode">&lt;?php
+...
+// set the table and primary key 
+$tree-&gt;table = <span class="codestring">'adj_table'</span>; 
+$tree-&gt;setPrimaryKeyId(<span class="codestring">'emp_id'</span>); 
+// set tree model and table configuration 
+$tree-&gt;setTreeModel(<span class="codestring">'adjacency'</span>); 
+$tree-&gt;setTableConfig(array(<span class="codestring">'id'</span>=&gt;<span class="codestring">'emp_id'</span>, <span class="codestring">'parent'</span>=&gt;<span class="codestring">'boss_id'</span>)); 
+
+...
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/21/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

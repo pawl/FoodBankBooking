@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="HEADER" />
+	<title>Tutorials</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/HEADER.gif">&nbsp;Tutorials
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">The tutorials in this chapter are using only the most advanced and feature rich <a href="_2v70u6eg2.htm" >jqGridRender</a> PHP class provided by jqGrid.  For information on the base classes <a href="_2v20q5hpg.htm" >jqGrid</a> and <a href="_2v6108iau.htm" >jqGridEdit</a> please refer to the appropriate topics in the <a href="_2v20pv05v.htm" >Architecture and classes guide</a> chapter of the documentation and the additional client-side documentation <a href="http://www.trirand.com/jqgridwiki/" target="top">here</a>.<p>We are using the "Northwind" database in all tutorials. You can find the SQL dump and schema of the Northwind database in the installation package of the product.<p>We will use the following base PHP page as a starting point for all tutorials. The base code for the grid itself is in the "grid.php" file. All subsequent tutorials are built using these files (changes and additions will be shown in each tutorial based on the topic of the tutorial).<p><b>index.php</b><p><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html&gt;</span>
+  <span class="elements">&lt;head&gt;</span>
+    <span class="elements">&lt;title&gt;</span>jqGrid PHP Demo<span class="elements">&lt;/title&gt;</span>
+    <span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+    <span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui-1.7.1.custom.css"</span> /&gt;
+    <span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.jqgrid.css"</span> /&gt;
+    <span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.multiselect.css"</span> /&gt;
+    <span class="elements">&lt;style</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span>&gt;
+        html, body {
+        margin: 0;         /* Remove body margin/padding */
+        padding: 0;
+        overflow: hidden;   /* Remove scroll bars on browser window */
+        font-size: 75%;
+        }
+    <span class="elements">&lt;/style&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/i18n/grid.locale-en.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+   <span class="elements">&lt;script</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;
+   $.jgrid.no_legacy_api = true;
+   $.jgrid.useJSON = true;
+   <span class="elements">&lt;/script&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.jqGrid.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery-ui-1.7.2.custom.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+  <span class="elements">&lt;/head&gt;</span>
+  <span class="elements">&lt;body&gt;</span>
+      <span class="elements">&lt;div&gt;</span>
+          &lt;?php include (<span class="codestring">"grid.php"</span>);?&gt;
+      <span class="elements">&lt;/div&gt;</span>
+   <span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p><b>grid.php</b><p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the database connection settings/configuration</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the database that we use utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// set the SQL select query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid automatically create the model based on the SQL query</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>
+));
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/10/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

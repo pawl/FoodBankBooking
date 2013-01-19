@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 3.8.2.1</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 3.8.2.1
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released January 10, 2011<p><h3>Fixes jqGrid</h3><ul><li> Fix export to pdf when try to include a non existing file.<br><li> Fix export in CSV<br><li> Fix in setAutocomplete in grid to output with right headers the json response.<br><li> Fix in setColModel method to obtain the right parameter when try to construct model<br><li> Fix for Autocomplete in grid not to output two responses.<br><li> Fix in grouping module - summaryval array is extended correct with array and not with object.<br><li> Fix for groupingRemove method when some rows are hidden (i.e some groups are collapsed) and the method is called with false parameter.<br><li> Fix - the group item is using the formatter for it if defined<br><li> Fix grouping items when values are null, undefined or 0.<br><li> Fix multi selection when putting the values in selarrrow<br><li> Fix for SerializeSubgrid call.<br><li> Fix for getColProperty method<br></ul><p><h3>Additions</h3><p><ul><li> Added Charting module - jqChart. For full info, please refer to the <a href="_34c0seos9.htm" >jqChart</a> documentation<br><li> Added support for MongoDB database. (currently CRUD operations are not included)<br><li> Added Array driver which allows to manipulate <a href="_34e1588xn.htm" >array data like SQL</a> data (currently no CRUD).<br><li> Added method <a href="_2v611tfwr.htm" >setAfterCrudAction(module, querysql, params)</a>. When used add a set of sql actions after CRUD is done with succes. It is possible to add a unlimited action for given operation (add, edit,del). <a href="_34e14mcry.htm" >See Tutorial</a><br><li> Added new method <a href="_2v70w0lkn.htm" >setButtonOptions</a>. With this method is possible to set various options for the export buttons like Text, icon and etc.<br><li> Added method <a href="_2v212lraf.htm" >setSuccessMsg( string $msg  )</a>method for the edit modules. When set this text is send to the grid when the CRUD oper is successfull.<br><li> Added another button in the navigation toolbar - column. When set to true a column Chooser is lunched. Note that if you want to use them you should load the appropriate CSS and js files.<br><li> Updated <a href="_2v70wa4jv.htm" >formatter actions</a>, which allow defining a butttons and actions for inline editing<br><li> Added error function in setAutocomplete method.<br><li> Adding Serbian language file<br><li> Form editing (add,edit,delete,search dialogues) now look more impressive<br><li> All functions in grid.common.js now are in jgrid name space. This prevent some function conflicts with other JS libs.<br><li> Perform search on filter dialog whenpressing Enter key.<br><li> Run the onHeaderClick callback after all animations are finished, so that the callback can operate on the new height Thanks to flack<br><li> Make it possible to deselect a selected row by clicking it again<br><li> If colModel has index defined for grouping field, use it for sorting<br><li> Restore inline edited rows in case of form and inline edit defined at the same time.<br><li> Now the beforeInitData event can return true or false. If the event return false the the action is not done and the form is not lunched.<br><li> Adding templates for colModel, which simplify the code.<br><li> Update for Persian language.<br><li> Support for Microsoft date format in formatter date.<br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 04/09/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

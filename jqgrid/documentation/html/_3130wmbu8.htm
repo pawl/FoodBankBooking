@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Multiple Autocomplete</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Multiple Autocomplete
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In this scenario we will show how we can set easy two autocomplete fields in the same file.<p>For this purpose let suppose that the another input field is the product. The index file will look like this:<p><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html</span> xmlns=<span class="codestring">"http://www.w3.org/1999/xhtml"</span> xml:lang=<span class="codestring">"en"</span> <span class="attributes">lang=</span><span class="codestring">"en"</span>&gt;
+<span class="elements">&lt;head&gt;</span>
+<span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+<span class="elements">&lt;title&gt;</span>My First PHP jqAutocomplete <span class="elements">&lt;/title&gt;</span> 
+
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui.custom.css"</span> /&gt;
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery-ui-1.8.1.custom.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+
+<span class="elements">&lt;/head&gt;</span>
+<span class="elements">&lt;body&gt;</span>
+
+<span class="elements">&lt;form</span> <span class="attributes">action=</span><span class="codestring">"#"</span>&gt;
+   <span class="elements">&lt;label</span> <span class="attributes">for=</span><span class="codestring">"company"</span>&gt;Company: <span class="elements">&lt;/label&gt;</span>
+   <span class="elements">&lt;input</span> <span class="attributes">id=</span><span class="codestring">"company"</span> /&gt; &lt;br/&gt;
+   <span class="elements">&lt;label</span> <span class="attributes">for=</span><span class="codestring">"product"</span>&gt;Product: <span class="elements">&lt;/label&gt;</span>
+   <span class="elements">&lt;input</span> <span class="attributes">id=</span><span class="codestring">"product"</span> /&gt; &lt;br/&gt;
+   <span class="elements">&lt;input</span> <span class="attributes">type=</span><span class="codestring">"submit"</span> <span class="attributes">name=</span><span class="codestring">"submit"</span> <span class="attributes">value=</span><span class="codestring">"Submit"</span> /&gt;
+<span class="elements">&lt;/form&gt;</span>
+
+&lt;?php include <span class="codestring">"autocomplete.php"</span>;?&gt;
+<span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p>And the autocomplete.php file<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'../../../jq-config.php'</span>;
+require_once ABSPATH.<span class="codestring">"php/jqGridPdo.php"</span>;
+require_once ABSPATH.<span class="codestring">"php/jqUtils.php"</span>;
+require_once ABSPATH.<span class="codestring">"php/jqAutocomplete.php"</span>;
+
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// create autocomplete instance</span>
+$ac = <span class="programcontrol">new</span> jqAutocomplete($conn);
+<span class="codecomment">//write the select command</span>
+$ac-&gt;SelectCommand = <span class="codestring">"SELECT CompanyName FROM customers WHERE CompanyName LIKE ? ORDER BY CompanyName"</span>;
+<span class="codecomment">// set the source from where to get data. In this case it is the same file.</span>
+$ac-&gt;setSource(<span class="codestring">"autocomplete.php"</span>);
+$ac-&gt;renderAutocomplete(<span class="codestring">"#company"</span>);
+
+<span class="codecomment">// Create the second instance</span>
+$ac2 = <span class="programcontrol">new</span> jqAutocomplete($conn);
+<span class="codecomment">//write the select command for the products</span>
+$ac2-&gt;SelectCommand = <span class="codestring">"SELECT ProductName FROM products WHERE ProductName LIKE ? ORDER BY ProductName"</span>;
+<span class="codecomment">// set the source from where to get data. In this case it is the same file.</span>
+$ac2-&gt;setSource(<span class="codestring">"autocomplete.php"</span>);
+<span class="codecomment">// Enjoy</span>
+$ac2-&gt;renderAutocomplete(<span class="codestring">"#product"</span>);
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 09/15/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

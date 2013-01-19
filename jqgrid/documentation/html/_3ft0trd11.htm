@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Chart events</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Chart events
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Event listeners for the chart. <p>These options should be set with set setChartEvent method<p><div class="banner">jqChart setChartEvent( string $name, string $jscode  )<br></div>Parameters:<br><ul><li> string   	$name:  	The name of the event, Can be click, load, redraw, selection See documentation for more details<br><li> string   	$jscode:  	The javascript code associated with this event<br></ul><p>API Tags:<br>Return:  	instance<br>Access:  	public<p>Example. Alert coordinates onclick<p><pre><div>$chart = <span class="codec3">new</span> jqChart();
+
+$onclick = <span class="codestring">"function(event) {
+    alert ('x: '+ event.xAxis[0].value +', y: '+ event.yAxis[0].value);
+}"</span>;
+
+$chart-&gt;setChartEvent(<span class="codestring">"click"</span>, $onclick);
+...</div></pre><p><table class="detailtable" width="96%"><tr>     <th>Option name</th>  <th>Type</th>  <th>Default</th></tr><tr>     <td><b>addSeries</b></td>  <td><b>JS Function</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>Fires when a series is added to the chart after load time, using the addSeries method. The this keyword refers to the chart object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery. Through event.options you can access the series options that was passed to the addSeries method. Returning false prevents the series from being added.</td></tr><tr>     <td><b>click</b></td>  <td><b>JS Function</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>Fires when clicking on the plot background. The this keyword refers to the chart object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery or MooTools depending on which library is used as the base for Highcharts.<br/>Information on the clicked spot can be found through event.xAxis and event.yAxis, which are arrays containing the axes of each dimension and each axis' value at the clicked spot. The primary axes are event.xAxis[0] and event.yAxis[0]. Remember the unit of a datetime axis is milliseconds since 1970-01-01 00:00:00.<br/>click: function(e) {<br/>	console.log(<br/>		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', e.xAxis[0].value), <br/>		e.yAxis[0].value<br/>	)<br/>}<br/></td></tr><tr>     <td><b>load</b></td>  <td><b>JS Function</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>Fires when the chart is finished loading. The this keyword refers to the chart object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery.</td></tr><tr>    <td><b>redraw</b></td>  <td><b>JS Function</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>Fires when the chart is redrawn, either after a call to chart.redraw() or after an axis, series or point is modified with the redraw option set to true. The this keyword refers to the chart object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery</td></tr><tr>    <td><b>selection</b></td>  <td><b>JS Function</b></td>  <td><b></b></td></tr><tr>  <td colspan='3'>Fires when an area of the chart has been selected. Selection is enabled by setting the chart's zoomType. The this keyword refers to the chart object itself. One parameter, event, is passed to the function. This contains common event information based on jQuery. The default action for the selection event is to zoom the chart to the selected area. It can be prevented by calling event.preventDefault().<br/>Information on the selected area can be found through event.xAxis and event.yAxis, which are arrays containing the axes of each dimension and each axis' min and max values. The primary axes are event.xAxis[0] and event.yAxis[0]. Remember the unit of a datetime axis is milliseconds since 1970-01-01 00:00:00.<br/>selection: function(event) {<br/>	// log the min and max of the primary, datetime x-axis<br/>	console.log(<br/>		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', event.xAxis[0].min),<br/>		Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', event.xAxis[0].max)<br/>	);<br/>	// log the min and max of the y axis<br/>	console.log(event.yAxis[0].min, event.yAxis[0].max);<br/>}<br/></td></tr></table><p><p><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/08/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+
+<p><center><i>This page was generated by an unregistered version of <a href="http://www.west-wind.com/wwHelp">West Wind HTML Help Builder</a>.</span> <p></center></body>
+</html>

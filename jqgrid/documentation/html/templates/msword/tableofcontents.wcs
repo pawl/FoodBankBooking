@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="wwhelp_right">
+<title><%= pcProjectName %></title>
+<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+    if (typeof (jQuery) == 'undefined')
+       document.write(unescape("%3Cscript src='templates/jquery.min.js' %3E%3C/script%3E"));
+</script>
+<script src="templates/wwhelp.js" type="text/javascript"></script>
+<style>
+.plussign 
+{
+ cursor :hand;
+ margin-bottom: 2px; 
+}
+</style>
+</head>
+<body onload="indexPageLoad();">
+
+<div class="toccontents banner">&nbsp;<b style="font-size:10pt"><%= pcProjectName %></b>
+<div style='font-size:8pt;margin-top:5px;margin-bottom:5px'>
+<script type="text/javascript">
+var HomeLink = null;
+var AllowSearch = <%= IIF(plAllowServerSearch,"true","false") %>
+if (HomeLink)
+{
+	document.write("&nbsp;<a href='" + HomeLink + "' target='_top'>Home</a> |");
+}
+if (AllowSearch && window.location.href.toLowerCase().substr(0,5) == "http:")
+{
+	document.write("&nbsp;<a href='search.aspx?title=<%= UrlEncode(pcProjectName) %>' target='wwhelp_left'>Search</a> | <a href='keywords.htm' target='wwhelp_left'>Keywords</a>");
+}
+</script>
+</div>
+</div>
+<%= pcToc %>
+
+</body>
+</html>

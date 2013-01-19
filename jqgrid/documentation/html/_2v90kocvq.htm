@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>DropDowns/Selects for editing & searching</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;DropDowns/Selects for editing &amp; searching
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">DropDowns (Selects) are commonly used elements in the web. jqGrid supports dropdowns as editing/searching controls in an elegant way using the <a href="_2v70w0lkn.htm" >setSelect</a>method. With this method you can attach dropdowns to all editing and serching forms. The method supports getting dropdown data directly from an SQL query or from pre-defined arrays.<p>The syntax of method is<p><div class="banner">setSelect( $colname, $data, $formatter , $editing , $searching , $defvals );</div><p>The method should be called after <a href="_2v70w0lkn.htm" >setColModel</a> method.<p>The first parameter is the column name generated from colModel.<br>The second parameter can be SQL query or associative array.<p><ul><li>In case of SQL query, the first field should be the key which the will be posted or searched (e.g. "OrderID") and the second field should be the displayed name.<br><li> In case of associative array, the key element should correspond to the key (e.g. "OrderID") which then will be posted or searched and the value will correspond to the display name<br></ul><p>The third parameter is formatter - default value is <b>true</b>. This tells the script that it should connect the key value with the name specified as first parameter. This allows you to not write SQL JOIN command to associate the key (column name) with another from other table. To disable this feature just set the parameter to <b>false</b>.<p>The fourth parameter is <b>$editing,</b>, which defaults to <b>true</b>. This tells the script that the select (dropdown) element will be used in editing modules. To disable this feature just set the parameter to <b>false</b>.<p>The fifth parameter is <b>$searching </b>, which defaults value to <b>true</b>. This tells the script that the select(dropdown) element will be used when we perform serching. To disable this feature just set the parameter to <b>false</b>.<p>The sixth parameters is <b>$defvals</b>. This parameter represents the default value, if none is selected. The parameter is used only  in search modules. Can be something like arrary(""=&gt;"All"); which will add additinal element to the select and they will appear at first place.<p>In order to demonstrate this feature we will include additional field in the SelectCommand ShipCity and will allow the user to filter the cities with select control. Here is the code:<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, ShipCity, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid create the model</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>
+));
+
+<span class="codecomment">// Enable filter toolbar searching</span>
+$grid-&gt;toolbarfilter = <span class="literals">true</span>;
+<span class="codecomment">// we set the select for ship city</span>
+$grid-&gt;setSelect(<span class="codestring">"ShipCity"</span>, <span class="codestring">"SELECT DISTINCT ShipCity, ShipCity AS CityName FROM orders ORDER BY 2"</span>, <span class="literals">false</span>, <span class="literals">false</span>, <span class="literals">true</span>, <span class="datatypes">array</span>(<span class="codestring">""</span>=&gt;<span class="codestring">"All"</span>));
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre><p><br>If the requierment is to search just on several citys we can pass a array with predefined values.<br>The code will look like this<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, ShipCity, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid create the model</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>
+));
+
+<span class="codecomment">// Enable filter toolbar searching</span>
+$grid-&gt;toolbarfilter = <span class="literals">true</span>;
+<span class="codecomment">// we set the select for ship city
+
+// array tha holds the limitted citys</span>
+$mycity = <span class="datatypes">array</span>(<span class="codestring">"London"</span>=&gt;<span class="codestring">"London"</span>, <span class="codestring">"Paris"</span>=&gt;<span class="codestring">"Paris"</span>, <span class="codestring">"Torino"</span>=&gt;<span class="codestring">"Torino"</span>);
+
+$grid-&gt;setSelect(<span class="codestring">"ShipCity"</span>, $mycity , <span class="literals">false</span>, <span class="literals">false</span>, <span class="literals">true</span>, <span class="datatypes">array</span>(<span class="codestring">""</span>=&gt;<span class="codestring">"All"</span>));
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/12/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

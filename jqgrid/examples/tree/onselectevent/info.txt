@@ -1,0 +1,2 @@
+We can attach a click event when we select a node. In this case we lunch the event
+only if the node is leaf. Actually this is simple onSelectRow event in the grid.

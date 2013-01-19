@@ -1,0 +1,3 @@
+It is possible to check if the update to the database is correct and
+inform the user about this.
+In this case a success event can be used.

@@ -1,0 +1,5 @@
+In some cases, the default sorting mechanism of jqGrid is not exactly what you need to achieve.
+In this case, you can use the onSortCol event to perform your custom sorting and
+return the 'stop' which instruct jqGrid not to perform your own sorting.
+
+Please, refer to the PHP code tabs for implementation details.

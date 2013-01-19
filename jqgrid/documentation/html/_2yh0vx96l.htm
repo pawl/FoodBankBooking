@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Formatting colums with PHP function</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Formatting colums with PHP function
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">There are situations where using the build in formatters and custom java script, which are executed at client side, does not meet the requirments of the application.<p>For this purpose we have created a customFunc, where will be possible to use a PHP function to format certain column(s).<p>Based on <a href="_2xf0sstq4.htm" >this tutorial</a> we will create a script to format the Freight value using number_format PHP function and put some additional HTML content inside this column when the value is less than 1.<p>The customFunc accept two parameters the grid data object and the connection.<br>The function should return the new grid data object.<p><br><b>grid.php</b><p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the database connection settings/configuration</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the database that we use utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// set the SQL select query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid automatically create the model based on the SQL query</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+    <span class="codestring">"footerrow"</span>=&gt;<span class="literals">true</span>,
+    <span class="codestring">"userDataOnFooter"</span>=&gt;<span class="literals">true</span>
+));
+
+
+<span class="codecomment">//Define the custom function</span>
+$grid-&gt;customFunc = <span class="codestring">"FrightUpdate"</span>;
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+
+<span class="codecomment">/// here is the function</span>
+<span class="programcontrol">function</span> FrightUpdate($gdata, $conn)
+{
+<span class="codecomment">// gdata-&gt;rows contain the grid data rows</span>
+   <span class="programcontrol">foreach</span>($gdata-&gt;rows <span class="operators">as</span> $row ) 
+   {
+   <span class="codecomment">// format using "," as decimal separator</span>
+      <span class="programcontrol">if</span>($row-&gt;Freight &lt; 1 ) {
+      <span class="codecomment">//color in red if the value is less than 1</span>
+         $row-&gt;Freight = <span class="codestring">"&lt;font color='red'&gt;"</span>.number_format($row-&gt;Freight, 2, <span class="codestring">','</span>, <span class="codestring">' '</span>).<span class="codestring">"&lt;/font&gt;"</span>;
+      } <span class="programcontrol">else</span> {
+         $row-&gt;Freight = number_format($row-&gt;Freight, 2, <span class="codestring">','</span>, <span class="codestring">' '</span>);
+      }
+   }
+   <span class="codecomment">// return the modified</span>
+   <span class="programcontrol">return</span> $gdata;
+}
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/13/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

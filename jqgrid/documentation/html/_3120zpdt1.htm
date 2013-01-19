@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Autocomplete options</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Autocomplete options
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">For the Autocomplete options a two methods can be used<p><b>getOption($key)</b> to obtain the desired option <br>where $key is a name listed in the table below<br>and <br><b>setOption(string $option, [mixed $value = null] )</b> to set a new option. <p>The method can be called several times in order to set or overwrite existing option.<p>Example: If we want to change the minial characters before autocomplete lunches, the we can do this:<br><pre><div class="csharpcode">&lt;?php
+...
+$ac = <span class="programcontrol">new</span> jqAutocomplete($conn);
+<span class="codecomment">// We use the northwind database
+// Set the SQL command</span>
+$ac-&gt;SelectCommand = <span class="codestring">"SELECT CompanyName FROM customers WHERE CompanyName LIKE ? ORDER BY CompanyName"</span>;
+<span class="codecomment">// Set from where to get the dat. In this case from the same file</span>
+$ac-&gt;setSource(<span class="codestring">"firstautocomplete.php"</span>);
+<span class="codecomment">// set the minLength option</span>
+$ac-&gt;setOption(<span class="codestring">'minLength'</span>, 3);
+<span class="codecomment">// Enjoy</span>
+$ac-&gt;renderAutocomplete(<span class="codestring">"#company"</span>);
+
+?&gt;</div></pre><p><br>Bellow is a list of all available grid options<p><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Type</P>		</TH>		<TH>			<P>Name</P>		</TH>		<TH>			<P>Description </P>		</TH>		<TH>			<P>Default</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>appendTo</P>		</TD>		<TD >			<P ALIGN=LEFT>You can now define which element the menu is appended to. The default is to append to the body, which is the previous behavior. The appendTo option take any valid selector. If the selector matches multiple elements, the menu will be appended to the first matched item. 			</P>		</TD>		<TD>			<P ALIGN=LEFT>false</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>disabled</P>		</TD>		<TD >			<P ALIGN=LEFT>Disables (true) or enables (false) the autocomplete. Can be set when initialising (first creating) the autocomplete.</P>		</TD>		<TD>			<P ALIGN=LEFT>false</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>delay</P>		</TD>		<TD >			<P ALIGN=LEFT>The delay in milliseconds the Autocomplete waits after a keystroke to activate itself. A zero-delay makes sense for local data (more responsive), but can produce a lot of load for remote data, while being less responsive.</P>		</TD>		<TD>			<P ALIGN=LEFT>300</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>minLength</P>		</TD>		<TD >			<P ALIGN=LEFT>The minimum number of characters a user has to type before the Autocomplete activates. Zero is useful for local data with just a few items. Should be increased when there are a lot of items, where a single character would match a few thousand items.</P>		</TD>		<TD>			<P ALIGN=LEFT>1</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>array</P>		</TD>		<TD>			<P ALIGN=LEFT>position</P>		</TD>		<TD >			<P ALIGN=LEFT>	You can now define where the menu will be displayed. The default is to display the menu below the text field, with the left edges aligned. More on this can be found <a href="http://jqueryui.com/demos/position/" target="top">here</a>			</P>		</TD>		<TD>			<P ALIGN=LEFT>false</P>		</TD>	</TR></table><p>Other options can be set using the properties of the class. Refer to Autocomplete <a href="_3120zmznr.htm" >Variables</a>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/07/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,2 @@
+You can initiate row deleting from the toolbar (recycle bin button) or from an external control. In this example, we are using the toolbar <b>navigator=true</b> enabling the delete action via del=>true in setNavOptions
+You just need to set the table which has a primary key.

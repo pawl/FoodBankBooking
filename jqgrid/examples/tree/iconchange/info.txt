@@ -1,0 +1,3 @@
+We can change the icons. Just set the name of the icon from jQuery UI Theme Roller.
+Moreover we can configure the leaf icon to be read from the database field.
+For this purpose we need to configure the tree table.

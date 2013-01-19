@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.0.0.0</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.0.0.0
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released  March 21, 2011<p><h2> Additions</h2><p><h3>jqGrid</h3>Added TreeGrid component<br>Added new search module. For all features see <a href="_2v90z93od.htm" >Search Options and Events</a><br>Added keyboard navigation in the grid and treegrid. This is achieved with the grid method <a href="_2yh0uuou0.htm" >bindKeys</a><br>Added new grid column event - <a href="_36a0y0p4c.htm" >cellattr</a> - this function can add attributes and properties to a given cell. Ideal for merge cells by condition.<br>Improve Subgrid speed and options.<br>Added new grid options <a href="_2v70w5c4u.htm" >cmTemplate</a>, which allow to overwrite the default options for the columns.<br>Added new javaScript method - getLocalRow which return the data from the local data array. Usually used with TreeGrid.<br>In all database drivers is added ErrorMessage method which return the last error.<br>Added PHP variable <a href="_2v212l11z.htm" >showError</a>. If set to true all error messages are send to the client and shown in modal window.<br>Added PHP <a href="_2v212l11z.htm" >performcount</a> variable. If set to false does nnot perform a counting query.<br>Added PHP method <a href="_2v611tfwr.htm" >setBeforeCrudAction</a> - now we can define sql commands before we do a CRUD into the main table.<br>Added new PHP method buildSearch - the method accept as parameter the search string from grid and return the SQL where clause. Also the methos can return array which first element is the string which can be used in prepare statement and the second is the array of values<br>Added Arabic translation<br>Added Lithuanian translation<br>Added isNull operator when searching<br>Updated Finnish translation<br>Add new event 'onClickGroup'. This event fires after clicking group (to expand or collapse group). <a href="_2v70w6ca2.htm" >See grid events</a>.<p><h3>jqChart</h3>SQL Data now can contain two columns - to set X and Y values<br>Added <a href="_34c1363q9.htm" >setTheme</a> method - which can be used to change the chart theme dynamically. A url can be used<p><h2>Fixes</h2><p><h3>jqGrid</h3>Fix Micrsoft SQL driver to support right queries when a paging is used and the query contain DISTINCT operator<br>Fix bug determining the type of the returned data from the summary information<br>Fix custom button now have right id attached<br>Fix error when strict reporting is set in PHP<br>Fix echo parameter in editGrid PHP method<br>Fix get accessor method<br>Fix for Microsoft date formatter<br>Fix multiselectwhen all rows are selected with click. <br>Support of Unix timestamp in date formatter. <br>Ability to add modal in column chooser<br>Fix for date formatter<br>Fox when ShrinkToFit = false<br>Prevent navigator, navButtonAdd and filterToolbar methods to be executed several times. Usually this happen in jQuery UI modal which append the content and script and script is executed again. <br>Fix for double quotes and backslach when searching<br>Fixes in toJson javascript funcion<br>Fixes for local searching<br>Fix saveRow javascriopt and formatter of type actions to accept righ errors from the server.<br>Fix local searching when column names contain dot, semicolon.<br>Fix position of the modal when the option overlay is set to 0<p><h3>jqChart</h3>Fix autodetecting column types when SQL command is used to obtain data.<br>Fix Left to Rigth texts in FireFox<br>Fix for exporting Pie charts<br>Fixed issue with charts not displaying in IE on pages with large background images or external resources<br>Fixed issue Safari Mobile crashing after removing a series dynamically.<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/21/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

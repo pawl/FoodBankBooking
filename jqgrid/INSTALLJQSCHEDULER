@@ -1,0 +1,28 @@
+Quick install
+=============
+This install cover a MySQL database, but it can be applied to all supported from jqSuite.
+In the future we will provide table definitions for these databases
+
+0. Copy the files from the archive to a directory in your webserver.
+Let suppose it is named jqscheduler.
+
+1.Create a table named events in your database where you plan to use the jqScheduler.
+The table definition for MqSql is in directory php/backend/db_mysql.sql
+If you use other database server use the definition from the file above.
+If the table can not be named events (or you have already  such one) rename it in you way and then
+after creating the instance do
+
+$eventcal = new jqScheduler($conn);
+$eventcal->table ="your_new_table_name";
+
+2. If you can pass the connection to the scheduler skip this step
+Open the file jq-config.php and enter the appropriate information for the database user and password.
+
+
+3. Open the file eventcal.php. 
+If you have other table name do the setting as from step 1.
+
+See in examples/jqscheduler/ directory
+
+4. Run the application
+http://youserveraddress/jqscheduler

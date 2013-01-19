@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Dynamically overriding language defaults</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Dynamically overriding language defaults
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In some cases, you may want to keep the majority of the locale settings in your language packs, but still change some of them programmatically based on certain server-side conditions.<br>The way this works is the following - if a specific value for a property is not specified in PHP code, the default from the language pack will be used. If it is specified in code however, it will override the language pack default.<p>Not all texts can be set dynamically.<p>A example for this is customizing the 'all-day' text. Using setOptions method for the allDayText variable we can overwrite the text.<p><pre><div class="csharpcode">&lt;?php
+...
+$eventcal = <span class="programcontrol">new</span> jqScheduler($conn);
+...
+$eventcal-&gt;setOptions(<span class="datatypes">array</span>(
+<span class="codestring">'allDayText'</span>=&gt;<span class="codestring">'All Day'</span>
+));
+...
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

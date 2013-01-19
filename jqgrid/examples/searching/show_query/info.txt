@@ -1,0 +1,1 @@
+The query from the search can be shown to the user.

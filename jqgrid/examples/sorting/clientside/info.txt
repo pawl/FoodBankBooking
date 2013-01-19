@@ -1,0 +1,9 @@
+You can use the client-side ColumnSort event to fire a custom javascript event on sorting. For example:
+
+$grid->setGridEvent('onSortCol', $sorcol);
+(setGridEvent is a common method for definition of jqGrid events)
+The event handler receives three parameters - (columnName, columnIndex, sortOrder). 
+
+You can also force sorting of a certain column by calling the javascript jqGrid method sortGrid(columnName, reload).
+
+For details, please review the PHP tab for code specifics.

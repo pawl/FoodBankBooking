@@ -1,0 +1,16 @@
+By default Edit Dialog places the edit fields vertically, one at a line and in the order columns are defined in the grid. Sometimes we may need to change that. The properties that control this behaviour are available for each JQColumn, example:
+
+$grid->setColProperty('Phone',array("formoptions"=>array("rowpos"=>1,"colpos"=>2)));
+$grid->setColProperty('CompanyName',array(
+    "formoptions"=>array("label"=>"Company","elmsuffix"=>"(required)"),
+    "editrules"=>array("required"=>true))
+);
+
+<b>colpos</b> - defines the column position of the field edit control
+<b>rowpos</b> - defines the row position of the field edit control
+
+Note that you can have several edit controls on the same line, just make sure they have the same rowpos, but different colpos.
+
+<b>label</b> - the label to display for editing. If not set, the column DataField (column name) is used
+<b>elmpreffix</b> - what to display before the edit control
+<b>elmsuffix</b> - what to display after the edit control

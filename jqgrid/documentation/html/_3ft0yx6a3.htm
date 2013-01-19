@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Text/Time Options</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Text/Time Options
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><b>timeFormat</b><p>Determines the time-text that will be displayed on each event.<p><div class="banner">Type: mixed - array/String default:</div><p>array(<br>// for agendaWeek and agendaDay<br>'agenda'=&gt; 'h:mm{ - h:mm}', // 5:00 - 6:30<p>// for all other views<br>''=&gt; 'h(:mm)t' // 7p<br>);<p>A single format string will change the time-text for events in all views. A View Option Hash may be provided to target specific views (this is what the default does).<p>Time-text will only be displayed for Event Objects that have allDay equal to false.<p>Here is an example of displaying all events in a 24-hour format:<p>$eventcal-&gt;setOption("timeFormat"=&gt;"H(:mm)");<p><b>columnFormat</b><br>Determines the text that will be displayed on the calendar's column headings.<p><div class="banner">Type: mixed - array/String, default:</div><p>array(<br>'month'=&gt; 'ddd', // Mon<br>'week'=&gt; 'ddd M/d', // Mon 9/7<br>'day'=&gt; 'dddd M/d' // Monday 9/7<br>)<br>A single string will set the title format for all views. A View Option Hash may be provided to target specific views (this is what the default does).<p><b>titleFormat</b><br>Determines the text that will be displayed in the header's title.<p><div class="banner">Type: mixed - array/String, default:</div><p>array(<br>'month'=&gt; 'MMMM yyyy', // September 2009<br>'week'=&gt; "MMM d[ yyyy]{ '—'[ MMM] d yyyy}", // Sep 7 - 13 2009<br>'day'=&gt; 'dddd, MMM d, yyyy' // Tuesday, Sep 8, 2009<p>)<br>A single string will set the title format for all views. A View Option Hash may be provided to target specific views (this is what the default does).<p><br><b>buttonText</b><br>Text that will be displayed on buttons of the header.<p><div class="banner">Type: array, default:</div><p>array(<br>'today'=&gt; 'today',<br>'month'=&gt; 'month',<br>'week'=&gt; 'week',<br>'day'=&gt; 'day'<br>);<p><br><b>monthNames</b><br>Full names of months.<p><div class="banner">Type: Array, default:</div><p>array('January', 'February', 'March', 'April', 'May', 'June', 'July',<br>'August', 'September', 'October', 'November', 'December');<p><b>monthNamesShort</b><br>Abbreviated names of months.<p><div class="banner">Type: Array, default:</div><p>array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'<br>'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');<p><b>dayNames</b><br>Full names of days-of-week.<p><div class="banner">Type:Array, default:</div><p>array('Sunday', 'Monday', 'Tuesday', 'Wednesday',<br>'Thursday', 'Friday', 'Saturday');<p><b>dayNamesShort</b><br>Abbreviated names of days-of-week.<p><div class="banner">Type:Array, default:</div><p>array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

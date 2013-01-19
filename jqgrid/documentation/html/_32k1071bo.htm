@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Export to CSV</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Export to CSV
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">By default export to CSV is disabled when navigator is enabled. The difference in using export to CSV in the<a href="_2v70u6eg2.htm" > jqGridRender class</a>, as opposed to export to CSV in the <a href="_2v212tis2.htm" >jqGridClass</a>, is that the names in header and initially hidden columns are taken from column model generated in the jqGridRender class. In that respect, you have more control on the export and how the CSV is formatted upon exporting.<p><br>To enable the export to CSV in navigator you should set the csv property to true.<p>$grid-&gt;setNavOptions('navigator', array("csv"=&gt;true)); <p>Additionaly you can overwrite the export file name  to csv using the csvfile variable:<p>$grid-&gt;csvfile ='mycsvfile.csv';<p>You can use the csvsep variable to define the separator for the exported data<p>$grid-&gt;csvsep =",";
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 11/06/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,1 @@
+Node can be expanded when we click on the name and not only on the icon.

@@ -1,0 +1,2 @@
+We can change the icons of the subgrid. This is done with the option of the subgrid,
+which point to a icon of Theme roller.

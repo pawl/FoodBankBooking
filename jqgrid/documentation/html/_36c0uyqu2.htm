@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Options</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Options
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">For the TreeGrid options a two methods can be used. These methods are from the jqGridRender Class<p><b>getGridOption($key)</b> to obtain the desired option <br>where $key is a name listed in the table below<br>and <br><b>setGridOption(array $aoptions)</b> to set a new option(s)<br>where<br>$aoptions is array where multiple optins can be set. <br>The method can be called several times in order to set or overwrite existing option(s).<p>Example: If we want to change the width and the height of the grid we can write the code like this<br><pre><div class="csharpcode">&lt;?php
+...
+<span class="codecomment">// Create the jqTreeGrid instance</span>
+$tree = <span class="programcontrol">new</span> jqTreeGrid($conn);
+...
+$tree-&gt;setGridOptions(<span class="datatypes">array</span>(<span class="codestring">"width"</span>=&gt;500,<span class="codestring">"height"</span>=&gt;350));
+...
+$tree-&gt;renderTree(...);
+?&gt;</div></pre><p>The same code is equivalent<p><pre><div class="csharpcode">&lt;?php
+...
+<span class="codecomment">// Create the jqTreeGrid instance</span>
+$tree = <span class="programcontrol">new</span> jqTreeGrid($conn);
+...
+$tree-&gt;setGridOptions(<span class="datatypes">array</span>(<span class="codestring">"width"</span>=&gt;500));
+$tree-&gt;setGridOptions(<span class="datatypes">array</span>(<span class="codestring">"height"</span>=&gt;350));
+...
+$tree-&gt;renderTree(...);
+?&gt;</div></pre><p>Again with <a href="_2v70w5c4u.htm" >Grid Options</a> available in the grid we can use the following one<p><br><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Type</P>		</TH>		<TH>			<P>Name</P>		</TH>		<TH>			<P>Description </P>		</TH>		<TH>			<P>Default</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>ExpandColClick</P>		</TD>		<TD >			<P ALIGN=LEFT>boolean when true, the tree is expanded and/or collapsed when we click on the text of the expanded column, not only on the image</P>		</TD>		<TD>			<P ALIGN=LEFT></P>		</TD>	</TR> 	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>ExpandColumn</P>		</TD>		<TD >			<P ALIGN=LEFT>Indicates which column (name from colModel) should be used to expand the tree grid. If not set the first one is used. </P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>treedatatype</P>		</TD>		<TD >			<P ALIGN=LEFT>Determines the initial datatype (see datatype option). Usually this should not be changed. During the reading process this option is equal to the datatype option</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>bollean</P>		</TD>		<TD>			<P ALIGN=LEFT>treeGrid</P>		</TD>		<TD >			<P ALIGN=LEFT>Enables tree grid. Usualy this option shuld not be set. It is set automatically when the new instance of a class is created.</P>		</TD>		<TD>			<P ALIGN=LEFT>false</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>treeGridModel</P>		</TD>		<TD >			<P ALIGN=LEFT>Deteremines the method used for the treeGrid. Can be nested or adjacency. Change this option with setTreeModel method.</P>		</TD>		<TD>			<P ALIGN=LEFT>nested</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>string</P>		</TD>		<TD>			<P ALIGN=LEFT>treeGridModel</P>		</TD>		<TD >			<P ALIGN=LEFT>Deteremines the method used for the treeGrid. Can be nested or adjacency. Change this option with setTreeModel method.</P>		</TD>		<TD>			<P ALIGN=LEFT>nested</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>array</P>		</TD>		<TD>			<P ALIGN=LEFT>treeIcons</P>		</TD>		<TD >			<P ALIGN=LEFT>This array set the icons used in the tree. The icons should be a valid icons from UI theme roller images. The default values are: array("plus"=>'ui-icon-triangle-1-e',"minus"=>'ui-icon-triangle-1-s',"leaf"=>'ui-icon-radio-off'} </P>		</TD>		<TD>			<P ALIGN=LEFT>nested</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>array</P>		</TD>		<TD>			<P ALIGN=LEFT>treeReader</P>		</TD>		<TD >			<P ALIGN=LEFT>extends the colModel defined in the basic grid. The fields described here are added to end of the colModel array. This means that the data returned from the server should have values for these fields. Usually this option should not be set. It is set automatically from the class.</P>		</TD>		<TD>			<P ALIGN=LEFT></P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>tree_root_level</P>		</TD>		<TD >			<P ALIGN=LEFT>Determines the level where the root element begins when treeGrid is enabled</P>		</TD>		<TD>			<P ALIGN=LEFT>0</P>		</TD>	</TR></TABLE><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/21/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

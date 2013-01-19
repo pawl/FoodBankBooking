@@ -1,0 +1,8 @@
+In this advanced example we show one very usefull feature of the autocomplete
+method. It is possible to search on one field, but to set the selected value on
+on different field.
+For this purpose it is only needed to set the target field.
+In this particuler exmple - open the edit form and then try to serch on
+CompanyName field. After the field is selected and the cursor is moved
+you will see that the CustomerID changes.  If there is no selection the
+CustomerId field goes empty. 

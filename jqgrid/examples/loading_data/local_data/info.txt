@@ -1,0 +1,5 @@
+You can bind local data type to <b>jqGrid</b> using array.
+For this purpose you will need to build the column model manually and then put some data
+into the grid using array. Refer to PHP code to see how this can be achieved.
+The data can be put at once or row by row depending on the settings in addRowData method
+In this example we add data at once.

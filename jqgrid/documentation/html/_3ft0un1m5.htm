@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.3.0.0</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.3.0.0
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released 13, December 2011<p>This version is a major release where a lot of new features are added.<p><h2>Additions</h2><p><h3>jqGrid</h3><p><h4>Changes in PHP</h4><br><ul><li> Fix for calculating the count of the records when more that two FROM commands are available<br><li> Added a public getLastInsert property (boolean) to get the last inserted id when a add operation is performed<br><li> Added new method getLastInsertId to get the last inserted ID if getLastInsert property is true. This method should be called after renderGrid or editGrid.<br><li> Error meassaging sytem rewrite<br><li> Added new public property oper which detrermines the current grid operation<br><li> Added customError function which overwrites the error meassaging sytem allowing to output custom error message<br><li> The last inserted id is returned if getLastInsert is set to true. The retun string is like 'PrimaryKeyName#LastInsertID'<br><li> Added inlineNav public property to enable inline navigator. Note that navigator property should be set to true too in this case<br><li> Added two new methods inlineNavOptions to set inline navigator options and inlineNavEvent to set a inline event<br><li> The jqGridUtils class is removed from the jqGrid.php file. Now this class is loaded from jqGrid.php file.<br><li> Added new method getInlineOptions which return the options for inline editing.<br></ul><p><br><h4>Changes in Java Script Code</h4><br><ul><li> Column Freezing – you can now freeze the first N columns of the grid, so that a horizontal scroll bar appears and they stay fixed (frozen) while you can still scroll the un-frozen columns. <br><li> Inline add new row – we figured we have “Add New Dialog” – addRow method<br><li> Inline navigator – a better way to handle control buttons while in inline add/edit/delete modes <br><li> Support reading any data from XML including attributes. <br><li> jQuery 1.7.1 and ThemeRoller 1.8.16 support – the latest jQuery and ThemeRoller releases are now officially supported and tested. <br><li> A LOT of fixes<br></ul><p><h3>jqChart</h3><ul><li> Fixed exporting <br><li> Fixed memory leaks in legacy IE.<br><li> Fixed compatibility issue with jQuery 1.7.<br></ul><p><h3>jqForm Visual Builder</h3><ul><li> Fixed short php tags in code<br><li> Fix obtaining and savig the data in the xml file.<br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/23/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

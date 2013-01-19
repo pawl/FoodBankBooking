@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <queries>
+ <sql Id="getProducts">
+  SELECT * FROM products
+ </sql>
+ <sql Id="getOrders">
+  SELECT * FROM orders
+ </sql>
+ </queries>

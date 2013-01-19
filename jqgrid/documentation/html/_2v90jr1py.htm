@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Working with javascript</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Working with javascript
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">jqGrid for PHP supports adding javascript from within your PHP script. This is done with the special prefix "js:" before the script.<br><div class="updatenotice">It is very important to note that there are exceptions to this rule when the following methods are used:<br><ul><li> setGridEvent<br><li> setNavEvent<br><li> setJSCode<br></ul><br>placing a "js:" prefix before the code will not run the script. These methods add the "js:" prefix automatically before the code</div><p><br><b>When should the "js:" prefix be used?</b><p>The "js:" prefix should be used when the type definition is function and in the following options - <a href="_2v70w5p2k.htm" >Column Model Options</a> for extending the <a href="_2v80w6oam.htm" >editing properties</a>,in <a href="_2v70wa4jv.htm" >Formatters</a> to define custom formatter and in <a href="_2v70waupp.htm" >Toolbar Filter</a>.<p>If the javascript code is complex and spans several lines, we recommend using the following syntax:<p><pre><div class="htmlcode">$mycode = &lt;&lt;&lt;CUSTOMCODE
+// 
+// here JavaScript code
+
+CUSTOMCODE;</div></pre><p>Using this syntax will prevent PHP errors with unescaped single and double brackets, which will otherwise cause errors in the PHP script.<br>You can see an example of this <a href="_2v90k1b2v.htm" >here</a><p><b>setGridEvent</b><p>With the <a href="_2v70w0lkn.htm" >setGridEvent</a> method we add client-side javascript events related to the grid. The method accepts two parameters - the first parameter is the valid event name listed <a href="_2v70w6ca2.htm" >here</a> and the second parameter is the javascript code which should begin with function and the parameters which the event accepts.<p>Let suppose that we want to alert a message with the OrderID when a row in the grid is selected (OrderID is a column in the grid). Using our <a href="_2v90jgzqp.htm" >example</a> the change in the code should be:<p><pre><div class="htmlcode">&lt;?php
+...
+$onselect = &lt;&lt;&lt;ONSELECTROW
+function(rowid, <span class="attributes">selected</span>)
+{
+   alert(rowid);
+}
+ONSELECTROW;
+
+$grid-&gt;setGridEvent(<span class="codestring">'onSelectRow'</span>,$onselect);
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,true, null, null, true,true);
+$conn = null;
+?&gt;</div></pre><p><b>setNavEvent</b><p><a href="_2v70w0lkn.htm" >setNavEvent</a> works in the same way as setGridEvent, but it adds a javascript events to the navigator or/and form-editing modules.<p><b>setJSCode</b><br><a href="_2v70w0lkn.htm" >setJSCode</a> adds code written in javascript just after the creation of jqGrid instance. Use this method to emit custom javascript related to your jqGrid instance.<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/18/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

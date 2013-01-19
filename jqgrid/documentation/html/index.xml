@@ -1,0 +1,513 @@
+<?xml version="1.0"?>
+<wwhelptopics>
+	<topic text="jqSuite php documentation" filename="indexpage" image="images/INDEX.gif" keywords="jqSuite php documentation;">
+		<topic text="What's New in This Release?" filename="_2yh0scc6a" image="images/HEADER.gif" keywords="What's New in This Release?;">
+			<topic text="Version 4.4.0.0" filename="_3j30hgmt7" image="images/TOPIC.gif" keywords="Version 4.4.0.0;">
+			</topic>
+			<topic text="Version 4.3.2.0" filename="_3fu13kjry" image="images/TOPIC.gif" keywords="Version 4.3.2.0;">
+			</topic>
+			<topic text="Version 4.3.0.0" filename="_3ft0un1m5" image="images/TOPIC.gif" keywords="Version 4.3.0.0;">
+			</topic>
+			<topic text="Version 4.2.0.0" filename="_3ft0u991y" image="images/TOPIC.gif" keywords="Version 4.2.0.0;">
+			</topic>
+			<topic text="Version 4.1.2.0" filename="_3ft0u53lj" image="images/TOPIC.gif" keywords="Version 4.1.2.0;">
+			</topic>
+			<topic text="Version 4.1.0.0" filename="_3ft0tw7ob" image="images/TOPIC.gif" keywords="Version 4.1.0.0;">
+			</topic>
+			<topic text="Version 4.0.0.4" filename="_37x0m7qvc" image="images/TOPIC.gif" keywords="Version 4.0.0.4;">
+			</topic>
+			<topic text="Version 4.0.0.3" filename="_37e14qqin" image="images/TOPIC.gif" keywords="Version 4.0.0.3;">
+			</topic>
+			<topic text="Version 4.0.0.2" filename="_36w0lg2mc" image="images/TOPIC.gif" keywords="Version 4.0.0.2;">
+			</topic>
+			<topic text="Version 4.0.0.1" filename="_36h0ulk1m" image="images/TOPIC.gif" keywords="Version 4.0.0.1;">
+			</topic>
+			<topic text="Version 4.0.0.0" filename="_369114t0f" image="images/TOPIC.gif" keywords="Version 4.0.0.0;">
+			</topic>
+			<topic text="Version 3" filename="_36w0le87p" image="images/HEADER.gif" keywords="Version 3;">
+				<topic text="Version 3.8.2.2" filename="_34q0snogu" image="images/TOPIC.gif" keywords="Version 3.8.2.2;">
+				</topic>
+				<topic text="Version 3.8.2.1" filename="_34e0qd8un" image="images/TOPIC.gif" keywords="Version 3.8.2.1;">
+				</topic>
+				<topic text="Version 3.8.1.1" filename="_32f0r376g" image="images/TOPIC.gif" keywords="Version 3.8.1.1;">
+				</topic>
+				<topic text="Version 3.8" filename="_2zy0m9wy9" image="images/TOPIC.gif" keywords="Version 3.8;">
+				</topic>
+				<topic text="Version 3.7" filename="_2yh0svogb" image="images/TOPIC.gif" keywords="Version 3.7;">
+				</topic>
+				<topic text="Version 3.6.4" filename="_2yh0slkjl" image="images/TOPIC.gif" keywords="Version 3.6.4;">
+				</topic>
+				<topic text="Version 3.6.3" filename="_2yh0sdcyi" image="images/TOPIC.gif" keywords="Version 3.6.3;">
+				</topic>
+			</topic>
+		</topic>
+		<topic text="jqGrid PHP" filename="_3ft0tqe8b" image="images/HEADER.gif" keywords="jqGrid PHP;">
+			<topic text="Introduction" filename="_2v114u1tb" image="images/HEADER.gif" keywords="Introduction;">
+			</topic>
+			<topic text="Installation & System Requirements" filename="_2v114xd42" image="images/HEADER.gif" keywords="Installation & System Requirements;">
+				<topic text="System requirements" filename="_2v20bnptk" image="images/TOPIC.gif" keywords="System requirements;">
+				</topic>
+				<topic text="Quick installation" filename="_2v20f82ru" image="images/TOPIC.gif" keywords="Quick installation;">
+				</topic>
+				<topic text="Connection and database drivers" filename="_2v20h4qe6" image="images/TOPIC.gif" keywords="Connection and database drivers;">
+				</topic>
+			</topic>
+			<topic text="Localization" filename="_2v20inf7f" image="images/HEADER.gif" keywords="Localization;">
+				<topic text="List of available language packs" filename="_2v20io4hl" image="images/TOPIC.gif" keywords="List of available language packs;">
+				</topic>
+				<topic text="Using predefined language packs" filename="_2v20j932j" image="images/TOPIC.gif" keywords="Using predefined language packs;">
+				</topic>
+				<topic text="Modifying/Creating a new language pack" filename="_2v20jii1o" image="images/TOPIC.gif" keywords="Modifying/Creating a new language pack;">
+				</topic>
+				<topic text="Programmatically overriding language defaults" filename="_2v20jyk2p" image="images/TOPIC.gif" keywords="Programmatically overriding language defaults;">
+				</topic>
+				<topic text="Right-To-Left languages" filename="_2v20k9p9v" image="images/TOPIC.gif" keywords="Right-To-Left languages;">
+				</topic>
+			</topic>
+			<topic text="Theming" filename="_2v20kg7c3" image="images/HEADER.gif" keywords="Theming;">
+				<topic text="Basics" filename="_2v20kh8sm" image="images/TOPIC.gif" keywords="Basics;">
+				</topic>
+				<topic text="Setting a theme for the grid" filename="_2v20kmgbi" image="images/TOPIC.gif" keywords="Setting a theme for the grid;">
+				</topic>
+				<topic text="Rolling your own theme" filename="_2v20kq5eq" image="images/TOPIC.gif" keywords="Rolling your own theme;">
+				</topic>
+			</topic>
+			<topic text="Architecture and classes guide" filename="_2v20pv05v" image="images/HEADER.gif" keywords="Architecture and classes guide;">
+				<topic text="jqGrid Class" filename="_2v20q5hpg" image="images/HEADER.gif" keywords="jqGrid Class;">
+					<topic text="Variables" filename="_2v212l11z" image="images/TOPIC.gif" keywords="Variables;">
+					</topic>
+					<topic text="Public Methods" filename="_2v212lraf" image="images/TOPIC.gif" keywords="Public Methods;">
+					</topic>
+					<topic text="Passing parameters" filename="_2v212pj0p" image="images/TOPIC.gif" keywords="Passing parameters;">
+					</topic>
+					<topic text="Queries" filename="_2v30rqjke" image="images/TOPIC.gif" keywords="Queries;">
+					</topic>
+					<topic text="Searching" filename="_2v213r3qs" image="images/TOPIC.gif" keywords="Searching;">
+					</topic>
+					<topic text="Working with dates" filename="_2v212r62k" image="images/TOPIC.gif" keywords="Working with dates;">
+					</topic>
+					<topic text="Summary Fields" filename="_2v212ria8" image="images/TOPIC.gif" keywords="Summary Fields;">
+					</topic>
+					<topic text="Working with different charset" filename="_2v212se80" image="images/TOPIC.gif" keywords="Working with different charset;">
+					</topic>
+					<topic text="Export to Excel" filename="_2v212tis2" image="images/TOPIC.gif" keywords="Export to Excel;">
+					</topic>
+					<topic text="Export to Pdf" filename="_32h0wojvn" image="images/TOPIC.gif" keywords="Export to Pdf;">
+					</topic>
+					<topic text="Export to CSV" filename="_32h0wow2v" image="images/TOPIC.gif" keywords="Export to CSV;">
+					</topic>
+					<topic text="Simple Subgrid" filename="_2v212ugy3" image="images/TOPIC.gif" keywords="Simple Subgrid;">
+					</topic>
+					<topic text="Debugging" filename="_2v30qvvbn" image="images/TOPIC.gif" keywords="Debugging;">
+					</topic>
+				</topic>
+				<topic text="jqGridEdit Class" filename="_2v6108iau" image="images/HEADER.gif" keywords="jqGridEdit Class;">
+					<topic text="Variables" filename="_2v611sw7j" image="images/TOPIC.gif" keywords="Variables;">
+					</topic>
+					<topic text="Public Methods" filename="_2v611tfwr" image="images/TOPIC.gif" keywords="Public Methods;">
+					</topic>
+					<topic text="Inserting" filename="_2v613rk4i" image="images/TOPIC.gif" keywords="Inserting;">
+					</topic>
+					<topic text="Updating" filename="_2v613rrua" image="images/TOPIC.gif" keywords="Updating;">
+					</topic>
+					<topic text="Deleting" filename="_2v613s31i" image="images/TOPIC.gif" keywords="Deleting;">
+					</topic>
+					<topic text="All in One" filename="_2v613snf0" image="images/TOPIC.gif" keywords="All in One;">
+					</topic>
+				</topic>
+				<topic text="jqGridRender Class" filename="_2v70u6eg2" image="images/HEADER.gif" keywords="jqGridRender Class;">
+					<topic text="Variables" filename="_2v70w0dn2" image="images/TOPIC.gif" keywords="Variables;">
+					</topic>
+					<topic text="Methods" filename="_2v70w0lkn" image="images/TOPIC.gif" keywords="Methods;">
+					</topic>
+					<topic text="Grid Options" filename="_2v70w5c4u" image="images/TOPIC.gif" keywords="Grid Options;">
+					</topic>
+					<topic text="Grid Events" filename="_2v70w6ca2" image="images/TOPIC.gif" keywords="Grid Events;">
+					</topic>
+					<topic text="Column Model Options" filename="_2v70w5p2k" image="images/TOPIC.gif" keywords="Column Model Options;">
+						<topic text="Editing Options" filename="_2v80w6oam" image="images/TOPIC.gif" keywords="Editing Options;">
+						</topic>
+						<topic text="Formatters" filename="_2v70wa4jv" image="images/TOPIC.gif" keywords="Formatters;">
+						</topic>
+						<topic text="Custom Formatters" filename="_3ga0qw9t0" image="images/TOPIC.gif" keywords="Custom Formatters;">
+						</topic>
+						<topic text="Cell Attributes" filename="_36a0y0p4c" image="images/TOPIC.gif" keywords="Cell Attributes;">
+						</topic>
+					</topic>
+					<topic text="Navigator and Buttons" filename="_2v70waggp" image="images/TOPIC.gif" keywords="Navigator and Buttons;">
+					</topic>
+					<topic text="Search Options and Events" filename="_2v90z93od" image="images/TOPIC.gif" keywords="Search Options and Events;">
+					</topic>
+					<topic text="Toolbar Filter" filename="_2v70waupp" image="images/TOPIC.gif" keywords="Toolbar Filter;">
+					</topic>
+					<topic text="Editing" filename="_2v90z7wf3" image="images/HEADER.gif" keywords="Editing;">
+						<topic text="Cell Editing options and events" filename="_2va17y39r" image="images/TOPIC.gif" keywords="Cell Editing options and events;">
+						</topic>
+						<topic text="Inline Editing options" filename="_2va196tc2" image="images/TOPIC.gif" keywords="Inline Editing options;">
+						</topic>
+						<topic text="Form Editing" filename="_2vb0kbya8" image="images/TOPIC.gif" keywords="Form Editing;">
+						</topic>
+					</topic>
+					<topic text="Java Script Grid Methods" filename="_2yh0uuou0" image="images/TOPIC.gif" keywords="Java Script Grid Methods;">
+						<topic text="Methods requiering jQuery UI library" filename="_2yh0vm11i" image="images/TOPIC.gif" keywords="Methods requiering jQuery UI library;">
+						</topic>
+					</topic>
+				</topic>
+			</topic>
+			<topic text="Tutorials" filename="_2v90jgzqp" image="images/HEADER.gif" keywords="Tutorials;">
+				<topic text="Using the grid in different contexts" filename="_2v90ju98u" image="images/TOPIC.gif" keywords="Using the grid in different contexts;">
+				</topic>
+				<topic text="Working with javascript" filename="_2v90jr1py" image="images/TOPIC.gif" keywords="Working with javascript;">
+				</topic>
+				<topic text="Adding datepicker" filename="_2v90k1b2v" image="images/TOPIC.gif" keywords="Adding datepicker;">
+				</topic>
+				<topic text="Setting column headers" filename="_2v90o9f3i" image="images/TOPIC.gif" keywords="Setting column headers;">
+				</topic>
+				<topic text="Custom formatter" filename="_2v90kgam2" image="images/TOPIC.gif" keywords="Custom formatter;">
+				</topic>
+				<topic text="Adding custom button" filename="_2v90ki3d8" image="images/TOPIC.gif" keywords="Adding custom button;">
+				</topic>
+				<topic text="Export to excel" filename="_2v90khl81" image="images/TOPIC.gif" keywords="Export to excel;">
+				</topic>
+				<topic text="Export to PDF" filename="_32k100vez" image="images/TOPIC.gif" keywords="Export to PDF;">
+				</topic>
+				<topic text="Export to CSV" filename="_32k1071bo" image="images/TOPIC.gif" keywords="Export to CSV;">
+				</topic>
+				<topic text="DropDowns/Selects for editing & searching" filename="_2v90kocvq" image="images/TOPIC.gif" keywords="DropDowns/Selects for editing & searching;">
+				</topic>
+				<topic text="Searching (Search Dialog)" filename="_2v90knagx" image="images/TOPIC.gif" keywords="Searching (Search Dialog);">
+				</topic>
+				<topic text="Searching (ToolBar)" filename="_2v90knl8i" image="images/TOPIC.gif" keywords="Searching (ToolBar);">
+				</topic>
+				<topic text="Form Editing (Edit Dialog)" filename="_2v90ks3na" image="images/TOPIC.gif" keywords="Form Editing (Edit Dialog);">
+				</topic>
+				<topic text="Inline editing" filename="_2v90ksduh" image="images/TOPIC.gif" keywords="Inline editing;">
+				</topic>
+				<topic text="Cell editing" filename="_2v90ksmc1" image="images/TOPIC.gif" keywords="Cell editing;">
+				</topic>
+				<topic text="Validating Data on the Client Side" filename="_2v90kxcx4" image="images/TOPIC.gif" keywords="Validating Data on the Client Side;">
+				</topic>
+				<topic text="Hierarchy" filename="_2v90kudo0" image="images/HEADER.gif" keywords="Hierarchy;">
+					<topic text="Subgrid 2 levels" filename="_2v90kv1k9" image="images/TOPIC.gif" keywords="Subgrid 2 levels;">
+					</topic>
+					<topic text="Subgrid 3 nested levels" filename="_2v90kvcfq" image="images/TOPIC.gif" keywords="Subgrid 3 nested levels;">
+					</topic>
+					<topic text="Simple subgrid" filename="_2v90kvl85" image="images/TOPIC.gif" keywords="Simple subgrid;">
+					</topic>
+				</topic>
+				<topic text="Master -> Detail with editing" filename="_2v90kwx4j" image="images/TOPIC.gif" keywords="Master -> Detail with editing;">
+				</topic>
+				<topic text="Manipulate grid data (customFunc)" filename="_2xf0sstq4" image="images/TOPIC.gif" keywords="Manipulate grid data (customFunc);">
+				</topic>
+				<topic text="Attaching autocomplete in editing" filename="_2xf0uw4pt" image="images/TOPIC.gif" keywords="Attaching autocomplete in editing;">
+				</topic>
+				<topic text="Formatting colums with PHP function" filename="_2yh0vx96l" image="images/TOPIC.gif" keywords="Formatting colums with PHP function;">
+				</topic>
+				<topic text="Loading data at once and operate locally" filename="_2yh0vy5t2" image="images/TOPIC.gif" keywords="Loading data at once and operate locally;">
+				</topic>
+				<topic text="Grouping with summary" filename="_2zy0mj9h1" image="images/TOPIC.gif" keywords="Grouping with summary;">
+				</topic>
+				<topic text="Run sql commands after CRUD" filename="_34e14mcry" image="images/TOPIC.gif" keywords="Run sql commands after CRUD;">
+				</topic>
+				<topic text="Using array data like SQL" filename="_34e1588xn" image="images/TOPIC.gif" keywords="Using array data like SQL;">
+				</topic>
+				<topic text="Configuring ODBC driver" filename="_3fv0rnoia" image="images/TOPIC.gif" keywords="Configuring ODBC driver;">
+				</topic>
+			</topic>
+			<topic text="Trouble-Shooting" filename="_2v90jziqw" image="images/HEADER.gif" keywords="Trouble-Shooting;">
+				<topic text="The grid is displayed in the page, but no data on it?" filename="_2vb0nfm0r" image="images/TOPIC.gif" keywords="The grid is displayed in the page, but no data on it?;">
+				</topic>
+			</topic>
+		</topic>
+		<topic text="jqAutocomplete PHP" filename="_3120ognsd" image="images/HEADER.gif" keywords="jqAutocomplete PHP;">
+			<topic text="Introduction" filename="_3120ormf4" image="images/TOPIC.gif" keywords="Introduction;">
+			</topic>
+			<topic text="Installation & System Requierments" filename="_3120ph5t5" image="images/HEADER.gif" keywords="Installation & System Requierments;">
+				<topic text="Requirements" filename="_3120phq0t" image="images/TOPIC.gif" keywords="Requirements;">
+				</topic>
+				<topic text="Quick Install" filename="_3120r6e0f" image="images/TOPIC.gif" keywords="Quick Install;">
+				</topic>
+				<topic text="Database Connections and drivers" filename="_3120yom90" image="images/TOPIC.gif" keywords="Database Connections and drivers;">
+				</topic>
+			</topic>
+			<topic text="Theming" filename="_3120z4il4" image="images/HEADER.gif" keywords="Theming;">
+				<topic text="Basics and installation" filename="_3120z6qov" image="images/TOPIC.gif" keywords="Basics and installation;">
+				</topic>
+				<topic text="Overview" filename="_3120zg9hd" image="images/TOPIC.gif" keywords="Overview;">
+				</topic>
+			</topic>
+			<topic text="Autocomplete class guide" filename="_3120zlzyh" image="images/HEADER.gif" keywords="Autocomplete class guide;">
+				<topic text="Varaibles" filename="_3120zmznr" image="images/TOPIC.gif" keywords="Varaibles;">
+				</topic>
+				<topic text="Methods" filename="_3120zp2xj" image="images/TOPIC.gif" keywords="Methods;">
+				</topic>
+				<topic text="Autocomplete options" filename="_3120zpdt1" image="images/TOPIC.gif" keywords="Autocomplete options;">
+				</topic>
+				<topic text="Autocomplete events" filename="_3120zpnr3" image="images/TOPIC.gif" keywords="Autocomplete events;">
+				</topic>
+			</topic>
+			<topic text="Autocomplete tutorials" filename="_3120zqub7" image="images/HEADER.gif" keywords="Autocomplete tutorials;">
+				<topic text="Simple Autocomplete" filename="_3130wm032" image="images/TOPIC.gif" keywords="Simple Autocomplete;">
+				</topic>
+				<topic text="Multiple Autocomplete" filename="_3130wmbu8" image="images/TOPIC.gif" keywords="Multiple Autocomplete;">
+				</topic>
+				<topic text="Caching data at client" filename="_3130wmsv3" image="images/TOPIC.gif" keywords="Caching data at client;">
+				</topic>
+				<topic text="Load all data at once" filename="_3130wnghc" image="images/TOPIC.gif" keywords="Load all data at once;">
+				</topic>
+				<topic text="Set the value on different input" filename="_3130wo1gk" image="images/TOPIC.gif" keywords="Set the value on different input;">
+				</topic>
+			</topic>
+		</topic>
+		<topic text="jqDatepicker PHP" filename="_314125b5g" image="images/HEADER.gif" keywords="jqDatepicker PHP;">
+			<topic text="Introduction" filename="_31412f51w" image="images/TOPIC.gif" keywords="Introduction;">
+			</topic>
+			<topic text="Installations and System Requierments" filename="_31413chvy" image="images/HEADER.gif" keywords="Installations and System Requierments;">
+				<topic text="Requierments" filename="_31413d50e" image="images/TOPIC.gif" keywords="Requierments;">
+				</topic>
+				<topic text="Quick Install" filename="_31413eigs" image="images/TOPIC.gif" keywords="Quick Install;">
+				</topic>
+			</topic>
+			<topic text="Theming" filename="_31415d5zj" image="images/HEADER.gif" keywords="Theming;">
+				<topic text="Basics and installation" filename="_31415dqe0" image="images/TOPIC.gif" keywords="Basics and installation;">
+				</topic>
+				<topic text="Overview" filename="_31415ezon" image="images/TOPIC.gif" keywords="Overview;">
+				</topic>
+			</topic>
+			<topic text="Datepicker class guide" filename="_3141630pa" image="images/HEADER.gif" keywords="Datepicker class guide;">
+				<topic text="Variables" filename="_314163gc7" image="images/TOPIC.gif" keywords="Variables;">
+				</topic>
+				<topic text="Methods" filename="_314163o8i" image="images/TOPIC.gif" keywords="Methods;">
+				</topic>
+				<topic text="Options" filename="_3141axiqh" image="images/TOPIC.gif" keywords="Options;">
+				</topic>
+				<topic text="Events" filename="_3141axw8l" image="images/TOPIC.gif" keywords="Events;">
+				</topic>
+			</topic>
+			<topic text="Datepicker tutorials" filename="_3141az1qi" image="images/HEADER.gif" keywords="Datepicker tutorials;">
+				<topic text="Attaching datepicker" filename="_3141b0x4b" image="images/TOPIC.gif" keywords="Attaching datepicker;">
+				</topic>
+			</topic>
+		</topic>
+		<topic text="jqChart PHP" filename="_34c0s9wb4" image="images/HEADER.gif" keywords="jqChart PHP;">
+			<topic text="Introduction" filename="_34c0seos9" image="images/TOPIC.gif" keywords="Introduction;">
+			</topic>
+			<topic text="Installation & System Requirments" filename="_34c0tkns8" image="images/HEADER.gif" keywords="Installation & System Requirments;">
+				<topic text="Requirments" filename="_34c0tof6n" image="images/TOPIC.gif" keywords="Requirments;">
+				</topic>
+				<topic text="Quick Install" filename="_34c0u00yc" image="images/TOPIC.gif" keywords="Quick Install;">
+				</topic>
+			</topic>
+			<topic text="Theming" filename="_34c0wly4v" image="images/HEADER.gif" keywords="Theming;">
+				<topic text="Basics & installation" filename="_34c0xmd92" image="images/TOPIC.gif" keywords="Basics & installation;">
+				</topic>
+			</topic>
+			<topic text="Chart class guide" filename="_34c0zddpx" image="images/HEADER.gif" keywords="Chart class guide;">
+				<topic text="Methods" filename="_34c1363q9" image="images/TOPIC.gif" keywords="Methods;">
+				</topic>
+				<topic text="jqChart options" filename="_34c15pabr" image="images/HEADER.gif" keywords="jqChart options;">
+					<topic text="Chart options" filename="_34c15qaaj" image="images/TOPIC.gif" keywords="Chart options;">
+					</topic>
+					<topic text="Chart events" filename="_34d0n2oc7" image="images/TOPIC.gif" keywords="Chart events;">
+					</topic>
+					<topic text="Colors" filename="_34d0xasjv" image="images/TOPIC.gif" keywords="Colors;">
+					</topic>
+					<topic text="Labels" filename="_34d0o421c" image="images/TOPIC.gif" keywords="Labels;">
+					</topic>
+					<topic text="Language" filename="_34d0otwel" image="images/TOPIC.gif" keywords="Language;">
+					</topic>
+					<topic text="Legend" filename="_34d0qoq92" image="images/TOPIC.gif" keywords="Legend;">
+					</topic>
+					<topic text="Loading" filename="_34d0s10e9" image="images/TOPIC.gif" keywords="Loading;">
+					</topic>
+					<topic text="PlotOptions" filename="_34d0w2mdf" image="images/TOPIC.gif" keywords="PlotOptions;">
+						<topic text="area" filename="_34d0wfigc" image="images/TOPIC.gif" keywords="area;">
+							<topic text="dataLabels" filename="_34d0yaccr" image="images/TOPIC.gif" keywords="dataLabels;">
+							</topic>
+							<topic text="events" filename="_34d0yapjt" image="images/TOPIC.gif" keywords="events;">
+							</topic>
+							<topic text="marker" filename="_34d0yb1if" image="images/TOPIC.gif" keywords="marker;">
+							</topic>
+							<topic text="point" filename="_34d0ybgxn" image="images/TOPIC.gif" keywords="point;">
+							</topic>
+							<topic text="states" filename="_34d0ybs03" image="images/TOPIC.gif" keywords="states;">
+							</topic>
+						</topic>
+						<topic text="areaspline" filename="_34d1020og" image="images/TOPIC.gif" keywords="areaspline;">
+							<topic text="dataLabels" filename="_34d1044so" image="images/TOPIC.gif" keywords="dataLabels;">
+							</topic>
+							<topic text="events" filename="_34d103obr" image="images/TOPIC.gif" keywords="events;">
+							</topic>
+							<topic text="marker" filename="_34d104ki9" image="images/TOPIC.gif" keywords="marker;">
+							</topic>
+							<topic text="point" filename="_34d104xuq" image="images/TOPIC.gif" keywords="point;">
+							</topic>
+							<topic text="states" filename="_34d10585g" image="images/TOPIC.gif" keywords="states;">
+							</topic>
+						</topic>
+						<topic text="bar" filename="_34d10bafd" image="images/TOPIC.gif" keywords="bar;">
+						</topic>
+						<topic text="column" filename="_34d10qbu3" image="images/TOPIC.gif" keywords="column;">
+						</topic>
+						<topic text="line" filename="_34d10swc5" image="images/TOPIC.gif" keywords="line;">
+						</topic>
+						<topic text="pie" filename="_34d10xko3" image="images/TOPIC.gif" keywords="pie;">
+						</topic>
+						<topic text="series" filename="_34d116w5c" image="images/TOPIC.gif" keywords="series;">
+						</topic>
+						<topic text="scatter" filename="_34d1198bc" image="images/TOPIC.gif" keywords="scatter;">
+						</topic>
+						<topic text="spline" filename="_34d11at2j" image="images/TOPIC.gif" keywords="spline;">
+						</topic>
+					</topic>
+					<topic text="Series" filename="_34d0w3j6j" image="images/TOPIC.gif" keywords="Series;">
+						<topic text="Options" filename="_34d138x6z" image="images/TOPIC.gif" keywords="Options;">
+						</topic>
+					</topic>
+					<topic text="Subtitle" filename="_34d13hnjh" image="images/TOPIC.gif" keywords="Subtitle;">
+					</topic>
+					<topic text="Title" filename="_34d13t35o" image="images/TOPIC.gif" keywords="Title;">
+					</topic>
+					<topic text="Tooltip" filename="_34d14szkt" image="images/TOPIC.gif" keywords="Tooltip;">
+					</topic>
+					<topic text="xAxis" filename="_34d15k5vy" image="images/TOPIC.gif" keywords="xAxis;">
+						<topic text="events" filename="_34d16g8p5" image="images/TOPIC.gif" keywords="events;">
+						</topic>
+						<topic text="labels" filename="_34d16mv4b" image="images/TOPIC.gif" keywords="labels;">
+						</topic>
+						<topic text="plotBands" filename="_34d184ai2" image="images/TOPIC.gif" keywords="plotBands;">
+						</topic>
+						<topic text="plotLines" filename="_34d184kmn" image="images/TOPIC.gif" keywords="plotLines;">
+						</topic>
+						<topic text="title" filename="_34d184vut" image="images/TOPIC.gif" keywords="title;">
+						</topic>
+					</topic>
+					<topic text="yAxis" filename="_34d19u00p" image="images/TOPIC.gif" keywords="yAxis;">
+					</topic>
+				</topic>
+				<topic text="Exporting" filename="_34d1aadn3" image="images/HEADER.gif" keywords="Exporting;">
+					<topic text="Installing own export server" filename="_34q0t1l00" image="images/TOPIC.gif" keywords="Installing own export server;">
+					</topic>
+					<topic text="Export options" filename="_3650ql2gs" image="images/TOPIC.gif" keywords="Export options;">
+						<topic text="buttons" filename="_3650rhz6x" image="images/TOPIC.gif" keywords="buttons;">
+							<topic text="exportButton" filename="_3650rm9w4" image="images/TOPIC.gif" keywords="exportButton;">
+							</topic>
+							<topic text="printButton" filename="_3650tbv71" image="images/TOPIC.gif" keywords="printButton;">
+							</topic>
+						</topic>
+					</topic>
+				</topic>
+				<topic text="Java Script Reference" filename="_3650tuohb" image="images/TOPIC.gif" keywords="Java Script Reference;">
+				</topic>
+			</topic>
+		</topic>
+		<topic text="jqTreeGrid PHP" filename="_36b0nkc0z" image="images/HEADER.gif" keywords="jqTreeGrid PHP;">
+			<topic text="Introduction" filename="_36b0nlv9p" image="images/TOPIC.gif" keywords="Introduction;">
+			</topic>
+			<topic text="Installation and System Requierements" filename="_36b0o40w0" image="images/HEADER.gif" keywords="Installation and System Requierements;">
+				<topic text="System requirements" filename="_36b0o77k6" image="images/TOPIC.gif" keywords="System requirements;">
+				</topic>
+				<topic text="Quick Installation" filename="_36b0o9zsh" image="images/TOPIC.gif" keywords="Quick Installation;">
+				</topic>
+				<topic text="Connection and database drivers" filename="_36c0phcgn" image="images/TOPIC.gif" keywords="Connection and database drivers;">
+				</topic>
+			</topic>
+			<topic text="Localization" filename="_36c0s8a0c" image="images/HEADER.gif" keywords="Localization;">
+			</topic>
+			<topic text="Theming" filename="_36c0t1nvo" image="images/HEADER.gif" keywords="Theming;">
+			</topic>
+			<topic text="TreeGrid class guide" filename="_36c0t8uy2" image="images/HEADER.gif" keywords="TreeGrid class guide;">
+				<topic text="jqTreeGrid Class" filename="_36c0uw4c5" image="images/HEADER.gif" keywords="jqTreeGrid Class;">
+					<topic text="Variables" filename="_36c0uxz48" image="images/TOPIC.gif" keywords="Variables;">
+					</topic>
+					<topic text="Methods" filename="_36c0uye82" image="images/TOPIC.gif" keywords="Methods;">
+					</topic>
+					<topic text="Options" filename="_36c0uyqu2" image="images/TOPIC.gif" keywords="Options;">
+					</topic>
+					<topic text="Java Script Events" filename="_36c0uzg4n" image="images/TOPIC.gif" keywords="Java Script Events;">
+					</topic>
+					<topic text="Java Script Methods" filename="_36c0v6h24" image="images/TOPIC.gif" keywords="Java Script Methods;">
+					</topic>
+					<topic text="TreeGrid models" filename="_36d15nks9" image="images/HEADER.gif" keywords="TreeGrid models;">
+						<topic text="Nested set model" filename="_36d16rilk" image="images/TOPIC.gif" keywords="Nested set model;">
+						</topic>
+						<topic text="Adjacency model" filename="_36d17rfpn" image="images/TOPIC.gif" keywords="Adjacency model;">
+						</topic>
+					</topic>
+				</topic>
+			</topic>
+		</topic>
+		<topic text="jqScheduler PHP" filename="_3ft0vyoks" image="images/HEADER.gif" keywords="jqScheduler PHP;">
+			<topic text="Introduction" filename="_3ft0vyxws" image="images/TOPIC.gif" keywords="Introduction;">
+			</topic>
+			<topic text="Installation and system requierments" filename="_3ft0w3jm0" image="images/HEADER.gif" keywords="Installation and system requierments;">
+				<topic text="System requierments" filename="_3ft0w466t" image="images/TOPIC.gif" keywords="System requierments;">
+				</topic>
+				<topic text="Quick Install" filename="_3ft0wbmie" image="images/TOPIC.gif" keywords="Quick Install;">
+				</topic>
+			</topic>
+			<topic text="Localization" filename="_3ft0wil2w" image="images/HEADER.gif" keywords="Localization;">
+				<topic text="List of available language packs" filename="_3ft0wizs7" image="images/TOPIC.gif" keywords="List of available language packs;">
+				</topic>
+				<topic text="Using predefined laguage packs" filename="_3ft0wmufg" image="images/TOPIC.gif" keywords="Using predefined laguage packs;">
+				</topic>
+				<topic text="Modifying/Creating a new language pack" filename="_3ft0wt3on" image="images/TOPIC.gif" keywords="Modifying/Creating a new language pack;">
+				</topic>
+				<topic text="Dynamically overriding language defaults" filename="_3ft0wwduh" image="images/TOPIC.gif" keywords="Dynamically overriding language defaults;">
+				</topic>
+			</topic>
+			<topic text="Theming" filename="_3ft0x3k7x" image="images/HEADER.gif" keywords="Theming;">
+				<topic text="Basics" filename="_3ft0x3zbk" image="images/TOPIC.gif" keywords="Basics;">
+				</topic>
+				<topic text="Setting theme for the scheduler" filename="_3ft0x63xr" image="images/TOPIC.gif" keywords="Setting theme for the scheduler;">
+				</topic>
+				<topic text="Rolling your own theme" filename="_3ft0x7o1z" image="images/TOPIC.gif" keywords="Rolling your own theme;">
+				</topic>
+			</topic>
+			<topic text="jqScheduler class guide" filename="_3ft0x8hem" image="images/HEADER.gif" keywords="jqScheduler class guide;">
+				<topic text="Variables" filename="_3ft0x8tv5" image="images/TOPIC.gif" keywords="Variables;">
+				</topic>
+				<topic text="Methods" filename="_3ft0xbcj3" image="images/TOPIC.gif" keywords="Methods;">
+				</topic>
+				<topic text="Options" filename="_3ft0xmapt" image="images/HEADER.gif" keywords="Options;">
+					<topic text="General Display/View" filename="_3ft0yhugx" image="images/TOPIC.gif" keywords="General Display/View;">
+					</topic>
+					<topic text="Agenda Options" filename="_3ft0yocs3" image="images/TOPIC.gif" keywords="Agenda Options;">
+					</topic>
+					<topic text="Current Date" filename="_3ft0yull9" image="images/TOPIC.gif" keywords="Current Date;">
+					</topic>
+					<topic text="Text/Time Options" filename="_3ft0yx6a3" image="images/TOPIC.gif" keywords="Text/Time Options;">
+					</topic>
+					<topic text="Event Data/Rendering" filename="_3ft0z0cgo" image="images/TOPIC.gif" keywords="Event Data/Rendering;">
+					</topic>
+					<topic text="Dragging & Resizing" filename="_3ft0z46rp" image="images/TOPIC.gif" keywords="Dragging & Resizing;">
+					</topic>
+				</topic>
+			</topic>
+		</topic>
+		<topic text="jqForm PHP" filename="_3ft0zivsw" image="images/HEADER.gif" keywords="jqForm PHP;">
+			<topic text="Introduction" filename="_3ft0zjnuu" image="images/TOPIC.gif" keywords="Introduction;">
+			</topic>
+			<topic text="Installation and System Requierments" filename="_3ft0zlq8a" image="images/HEADER.gif" keywords="Installation and System Requierments;">
+				<topic text="Requierments" filename="_3ft0zm878" image="images/TOPIC.gif" keywords="Requierments;">
+				</topic>
+				<topic text="Quick Install" filename="_3ft0zo0wr" image="images/TOPIC.gif" keywords="Quick Install;">
+				</topic>
+			</topic>
+			<topic text="Theming" filename="_3ft0zw0hc" image="images/HEADER.gif" keywords="Theming;">
+				<topic text="Basics and installation" filename="_3ft0zwnjs" image="images/TOPIC.gif" keywords="Basics and installation;">
+				</topic>
+				<topic text="Overview" filename="_3ft101ipr" image="images/TOPIC.gif" keywords="Overview;">
+				</topic>
+			</topic>
+			<topic text="Form class guide" filename="_3ft107m6l" image="images/HEADER.gif" keywords="Form class guide;">
+				<topic text="Varaibles" filename="_3ft107wz4" image="images/TOPIC.gif" keywords="Varaibles;">
+				</topic>
+				<topic text="Methods" filename="_3ft10bgf7" image="images/TOPIC.gif" keywords="Methods;">
+				</topic>
+			</topic>
+			<topic text="jqForm Tutorials" filename="_3ft10nsgk" image="images/HEADER.gif" keywords="jqForm Tutorials;">
+			</topic>
+		</topic>
+	</topic>
+</wwhelptopics>

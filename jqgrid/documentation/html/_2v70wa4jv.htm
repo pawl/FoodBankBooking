@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Formatters</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Formatters
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Formatter supports advanced formatting of the contents of cells in form, in-line and cell editing.<br>Formatter can be used in either of two ways: Predefined and Custom. <br>Here we describe the predefined formatters.<p>Default formatting functions are defined in the language files e.g., grid.locale-xx (where xx is your language). That mean that these formatter options are loaded when the grid java script files are loaded. <a href="_2v20jii1o.htm" >See here</a><p><div class="notebox">The default formatter options are different for different language files.</div><p>In the language file you will find all the settings that you may want to review or change before using the predefined formats. These settings can also be overridden for specific columns using the formatoptions parameter in colModel.<p>The second step is to set the desired formatting in colModel. This is done using the option formatter. For example.<p><pre>
+&lt;?php
+....
+$grid-&gt;setColModel(...);
+$grid-&gt;setColProperty('somefield',array("formatter"=&gt;"number"));
+...
+
+$grid-&gt;renderGrid(...);
+...
+?&gt;
+</pre><p>will format the contents of the 'somefield' column according to the rules set for 'number' in the active language file. For example, if the source value is “1234.1”, then the value that actually will be put in the grid will be “1 234.10” using the options above. <p><b>Column Specific Options</b><p>Formatter options can be defined for particular columns, overwriting the defaults from the language file. This is accomplished by using the formatoptions array in colModel. For example:<p><pre>
+&lt;?php
+....
+$grid-&gt;setColModel(...);
+$grid-&gt;setColProperty('somefield',array("formatter"=&gt;"currency", "formatoptions"=&gt;array("prefix"=&gt;"$ ")));
+...
+
+$grid-&gt;renderGrid(...);
+...
+?&gt;
+</pre><p>This definition will overwrite the default one from the language file. In formatoptions should be placed values appropriate for the particular format type<p><div class="notebox">All predefined types are compatible with the editing modules. This means that the numbers, links, e-mails, etc., are converted so that they can be edited correctly. </div><p>Below is a list of the predefined format types <p><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Type</P>		</TH>		<TH>			<P>Options</P>		</TH>		<TH>			<P>Description</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>integer</P>		</TD>		<TD>			<P ALIGN=LEFT>thousandsSeparator,<BR> defaulValue</P>		</TD>		<TD>			<P ALIGN=LEFT>thousandsSeparator determines the separator for the			thousands, defaultValue set the default value if nothing in the			data</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>number</P>		</TD>		<TD>			<P ALIGN=LEFT>decimalSeparator,<BR> thousandsSeparator,<BR>			decimalPlaces,<BR> defaulValue</P>		</TD>		<TD>			<P ALIGN=LEFT>thousandsSeparator determines the separator for the			thousands, decimalSeparator determines the separator for the			decimals, decimalPlaces determine how many decimal places we			should have for the number, defaultValue set the default value if			nothing in the data</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>currency</P>		</TD>		<TD>			<P ALIGN=LEFT>decimalSeparator,<BR> thousandsSeparator,<BR>			decimalPlaces,<BR> defaulValue,<BR> prefix,<BR> suffix</P>		</TD>		<TD>			<P ALIGN=LEFT>The same as number, but we add aditional two options			- prefix a text the is puted before the number and suffix the text			that is added after the number</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>date</P>		</TD>		<TD>			<P ALIGN=LEFT>srcformat,<BR> newformat</P>		</TD>		<TD>			<P ALIGN=LEFT>srcformat is the source format - i.e. the format of			the date that should be converted, newformat is the new output			format. The definition of the date format uses the PHP			conversions. Also you can use a set of predefined date format -			see the mask options in the default date formatting set</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>email</P>		</TD>		<TD>			<P ALIGN=LEFT>none</P>		</TD>		<TD>			<P ALIGN=LEFT>When a mail type is used we directly add a href with			mailto: before the e-mail</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>link</P>		</TD>		<TD>			<P ALIGN=LEFT>target</P>		</TD>		<TD>			<P ALIGN=LEFT>The default value of the target options is null.			When this options is set, we construct a link with the target			property set and the cell value put in the href tag.</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>showlink</P>		</TD>		<TD>			<P ALIGN=LEFT>baseLinkUrl,<BR> showAction, <BR> addParam, <BR>			target,<BR> idName</P>		</TD>		<TD>			<P ALIGN=LEFT>baseLinkUrl is the link. <BR> showAction is an			additional value which is added after the baseLinkUrl. <BR>			addParam is an additional parameter that can be added after the			idName property. <BR> target, if set, is added as an additional			attribute. <BR> idName is the first parameter that is added after			the showAction. By default, this is id,</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>checkbox</P>		</TD>		<TD>			<P ALIGN=LEFT>disabled</P>		</TD>		<TD>			<P ALIGN=LEFT>The default value for the disabled is true. This			option determines if the checkbox can be changed. If set to false,			the values in checkbox can be changed</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>select</P>		</TD>		<TD>			<P ALIGN=LEFT>none</P>		</TD>		<TD>			<P ALIGN=LEFT>this is not a real select but a special case. See			note below</P>		</TD>	</TR></TABLE><p><br>There is a special type formatter called "actions".<br>With help of this formatter it is possible to place edit and delete buttons in certain column. These buttons are placed at each row so that if pressed the recod can be editred or deleted. <br>A inline editing is used when this formatter is set.<br>Below are the options available which can be set in formatoptions property.<br>Example:<p><pre><div class="htmlcode">$grid-&gt;addCol(array(
+    <span class="codestring">"name"</span>=&gt;<span class="codestring">"actions"</span>,
+    <span class="codestring">"formatter"</span>=&gt;<span class="codestring">"actions"</span>,
+    <span class="codestring">"editable"</span>=&gt;false,
+    <span class="codestring">"sortable"</span>=&gt;false,
+    <span class="codestring">"resizable"</span>=&gt;false,
+    <span class="codestring">"fixed"</span>=&gt;true,
+    <span class="codestring">"width"</span>=&gt;60,
+    <span class="codestring">"formatoptions"</span>=&gt;array(<span class="codestring">"keys"</span>=&gt;true)
+    ), <span class="codestring">"first"</span>);</div></pre><p>Options available:<p><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Option</P>		</TH>		<TH>			<P>Type</P>		</TH>		<TH>			<P>Description</P>		</TH>		<TH>			<P>Default</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>keys</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>When eset to false enables saving a record with pressing a Enter key</P>		</TD>		<TD>			<P ALIGN=LEFT>false</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>editbutton</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>When set to false disable editing</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>delbutton</P>		</TD>		<TD>			<P ALIGN=LEFT>boolean</P>		</TD>		<TD>			<P ALIGN=LEFT>When set to false disables the delet button</P>		</TD>		<TD>			<P ALIGN=LEFT>true</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onEdit</P>		</TD>		<TD>			<P ALIGN=LEFT>function (javascript)</P>		</TD>		<TD>			<P ALIGN=LEFT>This event raises immediatley after editing the record -  i.e the inlut fields are constructed. Prameters passed to this event is the rowid</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onSuccess</P>		</TD>		<TD>			<P ALIGN=LEFT>function (javascript)</P>		</TD>		<TD>			<P ALIGN=LEFT>if defined, this function is called immediately after the request is successful. This function is passed the data returned from the server. Depending on the data from server; this function should return true or false</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>afterSave</P>		</TD>		<TD>			<P ALIGN=LEFT>function (javascript)</P>		</TD>		<TD>			<P ALIGN=LEFT>if defined, this function is called after the data is saved to the server. Parameters passed to this function are the rowid and the response from the server request.</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>onError</P>		</TD>		<TD>			<P ALIGN=LEFT>function (java script))</P>		</TD>		<TD>			<P ALIGN=LEFT>if defined, this function is called when ajax error occur. Parameters passed to this function are the rowid and the the response from the server request.</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>afterRestore</P>		</TD>		<TD>			<P ALIGN=LEFT>function</P>		</TD>		<TD>			<P ALIGN=LEFT>if defined, this function is called in restoreRow (in case the row is not saved ) method after restoring the row. To this function we pass the rowid</P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>url</P>		</TD>		<TD>			<P ALIGN=LEFT>String</P>		</TD>		<TD>			<P ALIGN=LEFT>if defined, this parameter replaces the editurl parameter from the options array.</P>		</TD>		<TD>			<P ALIGN=LEFT>Empty</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>delOptions</P>		</TD>		<TD>			<P ALIGN=LEFT>array</P>		</TD>		<TD>			<P ALIGN=LEFT>A set of delete options - See For editing <a href="_2vb0kbya8.htm" >Deleting</a></P>		</TD>		<TD>			<P ALIGN=LEFT>null</P>		</TD>	</TR></TABLE><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/10/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

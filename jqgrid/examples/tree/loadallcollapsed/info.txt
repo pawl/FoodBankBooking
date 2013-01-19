@@ -1,0 +1,1 @@
+We can load all the nodes from the query at the client side with collapsed nodes.

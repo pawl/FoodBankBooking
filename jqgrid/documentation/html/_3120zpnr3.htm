@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Autocomplete events</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Autocomplete events
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">The event is action that is rasied on the client side when something is hapen in the input where autocomplete is bound. Since this is a client side job in order to use the autocomplete events you will need to write a java script code. Bellow is example in which we prevent inserting value on focus. <br>The PHP method that initializes the event is <b>setEvent</b>.<p><br><pre><div class="csharpcode">&lt;?php
+...
+$ac = <span class="programcontrol">new</span> jqAutocomplete($conn);
+<span class="codecomment">// We use the northwind database
+// Set the SQL command</span>
+$ac-&gt;SelectCommand = <span class="codestring">"SELECT CompanyName FROM customers WHERE CompanyName LIKE ? ORDER BY CompanyName"</span>;
+<span class="codecomment">// Set from where to get the dat. In this case from the same file</span>
+$ac-&gt;setSource(<span class="codestring">"firstautocomplete.php"</span>);
+<span class="codecomment">// set the minLength option
+</span>
+$onfocus = <&lt; FOCUS;
+<span class="programcontrol">function</span> (event, ui)
+{
+<span class="codecomment">// prevent value inserted on focus</span>
+<span class="programcontrol">return</span> <span class="literals">false</span>;
+}
+FOCUS;
+<span class="codecomment">//Set focus event</span>
+$as-&gt;setEvent(<span class="codestring">'focus'</span>, $onfocus);
+
+<span class="codecomment">// Enjoy</span>
+$ac-&gt;renderAutocomplete(<span class="codestring">"#company"</span>);
+
+?&gt;</div></pre><p>As can be seen from this example the first parameter of the method is the name of the event and the second is the code associated with that event. Note how $onfocus is written - function(event, ui) - This will produce in the cleint <p>focus:function(event, ui) {....}<p>Below is the list of events that can be used:<br><table class="detailtable" width="96%">	<TR VALIGN=TOP>		<TH>			<P>Event</P>		</TH>		<TH>			<P>Parameters</P>		</TH>		<TH>			<P>Description</P>		</TH>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>search</P>		</TD>		<TD>			<P ALIGN=LEFT>event <BR> ui  			</P>		</TD>		<TD>			<P ALIGN=LEFT>Before a request (source-option) is started, after minLength and delay are met. Can be canceled (return false), then no request will be started and no items suggested.			</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>open</P>		</TD>		<TD>			<P ALIGN=LEFT>event <BR> ui  			</P>		</TD>		<TD>			<P ALIGN=LEFT>Triggered when the suggestion menu is opened.			</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>focus</P>		</TD>		<TD>			<P ALIGN=LEFT>event <BR> ui  			</P>		</TD>		<TD>			<P ALIGN=LEFT>Before focus is moved to an item (not selecting), ui.item refers to the focused item. The default action of focus is to replace the text field's value with the value of the focused item, though only if the focus event was triggered by a keyboard interaction. Canceling this event prevents the value from being updated, but does not prevent the menu item from being focused.			</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>select</P>		</TD>		<TD>			<P ALIGN=LEFT>event <BR> ui  			</P>		</TD>		<TD>			<P ALIGN=LEFT>Triggered when an item is selected from the menu; ui.item refers to the selected item. The default action of select is to replace the text field's value with the value of the selected item. Canceling this event prevents the value from being updated, but does not prevent the menu from closing.			</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>close</P>		</TD>		<TD>			<P ALIGN=LEFT>event <BR> ui  			</P>		</TD>		<TD>			<P ALIGN=LEFT>When the list is hidden - doesn't have to occur together with a change.			</P>		</TD>	</TR>	<TR VALIGN=TOP>		<TD>			<P ALIGN=LEFT>change</P>		</TD>		<TD>			<P ALIGN=LEFT>event <BR> ui  			</P>		</TD>		<TD>			<P ALIGN=LEFT>After an item was selected; ui.item refers to the selected item. Always triggered after the close event.			</P>		</TD>	</TR></table><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/07/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

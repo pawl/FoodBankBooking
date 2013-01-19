@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Inline Editing options</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Inline Editing options
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Inline editing is a quick way to update database information by supporting editing directly in the row of the grid. <br>In order to integrate this feature easy with PHP we have created a formatter named actions where with a single line of code this feature can meet your requirments. See the implementation <a href="_2v90ksduh.htm" >here</a><p>If you want to use this feature in your application with logic different in the one that is provided in the formatter actions, you should write a custom Java Script code. <p>In this case you can use one of the following PHP methods<p>setGridEvent<br>callGridMethod<br>setJSCode<p>Below we list the JavaScript Methods that can be used.<p><div class="banner">editRow</div><p>Calling conventions (JavaScript):<p><pre><div class="csharpcode">jQuery(<span class="codestring">"#grid_id"</span>).jqGrid(<span class="codestring">'editRow'</span>,rowid, keys, oneditfunc, succesfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);</div></pre>where<br><ul><li> grid_id is the already constructed grid<br><li> rowid: the id of the row to edit<br><li> keys: when set to true we can use [Enter] key to save the row and [Esc] to cancel editing.<br><li> oneditfunc: fires after successfully accessing the row for editing, prior to allowing user access to the input fields. The row's id is passed as a parameter to this function.<br></ul><br>The row can not be edited if it has class 'not-editable-row' instead that in colModel some fields can have a property editable set to true.<p>When set in the editRow the parameter function oneditfunc should not be enclosed in quotes and not entered with () - show just the name of the function.<p>If keys is true, then the remaining settings – succesfunc, url, extraparam, aftersavefunc, errorfunc and afterrestorefunc - are passed as parameters to the <b>saveRow</b> method when the [Enter] key is pressed (saveRow does not need to be defined as jqGrid calls it automatically). For more information see saveRow method below.<p>When this method is called on particular row, jqGrid reads the data for the editable fields and constructs the appropriate elements defined in edittype and editoptions<p><div class="banner">saveRow</div><p>Saves the edited row.<br><pre><div class="csharpcode">jQuery(<span class="codestring">"#grid_id"</span>).jqGrid(<span class="codestring">'saveRow'</span>,rowid, succesfunc, url, extraparam, aftersavefunc,errorfunc, afterrestorefunc);</div></pre><p>where<br><ul><li> rowid: the id of the row to save<br><li> succesfunc: if defined, this function is called immediately after the request is successful. This function is passed the data returned from the server. Depending on the data from server; this function should return true or false.<br><li> url: if defined, this parameter replaces the editurl parameter from the options array. If set to 'clientArray', the data is not posted to the server but rather is saved only to the grid (presumably for later manual saving).<br><li> extraparam: an array of type name: value. When set these values are posted along with the other values to the server.<br><li> aftersavefunc: if defined, this function is called after the data is saved to the server. Parameters passed to this function are the rowid and the response from the server request.<br><li> errorfunc: if defined, this function is called after the data is saved to the server. Parameters passed to this function are the rowid and the the response from the server request.<br><li> afterrestorefunc if defined, this function is called in restoreRow (in case the row is not saved with success) method after restoring the row. To this function we pass the rowid<br></ul><br>When set in the saveRow the parameters functions should not be enclosed in quotes and not entered with () - show just the name of the function.<p>Except when url (or editurl) is 'clientArray', when this method is called, the data from the particular row is POSTED to the server in format name: value, where the name is a name from colModel and the value is the new value. jqGrid also adds, to the posted data, the pair id: rowid. For example,<p>jQuery("#grid_id").jqGrid('saveRow',"rowid", false);<p>will save the data to the grid and to the server, while<p>jQuery("#grid_id").jqGrid('saveRow',"rowid", false, 'clientArray');<p>will save the data to the grid without an ajax call to the server. <p><br><div class="banner">restoreRow</div><p>This method restores the data to original values before the editing of the row.<p>Calling convention:<br><pre><div class="csharpcode">jQuery(<span class="codestring">"#grid_id"</span>).jqGrid(<span class="codestring">'restoreRow'</span>,rowid, afterrestorefunc);</div></pre><p>where<p><ul><li> rowid is the row to restore<br><li> afterrestorefunc if defined this function is called in after the row is restored. To this function we pas the rowid<br></ul><br>
+</div>
+
+<h3 class="outdent" id="remarks">Remarks</h3>How is the data organized<p>When the row is edited and the input elements are created we set the following rules:<p><ul><li> the table row becomes attribute editable=“1”<br><li> the array savedRow (option in the grid) is filled with the values before the editing. This is a name:value pair array with additional pair id:rowid<br><li> Hidden fields are not included<br><li> The id of the editable element is constructed as 'rowid_'+ the name from the colModel array. Example if we edit row with id=10 and the only editable element is 'myname' (from colModel) then the id becomes 10_myname.<br><li> The name of the editable element is constructed from the name of the colModel array - property - name<br><li> after the row is saved or restored the editable attribute is set to “0” and the savedRow item with id=rowid is deleted<br></ul><br>What is posted to the server?<p>When the data is posted to the server we construct an object {} that contain(s):<p><ul><li> the name:value pair where the name is the name of the input element represented in the row (this is for all input elements)<br><li> additionally we add a pair id:rowid where the rowid is the id of the row<br><li> if the extraparam parameter is not empty we extend this data with the posted data<br></ul>
+
+</div><hr />
+<div class="footer">
+	Last Updated: 05/02/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

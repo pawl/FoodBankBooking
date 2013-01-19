@@ -1,0 +1,9 @@
+When a column is editable, you can select how end-users will edit it. This is controlled by the <b>edittype</b> property and current has five different options - text, textarea, select, password, checkbox.
+
+In addition to that, you can specify the values end-users will see in name:value pairs in the <b>editoption values</b> property of Columns - this is especially useful for SearchType DropDown. Here is an example
+
+$grid->setColProperty("CustomerID",array("editoptions"=>array("value"=>"1:One;2:Two")));
+
+There is a more easy way - in this case you just need to call setSelect function and set either SQL or array of values.
+	
+check the PHP tab for details

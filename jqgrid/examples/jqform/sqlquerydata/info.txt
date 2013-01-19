@@ -1,0 +1,4 @@
+It is possible to get the desired data and update it very easy.
+We just need to write the SQL query and pass a parameter with the desired
+index to be find. 
+The class automatically detect if the record should be updated or inserted.

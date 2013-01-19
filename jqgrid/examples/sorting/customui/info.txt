@@ -1,0 +1,2 @@
+You can customize the sorting UI of the grid using properties of the <b>viewsortcols</b> collection. In this example, we are switching
+to horizontal position of icons where the sorting is possible only when the sort icon is clicked.

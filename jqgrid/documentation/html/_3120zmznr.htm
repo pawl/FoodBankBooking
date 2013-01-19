@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Varaibles</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Varaibles
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">List of public variables that can be used with this class. <p><table class="detailtable" width="96%"><tr>     <th>Type</th>  <th>Names</th>  <th>Description</th>  <th>Default</th>  <th>Access</th></tr><tr>  <td>string  <td> ajaxtype</td>  <td>Determines the ajax type made to the server. Defaut is GET. Can be a POST</td>  <td>GET</td>  <td>public</td></tr><tr>  <td>boolean</td>  <td>cache</td>  <td>When set to true enables client side caching of the results. This prevent multiple queries to the database. Please use with care.</td>  <td>false</td>  <td>public</td></tr><tr>  <td>string</td>  <td>height</td>  <td>Determines the height of the autocomplete elemnt. Work only if $scroll option is set to true.</td>  <td>110px</td>  <td>public</td></tr><tr>  <td>boolean</td>  <td>loadAll</td>  <td>Determines if the data should be loaded at once from the SQL siurce. Also when set to true only one requrest is done and the data then is stored at client side. No more requests to the server</td>  <td>false</td>  <td>public</td></tr>  <td>booean</td>  <td>scroll</td>  <td>Determines if the content in autocomplete should have a scroll. Use this option with the height option. If this option is not set the content will have height equal of the responce rows.</td>  <td>true</td>  <td>public</td></tr><tr>  <td>string</td>  <td>searchType</td>  <td>Set the search type for the LIKE SQL operator. The possible values are:<br/> <b>startWith</b> - set LIKE value%; <br/><b>contain</b> - set LIKE %value%; <br/><b>endWith</b> - set LIKE %value.<br/> If the value does not match any of the above setting the SQL command is interpreted as it is without adding any additional strings.API Tags:</td>  <td>startWith</td>  <td>public</td></tr><tr>  <td>string</td>  <td>fontsize</td>  <td>Set the font size of the widget when it is created. Can be set in any valid measure</td>  <td>11px</td>  <td>public</td></tr><tr>  <td>boolean</td>  <td>strictcheck</td>  <td>Valid only if target is set in renderAutocomplete. If set to false the input is not cleared when the value is not found in the autcomplete list</td>  <td>true</td>  <td>public</td></tr><tr>  <td>string</td>  <td>SelectCommand</td>  <td>Defines the select command for obtaining the data from the database. Usually this type of command contain the SQL LIKE operator. If the command contain where clause we suppose that this command contain LIKE operator. The serched fields should comtain ? plece holder in order to search om the term element send from the autocompleter. <br/>Example: <br/>SELECT field1, field2 FROM table WHERE field1 LIKE ? OR field2 LIKE ? <br/>As seen you should place a placeholder on the serched fields. The class add the term element automatically to the query. For additional information see the documantation</td>  <td>empty string</td>  <td>public</td></tr></table><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 04/09/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

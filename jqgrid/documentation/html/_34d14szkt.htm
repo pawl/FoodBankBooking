@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Tooltip</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Tooltip
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Options for the tooltip that appears when the user hovers over a series or point. <p>Method Used<p><div class="banner">jqChart setTooltip( mixed $name, [mixed $mixvalue = '']  )</div>Parameters:<br><ul><li> mixed   	$name:  	the option name for the loading. Can be a string or array. When used as array a key value pair should be defined, where the key is the name<br><li> mixed   	$mixvalue:  	a value option in case the name is a string<br></ul><p>API Tags:<br>Return:  	instance<br>Access:  	public<p><br>Example:<p><pre><div class="csharpcode">...
+$chart = <span class="programcontrol">new</span> jqChart();
+$chart-&gt;setChartOptions(<span class="datatypes">array</span>(<span class="codestring">"defaultSeriesType"</span>=&gt;<span class="codestring">"line"</span>,<span class="codestring">"marginRight"</span>=&gt;130,<span class="codestring">"marginBottom"</span>=&gt;25))
+-&gt;setTooltip(<span class="datatypes">array</span>(<span class="codestring">"formatter"</span>=&gt;<span class="codestring">"function(){return '&lt;b&gt;'+ this.series.name +'&lt;/b&gt;&lt;br/&gt;'+this.x +': '+ this.y +' 
+(°C)';}"</span>
+)) 
+...</div></pre><p><br><table class="detailtable" width="96%"><tr>     <th>Option name</th>  <th>Type</th>  <th>Default</th></tr><tr>  <td><b>backgroundColor</b></td>  <td><b>Color</b></td>  <td><b>"rgba(255, 255, 255, .85)"</b></td></tr><tr>  <td colspan='3'>The background color or gradient for the tooltip.</td></tr><tr>  <td><b>borderColor</b></td>  <td><b>Color</b></td>  <td><b>"auto"</b></td></tr><tr>  <td colspan='3'>The color of the tooltip border. When null, the border takes the color of the corresponding series or point. </td></tr><tr>  <td><b>borderRadius</b></td>  <td><b>Number</b></td>  <td><b>5</b></td></tr><tr>  <td colspan='3'>The radius of the rounded border corners.</td></tr><tr>  <td><b>borderWidth</b></td>  <td><b>number</b></td>  <td><b>2</b></td></tr><tr>  <td colspan='3'>The pixel width of the tooltip border. </td></tr><tr>  <td><b>crosshairs</b></td>  <td><b>Mixed</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>Display crosshairs to connect the points with their corresponding axis values. The crosshairs can be defined as a boolean, an array of booleans or an object.<br/><i>Boolean</i><br/>    If the crosshairs option is true, a single crosshair relating to the x axis will be shown.<br/><i>Array of booleans</i><br/>    In an array of booleans, the first value turns on the x axis crosshair and the second value to the y axis crosshair. Use [true, true] to show complete crosshairs.<br/><i>Array of objects</i><br/>    In an array of objects, the first value applies to the x axis crosshair and the second value to the y axis crosshair. For each dimension, a width, color and dashStyle can be given. can be given. </td></tr><tr>  <td><b>enabled</b></td>  <td><b>Boolean</b></td>  <td><b>true</b></td></tr><tr>  <td colspan='3'>Enable or disable the tooltip.</td></tr><tr>  <td><b>formatter</b></td>  <td><b>Function</b></td>  <td><b></b></td></tr><tr>  <td colspan='3'>Callback function to format the text of the tooltip. Return false to disable tooltip for a specific point on series.<br/>A subset of HTML is supported. The HTML of the tooltip is parsed and converted to SVG, therefore this isn't a complete HTML renderer. The following tabs are supported: <i>b, strong, i, em, br, span</i> tags . Spans can be styled with a style attribute, but only text-related CSS that is shared with SVG is handled.<br/>The tooltip can be shared between multiple series through the shared option. The available data in the formatter differ a bit depending on whether the tooltip is shared or not. In a shared tooltip, all properties except x, which is common for all points, are kept in an array, this.points.<br/>Available data are:<br/><br/><i>this.percentage</i> (not shared) / this.points[i].percentage (shared)<br/>    Stacked series and pies only. The point's percentage of the total.<br/><i>this.point </i>(not shared) / this.points[i].point (shared)<br/>    The point object. The point name, if defined, is available through this.point.name.<br/>this.points<br/>    In a shared tooltip, this is an array containing all other properties for each point.this.series (not shared) / this.points[i].series (shared)    The series object. The series name is available through this.series.name.<br/><i>this.total </i>(not shared) / this.points[i].total (shared)<br/>    Stacked series only. The total value at this point's x value.<br/><i>this.x</i><br    The x value. This property is the same regardless of the tooltip being shared or not.<i>this.y </i>(not shared) / this.points[i].y (shared)    The y value.<br/></td></tr><tr>  <td><b>shadow</b></td>  <td><b>Boolean</b></td>  <td><b>true</b></td></tr><tr>  <td colspan='3'>Whether to apply a drop shadow to the tooltip.</td></tr><tr>  <td><b>shared</b></td>  <td><b>Boolean</b></td>  <td><b>false</b></td></tr><tr>  <td colspan='3'>When the tooltip is shared, the entire plot area will capture mouse movement, and tooltip texts for all series will be shown in a single bubble. This is recommended for single series charts and for iPad optimized sites. </td></tr><tr>  <td><b>snap</b></td>  <td><b>Number</b></td>  <td><b>10/25</b></td></tr><tr>  <td colspan='3'>Proximity snap for graphs or single points. Does not apply to bars, columns and pie slices. It defaults to 10 for mouse-powered devices and 25 for touch devices.</td></tr><tr>  <td><b>style</b></td>  <td><b>Array</b></td>  <td><b></b></td></tr><tr>  <td colspan='3'>CSS styles for the tooltip. The tooltip can also be styled through the CSS class .highcharts-tooltip. </td></tr></table>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/08/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

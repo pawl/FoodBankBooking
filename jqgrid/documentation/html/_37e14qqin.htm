@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 4.0.0.3</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 4.0.0.3
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released  April 27, 2011<p><br><h2>Additions</h2><p><h3>Grid</h3>Added Montenegrian Translation <p><h2>Fixes</h2><p><h3>PHP</h3>Fix parseDate function to accept any valyd PHP date string including AM/PM<br>Fix array driver to be compatible with PHP 5.3.x and up versions<br>Fix renderGrid method when create pager paremeter is set to false.<br>Fix work with local data and the PDO driver is loaded<br>Fix in renderTree method when echo parameter is set to false.<p><h3>Javascript</h3>Fix for content_type = 'application/xhtml+xml', where tag names are lower case<br>More strict check for field type in formedit <br>Fix typos in form edit when define a html element <br>Missed brackets whe n define select in filter <br>Fix setLabel method in case the real colModel name is number. <br>Fix for checkbox and select elements not to accept the value attribute in setAttributes function<br>Fix default operation for defaultFilter <br>Fix selection the search operation in right order and value <br>Hide AND/OR selectbox when multipleSearch is false. <br>Adding a missed custom viewfunc in navigator <br>Replace typeof(some) == 'function' with jQuery isFunction in form edit <br>Making scrollGrid flexible. <br>Check first if sopt is not null if set in searchGrid <br>Fix duplicated id's on the pager in case of more than two grids<br>Fix duplicate id's in column header in case of two or more grids <br>Fix for sortable columns according to the unique id in column header<br>Fix for updatepager to determine if the pager is available. Fix for multikey and multiselect<br>Fix sortableColumns to get the right id's<br>Fix Firefox outline styling in grouping <br>Fix toppager to display correct total pages <br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

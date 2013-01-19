@@ -1,0 +1,2 @@
+We can load all the nodes from the query at the client side, expanded and set the height to fixed.
+Take care of expandAll property.

@@ -1,0 +1,2 @@
+In this example, we use the new cellattr colModel function to set a attributes on the cell.
+In our case we demonstarte how we can do colspan on the data.

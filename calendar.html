@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Bankbooker</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="fullcalendar.css" />
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script src="fullcalendar.min.js"></script>
+	<script src="date.format.js"></script>
+	<style type='text/css'>
+	#calendar {
+    width: 68%;
+	}
+	</style>
+</head> 
+<body> 
+	
+
+
+	<div data-role="page" data-theme="c">
+        <div data-role="header" data-theme="b">
+          <a href="http://www.ntfb.org" data-icon="back">Back To NTFB.org</a>
+          <h1>BankBooker</h1>
+        </div><!-- /header -->
+
+        <div data-role="content"> 
+        	<center><div id='calendar'></div></center>
+			<center><a id='lnkDialog' href="#dialogBox" data-rel="dialog" data-transition="pop">Instructions</a></center>
+        </div><!-- /content -->
+        
+      </div><!-- /page -->
+	  
+	
+	<div data-role="dialog" id="dialogBox">
+	
+		<div data-role="header" data-theme="b">
+			<h1>BankBooker</h1>
+		</div>
+
+		<div data-role="content">
+			<center><h1>Instructions</h1></center>
+			<p>This tool allows you to view the days which you may volunteer at the North Texas Food Bank. We encourage you to choose the date with the lowest number of volunteers.</p>
+			<p>Click an empty date or a date with green to schedule your volunteer time. </p>
+			<a href="#" data-role="button" data-rel="back"  data-theme="b">Sounds Good</a>  
+		</div>
+	</div>
+
+		<script type="text/javascript">
+         $(document).ready(function() {
+	            $('#calendar').fullCalendar({
+	            	events: "json_events.php",
+				    height: 550,
+					//width: 400,
+					dayClick: function(date, allDay, jsEvent, view) {
+							var encode = dateFormat(date, "yyyy-mm-dd");
+							
+							//if (dateFormat(date,"dddd") == "Sunday") {
+							//alert ("We're closed on Sunday!");
+							//}
+							//else {
+							window.location = 'http://www.ntfoodbank.com/hackathon/testing/Registration_Form.php?date=' + encode;
+							//}
+						}
+				});	
+	        });
+    	</script>	 
+	
+
+</body>
+</html>

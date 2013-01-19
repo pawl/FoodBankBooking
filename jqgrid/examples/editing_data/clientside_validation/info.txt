@@ -1,0 +1,4 @@
+jqGrid supports various rules for client-side validation. They are available through the <b>editrules</b> option for each column. Since this is a collection, you can stack several validation rules at once - they will all apply to the edit field.
+
+For details, please take a look at the PHP tab.
+

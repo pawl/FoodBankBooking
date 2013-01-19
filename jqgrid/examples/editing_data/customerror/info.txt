@@ -1,0 +1,2 @@
+As of version 4.3 it is possible to show the custom errors.
+This is achieved with showError parameter and definig your own customError function.

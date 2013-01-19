@@ -1,0 +1,1 @@
+You can bind table data source to <b>jqGrid</b> using the setTable method.

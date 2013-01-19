@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>System requirements</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;System requirements
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><h3>Browser Support</h3><p>jqGrid for PHP supports all major browsers:<p><ul><li> Internet Explorer 6.x+<br><li> FireFox 3.x+<br><li> Safari 2.x+<br><li> Google Chrome 2.x+<br><li> Opera 9.5+<br></ul><p><div class="notebox"><b>Note:</b> a minor number of features may not work in all browsers. For example, currently RTL (right-to-left) support is limited to IE and FireFox only</div><p><h3>PHP</h3>jqGrid is designed to work with PHP versions 5.1+.<p><h3>Databases</h3>Currently jqGrid for PHP supports the following databases:<p><ul><li> MySQL 5.x+ (PDO)<br><li> PostgreSQL versions 7.x+ (PDO)<br><li> SQLite versions 3.x+ (PDO)<br><li> Microsoft SQL Server 2005+ (sqlsrv)<br><li> Microsoft SQL Server 2005+ (PDO)<br><li> Oracle  8+<br><li> MySQL (through Mysqli)<br><li> DB2 (IBM DB2 functions)<br><li> ODBC (MSSQL, MySQL, PostgreSQL, Sqlite)<br><li> Array<br><li> MongoDB<br><li> Adodb (with suport of all drivers which are supported from adodb)<br></ul><p>MySQL, PostgreSQL and SQLite databases are supported through <a href="http://php.net/manual/en/book.pdo.php" target="top">PHP PDO (PHP Data Objects)</a>, so depending on your PHP setup you may need to install it before using jqGrid for PHP. PDO is by default installed in PHP 5.1+ distributions. PDO is a core PHP technology, created and supported by the core PHP team.<p>To ensure that PDO is installed in your production enviornment, please run the following PHP script on your development/production machine:<p><div class="code">&lt;?php<br>phpinfo();<br>?&gt;</div><p>Save the file and run it on your web server. The following should appear if you want to use MySQL and have PDO installed:<p><img src="images/pdo_mysql.PNG" /><p>The following should appear if you want to use PostgreSQL and have PDO installed:<p><img src="images/pdo_pgsql.PNG" /><p>The following should appear if you want to use SQLite and have PDO installed:<p><img src="images/pdo_sqlite.PNG" /><p><br>Microsoft SQL Server is supported through the PHP <a href="http://msdn.microsoft.com/en-us/library/ee229548%28SQL.10%29.aspx" target="top">driver provided by Microsoft</a>. Please follow the installation instructions provided by Microsoft in the PHP  <a href="http://msdn.microsoft.com/en-us/library/ee229548%28SQL.10%29.aspx" target="top">driver documentation</a>. After the driver is installed, the following should appear if you run the "phpinfo()" function:<p><img src="images/mssqlsrv.PNG" /><p>Oracle is supported through the PHP <a href="http://php.net/manual/en/book.oci8.php" target="top">OCI8 driver</a>. Please follow the installation instructions provided in the same link. After the driver is installed, the following should appear if you run the "phpinfo()" function:<p><img src="images/oci8.PNG" /><p><br>Additinally MqSQL database is supported through <a href="http://www.php.net/manual/en/book.mysqli.php" target="top">Mysqli driver</a>. Follow the installation instuction provided from the same link. After the installation is done the following should appear if you run the "phpinfo()" function:<p><img src="images/mysqli.PNG" /><p>Additinally DB2 database is supported through <a href="http://www.php.net/manual/en/book.ibm-db2.php" target="top">DB2 driver</a>. Follow the installation instuction provided from the same link. After the installation is done the following should appear if you run the "phpinfo()" function:<p><br><img src="images/ibmdb2.PNG" />
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/19/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

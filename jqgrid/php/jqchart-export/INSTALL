@@ -1,0 +1,22 @@
+Trirand Inc offers the exporting web service free of charge. If you include the
+exporting module in your charts, two buttons will appear in the upper right. 
+One button prints the chart, which is done on the client side only. The other
+button handles exporting. By default, an SVG representation of the chart is 
+sent by POST to http://trirand/jqcharts/, where it is converted using Apache's
+Batik converter to PDF, PNG or JPEG. 
+
+SERVER SETUP
+============
+
+If you want to set up this web service on your own server, the index.php file
+that handles the POST is supplied in the download package inside the 
+php/jqchart-export directory.
+
+1. Make sure that PHP and Java is installed on your server.
+2. Upload the index.php file from the php/jqchart-export directory in the download package to your server.
+3. In your FTP program, create directory called temp in the same directory as index.php and chmod this new directory to 777 (Linux/Unix servers only).
+4. Download Batik from http://xmlgraphics.apache.org/batik/#download. Find the binary distribution for your version of JRE
+5. Upload batik-rasterizer.jar and the entire lib directory to a location where the index.php is (or some other).
+6. In the options in the top of the index.php file, set the path to batik-rasterier.jar (in case the jar files are copied in another dir).
+7. In your chart options using setExporting method, set the url option to match your PHP file location.
+

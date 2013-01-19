@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Using predefined language packs</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Using predefined language packs
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><h3>Basics</h3><p>jqGrid for PHP comes with a large number of predefined language packs and settings for almost all popular languages. They are located in the installation package, in the<b> /js/i18n</b> folder. Language packs are in the form of javascript files, containing definitions for all strings in the grid that can be localized - this includes messages, captions, paging information, search/add/delete dialog labels, etc.<p>In order to use a particular language pack, you need to include the javascript language pack to the head section of your page, after the jQuery library reference (since language packs depend on jQuery) and before referencing the jqGrid javascript file (since it is dependent on the language pack). A typical setup for English localization would look like this:<p><pre><div class="htmlcode">...
+<span class="elements">&lt;head&gt;</span>  
+<span class="codecomment">&lt;!-- The jQuery UI theme that will be used by the grid -->  
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span>"stylesheet" type="text/css" media="screen" href="/themes/redmond/jquery-ui-1.7.1.custom.css" /&gt;  
+
+&lt;!-- The jQuery UI theme extension jqGrid needs -->  
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span>"stylesheet" type="text/css" media="screen" href="/themes/ui.jqgrid.css" /&gt;  
+
+&lt;!-- jQuery runtime minified -->  
+<span class="elements">&lt;script</span> <span class="attributes">src=</span>"/js/jquery-1.3.2.min.js" type="text/javascript"&gt;&lt;/script&gt;  
+<b>&lt;!-- The localization file we need, English in this case --></b>  
+<span class="elements">&lt;script</span> <span class="attributes">src=</span>"/js/i18n/grid.locale-en.js" type="text/javascript"&gt;&lt;/script&gt;  
+&lt;!-- The jqGrid client-side javascript -->  
+<span class="elements">&lt;script</span> <span class="attributes">src=</span>"/js/jquery.jqGrid.min.js" type="text/javascript"&gt;&lt;/script&gt; 
+...
+<span class="elements">&lt;/head&gt;</span>
+...</span></div></pre><p><div class="notebox"><b>Note</b>: The order in which the javascript files are included is very important, because of the dependencies described above.</div><p>If you want to use the Norwegian localization of jqGrid, just use something along the lines of:<p><pre><div class="htmlcode">...
+<span class="elements">&lt;head&gt;</span>  
+<span class="codecomment">&lt;!-- The jQuery UI theme that will be used by the grid -->  
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span>"stylesheet" type="text/css" media="screen" href="/themes/redmond/jquery-ui-1.7.1.custom.css" /&gt;  
+
+&lt;!-- The jQuery UI theme extension jqGrid needs -->  
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span>"stylesheet" type="text/css" media="screen" href="/themes/ui.jqgrid.css" /&gt;  
+
+&lt;!-- jQuery runtime minified -->  
+<span class="elements">&lt;script</span> <span class="attributes">src=</span>"/js/jquery-1.3.2.min.js" type="text/javascript"&gt;&lt;/script&gt;  
+<b>&lt;!-- The localization file we need, Norwegian in this case --></b>  
+<span class="elements">&lt;script</span> <span class="attributes">src=</span>"/js/i18n/grid.locale-no.js" type="text/javascript"&gt;&lt;/script&gt;  
+&lt;!-- The jqGrid client-side javascript -->  
+<span class="elements">&lt;script</span> <span class="attributes">src=</span>"/js/jquery.jqGrid.min.js" type="text/javascript"&gt;&lt;/script&gt; 
+...
+<span class="elements">&lt;/head&gt;</span>
+...</span></div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/20/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

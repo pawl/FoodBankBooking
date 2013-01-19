@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Inserting</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Inserting
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Inserting a record into the database table with jqGridEdit class is quite easy. Three things should be done - specify a table, set the parimary key (optional specify if the primary key is serial) and  and call the method insert with the data posted from the grid.<p>It is important to note that the data array passed for inserting should contain key elements which correspond to the names in the table. In terms of jqGrid this is a name property in colModel.<p>We will demontrate this with example. We will use as base our <a href="_2v20q5hpg.htm" >example</a>:<p>Let suppose that we want only to insert a record in the orders table. For this purpose we will use the navigator and into the navigator we will enable only add form. Here is the code.<p><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html</span> xmlns=<span class="codestring">"http://www.w3.org/1999/xhtml"</span> xml:lang=<span class="codestring">"en"</span> <span class="attributes">lang=</span><span class="codestring">"en"</span>&gt;
+<span class="elements">&lt;head&gt;</span>
+<span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+<span class="elements">&lt;title&gt;</span>PHP jqGrid Class Example<span class="elements">&lt;/title&gt;</span> 
+
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui-1.7.1.custom.css"</span> /&gt;
+<span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.jqgrid.css"</span> /&gt;
+
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery-1.3.2.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/i18n/grid.locale-en.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.jqGrid.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;
+jQuery(document).ready(function(){
+....
+// Craeate the grid manually
+jQuery(<span class="codestring">"#grid"</span>).jqGrid({
+<span class="codestring">"colModel"</span>:[
+     {<span class="codestring">"name"</span>:<span class="codestring">"OrderID"</span>,<span class="codestring">"index"</span>:<span class="codestring">"OrderID"</span>,<span class="codestring">"label"</span>:<span class="codestring">"ID"</span>,<span class="codestring">"width"</span>:60, <span class="codestring">"key"</span>:true},
+     {<span class="codestring">"name"</span>:<span class="codestring">"OrderDate"</span>,<span class="codestring">"index"</span>:<span class="codestring">"OrderDate"</span>, editable:true},
+     {<span class="codestring">"name"</span>:<span class="codestring">"CustomerID"</span>,<span class="codestring">"index"</span>:<span class="codestring">"CustomerID"</span>, editable:true},
+     {<span class="codestring">"name"</span>:<span class="codestring">"Freight"</span>,<span class="codestring">"index"</span>:<span class="codestring">"Freight"</span>, editable:true},
+     {<span class="codestring">"name"</span>:<span class="codestring">"ShipName"</span>,<span class="codestring">"index"</span>:<span class="codestring">"ShipName"</span>, editable:true}
+],
+<span class="codestring">"url"</span>:<span class="codestring">"querygrid.php"</span>,
+<span class="codestring">"datatype"</span>:<span class="codestring">"json"</span>,
+<span class="codestring">"jsonReader"</span>:{repeatitems:false},
+<span class="codestring">"pager"</span>:<span class="codestring">"#pager"</span>,
+// now we should set the url where we post the data
+// in this case the same url
+<span class="codestring">"editurl"</span>: <span class="codestring">"querygrid.php"</span>
+});
+// Set navigator with adding record and search enabled.
+jQuery(<span class="codestring">"#grid"</span>).jqGrid(<span class="codestring">'navGrid'</span>,<span class="codestring">'#pager'</span>,{add:true,edit:false,del:false});
+......
+});
+<span class="elements">&lt;/script&gt;</span>
+
+<span class="elements">&lt;/head&gt;</span>
+<span class="elements">&lt;body&gt;</span>
+......
+<span class="elements">&lt;table</span> <span class="attributes">id=</span><span class="codestring">"grid"</span>&gt;<span class="elements">&lt;/table&gt;</span>
+<span class="elements">&lt;div</span> <span class="attributes">id=</span><span class="codestring">"pager"</span>&gt;<span class="elements">&lt;/div&gt;</span>
+.......
+<span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p>As can be ssen we have made a lot of the  fields editable setting the property of the grid editable to true.<br>Another important settings here is in the field OrderID. This field is field is not editable, because it is defined as serial in the database, so we do not need to post them to the server. <br>When we do this the field will not appear in the form where we add a data.<p>The changes in the PHP code:<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the PDO driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+
+<span class="codecomment">// Create the jqGridEdit instance</span>
+$grid = <span class="programcontrol">new</span> jqGridEdit($conn);
+
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, Freight, ShipName FROM orders'</span>;
+$grid-&gt;dataType = <span class="codestring">"json"</span>;
+
+<span class="codecomment">// We should determine if we add a record.
+// jqGrid send oper to identify the operation performed
+// in this case we should check for add
+</span>
+$oper = $_POST[<span class="codestring">'oper'</span>];
+<span class="programcontrol">if</span>($oper == <span class="codestring">'add'</span>) {
+   $grid-&gt;table = <span class="codestring">'orders'</span>;
+   $grid-&gt;setPrimaryKeyId(<span class="codestring">'OrderID'</span>);
+   $data = $_POST;
+   $grid-&gt;insert($data);
+} <span class="programcontrol">else</span> {
+   $grid-&gt;queryGrid();
+}
+?&gt;</div></pre><p>Another usefull feature here is that you can insert on other table just set it after the first insert and primary key too and do the insert.<br>Something like this<p><br><pre><div class="csharpcode">&lt;?php
+...
+$oper = $_POST[<span class="codestring">'oper'</span>];
+<span class="programcontrol">if</span>($oper == <span class="codestring">'add'</span>) {
+   $grid-&gt;table = <span class="codestring">'orders'</span>;
+   $grid-&gt;setPrimaryKeyId(<span class="codestring">'OrderID'</span>);
+   $data = $_POST;
+   $grid-&gt;insert($data);
+
+   $grid-&gt;table = <span class="codestring">'othertable'</span>
+   $grid-&gt;setPrimaryKeyId(<span class="codestring">'otherid'</span>);
+   $grid-&gt;insert($otherdata);
+} <span class="programcontrol">else</span> {
+   $grid-&gt;queryGrid();
+}
+?&gt;</div></pre><p><br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/14/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,2 @@
+Again with two column layout we can have one column layout.
+This is done just with one method setColumnLayout.

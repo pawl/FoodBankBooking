@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Setting column headers</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Setting column headers
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">The <a href="_2v70w0lkn.htm" >setColModel</a> method uses the names of the database columns (fields) as default column header labels. In some cases when the number of columns is relatively big, you can use the third parameter in the method to add custom column headers instead of calling <a href="_2v70w0lkn.htm" >setColProperty</a> with the label attribute.<p>The array used as a parameter should be an associative array - the key should correspond to the name of the database column (field) in the query and the value should be the desired column header corresponding to that column. It is not neccessary that the length of the array corresponds to the length of colModel.<p>Let suppose that in our <a href="_2v90jgzqp.htm" >example</a> we want to change "OrderID" to "Id" and "OrderDate" to "Date".<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+
+<span class="codecomment">// Definition of the labels</span>
+$mylabels = <span class="datatypes">array</span>(<span class="codestring">"OrderID"</span>=&gt;<span class="codestring">"Id"</span>, <span class="codestring">"OrderDate"</span>=&gt;<span class="codestring">"Date"</span>);
+
+<span class="codecomment">// Let the grid create the model with the desired labels</span>
+$grid-&gt;setColModel(<span class="literals">null</span>, <span class="literals">null</span>, $mylabels);
+
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>
+));
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/05/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

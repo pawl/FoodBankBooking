@@ -1,0 +1,13 @@
+Quick install
+=============
+0. Copy the files from the archive archive directory jqvisualform to a directory in your webserver.
+Let suppose it is named jqvisualform.
+
+1. Open the file form_conf.inc.php and fill the needed values
+
+2. Create a project directory where your project files will be stored.
+3. Make this directori writable - i.e chmod it to 7777
+4. Copy the jqformconfig.php from projects die to your project directory and fill the values
+as instructed in form_conf.inc.php
+5. Run the application
+http://youserveraddress/jqvisualform

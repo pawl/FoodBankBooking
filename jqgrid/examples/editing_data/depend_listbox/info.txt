@@ -1,0 +1,3 @@
+This demo demonstrates how to have connected (linked) dropdowns where the second dropdown gets binded via Ajax based on the selection of the first dropdown.
+
+The technique requires client-side jQuery javascript, please refer to the PHP tab for implementation details.

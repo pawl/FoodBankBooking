@@ -1,0 +1,70 @@
+<?php
+// Include class 
+include_once 'jqformconfig.php'; 
+include_once $CODE_PATH.'jqUtils.php'; 
+include_once $CODE_PATH.'jqForm.php'; 
+// Create instance 
+$newForm = new jqForm('newForm',array('method' => 'post', 'id' => 'newForm'));
+// Demo Mode creating connection 
+include_once $CODE_PATH.'jqGridPdo.php'; 
+$conn = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
+$newForm->setConnection( $conn );
+// Set url
+$newForm->setUrl($SERVER_HOST.$SELF_PATH.'jsevent.php');
+// Set Form header 
+$formhead='Shipping Details';
+$newForm->setFormHeader($formhead,'ui-icon-mail-closed');
+// Set parameters 
+$jqformparams = array();
+// Set SQL Command, table, keys 
+$newForm->table = 'orders';
+$newForm->setPrimaryKeys('OrderID');
+$newForm->serialKey = true;
+// Set Form layout 
+$newForm->setColumnLayout('twocolumn');
+$newForm->setTableStyles('width:580px;','','');
+// Add elements
+$newForm->addElement('OrderID','hidden', array('label' => 'OrderID', 'id' => 'newForm_OrderID'));
+$newForm->addElement('ShipName','text', array('label' => 'Name', 'maxlength' => '40', 'style' => 'width:98%;', 'id' => 'newForm_ShipName'));
+$newForm->addElement('ShipAddress','text', array('label' => 'Address', 'maxlength' => '60', 'style' => 'width:98%;', 'id' => 'newForm_ShipAddress'));
+$newForm->addElement('ShipCity','text', array('label' => 'City', 'maxlength' => '15', 'size' => '20', 'id' => 'newForm_ShipCity'));
+$newForm->addElement('ShipPostalCode','text', array('label' => 'PostalCode', 'maxlength' => '10', 'size' => '20', 'id' => 'newForm_ShipPostalCode'));
+$newForm->addElement('ShipCountry','text', array('label' => 'Country', 'maxlength' => '15', 'size' => '20', 'id' => 'newForm_ShipCountry'));
+$newForm->addElement('Freight','number', array('label' => 'Freight', 'id' => 'freight'));
+$newForm->addElement('Tax','number', array('label' => 'Tax', 'min' => '10', 'max' => '20', 'step' => '10', 'value' => '10', 'id' => 'tax', 'title' => 'Enter a value 10 or 20'));
+$newForm->addElement('Total','number', array('label' => 'Total', 'readonly' => '1', 'id' => 'total'));
+$elem_10[]=$newForm->createElement('newSubmit','submit', array('value' => 'Submit'));
+$newForm->addGroup("newGroup",$elem_10, array('style' => 'text-align:right;', 'id' => 'newForm_newGroup'));
+// Add events
+$onchangeFreight = <<< CHANGEFREIGHT
+function(event) 
+{
+  var fr = parseFloat($("#freight").val());
+  var tax = parseFloat($("#tax").val());
+  if( fr && tax ) {
+    var tot = fr*tax;
+    $("#total").val( tot.toFixed(2) );
+  }
+}
+CHANGEFREIGHT;
+$newForm->addEvent('freight','change',$onchangeFreight);
+$onchangeTax = <<< CHANGETAX
+function(event) 
+{
+  var fr = parseFloat($("#freight").val());
+  var tax = parseFloat($("#tax").val());
+  if( !isNaN(fr) && !isNaN(tax) ) {
+    var tot = fr*tax;
+    $("#total").val( tot.toFixed(2) );
+  }
+}
+CHANGETAX;
+$newForm->addEvent('tax','change',$onchangeTax);
+// Add ajax submit events
+$newForm->setAjaxOptions( array('iframe' => false,
+'forceSync' =>false) );
+// Demo mode - no input 
+$newForm->demo = true;
+// Render the form 
+echo $newForm->renderForm($jqformparams);
+?>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Legend</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Legend
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Set the legend. The legend is a box containing a symbol and name for each series item or point item in the chart.<p>Method used<p><div class="banner">jqChart setLegend( mixed $name, [mixed $mixvalue = '']  )</div><p>Parameters:<br><ul><li> mixed   	$name:  	the option name for the legend. Can be a string or array. When used as array a key value pair should be defined, where the key is the name<br><li> mixed   	$mixvalue:  	a value option in case the name is a string<br></ul><p>API Tags:<br>Return:  	instance<br>Access:  	public<p>Example:<br><pre><div>...
+$chart = <span class="codec3">new</span> jqChart();
+$chart-&gt;setChartOptions(array(
+    <span class="codestring">"defaultSeriesType"</span>=&gt;<span class="codestring">"bar"</span>
+))
+-&gt;setLegend(array(
+    <span class="codestring">"layout"</span>=&gt; <span class="codestring">'vertical'</span>,
+    <span class="codestring">"align"</span>=&gt; <span class="codestring">'right'</span>,
+    <span class="codestring">"verticalAlign"</span>=&gt; <span class="codestring">'top'</span>,
+    <span class="codestring">"x"</span>=&gt; -100,
+    <span class="codestring">"y"</span>=&gt; 100,
+    <span class="codestring">"floating"</span>=&gt; <span class="codec2">true</span>,
+    <span class="codestring">"borderWidth"</span>=&gt; 1,
+    <span class="codestring">"backgroundColor"</span>=&gt; <span class="codestring">'#FFFFFF'</span>,
+    <span class="codestring">"shadow"</span>=&gt;<span class="codec2">true</span>
+)) 
+...</div></pre><p><br><table class="detailtable" width="96%"><tr>     <th>Option name</th>  <th>Type</th>  <th>Default</th></tr><tr>     <td><b>align</b></td>  <td><b>String</b></td>  <td><b>center</b></td></tr><tr>  <td colspan='3'>The horizontal alignment of the legend box within the chart area. Defaults to "center".</td></tr><tr>     <td><b>backgroundColor</b></td>  <td><b>Color</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>The background color of the legend, filling the rounded corner border. Defaults to null.</td></tr><tr>     <td><b>borderColor</b></td>  <td><b>Color</b></td>  <td><b>#909090</b></td></tr><tr>  <td colspan='3'>The color of the drawn border around the legend. Defaults to #909090.</td></tr><tr>     <td><b>borderRadius </b></td>  <td><b>Number</b></td>  <td><b>5</b></td></tr><tr>  <td colspan='3'>The border corner radius of the legend. Defaults to 5.</td></tr><tr>     <td><b>borderWidth</b></td>  <td><b>Number</b></td>  <td><b>1</b></td></tr><tr>  <td colspan='3'>The width of the drawn border around the legend</td></tr><tr>     <td><b>enabled </b></td>  <td><b>Boolean</b></td>  <td><b>true</b></td></tr><tr>  <td colspan='3'>Enable or disable the legend. Defaults to true.</td></tr><tr>     <td><b>floating</b></td>  <td><b>Boolean</b></td>  <td><b>false</b></td></tr><tr>  <td colspan='3'>When the legend is floating, the plot area ignores it and is allowed to be placed below it.</td></tr><tr>     <td><b>itemHiddenStyle</b></td>  <td><b>Array</b></td>  <td><b>array("color" =>'#CCC')</b></td></tr><tr>  <td colspan='3'>CSS styles for each legend item when the corresponding series or point is hidden. Properties are inherited from style unless overridden here.</td></tr><tr>     <td><b>itemHoverStyle</b></td>  <td><b>Array</b></td>  <td><b>array("color"=>'#000')</b></td></tr><tr>  <td colspan='3'>CSS styles for each legend item in hover mode. Properties are inherited from style unless overridden here.</td></tr><tr>     <td><b>itemStyle</b></td>  <td><b>Array</b></td>  <td><b>array("cursor"=>'pointer',"color"=>'#3E576F')</b></td></tr><tr>  <td colspan='3'>CSS styles for each legend item.</td></tr><tr>     <td><b>itemWidth</b></td>  <td><b>Number</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>The width for each legend item. This is useful in a horizontal layout with many items when you want the items to align verticall.</td></tr><tr>     <td><b>labelFormatter</b></td>  <td><b>JS Function</b></td>  <td><b>See below</b></td></tr><tr>  <td colspan='3'>Callback function to format each of the series' labels. The this keyword refers to the series object, or the point object in case of pie charts. Defaults to:<br/>labelFormatter: function() {	return this.name}When set a "js:" should be set before the string. </td></tr><tr>     <td><b>lineHeight</b></td>  <td><b>Number</b></td>  <td><b>15</b></td></tr><tr>  <td colspan='3'>f the plot area sized is calculated automatically and the legend is not floating, the legend margin is the space between the legend and the axis labels or plot area.</td></tr><tr>     <td><b>reversed</b></td>  <td><b>Boolean</b></td>  <td><b>false</b></td></tr><tr>  <td colspan='3'>Whether to reverse the order of the legend items compared to the order of the series or points as defined in the configuration object</td></tr><tr>     <td><b>shadow</b></td>  <td><b>Boolean</b></td>  <td><b>false</b></td></tr><tr>  <td colspan='3'>Whether to apply a drop shadow to the legend. A backgroundColor also needs to be applied for this to take effect.</td></tr><tr>     <td><b>style</b></td>  <td><b>Array</b></td>  <td><b></b></td></tr><tr>  <td colspan='3'>CSS styles for the legend area.</td></tr><tr>     <td><b>symbolPadding</b></td>  <td><b>Number</b></td>  <td><b>5</b></td></tr><tr>  <td colspan='3'>The pixel padding between the legend item symbol and the legend item text</td></tr><tr>     <td><b>symbolWidth</b></td>  <td><b>Number</b></td>  <td><b>30</b></td></tr><tr>  <td colspan='3'>The pixel width of the legend item symbol</td></tr><tr>     <td><b>verticalAlign</b></td>  <td><b>String</b></td>  <td><b>"bottom"</b></td></tr><tr>  <td colspan='3'>The vertical alignment of the legend box. Can be one of "top", "middle" or "bottom". Vertical position can be further determined by the "y" option.</td></tr><tr>     <td><b>width</b></td>  <td><b>Number</b></td>  <td><b>null</b></td></tr><tr>  <td colspan='3'>The width of the legend box, not including style.padding</td></tr><tr>     <td><b>x</b></td>  <td><b>Number</b></td>  <td><b>15</b></td></tr><tr>  <td colspan='3'>The x offset of the legend relative to it's horizontal alignment align within chart.spacingLeft and chart.spacingRight. Negative x moves it to the left, positive x moves it to the right. The default value of 15 together with align: "center" puts it in the center of the plot area. </td></tr><tr>     <td><b>y</b></td>  <td><b>Number</b></td>  <td><b>0</b></td></tr><tr>  <td colspan='3'>The vertical offset of the legend relative to it's vertical alignment verticalAlign within chart.spacingTop and chart.spacingBottom. Negative y moves it up, positive y moves it down. </td></tr></table><p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/08/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

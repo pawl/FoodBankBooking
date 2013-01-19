@@ -1,0 +1,5 @@
+You can show any level of nested subgrids (master detail) inside a parent grid. Just set the $grid->setSubGridGrid("subgrid.php"); property of the parent grid to "Parent" for the parent grid and to "Child" for the child ones.
+
+Create your subgrid in subgrid.php as normal grid and all is done. You just need to accept the parameter passed from the paraent
+
+You can have unlimited hierarchy using this approach

@@ -1,0 +1,11 @@
+jqGrid support search toolbar mode, where you can have search toolbar on top of each column of the grid. To use, set the <b>toolbarfilter</b> property to true. You can exclude certain columns from appearing in the search options by setting the <b>search</b> property of the respective column to false.
+
+Another property that plays role in searching is the <b>sopt</b> property of each column, to specify how the grid treats searching. Default is <b>Contains.</b>
+
+When a column is searchable, you can select how end-users will edit it. This is controlled by the <b>stype</b> property and current has two different options - text and select.
+
+In addition to that, you can specify the values end-users will see in value:name pairs in the  of Columns - this is especially useful for EditType select. Here is an example
+
+$grid->setSelect("ShipCity", "SELECT DISTINCT ShipCity, ShipCity AS CityName FROM orders ORDER BY 2", false, false, true, array(""=>"All"));
+
+When searching is performed the grid triggers Searching / Searched event which you can use to customize this behaviour.

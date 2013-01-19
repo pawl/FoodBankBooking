@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>The grid is displayed in the page, but no data on it?</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;The grid is displayed in the page, but no data on it?
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">This problem is typically caused by invalid settings of the grid url inPHP code.<p><b>Resolution:</b><br>The path to the file from which you include the grid php file should be the same in setUrl method. For example, if the grid PHP file is included in a page like this:<p><pre><div class="htmlcode">...
+<span class="elements">&lt;div&gt;</span>
+   &lt;?php include (<span class="codestring">"path_to_grid/grid.php"</span>);?&gt;
+<span class="elements">&lt;/div&gt;</span>
+...</div></pre><p>Then in the grid PHP file you should use setUrl like this:<br><pre><div class="csharpcode">&lt;?php
+...
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid create the model</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data
+</span>
+$grid-&gt;setUrl(<span class="codestring">'path_to_grid/grid.php'</span>);
+...
+?&gt;</div></pre><p>Where <b>path_to_grid</b> is the path to the grid.php file
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/12/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

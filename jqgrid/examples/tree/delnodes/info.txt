@@ -1,0 +1,7 @@
+Keyboard navigation is a new cool feature in grid and tree grid.
+It is done just with one command method call 'bindKeys'.
+
+Select a row.
+Using Up and Dow arrow you can scroll up and down.
+The Right arrow expand a node
+The Left arrow collapse a node

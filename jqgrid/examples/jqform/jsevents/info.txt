@@ -1,0 +1,3 @@
+When using HTML5 jqForm PHP builder it very easy to add events associated with
+the fields. Try to change the Freight or Tax and you will see that Total field
+will be automatically changed.

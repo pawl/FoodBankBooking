@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Event Data/Rendering</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Event Data/Rendering
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><b>allDayDefault</b><p>Determines the default value for each Event Object's allDay property, when it is unspecified.<p><div class="banner">Type: boolean, default: true</div><p><b>ignoreTimezone</b><p>When parsing ISO8601 dates, whether UTC offsets should be ignored while processing event source data.<p><div class="banner">Type: boolean, default: true</div><p>The default is true, which means the UTC offset for all ISO8601 dates will be ignored. For example, the date "2008-11-05T08:15:30-05:00" will be processed as November 5th, 2008 at 8:15am in the local offset of the browser.<p>If you are using ISO8601 dates with UTC offsets, chances are you want them processed. You must set this option to false. In the future, the default for this option will probably be changed to false.<p><br><b>lazyFetching</b><p>Determines when event fetching should occur.<p><div class="banner">Type: boolean, default: true</div><p>When set to true (the default), the calendar will only fetch events when it absolutely needs to, minimizing AJAX calls. For example, say your calendar starts out in month view, in February. FullCalendar will fetch events for the entire month of February and store them in its internal cache. Then, say the user switches to week view and begins browsing the weeks in February. The calendar will avoid fetching events because it already has this information stored.<p>When set to false, the calendar will fetch events any time the view is switched, or any time the current date changes (for example, as a result of the user clicking prev/next).<p><br><b>eventColor</b><p>Sets the background and border colors for all events on the calendar.<p><div class="banner">Type: String</div><p>You can use any of the CSS color formats such #f00, #ff0000, rgb(255,0,0), or red<p><b>eventBackgroundColor</b><p>Sets the background color for all events on the calendar.<p><div class="banner">Type:String</div>You can use any of the CSS color formats such #f00, #ff0000, rgb(255,0,0), or red.<p><br><b>eventBorderColor</b><p>Sets the border color for all events on the calendar.<p><div class="banner">Type:String</div><p>You can use any of the CSS color formats such #f00, #ff0000, rgb(255,0,0), or red.<p><b>eventTextColor</b><p>Sets the text color for all events on the calendar.<p><div class="banner">Type:String</div><p>You can use any of the CSS color formats such #f00, #ff0000, rgb(255,0,0), or red.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

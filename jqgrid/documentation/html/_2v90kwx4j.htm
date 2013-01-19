@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Master -> Detail with editing</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Master -&gt; Detail with editing
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In this tutorial we will show how to link two jqGrid instances on the same page, so that selecting a row from master jqGrid shows details of the linked records in the second jqGrid instance. This is a classical master -&gt; details example. We can achieve this easily with a few lines of javascript when the row in the master jqGrid is selected.<p>Additionally to this we will show how to set up detail so that we can add arecords to it setting the Master Key<p>Starting from this <a href="_2v90jgzqp.htm" >example</a>, just add the following line:<br><pre>
+&lt;div&gt;
+	&lt;?php include ("detail.php");?&gt;
+&lt;/div&gt;
+</pre><p>after this line:<p><pre>
+&lt;div&gt;
+	&lt;?php include ("grid.php");?&gt;
+&lt;/div&gt;
+</pre><p>We will link the database table "Customers" to database table "Orders", so that when we select a customer from the master table, all orders for this customer will appear in the details table. In addition to that, we will summarize the totals of all orders of this customer in the footer row of the details jqGrid instance.<p><b>grid.php (customers grid)</b><p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT CustomerID, CompanyName, ContactName, Phone, City FROM customers'</span>;
+<span class="codecomment">// Set the table to where you update the data</span>
+$grid-&gt;table = <span class="codestring">'customers'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Set the primary key</span>
+$grid-&gt;setPrimarykeyId(<span class="codestring">"CustomerID"</span>);
+<span class="codecomment">// Let the grid create the model</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"CustomerID"</span>
+));
+$grid-&gt;setColProperty(<span class="codestring">'CustomerID'</span>, <span class="datatypes">array</span>(<span class="codestring">"label"</span>=&gt;<span class="codestring">"ID"</span>, <span class="codestring">"width"</span>=&gt;50));
+
+<span class="codecomment">// on select row we should post the customer id to second table and trigger it to reload the data</span>
+$selectorder = &amp;lt;&amp;lt;&amp;lt;ORDER
+<span class="programcontrol">function</span>(rowid, selected)
+{
+    <span class="programcontrol">if</span>(rowid != <span class="literals">null</span>) {
+        jQuery(<span class="codestring">"#detail"</span>).jqGrid(<span class="codestring">'setGridParam'</span>,{postData:{CustomerID:rowid}});
+        jQuery(<span class="codestring">"#detail"</span>).trigger(<span class="codestring">"reloadGrid"</span>);
+
+        <span class="codecomment">// Enable CRUD buttons in detail navigator when a row is selected
+</span>
+        jQuery(<span class="codestring">"#add_detail"</span>).removeClass(<span class="codestring">"ui-state-disabled"</span>);
+        jQuery(<span class="codestring">"#edit_detail"</span>).removeClass(<span class="codestring">"ui-state-disabled"</span>);
+        jQuery(<span class="codestring">"#del_detail"</span>).removeClass(<span class="codestring">"ui-state-disabled"</span>); 
+    }
+}
+ORDER;
+$grid-&gt;setGridEvent(<span class="codestring">'onSelectRow'</span>, $selectorder);
+
+<span class="codecomment">// We should clear the grid data on second grid on sorting, paging, etc.</span>
+$cleargrid = &amp;lt;&amp;lt;&amp;lt;CLEAR
+<span class="programcontrol">function</span>(rowid, selected)
+{
+   <span class="codecomment">// clear the grid data and footer data</span>
+   Query(<span class="codestring">"#detail"</span>).jqGrid(<span class="codestring">'clearGridData'</span>,<span class="literals">true</span>);
+
+   <span class="codecomment">// Disable CRUD buttons in detail navigator when a row is not selected
+</span>
+       jQuery(<span class="codestring">"#add_detail"</span>).addClass(<span class="codestring">"ui-state-disabled"</span>);
+       jQuery(<span class="codestring">"#edit_detail"</span>).addClass(<span class="codestring">"ui-state-disabled"</span>);
+       jQuery(<span class="codestring">"#del_detail"</span>).addClass(<span class="codestring">"ui-state-disabled"</span>); 
+}
+CLEAR;
+
+$grid-&gt;setGridEvent(<span class="codestring">'onPaging'</span>, $cleargrid);
+$grid-&gt;setGridEvent(<span class="codestring">'onSortCol'</span>, $cleargrid);
+
+<span class="codecomment">// Enable navigator</span>
+$grid-&gt;navigator = <span class="literals">true</span>;
+
+$grid-&gt;setNavOptions(<span class="codestring">'navigator'</span>, <span class="datatypes">array</span>(<span class="codestring">"excel"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"add"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"edit"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"del"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"view"</span>=&gt;<span class="literals">false</span>));
+<span class="codecomment">// Enjoy</span>
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre><p><b>detail.php (orders table)</b><p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+<span class="codecomment">// Get the needed parameters passed from the main grid</span>
+<span class="programcontrol">if</span>(isset ($_REQUEST[<span class="codestring">"CustomerID"</span>]))
+    $rowid = jqGridUtils::Strip($_REQUEST[<span class="codestring">"CustomerID"</span>]);
+<span class="programcontrol">else</span>
+    $rowid = <span class="codestring">""</span>;
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">"SELECT OrderID, RequiredDate, ShipName, ShipCity, Freight, CustomerID FROM orders WHERE CustomerID= ?"</span>;
+<span class="codecomment">// set the ouput format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Setup the table </span>
+$grid-&gt;table = <span class="codestring">'orders'</span>;
+<span class="codecomment">// Setup primary key id</span>
+$grid-&gt;setPrimaryKeyId(<span class="codestring">"OrderID"</span>);
+<span class="codecomment">// Let the grid create the model</span>
+$grid-&gt;setColModel(<span class="literals">null</span>, <span class="datatypes">array</span>(&amp;$rowid));
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'detail.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"footerrow"</span>=&gt;<span class="literals">true</span>,
+    <span class="codestring">"userDataOnFooter"</span>=&gt;<span class="literals">true</span>,
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+    <span class="codestring">"height"</span>=&gt;110
+    ));
+<span class="codecomment">// Change some property of the field(s)</span>
+$grid-&gt;setColProperty(<span class="codestring">"RequiredDate"</span>, <span class="datatypes">array</span>(
+    <span class="codestring">"formatter"</span>=&gt;<span class="codestring">"date"</span>,
+    <span class="codestring">"formatoptions"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"srcformat"</span>=&gt;<span class="codestring">"Y-m-d H:i:s"</span>,<span class="codestring">"newformat"</span>=&gt;<span class="codestring">"m/d/Y"</span>),
+    <span class="codestring">"search"</span>=&gt;<span class="literals">false</span>
+    )
+);
+
+<span class="codecomment">//Set the CustomerID (master key)  hidden</span>
+$grid-&gt;setColProperty(<span class="codestring">"CustomerID"</span>, <span class="datatypes">array</span>(<span class="codestring">"hidden"</span>=&gt;<span class="literals">true</span>))l
+
+$grid-&gt;navigator = <span class="literals">true</span>;
+<span class="codecomment">// Enable Editing</span>
+$grid-&gt;setNavOptions(<span class="codestring">'navigator'</span>, <span class="datatypes">array</span>(<span class="codestring">"excel"</span>=&gt;<span class="literals">true</span>,<span class="codestring">"add"</span>=&gt;<span class="literals">true</span>,<span class="codestring">"edit"</span>=&gt;<span class="literals">true</span>,<span class="codestring">"del"</span>=&gt;<span class="literals">true</span>,<span class="codestring">"view"</span>=&gt;<span class="literals">false</span>));
+
+<span class="codecomment">// Set the sumary of the orders</span>
+$summaryrow = <span class="datatypes">array</span>(<span class="codestring">"Freight"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"Freight"</span>=&gt;<span class="codestring">"SUM"</span>));
+
+<span class="codecomment">// disable the CRUD buttons when we initialy load the grid</span>
+$initgrid = <&lt;INIT
+jQuery(<span class="codestring">"#add_detail"</span>).addClass(<span class="codestring">"ui-state-disabled"</span>);
+jQuery(<span class="codestring">"#edit_detail"</span>).addClass(<span class="codestring">"ui-state-disabled"</span>);
+jQuery(<span class="codestring">"#del_detail"</span>).addClass(<span class="codestring">"ui-state-disabled"</span>);
+INIT;
+
+$grid-&gt;setJSCode($initgrid); 
+
+<span class="codecomment">// on beforeshow form when add we get the customer id and set it for posting</span>
+$beforeshow = <&lt;BEFORE
+<span class="programcontrol">function</span>(formid)
+{
+<span class="programcontrol">var</span> srow = jQuery(<span class="codestring">"#grid"</span>).jqGrid(<span class="codestring">'getGridParam'</span>,<span class="codestring">'selrow'</span>);
+<span class="programcontrol">if</span>(srow) {
+    <span class="programcontrol">var</span> gridrow = jQuery(<span class="codestring">"#grid"</span>).jqGrid(<span class="codestring">'getRowData'</span>,srow);
+    $(<span class="codestring">"#CustomerID"</span>,formid).val(gridrow.CustomerID);
+}
+}
+BEFORE; 
+
+$grid-&gt;setNavEvent(<span class="codestring">'add'</span>, <span class="codestring">'beforeShowForm'</span>, $beforeshow); 
+$grid-&gt;renderGrid(<span class="codestring">"#detail"</span>,<span class="codestring">"#pgdetail"</span>, <span class="literals">true</span>, $summaryrow, <span class="datatypes">array</span>(&amp;$rowid), <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/07/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

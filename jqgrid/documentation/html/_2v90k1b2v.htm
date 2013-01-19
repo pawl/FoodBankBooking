@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Adding datepicker</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Adding datepicker
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">This is an example of how you can add a  datepicker, timepicker or in fact any custom 3rd party control as an editing or searching control in jqGrid. In our case we will use the <a href="http://jqueryui.com/demos/datepicker" target="top">jQuery UI datepicker</a> widget. Before using the script make sure that you have included the jQuery UI datapicker javascript in the script tag of your page.<p>Our goal is to use a datepicker for both editing and serching, but before doing this please take a look at the following help topic: <a href="_2v212r62k.htm" >configure the dates</a> <p>In our case, we will use the default settings for the server and client side dates. To attach the datepicker, we will use dataInit event - either in editoptions and in searchoptions. For this purpose it is needed to enable the jqGrid navigator too. We will use this <a href="_2v90jgzqp.htm" >example</a> as a starting point.<p><pre><div class="htmlcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+// include the jqGrid Class
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+// include the driver class
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+// Connection to the server
+$conn = new PDO(DB_DSN,DB_USER,DB_PASSWORD);
+// Tell the db that we use utf-8
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+// Create the jqGrid instance
+$grid = new jqGridRender($conn);
+// Write the SQL Query
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+// Set output format to json
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+// Let the grid create the model
+$grid-&gt;setColModel();
+// Set the url from where we obtain the data
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+// Set some grid options
+$grid-&gt;setGridOptions(array(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;array(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>
+));
+
+// javascriptCode for the datepicker
+$mydatepicker = &lt;&lt;&lt;DATEPICK
+function(el) 
+{
+   setTimeout(function(){
+      jQuery(el).datepicker({dateFormat:<span class="codestring">'dd/mm/yy'</span>});
+   },200);
+}
+DETEPICK;
+
+// Set the column property
+$grid-&gt;setColProperty(<span class="codestring">'OrderDate'</span>, array(
+   <span class="codestring">"formatter"</span>=&gt;<span class="codestring">'date'</span>,
+   <span class="codestring">"editoptions"</span>=&gt;array(<span class="codestring">"dataInit"</span>=&gt;<span class="codestring">"js:"</span>.$mydatepicker),
+   <span class="codestring">"searchoptions"</span>=&gt;array(<span class="codestring">"dataInit"</span>=&gt;<span class="codestring">"js:"</span>.$mydatepicker)
+));
+
+// add navigator with the default properties
+$grid-&gt;navigator = true;
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,true, null, null, true,true);
+$conn = null;
+?&gt;</div></pre><p>Please, note the <b>setTimeout</b> javascript function in our code. The reason we are using it is that <b>dataInit</b> event is executed before the element is inserted to the DOM, and we need the timeout to make sure the element is attached to the DOM before proceeding with attaching the datepicker.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/05/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

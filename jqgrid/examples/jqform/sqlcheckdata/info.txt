@@ -1,0 +1,3 @@
+It is possible to define custom checking of data with java script before it
+it is posted to the server. It is done in the ajax beforeSubmit event
+of jQuery form plugin.

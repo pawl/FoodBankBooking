@@ -1,0 +1,3 @@
+We can add a summary property to each field if grouping is enabled,
+but in this case we enable only a summary at the first level.
+This is done groupSummary array.

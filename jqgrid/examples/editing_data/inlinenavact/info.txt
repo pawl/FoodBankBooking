@@ -1,0 +1,2 @@
+In this particular example, we are calling we calling inline navigator disabling the action for edit - i.e we enable just adding
+Please, refer to the PHP tab for the code.

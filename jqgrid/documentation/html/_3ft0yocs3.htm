@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Agenda Options</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Agenda Options
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><b>allDaySlot</b><br>Determines if the "all-day" slot is displayed at the top of the calendar.<p><div class="banner">Type: Boolean, default: true</div>When hidden with false, all-day events will not be displayed in agenda views.<p><b>allDayText</b><br>The text titling the "all-day" slot at the top of the calendar.<p><div class="banner">Type: String, default: 'all-day'</div><p><br><b>axisFormat</b><br>Determines the time-text that will be displayed on the vertical axis of the agenda views.<p><div class="banner">Type: String, default: 'h(:mm)tt'</div>The value is a format-string that will be processed by formatDate.<p>The default value will produce times that look like "5pm" and "5:30pm".<p><b>slotMinutes</b><br>The frequency for displaying time slots, in minutes.<p><div class="banner">Type: Integer, default: 30</div>The default will make a slot every half hour.<p><b>defaultEventMinutes</b><br>Determines the length (in minutes) an event appears to be when it has an unspecified end date.<p><div class="banner">Type:Integer, default: 120</div>By default, if an Event Object as no end, it will appear to be 2 hours.<p>This option only affects events that appear in the agenda slots, meaning they have allDay set to true.<p><b>firstHour</b><br>Determines the first hour that will be visible in the scroll pane.<p><div class="banner">Type:Integer, default: 6</div>Values must be from 0-23, where 0=midnight, 1=1am, etc.<p>The user will be able to scroll upwards to see events before this time. If you want to prevent users from doing this, use the minTime option instead.<p><b>minTime</b><br>Determines the first hour/time that will be displayed, even when the scrollbars have been scrolled all the way up.<p><div class="banner">Type:Integer/String, default: 0</div>This can be a number like 5 (which means 5am), a string like '5:30' (which means 5:30am) or a string like '5:30am'<p><b>maxTime</b><br>Determines the last hour/time (exclusively) that will be displayed, even when the scrollbars have been scrolled all the way down.<p><div class="banner">Type:Integer/String, default: 24</div>This can be a number like 22 (which means 10pm), a string like '22:30' (which means 10:30pm) or a string like '10:30pm'.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

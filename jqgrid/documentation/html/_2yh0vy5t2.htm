@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Loading data at once and operate locally</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Loading data at once and operate locally
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Since version 3.7 we introduce a new very usefull feature of jqGrid - load all the needed data from server at once and then<br>operate on it locally - i.e - pagging, sorting, searching and etc. <p>For this purpose we introduce a new grid parameter - rowTotal. When set, this paramater (again with loadonce parameter set to true) instruct the server to load the total number of rows needed to work on.<p>Note that rowNum determines the total records displayed in the grid, while rowTotal the total rows on wich we operate.<br>When this parameter is set we send a aditional parameter to server named totalrows.<p>Setting rowTotal to <b>rowTotal = -1</b> loads all the data from the query.<br>Setting rowTotal to any number greater than 0 (zero) (usually this should be greater than rowNum) loads only this number of rows.<p>Below is example, where we load all the data and then we operate on it locally.<p><b>grid.php</b><p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the database connection settings/configuration</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the database that we use utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// set the SQL select query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid automatically create the model based on the SQL query</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+<span class="codecomment">//this instruct grid to load data only once and then go to local mode</span>
+    <span class="codestring">"loadonce"</span>=&gt;<span class="literals">true</span>,
+<span class="codecomment">//this instruct grid to load all the data from the query. 
+//If you want by example to load only 500 records, the set it to 500</span>
+    <span class="codestring">"rowTotal"</span> =&gt; -1
+));
+
+<span class="codecomment">//enable navigator, so that we can search</span>
+$grid-&gt;navigator = <span class="literals">true</span>;
+
+$grid-&gt;setNavOptions(<span class="codestring">'navigator'</span>, <span class="datatypes">array</span>(<span class="codestring">"excel"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"add"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"edit"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"del"</span>=&gt;<span class="literals">false</span>,<span class="codestring">"view"</span>=&gt;<span class="literals">true</span>, <span class="codestring">"search"</span>=&gt;<span class="literals">true</span>));
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/13/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,1 @@
+You can add any number of custom buttons to the grid toolbar using the callGridMethod. Please, refer to the PHP tab for javascript code details.

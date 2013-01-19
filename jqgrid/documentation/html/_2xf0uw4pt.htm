@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Attaching autocomplete in editing</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Attaching autocomplete in editing
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">In this scenario we will demonstarte how to attach a autocomplete when we are in editng mode. <br>The whole script will be written in PHP, but it is possible that part of the javascript can be written in the index file.<p>In order to use this functionality we will use a jQuery UI autocomplete widget. The jQuery UI library can be downloaded form here:<p><a href="http://jqueryui.com/download" target="top">http://jqueryui.com/download</a><p>When you download the library, please be a sure that you have marked the autocomplete checkbox.<p>The autocomplete widget is available from jQuery UI version 1.8 and up<p>Please refer to the coments at end of this page.<p>After the library is downloaded you should include it in the index file. This can look like this<p><b>index.php</b><p><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html&gt;</span>
+  <span class="elements">&lt;head&gt;</span>
+    <span class="elements">&lt;title&gt;</span>jqGrid PHP Demo<span class="elements">&lt;/title&gt;</span>
+    <span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+    <span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/redmond/jquery-ui-1.8.1.custom.css"</span> /&gt;
+    <span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.jqgrid.css"</span> /&gt;
+    <span class="elements">&lt;link</span> <span class="attributes">rel=</span><span class="codestring">"stylesheet"</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span> <span class="attributes">media=</span><span class="codestring">"screen"</span> <span class="attributes">href=</span><span class="codestring">"themes/ui.multiselect.css"</span> /&gt;
+    <span class="elements">&lt;style</span> <span class="attributes">type=</span><span class="codestring">"text/css"</span>&gt;
+        html, body {
+        margin: 0;         /* Remove body margin/padding */
+        padding: 0;
+        overflow: hidden;   /* Remove scroll bars on browser window */
+        font-size: 75%;
+        }
+    <span class="elements">&lt;/style&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/i18n/grid.locale-en.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+   <span class="elements">&lt;script</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;
+   $.jgrid.no_legacy_api = true;
+   $.jgrid.useJSON = true;
+   <span class="elements">&lt;/script&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery-ui-1.8.1.custom.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+    <span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.jqGrid.min.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+  <span class="elements">&lt;/head&gt;</span>
+  <span class="elements">&lt;body&gt;</span>
+      <span class="elements">&lt;div&gt;</span>
+          &lt;?php include (<span class="codestring">"grid.php"</span>);?&gt;
+      <span class="elements">&lt;/div&gt;</span>
+   <span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p>Lets begin with our script. <br>We will first use our <a href="_2v90jgzqp.htm" >example</a> and we will attach the autocomplete to the Customer name. In autocomplete we will display the name, but when we select a item we will post the id of the customer.<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the database connection settings/configuration</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the database that we use utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// set the SQL select query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT a.OrderID, a.OrderDate, a.CustomerID, b.CompanyName, a.ShipName, a.Freight FROM orders a, customers b WHERE a.CustomerID = b.CustomerID'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid automatically create the model based on the SQL query</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain the data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+$grid-&gt;table = <span class="codestring">'orders'</span>;
+
+<span class="codecomment">//lets hide the customerId </span>
+$grid-&gt;setColProperty(<span class="codestring">'CustomerID'</span>,<span class="datatypes">array</span>(<span class="codestring">'hidden'</span>=&gt;<span class="literals">true</span>));
+
+<span class="codecomment">// autocomplete javascript code</span>
+$company = <&lt;CUSTOM
+<span class="programcontrol">function</span> (elem) {
+setTimeout(<span class="programcontrol">function</span>() {
+        $(elem).autocomplete({
+             source: <span class="codestring">'company.php'</span>,
+             select: <span class="programcontrol">function</span>(event, ui) {
+                $(<span class="codestring">"#CustomerID"</span>).val(ui.item.id);
+             }
+        });
+        jQuery(<span class="codestring">'.ui-autocomplete'</span>).css({<span class="codestring">'font-size'</span>:<span class="codestring">'75%'</span>});
+},100);
+}
+CUSTOM;
+
+<span class="codecomment">// attaching the autocomplete function</span>
+$grid-&gt;setColProperty(<span class="codestring">'CompanyName'</span>,<span class="datatypes">array</span>(<span class="codestring">"editoptions"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"dataInit"</span>=&gt;<span class="codestring">"js:"</span>.$company)));
+
+
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+    <span class="codestring">"rowNum"</span>=&gt;10,
+    <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+    <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+    <span class="codestring">"footerrow"</span>=&gt;<span class="literals">true</span>,
+    <span class="codestring">"userDataOnFooter"</span>=&gt;<span class="literals">true</span>
+));
+
+
+$grid-&gt;navigator=<span class="literals">true</span>;
+
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;</div></pre><p><br>The PHP script for the company.php used in autocomplete  has the following code:<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the database connection settings/configuration</span>
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// instruct the database that we use utf-8 encoding</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+$term = jqGridUtils::GetParam(<span class="codestring">"term"</span>);
+
+$SQL = <span class="codestring">"SELECT CustomerID as id, CompanyName as name, CompanyName AS value FROM customers WHERE CompanyName LIKE ? or CustomerID LIKE ?"</span>; 
+
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+$ret = $grid-&gt;SelectLimit($SQL , 10, 0, <span class="datatypes">array</span>($term.<span class="codestring">"%"</span>,$term.<span class="codestring">"%"</span>));
+echo json_encode($ret);
+
+?&gt;</div></pre><p><br>Now what we do.<br>1. We have changed the sql query in Select Command so that we have joined the CompanyName to be displayed into the grid - see Select Command<br>2. We have included in the SelectCommand the CustomerID.<br>3. We set this field to be hidden so that it does not appear into the grid, but it is hidden into the editing form - see setColProperty for CustomerID<br>4. We have attached a dataInit event for the field CompanyName - see setColProperty for CompanyName<br>5. The dataInit event (javascript) just call the jQuery autocomplete widget - see $company variable. When the value is selected we change the CustomerID which is transported from company.php request.<br>6. The autocomplete obtain the data  via ajax request privided from company.php file. To this request autocomplete widget send a term variable with the data typed from the user.<br>7. In company.php file we use again the power of jqGrid method selectLimit. This method return the obtained data in a way that is acceptable for the plugin.<br>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/12/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

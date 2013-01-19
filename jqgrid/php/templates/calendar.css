@@ -1,0 +1,158 @@
+/* 
+    Document   : calendar
+    Created on : May 6, 2011, 6:59:53 PM
+    Author     : tony
+    Description:
+        Purpose of the stylesheet follows.
+.ui-datepicker {display: none;}
+
+*/
+/*datepicker fix for inline calendar */
+#ui-datepicker-div 
+{
+	display:none;
+}
+/* datepicker tooltip fix when adding content dynamically */
+.ui-tooltip {
+	font-size: 12px;
+}
+.ui-datepicker {
+	font-size: 12px;
+}
+/* Template content */
+.ui-input
+{
+	padding : 4px 2px;
+}
+.calwrapper
+{
+	width: 100%;
+	height : 100%;
+	margin: 0 auto;
+	font-size: 12px;
+}
+.content-ui
+{
+	padding-top: 7px;
+	background-image: none;
+	background-color: inherit;
+}
+.jquser {
+	border: 0px none;
+	margin-top :5px;
+	margin-bottom: 5px;
+	padding-left: 20px;
+}
+.jqleftpane {
+	float: left;
+	padding: 0 10px;
+	font-size: 11px;
+}
+.jqdatepicker {
+	font-size: 1em;
+}
+.jqcalendar {
+	float: right;
+	width: 81%;
+}
+.jqtoolbar
+{
+	text-align: right;
+	border: 0px none;
+	padding : 4px 2px;
+}
+.jqevent {
+	margin-right: 2.2em;
+	display: none;
+}
+
+/* Buttons*/
+.jq-button { outline: 0; margin:0 4px 0 0; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
+.jq-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
+
+a.jq-button { float:left; }
+
+/* remove extra button width in IE */
+button.jq-button { width:auto; overflow:visible; }
+
+.jq-button-icon-left { padding-left: 2.1em; }
+.jq-button-icon-right { padding-right: 2.1em; }
+.jq-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
+.jq-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+
+.jq-button-icon-solo { display:block; width:8px; text-indent: -9999px; }	 /* solo icon buttons must have block properties for the text-indent to work */
+
+.jq-buttonset { float:left; }
+.jq-buttonset .jq-button { float: left; }
+.jq-buttonset-single .jq-button,
+.jq-buttonset-multi .jq-button { margin-right: -1px;}
+
+.jq-toolbar { padding: .1em; margin: 0;  }
+.jq-toolbar .jq-buttonset { margin-right:1.5em; padding-left: 1px; }
+.jq-toolbar .jq-button { font-size: 1em;  }
+
+
+/* Time picker */
+.calendricalTimePopup {
+/*  background: white;
+  border: solid 1px #999999; */
+  width: 120px;
+  height: 130px;
+  overflow: auto; }
+  .calendricalTimePopup ul {
+    margin: 0;
+    padding: 0; }
+    .calendricalTimePopup ul li {
+      list-style: none;
+      margin: 0; }
+      .calendricalTimePopup ul li a, .calendricalTimePopup ul li a:visited {
+        text-indent: 10px;
+        padding: 4px;
+        display: block;
+        color: black;
+        text-decoration: none; }
+      .calendricalTimePopup ul li a:hover, .calendricalTimePopup ul li.selected a {
+        /*background: #ccccff; */ border: 0px none !important;}
+
+.calendricalEndTimePopup 
+{
+  width: 160px; 
+}
+.ui-widget-content th.ui-event-cell {
+	font-weight: bold;
+	border-left: 0px none;
+	border-top: 0px none;
+	border-right: 0px none;
+	padding: 10px;
+	text-align: left ;
+	vertical-align: top ;
+	white-space: nowrap;
+}
+
+.ui-widget-content td.ui-event-time {
+	border-left: 0px none;
+	border-top: 0px none;
+	border-right: 0px none;
+	font-weight: normal;
+	padding: 10px;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.ui-widget-content td.ui-event-title {
+	border-left: 0px none;
+	border-top: 0px none;
+	border-right: 0px none;
+	font-weight: normal;
+	padding: 10px;
+	text-align: left;
+	vertical-align: top;
+	width: 80% ;
+}
+
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }

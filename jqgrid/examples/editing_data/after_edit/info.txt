@@ -1,0 +1,4 @@
+This example demonstrates ho we can run a set of SQL command after some CRUD operation is
+performed. 
+Please, take a look at the code in the PHP tab for additional details.
+

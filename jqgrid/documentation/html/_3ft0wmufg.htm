@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Using predefined laguage packs</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Using predefined laguage packs
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><h3>Basics</h3><p>jqScheduler for PHP comes with a lot of predefined language packs. They are located in the installation package, in the <b>/php/localization</b> folder. Language packs are in the form of php files, containing definitions for all strings in the schedule that can be localized - this includes messages, captions, search/add/delete dialog labels, etc.<p>In order to use a particular language pack, you need to use the PHP method setLocale($lang_pack) wher the $lang_pack is 5 letter code where the first two letter represent the language and the lastr two letter represent the Country. The example below set the Bulgarian language pack.<p><pre><div class="csharpcode">...
+...
+$eventcal = <span class="programcontrol">new</span> jqScheduler($conn);
+$eventcal-&gt;setLocale(<span class="codestring">'bg_BG'</span>);
+...</div></pre><p>By defaulr a English language pack is used. In this case it is not needed to use setLocale method.<p>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 02/22/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

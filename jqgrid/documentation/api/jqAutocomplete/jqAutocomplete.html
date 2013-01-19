@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Docs For Class jqAutocomplete</title>
+	<link rel="stylesheet" type="text/css" href="../media/style.css">
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+	<td class="header-top-left"><img src="../media/logo.png" border="0" alt="phpDocumentor " /></td>
+    <td class="header-top-right">jqAutocomplete<br /><div class="header-top-right-subpackage"></div></td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td colspan="2" class="header-menu">
+      
+                                      
+                                                                		[ <a href="../classtrees_jqAutocomplete.html" class="menu">class tree: jqAutocomplete</a> ]
+		[ <a href="../elementindex_jqAutocomplete.html" class="menu">index: jqAutocomplete</a> ]
+            [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="195" class="menu">
+		<div class="package-title">jqAutocomplete</div>
+  <div class="package">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+	</div>
+      <b>Packages:</b><br />
+  <div class="package">
+              <a href="../li_jqGrid.html">jqGrid</a><br />
+              <a href="../li_jqAutocomplete.html">jqAutocomplete</a><br />
+              <a href="../li_jqChart.html">jqChart</a><br />
+              <a href="../li_jqScheduler.html">jqScheduler</a><br />
+              <a href="../li_jqTreeGrid.html">jqTreeGrid</a><br />
+      	</div>
+      <br />
+                        <b>Files:</b><br />
+        <div class="package">
+				<span style="padding-left: 1em;"><a href="../jqAutocomplete/_jqAutocomplete.php.html">jqAutocomplete.php</a></span><br />
+	  </div>
+            <br />
+                  <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../jqAutocomplete/jqAutocomplete.html">jqAutocomplete</a>    	 <br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: jqAutocomplete</h1>
+Source Location: /jqAutocomplete.php<br /><br />
+
+<h2 class="class-name">Class jqAutocomplete</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Class Overview</div>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span>
+						
+											| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								</div>
+	<div class="info-box-body">
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+        		
+		<p class="notes">
+			Located in <a class="field" href="_jqAutocomplete.php.html">/jqAutocomplete.php</a> [<span class="field">line 15</span>]
+		</p>
+
+		
+		<pre></pre>
+
+		
+				<strong>Author(s):</strong>
+		<ul>
+		  			 			 <li>Tony Tomov, (tony@trirand.com)</li>
+			 		  			 		  			 		  			 		  			 		  		</ul>
+		
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td>A PHP class to work with jQuery UI autocomplete.  The main purpose of this class is to create a autocompleter on input  element and provide the data from database to it.  Work only with jQuery UI 1.8.4+</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Usedby:</strong>&nbsp;&nbsp;</td><td><a href="../jqGrid/jqGridRender.html#methodsetAutocomplete">jqGridRender::setAutocomplete()</a> - class. This requiere to include jqAutocomplete.php in order
+ to work</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td><strong>Version:</strong>&nbsp;&nbsp;</td><td>4.1.1.0</td></tr>
+				<tr><td><strong>Copyright:</strong>&nbsp;&nbsp;</td><td>TriRand Ltd</td></tr>
+	</table>
+		</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$ajaxtype">$ajaxtype</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$aoptions">$aoptions</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$cache">$cache</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$cachearray">$cachearray</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$conn">$conn</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$dbtype">$dbtype</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$element">$element</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$encoding">$encoding</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$fontsize">$fontsize</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$height">$height</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$itemLength">$itemLength</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$loadAll">$loadAll</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$runAll">$runAll</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$scroll">$scroll</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$searchType">$searchType</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$SelectCommand">$SelectCommand</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$source">$source</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$strictcheck">$strictcheck</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$term">$term</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#var$version">$version</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#method__construct">__construct</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodgetOption">getOption</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodisNotACQuery">isNotACQuery</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodqueryAutocomplete">queryAutocomplete</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodrenderAutocomplete">renderAutocomplete</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodsetEvent">setEvent</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodsetLength">setLength</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodsetOption">setOption</a></li>
+		  		  <li><a href="../jqAutocomplete/jqAutocomplete.html#methodsetSource">setSource</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+	</div>
+</div>
+
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Property Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+									| <span class="disabled">Property Summary</span> | <a href="#sec-vars">Properties Detail</a>
+												| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+							    				</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+																																																																																																																																					<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$ajaxtype" title="details" class="var-name-summary">$ajaxtype</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Determines the ajax type made to the server. Defaut is GET. Can be a POST</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$aoptions" title="details" class="var-name-summary">$aoptions</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the default options for the autocomplete</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">bollean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$cache" title="details" class="var-name-summary">$cache</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">When set to true enables client side caching of the results.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$cachearray" title="details" class="var-name-summary">$cachearray</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines the uniquie cheche array (used in java script) when a  cache is enabled.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$conn" title="details" class="var-name-summary">$conn</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the database connection</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$dbtype" title="details" class="var-name-summary">$dbtype</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the database type needed in some db functions</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$element" title="details" class="var-name-summary">$element</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the Id of the element. Should be uniquie value in order to have  multiple autocomplates defined in one file.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$encoding" title="details" class="var-name-summary">$encoding</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Set the encoding</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$fontsize" title="details" class="var-name-summary">$fontsize</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">the font size of the autocmplete  default is 11px. Can be in any measure.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$height" title="details" class="var-name-summary">$height</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Determines the height of the autocomplete elemnt. Work only if $scroll  option is set to true.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">integer</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$itemLength" title="details" class="var-name-summary">$itemLength</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Set the maximum rows send from the query to the autocomplete. If set to</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolen</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$loadAll" title="details" class="var-name-summary">$loadAll</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Determines if the data should be loaded at once from the SQL siurce.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$runAll" title="details" class="var-name-summary">$runAll</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Internal variable to determine whnever the script is run for first time.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$scroll" title="details" class="var-name-summary">$scroll</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Determines if the content in autocomplete should have a scroll. Use this  option with the height option - see below. If this option is not set  the content will have height equal of the responce rows.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$searchType" title="details" class="var-name-summary">$searchType</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Set the search type for the LIKE SQL operator.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$SelectCommand" title="details" class="var-name-summary">$SelectCommand</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines the select command for obtaining the data from the database.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$source" title="details" class="var-name-summary">$source</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the source for the autocomplete. Can be a string which should  point to file from where to obtain the data. It can be array too.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$strictcheck" title="details" class="var-name-summary">$strictcheck</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description"></td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$term" title="details" class="var-name-summary">$term</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the term parameter send from autocomplete and then used in query</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$version" title="details" class="var-name-summary">$version</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Info about the version</td></tr>
+				</div>
+										</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+							    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+		</div>
+		<div class="info-box-body">
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+																																																																																								<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">jqAutocomplete</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Constructor</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getOption" title="details" class="method-name">getOption</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the the requested option of the autocomplete</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#isNotACQuery" title="details" class="method-name">isNotACQuery</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Check if the autocompleter is already created so that we can do various  things like data export.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">object</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#queryAutocomplete" title="details" class="method-name">queryAutocomplete</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the result for the autocomplete as PHP object. Determines automatically</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#renderAutocomplete" title="details" class="method-name">renderAutocomplete</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Main method which do everthing for the autocomplete. Should be called  after all settings are done. Note that in one file we can have more than  one autocomplete definitions.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setEvent" title="details" class="method-name">setEvent</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set a JavaScript event for the autocomplete. For all the possible events</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setLength" title="details" class="method-name">setLength</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set the limit of the requested data in case of SQL command</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setOption" title="details" class="method-name">setOption</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set the desired option for autocomplete. For a full list of the option refer</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">none</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setSource" title="details" class="method-name">setSource</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set the source need for autocomlete to send a data. Can be a string or  array. If the option is string then this  is the url from where to obtain the data.</td></tr>
+				</div>
+												</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Properties</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+													| <a href="#sec-var-summary">Property Summary</a> | <span class="disabled">Properties Detail</span>
+															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+												</div>
+		<div class="info-box-body">
+			<a name="var$ajaxtype" id="$ajaxtype"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$ajaxtype</span>
+			 = <span class="var-default"> &quot;GET&quot;</span>			<span class="smalllinenumber">[line 137]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Determines the ajax type made to the server. Defaut is GET. Can be a POST
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$aoptions" id="$aoptions"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$aoptions</span>
+			 = <span class="var-default">array(<br />		&quot;appendTo&quot;=&gt;&quot;body&quot;,<br />		&quot;disabled&quot;=&gt;false,<br />		&quot;delay&quot;=&gt; 300,<br />		&quot;minLength&quot; =&gt; 1,<br />		&quot;source&quot;=&gt; null<br />	)</span>			<span class="smalllinenumber">[line 28]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the default options for the autocomplete
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqAutocomplete/jqAutocomplete.html#methodsetOption">jqAutocomplete::setOption()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$cache" id="$cache"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bollean</span>&nbsp;&nbsp;
+			<span class="var-name">$cache</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 95]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>When set to true enables client side caching of the results.
+</strong></p>
+<span class="description"><p>This prevent multiple queries to the database. Please use with care.</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$cachearray" id="$cachearray"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$cachearray</span>
+			 = <span class="var-default"> &quot;cache&quot;</span>			<span class="smalllinenumber">[line 88]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines the uniquie cheche array (used in java script) when a  cache is enabled.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$conn" id="$conn"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$conn</span>
+			 = <span class="var-default"> null</span>			<span class="smalllinenumber">[line 39]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the database connection
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$dbtype" id="$dbtype"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$dbtype</span>
+			 = <span class="var-default">''</span>			<span class="smalllinenumber">[line 44]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the database type needed in some db functions
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$element" id="$element"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$element</span>
+						<span class="smalllinenumber">[line 58]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the Id of the element. Should be uniquie value in order to have  multiple autocomplates defined in one file.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$encoding" id="$encoding"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$encoding</span>
+			 = <span class="var-default">&quot;utf-8&quot;</span>			<span class="smalllinenumber">[line 157]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Set the encoding
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$fontsize" id="$fontsize"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$fontsize</span>
+			 = <span class="var-default"> '11px'</span>			<span class="smalllinenumber">[line 163]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>the font size of the autocmplete  default is 11px. Can be in any measure.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$height" id="$height"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$height</span>
+			 = <span class="var-default"> &quot;110px&quot;</span>			<span class="smalllinenumber">[line 153]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Determines the height of the autocomplete elemnt. Work only if $scroll  option is set to true.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$itemLength" id="$itemLength"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>&nbsp;&nbsp;
+			<span class="var-name">$itemLength</span>
+			 = <span class="var-default"> 10</span>			<span class="smalllinenumber">[line 66]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Set the maximum rows send from the query to the autocomplete. If set to
+</strong></p>
+<span class="description"><p>false all the elements are sended to autocomplete</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqAutocomplete/jqAutocomplete.html#methodsetLength">jqAutocomplete::setLength()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$loadAll" id="$loadAll"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolen</span>&nbsp;&nbsp;
+			<span class="var-name">$loadAll</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 131]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Determines if the data should be loaded at once from the SQL siurce.
+</strong></p>
+<span class="description"><p>Also when set to true only one requrest is done and the data then is  stored at client side. No more requests to the server.</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$runAll" id="$runAll"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$runAll</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 74]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Internal variable to determine whnever the script is run for first time.
+</strong></p>
+<span class="description"><p>Prevent running all commands (except  data providing) when the autocomplete  is crested</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$scroll" id="$scroll"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$scroll</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 146]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Determines if the content in autocomplete should have a scroll. Use this  option with the height option - see below. If this option is not set  the content will have height equal of the responce rows.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqAutocomplete/jqAutocomplete.html#var$height">jqAutocomplete::$height</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$searchType" id="$searchType"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$searchType</span>
+			 = <span class="var-default"> &quot;startWith&quot;</span>			<span class="smalllinenumber">[line 123]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Set the search type for the LIKE SQL operator.
+</strong></p>
+<span class="description"><p>The possible values are  startWith - set LIKE value%;  contain - set LIKE %value%;  endWith - set LIKE %value;</p><p>If the value does not match any of the above setting the SQL command is  interpreted as it is without adding any additional strings.</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$SelectCommand" id="$SelectCommand"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$SelectCommand</span>
+			 = <span class="var-default"> ''</span>			<span class="smalllinenumber">[line 110]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines the select command for obtaining the data from the database.
+</strong></p>
+<span class="description"><p>Usually this type of command contain the SQL LIKE operator.  If the command contain where clause we suppose that this command  contain LIKE operator. The serched fields should comtain ? plece holder  in order to search om the term element send from the autocompleter.  Example: SELECT field1, field2 FROM table WHERE field1 LIKE ? OR field2 LIKE ?  As seen you should place a placeholder on the serched fields.  The class add the term element automatically to the query.  For additional information see the documantation</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqAutocomplete/jqAutocomplete.html#var$searchType">jqAutocomplete::$searchType</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$source" id="$source"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$source</span>
+						<span class="smalllinenumber">[line 51]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the source for the autocomplete. Can be a string which should  point to file from where to obtain the data. It can be array too.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$strictcheck" id="$strictcheck"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$strictcheck</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 164]</span>
+		</span>
+	</div>
+
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$term" id="$term"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$term</span>
+			 = <span class="var-default"> ''</span>			<span class="smalllinenumber">[line 81]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the term parameter send from autocomplete and then used in query
+</strong></p>
+<span class="description"><p>if needed</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$version" id="$version"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$version</span>
+			 = <span class="var-default"> '4.1.1.0'</span>			<span class="smalllinenumber">[line 21]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Info about the version
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+																	| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+					</div>
+		<div class="info-box-body">
+			<a name='method_detail'></a>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 181]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>jqAutocomplete __construct(
+[resource
+$db = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Constructor
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">resource</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$db:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the database connection passed to the constructor.  In case of array set to 'local'</span>			</td></tr>
+				</table>
+
+	<br />
+	
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetOption" id="getOption"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getOption</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 206]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>mixed getOption(
+string
+$option&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the the requested option of the autocomplete
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$option:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the requested option or event.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodisNotACQuery" id="isNotACQuery"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">isNotACQuery</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 170]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolean isNotACQuery(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Check if the autocompleter is already created so that we can do various  things like data export.
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodqueryAutocomplete" id="queryAutocomplete"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">queryAutocomplete</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 349]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>object queryAutocomplete(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the result for the autocomplete as PHP object. Determines automatically
+</strong></p>
+<span class="description"><p>the placeholders (?) used into the SQL command</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodrenderAutocomplete" id="renderAutocomplete"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">renderAutocomplete</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 432]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string renderAutocomplete(
+string
+$element, [<type>
+$target = false], [boolean
+$script = true], [boolean
+$echo = true], [boolean
+$runme = true]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Main method which do everthing for the autocomplete. Should be called  after all settings are done. Note that in one file we can have more than  one autocomplete definitions.
+</strong></p>
+<span class="description"><p>Construct the autocomplete and perform Query operations.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$element:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> The DOM element on which audocomplete should be  applied</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"><type></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$target:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - if set the value selection from autocomplete  will be set to this element</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$script:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - if set to false the script tag:  &lt;script type='text/javascript'&gt; will not be included.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$echo:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> if set to false the result is not echoed but returned</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$runme:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - internal variable used into the jqGrid class</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetEvent" id="setEvent"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setEvent</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 244]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setEvent(
+string
+$event, string
+$code&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set a JavaScript event for the autocomplete. For all the possible events
+</strong></p>
+<span class="description"><p>refer the documentation</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$event:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$code:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetLength" id="setLength"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setLength</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 335]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setLength(
+mixed
+$num&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set the limit of the requested data in case of SQL command
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">mixed</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$num:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - if set as number determines the number of the requestd  itemd from the query. If set to false loads all the data from the query.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetOption" id="setOption"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setOption</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 222]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolean setOption(
+string
+$option, [mixed
+$value = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set the desired option for autocomplete. For a full list of the option refer
+</strong></p>
+<span class="description"><p>the documentation</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$option:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">mixed</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$value:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetSource" id="setSource"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setSource</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 256]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>none setSource(
+mixed
+$source&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set the source need for autocomlete to send a data. Can be a string or  array. If the option is string then this  is the url from where to obtain the data.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">mixed</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$source:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+
+        <div class="credit">
+		    <hr class="separator" />
+		    Documentation generated on Wed, 22 Jun 2011 14:57:47 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

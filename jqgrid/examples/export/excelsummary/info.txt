@@ -1,0 +1,3 @@
+Exporting to Excel is supported via the <b>excel</b> option in the navigator set to true. Click on the button to see how it works.
+Note the formula at the buttom and how dates and numbers are formatted correct.
+Try to filter records and then export it - now we export only the filtered records.

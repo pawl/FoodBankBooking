@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Quick Install</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Quick Install
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Download and unzip the contents of the archive to any convenient location. The package contains the following folders:<p>- <b>[php]</b> - Contains the jqChart PHP class (jqChart.php) and the optional driver files for the appropriate database. The driver files begin with jqGridxxx.php where xxx is the database name. Also additional file is needed to use the chat separatley - jqUtils.php. <br>- <b>[themes]</b> - Contains the themes shipped with the product.  The theme files are Javascript files and not CSS files. The theme file (if used)  should be loaded after the jqChart lib is loaded.<br>- <b>[js]</b> - The javascript files of jqChart - jquery.jqChart.js. You need to include them in your PHP page.<p>There are a diffrent scenarious on how to use the component. Below we will consider the two most used.<p><b>1. Load the javascript fules in separate page (mostley main page or index.php) and write a chart in another file.</b><p>The first file is "jquery.js" - this is the official jQuery library.<br>The second file is "jquery.jqChart.js" - this is the javascript chart files<br>The third (optional) file is the teheme file<p>The final result you will have in an PHP page containing jqChart would be something similar to that:<p><pre><div class="htmlcode"><span class="elements">&lt;!DOCTYPE</span> html PUBLIC <span class="codestring">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="codestring">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;
+<span class="elements">&lt;html</span> xmlns=<span class="codestring">"http://www.w3.org/1999/xhtml"</span> xml:lang=<span class="codestring">"en"</span> <span class="attributes">lang=</span><span class="codestring">"en"</span>&gt;
+<span class="elements">&lt;head&gt;</span>
+<span class="elements">&lt;meta</span> <span class="attributes">http-equiv=</span><span class="codestring">"Content-Type"</span> <span class="attributes">content=</span><span class="codestring">"text/html; charset=utf-8"</span> /&gt;
+<span class="elements">&lt;title&gt;</span>My First PHP jqChart <span class="elements">&lt;/title&gt;</span> 
+
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"js/jquery.jqChart.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+
+<span class="codecomment">&lt;!-- this is optional theme file --></span>&gt;
+
+<span class="elements">&lt;script</span> <span class="attributes">src=</span><span class="codestring">"themes/dark-blue.js"</span> <span class="attributes">type=</span><span class="codestring">"text/javascript"</span>&gt;<span class="elements">&lt;/script&gt;</span>
+
+<span class="elements">&lt;/head&gt;</span>
+<span class="elements">&lt;body&gt;</span>
+......
+
+<span class="codecomment">&lt;!-- the chart will be created in this place --></span>&gt;
+&lt;?php include <span class="codestring">"chart.php"</span>;?&gt;
+.......
+<span class="elements">&lt;/body&gt;</span>
+<span class="elements">&lt;/html&gt;</span></div></pre><p>Save the file as index.php or any desired name in the root directory.<p>Create a file <b>chart.php</b> with the following content.<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the jqUtils Class. The class is needed in all jqSuite components.</span>
+require_once <span class="codestring">"php/jqUtils.php"</span>;
+
+<span class="codecomment">// include the jqChart Class</span>
+require_once <span class="codestring">"php/jqChart.php"</span>;
+
+$chart = <span class="programcontrol">new</span> jqChart();
+
+$chart-&gt;setChartOptions(<span class="datatypes">array</span>(<span class="codestring">"defaultSeriesType"</span>=&gt;<span class="codestring">"line"</span>,<span class="codestring">"marginRight"</span>=&gt;130,<span class="codestring">"marginBottom"</span>=&gt;25))
+-&gt;setTitle(<span class="datatypes">array</span>(<span class="codestring">'text'</span>=&gt;<span class="codestring">'Monthly Average Temperature'</span>,<span class="codestring">"x"</span>=&gt;-20))
+-&gt;setSubtitle(<span class="datatypes">array</span>(<span class="codestring">"text"</span>=&gt;<span class="codestring">"Source: WorldClimate.com"</span>,<span class="codestring">"x"</span>=&gt;-20))
+-&gt;setxAxis(<span class="datatypes">array</span>(<span class="codestring">"categories"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">'Jan'</span>, <span class="codestring">'Feb'</span>, <span class="codestring">'Mar'</span>, <span class="codestring">'Apr'</span>, <span class="codestring">'May'</span>, <span class="codestring">'Jun'</span>, <span class="codestring">'Jul'</span>, <span class="codestring">'Aug'</span>, <span class="codestring">'Sep'</span>, <span class="codestring">'Oct'</span>, <span class="codestring">'Nov'</span>, <span class="codestring">'Dec'</span>)))
+-&gt;setyAxis(<span class="datatypes">array</span>(<span class="codestring">"title"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"text"</span>=&gt;<span class="codestring">"Temperature (°C)"</span>)))
+-&gt;setTooltip(<span class="datatypes">array</span>(<span class="codestring">"formatter"</span>=&gt;<span class="codestring">"function(){return '&lt;b&gt;'+ this.series.name +'&lt;/b&gt;&lt;br/&gt;'+this.x +': '+ this.y +' (°C)';}"</span>))
+-&gt;setLegend(<span class="datatypes">array</span>( <span class="codestring">"layout"</span>=&gt;<span class="codestring">"vertical"</span>,<span class="codestring">"align"</span>=&gt;<span class="codestring">"right"</span>,<span class="codestring">"verticalAlign"</span>=&gt;<span class="codestring">'top'</span>,<span class="codestring">"x"</span>=&gt;-10,<span class="codestring">"y"</span>=&gt;100,<span class="codestring">"borderWidth"</span>=&gt;0))
+-&gt;addSeries(<span class="codestring">'Tokyo'</span>, <span class="datatypes">array</span>(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6))
+-&gt;addSeries(<span class="codestring">'New York'</span>, <span class="datatypes">array</span>(-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5))
+-&gt;addSeries(<span class="codestring">'Berlin'</span>, <span class="datatypes">array</span>(-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0))
+-&gt;addSeries(<span class="codestring">'London'</span>, <span class="datatypes">array</span>(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8));
+
+<span class="codecomment">// output the chart</span>
+echo $chart-&gt;renderChart(<span class="codestring">''</span>,<span class="literals">true</span>,<span class="codestring">'1000'</span>); 
+?&gt;</div></pre><p>Run the file index.php from your web browser. <p><br><b>2. All in one file</b><p>Optionally you can write all the code in one file. Below we provide a  example supposing that a jQuery library should be loaded too.<p>The file chart.php in this case can look like this:<p><pre><div class="csharpcode">&lt;?php
+<span class="codecomment">// include the jqUtils Class. The class is needed in all jqSuite components.</span>
+require_once <span class="codestring">"php/jqUtils.php"</span>;
+
+<span class="codecomment">// include the jqChart Class</span>
+require_once <span class="codestring">"php/jqChart.php"</span>;
+
+$chart = <span class="programcontrol">new</span> jqChart();
+
+$chart-&gt;setChartOptions(<span class="datatypes">array</span>(<span class="codestring">"defaultSeriesType"</span>=&gt;<span class="codestring">"line"</span>,<span class="codestring">"marginRight"</span>=&gt;130,<span class="codestring">"marginBottom"</span>=&gt;25))
+-&gt;setTitle(<span class="datatypes">array</span>(<span class="codestring">'text'</span>=&gt;<span class="codestring">'Monthly Average Temperature'</span>,<span class="codestring">"x"</span>=&gt;-20))
+-&gt;setSubtitle(<span class="datatypes">array</span>(<span class="codestring">"text"</span>=&gt;<span class="codestring">"Source: WorldClimate.com"</span>,<span class="codestring">"x"</span>=&gt;-20))
+-&gt;setxAxis(<span class="datatypes">array</span>(<span class="codestring">"categories"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">'Jan'</span>, <span class="codestring">'Feb'</span>, <span class="codestring">'Mar'</span>, <span class="codestring">'Apr'</span>, <span class="codestring">'May'</span>, <span class="codestring">'Jun'</span>, <span class="codestring">'Jul'</span>, <span class="codestring">'Aug'</span>, <span class="codestring">'Sep'</span>, <span class="codestring">'Oct'</span>, <span class="codestring">'Nov'</span>, <span class="codestring">'Dec'</span>)))
+-&gt;setyAxis(<span class="datatypes">array</span>(<span class="codestring">"title"</span>=&gt;<span class="datatypes">array</span>(<span class="codestring">"text"</span>=&gt;<span class="codestring">"Temperature (°C)"</span>)))
+-&gt;setTooltip(<span class="datatypes">array</span>(<span class="codestring">"formatter"</span>=&gt;<span class="codestring">"function(){return '&lt;b&gt;'+ this.series.name +'&lt;/b&gt;&lt;br/&gt;'+this.x +': '+ this.y +' (°C)';}"</span>))
+-&gt;setLegend(<span class="datatypes">array</span>( <span class="codestring">"layout"</span>=&gt;<span class="codestring">"vertical"</span>,<span class="codestring">"align"</span>=&gt;<span class="codestring">"right"</span>,<span class="codestring">"verticalAlign"</span>=&gt;<span class="codestring">'top'</span>,<span class="codestring">"x"</span>=&gt;-10,<span class="codestring">"y"</span>=&gt;100,<span class="codestring">"borderWidth"</span>=&gt;0))
+-&gt;addSeries(<span class="codestring">'Tokyo'</span>, <span class="datatypes">array</span>(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6))
+-&gt;addSeries(<span class="codestring">'New York'</span>, <span class="datatypes">array</span>(-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5))
+-&gt;addSeries(<span class="codestring">'Berlin'</span>, <span class="datatypes">array</span>(-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0))
+-&gt;addSeries(<span class="codestring">'London'</span>, <span class="datatypes">array</span>(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8));
+
+$script = <span class="codestring">'&lt;script src="js/jquery.js" type="text/javascript"&gt;&lt;/script&gt;'</span>;
+$script .= <span class="codestring">'&lt;script src="js/jquery.jqChart.js" type="text/javascript"&gt;&lt;/script&gt;'</span>;
+
+<span class="codecomment">// echo the JS files</span>
+echo $script;
+
+<span class="codecomment">// output the chart</span>
+echo $chart-&gt;renderChart(<span class="codestring">''</span>,<span class="literals">true</span>,<span class="codestring">'1000'</span>); 
+?&gt;</div></pre>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 01/07/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+
+<p><center><i>This page was generated by an unregistered version of <a href="http://www.west-wind.com/wwHelp">West Wind HTML Help Builder</a>.</span> <p></center></body>
+</html>

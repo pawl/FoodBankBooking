@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 3.7</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 3.7
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Released June 15, 2010<p><h3>Fixes</h3><p><ul><li> Fix setColModel to support DB2 databases.<br><li> Fix in prepare method for SQL Server driver<br><li> Fix a subgrid as grid when the id contain special characters<br><li> Fix adding userdata with addUserData method when there is no data in result-&gt;userdata object<br></ul><p><br><h3>Additions</h3><ul><li> Support for <a href="_2v20bnptk.htm" >DB2 databases</a>. The driver is tested in Windows and IBM i5 series.<br><li> Added <a href="_2v212l11z.htm" >$optimizeSearch</a> parameter (default false). This parameter should be used only in MySQL databases where the number of rows in the returned query is relative big &gt; 800 000 rows and the query is not very complex and a search module is activated.<br><li> Added possibility to load all the data at once and operate it localy without to make additional server calls. Note that CRUD operations should work if they are activated. For this porpose is added rowTotal parameter in the grid. See <a href="_2yh0vy5t2.htm" >tutorial</a>.<br></ul><p><h3>Upgrade</h3><ul><li> The jquery.jqGrid.min.js should be replaced with the new one provided from the package<br><li> Replace all jqGrid PHP files with the new ones provided from the packege<br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 04/09/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

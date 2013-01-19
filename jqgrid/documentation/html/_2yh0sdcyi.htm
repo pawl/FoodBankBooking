@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Version 3.6.3</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Version 3.6.3
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body"><h3>Bug Fixes</h3><ul><li> Replace $_REQUEST when obtain parameter value with GetParam function,which get the parameter from  GET or POST only- Fix in selectLimit method where the $param input parameter was nulled<br><li> Fix for obtaining the count parameter from the generated query object<br><li> Fix for Excel export where the header function was placed in the wrong placewhich causes in some system to output only certain record set.<br><li> Fix in renderGrid method to be compatible with jQuery 1.4.x<br><li> Fix for count parameter not to be included in userdata<br><li> Fix for PostgreSQL to get the right columns types (typo error)<br><li> Fix for MySQL PDO driver to support TYNIINT (Also PDO bug in driver)<br><li> Fix in searching to get the propererly values when the encoding is utf-8<br><li> Fix in setGridParam method<br><li> Fix in serching when we get the parameters from search. Now we check ifthe build in PHP json_decode exists. If this is not true we use our own decodefunction<br><li> Fix when a PHP STRICT error checking is on. Now all related functions are declared as public static.<br><li> replace PHP array_merge with own array_extend. The array_merge in certaincases deletes the already setted properies.<br><li> Fix in decode function to treat correct " in the result set.<br></ul><p><h3>Additions</h3><p><ul><li> Added debugging. This is done with $grid-&gt;debug = true. In this case a jqGrid.log file is created in the directory where the script is executed.<br><li> To querySubgrid method is added second parameter $echo, if set to true the result is returned as object<br><li> Added SQLite driver via PHP PDO. The driver is still in beta. The problem in this driver is that there is a bug in the PHP SQLite PDO driver when theresult set does not contain data. In this case the columnMeta function returnfalse. This mean that if the first result set is empty we can not build thecolModel, since we can not obtain the columns.<br><li> Aded a Oracle driver via the native oci8 PHP http://php.net/manual/en/book.oci8.php<br></ul>
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 04/09/11 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

@@ -1,0 +1,2 @@
+We can style the labels different way. By example we can make all labels 
+right aligned using the setTableStyles method.

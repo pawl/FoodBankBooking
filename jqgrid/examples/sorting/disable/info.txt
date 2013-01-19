@@ -1,0 +1,6 @@
+By default, all columns in jqGrid can be sorted. This is controlled by the column <b>sortable</b> property, true by default. Just set it to false and sorting will be disabled for this column.
+
+In this example, only the last column (Freight) can be sorted.
+
+$grid->setColProperty("OrderID", array("sortable"=>false));
+...

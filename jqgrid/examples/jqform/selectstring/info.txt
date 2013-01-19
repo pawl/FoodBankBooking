@@ -1,0 +1,1 @@
+The select element can be defined as string or array;

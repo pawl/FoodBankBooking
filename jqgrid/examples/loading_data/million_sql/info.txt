@@ -1,0 +1,3 @@
+This example shows how jqGrid deals with paging, sorting and filtering with <font style="color:red">1,000,000</font> rows of data.
+
+Please, review the PHP tab for implementation details and note how fast the grid deals with <b>1,000,000</b> rows

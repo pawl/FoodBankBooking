@@ -1,0 +1,1 @@
+We can attach a click events of the chart. Try to click on some point..

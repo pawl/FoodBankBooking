@@ -1,0 +1,3531 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Docs For Class jqGrid</title>
+	<link rel="stylesheet" type="text/css" href="../media/style.css">
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+	<td class="header-top-left"><img src="../media/logo.png" border="0" alt="phpDocumentor " /></td>
+    <td class="header-top-right">jqGrid<br /><div class="header-top-right-subpackage"></div></td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td colspan="2" class="header-menu">
+      
+                        
+                                                                              		[ <a href="../classtrees_jqGrid.html" class="menu">class tree: jqGrid</a> ]
+		[ <a href="../elementindex_jqGrid.html" class="menu">index: jqGrid</a> ]
+            [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td colspan="2" class="header-line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="195" class="menu">
+		<div class="package-title">jqGrid</div>
+  <div class="package">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+	</div>
+      <b>Packages:</b><br />
+  <div class="package">
+              <a href="../li_jqGrid.html">jqGrid</a><br />
+              <a href="../li_jqAutocomplete.html">jqAutocomplete</a><br />
+              <a href="../li_jqChart.html">jqChart</a><br />
+              <a href="../li_jqScheduler.html">jqScheduler</a><br />
+              <a href="../li_jqTreeGrid.html">jqTreeGrid</a><br />
+      	</div>
+      <br />
+                        <b>Files:</b><br />
+        <div class="package">
+				<span style="padding-left: 1em;"><a href="../jqGrid/_jqCalendar.php.html">jqCalendar.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../jqGrid/_jqGrid.php.html">jqGrid.php</a></span><br />
+			<span style="padding-left: 1em;"><a href="../jqGrid/_jqUtils.php.html">jqUtils.php</a></span><br />
+	  </div>
+            <br />
+                  <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../jqGrid/jqCalendar.html">jqCalendar</a>    	 <br />
+	    		<a href="../jqGrid/jqGrid.html">jqGrid</a>    	 <br />
+	    		<a href="../jqGrid/jqGridEdit.html">jqGridEdit</a>    	 <br />
+	    		<a href="../jqGrid/jqGridRender.html">jqGridRender</a>    	 <br />
+	    		<a href="../jqGrid/jqGridUtils.html">jqGridUtils</a>    	 <br />
+	    		<a href="../jqGrid/Session.html">Session</a>    	 <br />
+	    		<a href="../jqGrid/SimpleXMLExtended.html">SimpleXMLExtended</a>    	 <br />
+	    		<a href="../jqGrid/Template.html">Template</a>    	 <br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: jqGrid</h1>
+Source Location: /jqGrid.php<br /><br />
+
+<h2 class="class-name">Class jqGrid</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Class Overview</div>
+	<div class="nav-bar">
+					<span class="disabled">Class Overview</span>
+							| <a href="#sec-descendants">Descendants</a>
+				
+											| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+								</div>
+	<div class="info-box-body">
+		<table width="100%" border="0">
+		<tr><td valign="top" width="60%" class="class-overview">
+
+        		
+		<p class="notes">
+			Located in <a class="field" href="_jqGrid.php.html">/jqGrid.php</a> [<span class="field">line 46</span>]
+		</p>
+
+		
+		<pre></pre>
+
+		
+				<strong>Author(s):</strong>
+		<ul>
+		  			 			 <li>Tony Tomov, (tony@trirand.com)</li>
+			 		  			 		  			 		  			 		  		</ul>
+		
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Abstract:</strong>&nbsp;&nbsp;</td><td><p>A PHP class to work with jqGrid jQuery plugin.  The main purpose of this class is to provide the data from database to jqGrid,  simple subgrid and export to excel. Also can be used for search provided  from toolbarFilter and searchGrid methods</p><p>How to use</p><p>Using table</p><p>require_once 'jqGridPdo.php';  $dsn = &quot;mysql:host=localhost;dbname=griddemo&quot;;  $db = new PDO($dsn, 'username', 'password');</p><p>$mygrid = new jqGrid($db);  $mygrid-&gt;table = &quot;invoices&quot;;  $mygrid-&gt;queryGrid();</p><p>Using custom SQL</p><p>$mygrid = new jqGrid($db);  $mygrid-&gt;SelectCommand =&quot;SELECT * FROM invoices&quot;;  $mygrid-&gt;queryGrid();</p><p>Using xml file where the sql commands are stored</p><p>$mygrid = new jqGrid($db);  $mygrid-&gt;readFromXML = true  $mygrid-&gt;SelectCommand =&quot;xmlfile.getInvoiceTable&quot;;  $mygrid-&gt;queryGrid();</p><p>Using summary fields. Note that in this case in jqGrid footerrow and  userDataOnFooter should be set</p><p>$mygrid = new jqGrid($db);  $mygrid-&gt;table = &quot;invoices&quot;;  $mygrid-&gt;queryGrid(array(&quot;amount&quot;=&gt;&quot;amount&quot;);</p></td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td><strong>Version:</strong>&nbsp;&nbsp;</td><td>4.1.1.0</td></tr>
+				<tr><td><strong>Copyright:</strong>&nbsp;&nbsp;</td><td>TriRand Ltd</td></tr>
+	</table>
+		</td>
+
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_vars">Properties</a></strong></p>
+		<ul>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$cacheCount">$cacheCount</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$customClass">$customClass</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$customFunc">$customFunc</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$dataType">$dataType</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$datearray">$datearray</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$dbdateformat">$dbdateformat</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$dbtimeformat">$dbtimeformat</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$dbtype">$dbtype</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$debug">$debug</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$encoding">$encoding</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$errorMesage">$errorMesage</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$ExportCommand">$ExportCommand</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$getLastInsert">$getLastInsert</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$GridParams">$GridParams</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$gSQLMaxRows">$gSQLMaxRows</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$I">$I</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$jsonencode">$jsonencode</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$lastId">$lastId</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$logtofile">$logtofile</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$mongofields">$mongofields</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$mongointegers">$mongointegers</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$optimizeSearch">$optimizeSearch</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$PDF">$PDF</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$pdo">$pdo</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$performcount">$performcount</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$queryLog">$queryLog</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$readFromXML">$readFromXML</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$select">$select</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$SelectCommand">$SelectCommand</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$showError">$showError</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$SubgridCommand">$SubgridCommand</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$table">$table</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$tmpvar">$tmpvar</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$userdata">$userdata</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$userdateformat">$userdateformat</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$usertimeformat">$usertimeformat</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$version">$version</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#var$xmlCDATA">$xmlCDATA</a></li>
+		  		</ul>
+		</td>
+		
+				<td valign="top" width="20%" class="class-overview">
+		<p align="center" class="short-description"><strong><a href="#sec_methods">Methods</a></strong></p>
+		<ul>
+		  		  <li><a href="../jqGrid/jqGrid.html#method__construct">__construct</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodaddUserData">addUserData</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodbuildSearch">buildSearch</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methoddebugout">debugout</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodexecute">execute</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodexportToCsv">exportToCsv</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodexportToExcel">exportToExcel</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodexportToPdf">exportToPdf</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodgetDbDate">getDbDate</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodgetDbTime">getDbTime</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodgetGridParams">getGridParams</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodgetSqlElement">getSqlElement</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodgetStringForGroup">getStringForGroup</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodgetUserDate">getUserDate</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodgetUserTime">getUserTime</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodlogQuery">logQuery</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodparseSql">parseSql</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodqueryForObject">queryForObject</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodqueryGrid">queryGrid</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodquerySubGrid">querySubGrid</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodrs2excel">rs2excel</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodrs2pdf">rs2pdf</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodselectLimit">selectLimit</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodsendErrorHeader">sendErrorHeader</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodsetDbDate">setDbDate</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodsetDbTime">setDbTime</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodsetGridParams">setGridParams</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodsetPdfOptions">setPdfOptions</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodsetUserDate">setUserDate</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#methodsetUserTime">setUserTime</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#method_buildSearch">_buildSearch</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#method_getcount">_getcount</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#method_gridResponse">_gridResponse</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#method_rs">_rs</a></li>
+		  		  <li><a href="../jqGrid/jqGrid.html#method_setSQL">_setSQL</a></li>
+		  		</ul>
+		</td>
+		
+		</tr></table>
+		<div class="top">[ <a href="#top">Top</a> ]</div>
+	</div>
+</div>
+
+	<a name="sec-descendants"></a>
+	<div class="info-box">
+		<div class="info-box-title">Descendants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <span class="disabled">Descendants</span>
+															| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+														| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+									</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Child Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../jqGrid/jqGridEdit.html">jqGridEdit</a></td>
+					<td>
+											
+										</td>
+				</tr>
+							</table>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Property Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+									| <span class="disabled">Property Summary</span> | <a href="#sec-vars">Properties Detail</a>
+												| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+							    				</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+			<table border="0" cellspacing="0" cellpadding="0" class="var-summary">
+																																																																																																																																																																<div class="var-title">
+					<tr><td class="var-title">static <span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$queryLog" title="details" class="var-name-summary">$queryLog</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description"></td></tr>
+				</div>
+																																																																																								<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$cacheCount" title="details" class="var-name-summary">$cacheCount</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description"></td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$customClass" title="details" class="var-name-summary">$customClass</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Custom call can be used again with custom function customFunc. We can call</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">function</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$customFunc" title="details" class="var-name-summary">$customFunc</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Custom function which can be called to modify the grid output. Parameters</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$dataType" title="details" class="var-name-summary">$dataType</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">The output format for the grid. Can be json or xml</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$datearray" title="details" class="var-name-summary">$datearray</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Store the names which are dates. The name should correspond of the name</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$dbdateformat" title="details" class="var-name-summary">$dbdateformat</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Date format accepted in the database. See getDbDate</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$dbtimeformat" title="details" class="var-name-summary">$dbtimeformat</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Datetime format accepted in the database. See getDbTime</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$dbtype" title="details" class="var-name-summary">$dbtype</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">This is detected automatically from the passed connection. Used to</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$debug" title="details" class="var-name-summary">$debug</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Enable disable debuging</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$encoding" title="details" class="var-name-summary">$encoding</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Default enconding passed to the browser</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$errorMesage" title="details" class="var-name-summary">$errorMesage</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Last error message from the server</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$ExportCommand" title="details" class="var-name-summary">$ExportCommand</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Set the sql command for excel export. If not set a _setSQL</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">bolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$getLastInsert" title="details" class="var-name-summary">$getLastInsert</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Allow a obtaining and sending the last id (in case of serial key) to  the client.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$GridParams" title="details" class="var-name-summary">$GridParams</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds the parameters that are send from the grid to the connector.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">integer</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$gSQLMaxRows" title="details" class="var-name-summary">$gSQLMaxRows</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Maximum number of rows to be exported for the excel export</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$I" title="details" class="var-name-summary">$I</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Used to perform case insensitive search in PostgreSQL. The variable is</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$jsonencode" title="details" class="var-name-summary">$jsonencode</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">If set to true uses the PHP json_encode if available. If this is set to</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed.</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$lastId" title="details" class="var-name-summary">$lastId</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the last inserted id in case when getLastInsert is true</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$logtofile" title="details" class="var-name-summary">$logtofile</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Determines if the log should be written to file or echoed.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$mongofields" title="details" class="var-name-summary">$mongofields</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Array which set which fields should be selected in case of mongodb.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$mongointegers" title="details" class="var-name-summary">$mongointegers</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Store the names for the int fields when database is MongoDB. Used to perform</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$optimizeSearch" title="details" class="var-name-summary">$optimizeSearch</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Optimizes the search SQL when used in MySQL with big data sets.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">array</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$PDF" title="details" class="var-name-summary">$PDF</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds the default settings for excel export</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">resourse</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$pdo" title="details" class="var-name-summary">$pdo</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Stores the connection passed to the constructor</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$performcount" title="details" class="var-name-summary">$performcount</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Internal set in queryGrid if we should use count query in order to set</td></tr>
+				</div>
+																			<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$readFromXML" title="details" class="var-name-summary">$readFromXML</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Obtain the SQL qurery from XML file.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$select" title="details" class="var-name-summary">$select</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Holds the modified select command used into grid</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$SelectCommand" title="details" class="var-name-summary">$SelectCommand</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">In case if no table is set, this holds the sql command for</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$showError" title="details" class="var-name-summary">$showError</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">If set to true all errors from the server are shown in the client in a  dialog. Curretly work only for grid and form edit.</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$SubgridCommand" title="details" class="var-name-summary">$SubgridCommand</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Set a sql command used for the simple subgrid</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$table" title="details" class="var-name-summary">$table</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">set a table to display a data to the grid</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">mixed</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$tmpvar" title="details" class="var-name-summary">$tmpvar</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Temporary variable for internal use</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary"><array></span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$userdata" title="details" class="var-name-summary">$userdata</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Used to store the additional userdata which will be transported</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$userdateformat" title="details" class="var-name-summary">$userdateformat</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">The date format used by the user when a search is performed and CRUD operation</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$usertimeformat" title="details" class="var-name-summary">$usertimeformat</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">The datetime format used by the user when a search is performed and CRUD operation</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">string</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$version" title="details" class="var-name-summary">$version</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Get te current version</td></tr>
+				</div>
+													<div class="var-title">
+					<tr><td class="var-title"><span class="var-type-summary">boolean</span>&nbsp;&nbsp;</td>
+					<td class="var-title"><a href="#$xmlCDATA" title="details" class="var-name-summary">$xmlCDATA</a>&nbsp;&nbsp;</td>
+					<td class="var-summary-description">Defines if the xml otput should be enclosed in CDATA when xml output is enabled</td></tr>
+				</div>
+										</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+							    					| <span class="disabled">Method Summary</span> | <a href="#sec-methods">Methods Detail</a>
+		</div>
+		<div class="info-box-body">
+			<div class="method-summary">
+				<table border="0" cellspacing="0" cellpadding="0" class="method-summary">
+																																																																																																																																																																																																																																																																																																								<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">jqGrid</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#__construct" title="details" class="method-name">__construct</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Constructor</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#addUserData" title="details" class="method-name">addUserData</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Add a custom data to the grid footer row if it is enabled.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#buildSearch" title="details" class="method-name">buildSearch</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Build a search string from filter string posted from the grid</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#debugout" title="details" class="method-name">debugout</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Prints all executed SQL queries to file or console</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">boolean</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#execute" title="details" class="method-name">execute</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Executes a prepared sql statement. Also if limit is set to true is used</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#exportToCsv" title="details" class="method-name">exportToCsv</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Public method to export a grid data to csv data.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#exportToExcel" title="details" class="method-name">exportToExcel</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Export the recordset to excel xml file.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#exportToPdf" title="details" class="method-name">exportToPdf</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Export the recordset to pdf file.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getDbDate" title="details" class="method-name">getDbDate</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the current date format used in the undelayed database</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getDbTime" title="details" class="method-name">getDbTime</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the current datetime format used in the undelayed database</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getGridParams" title="details" class="method-name">getGridParams</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the associative array which contain the parameters  that are sended from the grid to request, search, update delete data.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getSqlElement" title="details" class="method-name">getSqlElement</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Read a xml file and the SelectCommand and return the sql string  Return string if the query is found false if not.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getStringForGroup" title="details" class="method-name">getStringForGroup</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Recursivley build the sql query from a json object</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getUserDate" title="details" class="method-name">getUserDate</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the current date format used from the client</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#getUserTime" title="details" class="method-name">getUserTime</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the current datetime format used from the client</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#logQuery" title="details" class="method-name">logQuery</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Log query</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#parseSql" title="details" class="method-name">parseSql</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Prepares a $sqlElement and binds a parameters $params</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">object</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#queryForObject" title="details" class="method-name">queryForObject</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the object from the query</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#queryGrid" title="details" class="method-name">queryGrid</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the result of the query to jqGrid. Support searching</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#querySubGrid" title="details" class="method-name">querySubGrid</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Return the result of the query for the simple subgrid</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">string</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#rs2excel" title="details" class="method-name">rs2excel</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">From a given recordset returns excel xml file. If the summary array is  defined add summary formula at last row.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">null</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#rs2pdf" title="details" class="method-name">rs2pdf</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Convert a recordeset to pdf object</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">object</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#selectLimit" title="details" class="method-name">selectLimit</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Will select, getting rows from $offset (1-based), for $nrows.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#sendErrorHeader" title="details" class="method-name">sendErrorHeader</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Function to simulate 500 Internal error so that it sends the error  to the client. It is activated only if $showError is true.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setDbDate" title="details" class="method-name">setDbDate</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set a new  database date format using PHP convensions</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setDbTime" title="details" class="method-name">setDbTime</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set a new  database datetime format using PHP convensions</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setGridParams" title="details" class="method-name">setGridParams</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set a grid parameters to identify the action from the grid  Note that these should be set in the grid - i.e the parameters from the grid  should equal to the GridParams.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setPdfOptions" title="details" class="method-name">setPdfOptions</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set options for PDF export.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setUserDate" title="details" class="method-name">setUserDate</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set a new user date format using PHP convensions</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#setUserTime" title="details" class="method-name">setUserTime</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Set a new user datetime format using PHP convensions</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">array</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#_buildSearch" title="details" class="method-name">_buildSearch</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Builds the search where clause when the user perform a search  Return arrray the first element is a strinng with the where clause,  the second element is array containing the value parameters passed to  the sql.</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">object</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#_getcount" title="details" class="method-name">_getcount</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Returns object which holds the total records in the query and optionally</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">void</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#_gridResponse" title="details" class="method-name">_gridResponse</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Check in which format data should be returned to the grid based on dataType property</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">recordset</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#_rs" title="details" class="method-name">_rs</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Convert the query to record set and set the summary data if available</td></tr>
+				</div>
+																<div class="method-definition">
+											<tr><td class="method-definition"><span class="method-result">mixed</span>&nbsp;&nbsp;</td>
+										<td class="method-definition"><a href="#_setSQL" title="details" class="method-name">_setSQL</a>()&nbsp;&nbsp;</td>
+					<td class="method-definition">Bulid the sql based on $readFromXML, $SelectCommand and $table variables</td></tr>
+				</div>
+												</table>
+			</div>
+			<br /><div class="top">[ <a href="#top">Top</a> ]</div>
+		</div>
+	</div>
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Properties</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+													| <a href="#sec-var-summary">Property Summary</a> | <span class="disabled">Properties Detail</span>
+															| <a href="#sec-method-summary">Method Summary</a> | <a href="#sec-methods">Methods Detail</a>
+												</div>
+		<div class="info-box-body">
+			<a name="var$queryLog" id="$queryLog"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$queryLog</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 112]</span>
+		</span>
+	</div>
+
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$cacheCount" id="$cacheCount"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$cacheCount</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 356]</span>
+		</span>
+	</div>
+
+		<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$customClass" id="$customClass"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$customClass</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 340]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Custom call can be used again with custom function customFunc. We can call
+</strong></p>
+<span class="description"><p>this using static defined functions in class customClass::customFunc - i.e  $grid-&gt;customClass = Custom, $grid-&gt;customFunc = myfunc  or $grid-&gt;customClass = new Custom(), $grid-&gt;customFunc = myfunc</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$customFunc" id="$customFunc"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">function</span>&nbsp;&nbsp;
+			<span class="var-name">$customFunc</span>
+			 = <span class="var-default"> null</span>			<span class="smalllinenumber">[line 332]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Custom function which can be called to modify the grid output. Parameters
+</strong></p>
+<span class="description"><p>passed to this function are the response object and the db connection</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$dataType" id="$dataType"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$dataType</span>
+			 = <span class="var-default"> &quot;xml&quot;</span>			<span class="smalllinenumber">[line 234]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>The output format for the grid. Can be json or xml
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$datearray" id="$datearray"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$datearray</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 253]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Store the names which are dates. The name should correspond of the name
+</strong></p>
+<span class="description"><p>in colModel. Used to perform the conversion from userdate and dbdate</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$dbdateformat" id="$dbdateformat"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$dbdateformat</span>
+			 = <span class="var-default"> 'Y-m-d'</span>			<span class="smalllinenumber">[line 85]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Date format accepted in the database. See getDbDate
+</strong></p>
+<span class="description"><p>and setDbDate and datearray. Also this format is used to automatically  convert the date for CRUD and search operations</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$dbtimeformat" id="$dbtimeformat"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$dbtimeformat</span>
+			 = <span class="var-default"> 'Y-m-d H:i:s'</span>			<span class="smalllinenumber">[line 93]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Datetime format accepted in the database. See getDbTime
+</strong></p>
+<span class="description"><p>and setDbTime and datearray. Also this format is used to automatically  convert the date for CRUD and search operations</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$dbtype" id="$dbtype"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$dbtype</span>
+						<span class="smalllinenumber">[line 71]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>This is detected automatically from the passed connection. Used to
+</strong></p>
+<span class="description"><p>construct the appropriate pagging for the database and in case of  PostgreSQL to set case insensitive search</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$debug" id="$debug"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$debug</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 142]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Enable disable debuging
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$encoding" id="$encoding"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$encoding</span>
+			 = <span class="var-default">&quot;utf-8&quot;</span>			<span class="smalllinenumber">[line 239]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Default enconding passed to the browser
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$errorMesage" id="$errorMesage"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$errorMesage</span>
+			 = <span class="var-default"> ''</span>			<span class="smalllinenumber">[line 182]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Last error message from the server
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$ExportCommand" id="$ExportCommand"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$ExportCommand</span>
+			 = <span class="var-default"> &quot;&quot;</span>			<span class="smalllinenumber">[line 280]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Set the sql command for excel export. If not set a _setSQL
+</strong></p>
+<span class="description"><p>function is used to set a sql for export</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqGrid/jqGrid.html#method_setSQL">jqGrid::_setSQL()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$getLastInsert" id="$getLastInsert"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bolean</span>&nbsp;&nbsp;
+			<span class="var-name">$getLastInsert</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 196]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Allow a obtaining and sending the last id (in case of serial key) to  the client.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$GridParams" id="$GridParams"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$GridParams</span>
+			 = <span class="var-default">array(<br />        &quot;page&quot; =&gt; &quot;page&quot;,<br />        &quot;rows&quot; =&gt; &quot;rows&quot;,<br />        &quot;sort&quot; =&gt; &quot;sidx&quot;,<br />        &quot;order&quot; =&gt; &quot;sord&quot;,<br />        &quot;search&quot; =&gt; &quot;_search&quot;,<br />		&quot;nd&quot; =&gt; &quot;nd&quot;,<br />		&quot;id&quot; =&gt; &quot;id&quot;,<br />        &quot;filter&quot; =&gt; &quot;filters&quot;,<br />        &quot;searchField&quot; =&gt; &quot;searchField&quot;,<br />        &quot;searchOper&quot; =&gt; &quot;searchOper&quot;,<br />        &quot;searchString&quot; =&gt; &quot;searchString&quot;,<br />        &quot;oper&quot; =&gt; &quot;oper&quot;,<br />        &quot;query&quot; =&gt; &quot;grid&quot;,<br />        &quot;addoper&quot; =&gt; &quot;add&quot;,<br />        &quot;editoper&quot; =&gt; &quot;edit&quot;,<br />        &quot;deloper&quot; =&gt; &quot;del&quot;,<br />        &quot;excel&quot; =&gt; &quot;excel&quot;,<br />        &quot;subgrid&quot;=&gt;&quot;subgrid&quot;,<br />		&quot;totalrows&quot; =&gt; &quot;totalrows&quot;,<br />		&quot;autocomplete&quot;=&gt;&quot;autocmpl&quot;<br />    )</span>			<span class="smalllinenumber">[line 208]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds the parameters that are send from the grid to the connector.
+</strong></p>
+<span class="description"><p>Correspond to the prmNames in jqGrid Java Script lib</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+<strong>Information Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Todo:</strong>&nbsp;&nbsp;</td><td>these parameters should be changed according to the jqGrid js</td>
+  </tr>
+</table>
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$gSQLMaxRows" id="$gSQLMaxRows"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>&nbsp;&nbsp;
+			<span class="var-name">$gSQLMaxRows</span>
+			 = <span class="var-default"> 1000</span>			<span class="smalllinenumber">[line 285]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Maximum number of rows to be exported for the excel export
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$I" id="$I"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$I</span>
+			 = <span class="var-default"> ''</span>			<span class="smalllinenumber">[line 64]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Used to perform case insensitive search in PostgreSQL. The variable is
+</strong></p>
+<span class="description"><p>detected automatically depending on the griver from jqGrid{driver}.php</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$jsonencode" id="$jsonencode"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$jsonencode</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 247]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>If set to true uses the PHP json_encode if available. If this is set to
+</strong></p>
+<span class="description"><p>false a custom encode function in jqGrid is used. Also use this to false  if the encoding of your database is not utf-8</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Deprecated:</strong>&nbsp;&nbsp;</td><td>this not needed anymore also the related option is $encoding</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$lastId" id="$lastId"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed.</span>&nbsp;&nbsp;
+			<span class="var-name">$lastId</span>
+			 = <span class="var-default">null</span>			<span class="smalllinenumber">[line 201]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the last inserted id in case when getLastInsert is true
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$logtofile" id="$logtofile"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$logtofile</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 148]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Determines if the log should be written to file or echoed.
+</strong></p>
+<span class="description"><p>Ih set to created is a file jqGrid.log in the directory where the script is</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$mongofields" id="$mongofields"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$mongofields</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 266]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Array which set which fields should be selected in case of mongodb.
+</strong></p>
+<span class="description"><p>If the array is empty all fields will be selected from the collection.</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$mongointegers" id="$mongointegers"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$mongointegers</span>
+			 = <span class="var-default">array()</span>			<span class="smalllinenumber">[line 260]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Store the names for the int fields when database is MongoDB. Used to perform
+</strong></p>
+<span class="description"><p>right serach in MongoDB. The array should contain the right names as listed  into the collection</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$optimizeSearch" id="$optimizeSearch"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$optimizeSearch</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 351]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Optimizes the search SQL when used in MySQL with big data sets.
+</strong></p>
+<span class="description"><p>Use this option carefully on complex SQL</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$PDF" id="$PDF"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>&nbsp;&nbsp;
+			<span class="var-name">$PDF</span>
+			 = <span class="var-default">array(<br />		&quot;page_orientation&quot; =&gt; &quot;P&quot;,<br />		&quot;unit&quot;=&gt;&quot;mm&quot;,<br />		&quot;page_format&quot;=&gt;&quot;A4&quot;,<br />		&quot;creator&quot;=&gt;&quot;jqGrid&quot;,<br />		&quot;author&quot;=&gt;&quot;jqGrid&quot;,<br />		&quot;title&quot;=&gt;&quot;jqGrid PDF&quot;,<br />		&quot;subject&quot;=&gt;&quot;Subject&quot;,<br />		&quot;keywords&quot;=&gt;&quot;table, grid&quot;,<br />		&quot;margin_left&quot;=&gt;15,<br />		&quot;margin_top&quot;=&gt;7,<br />		&quot;margin_right&quot;=&gt;15,<br />		&quot;margin_bottom&quot;=&gt;25,<br />		&quot;margin_header&quot;=&gt;5,<br />		&quot;margin_footer&quot;=&gt;10,<br />		&quot;font_name_main&quot;=&gt;&quot;helvetica&quot;,<br />		&quot;font_size_main&quot;=&gt;10,<br />		&quot;header_logo&quot;=&gt;&quot;&quot;,<br />		&quot;header_logo_width&quot;=&gt;0,<br />		&quot;header_title&quot;=&gt;&quot;&quot;,<br />		&quot;header_string&quot;=&gt;&quot;&quot;,<br />		&quot;header&quot;=&gt;false,<br />		&quot;footer&quot;=&gt;true,<br />		&quot;font_monospaced&quot;=&gt;&quot;courier&quot;,<br />		&quot;font_name_data&quot;=&gt;&quot;helvetica&quot;,<br />		&quot;font_size_data&quot;=&gt;8,<br />		&quot;margin_footer&quot;=&gt;10,<br />		&quot;image_scale_ratio&quot;=&gt;1.25,<br />		&quot;grid_head_color&quot;=&gt;&quot;#dfeffc&quot;,<br />		&quot;grid_head_text_color&quot;=&gt;&quot;#2e6e9e&quot;,<br />		&quot;grid_draw_color&quot;=&gt;&quot;#5c9ccc&quot;,<br />		&quot;grid_header_height&quot;=&gt;6,<br />		&quot;grid_row_color&quot;=&gt;&quot;#ffffff&quot;,<br />		&quot;grid_row_text_color&quot;=&gt;&quot;#000000&quot;,<br />		&quot;grid_row_height&quot;=&gt;5,<br />		&quot;grid_alternate_rows&quot;=&gt;false,<br />		&quot;path_to_pdf_class&quot;=&gt;&quot;tcpdf/tcpdf.php&quot;<br />	)</span>			<span class="smalllinenumber">[line 1101]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds the default settings for excel export
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$pdo" id="$pdo"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">resourse</span>&nbsp;&nbsp;
+			<span class="var-name">$pdo</span>
+						<span class="smalllinenumber">[line 58]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Stores the connection passed to the constructor
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$performcount" id="$performcount"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$performcount</span>
+			 = <span class="var-default"> true</span>			<span class="smalllinenumber">[line 362]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Internal set in queryGrid if we should use count query in order to set
+</strong></p>
+<span class="description"><p>the grid output</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$readFromXML" id="$readFromXML"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$readFromXML</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 320]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Obtain the SQL qurery from XML file.
+</strong></p>
+<span class="description"><p>In this case the SelectCommand should be set as xmlfile.sqlid.  The xmlfile is the name of xml file where we store the sql commands,  sqlid is the id of the required sql.  The simple xml file can look like this  &lt; ?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  &lt;queries&gt;  &lt;sql Id=&quot;getUserById&quot;&gt;    Select *    From users    Where Id = ?    &lt;/sql&gt;   &lt;sql Id=&quot;validateUser&quot;&gt;    Select Count(Id)    From users    Where Email = ? AND Password = ?   &lt;/sql&gt;  &lt;/queries&gt;  Important note: The class first look for readFromXML, then for  selectCommand and last for a table.</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$select" id="$select"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$select</span>
+			 = <span class="var-default">&quot;&quot;</span>			<span class="smalllinenumber">[line 77]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Holds the modified select command used into grid
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$SelectCommand" id="$SelectCommand"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$SelectCommand</span>
+			 = <span class="var-default"> &quot;&quot;</span>			<span class="smalllinenumber">[line 272]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>In case if no table is set, this holds the sql command for
+</strong></p>
+<span class="description"><p>retrieving the data from the db to the grid</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$showError" id="$showError"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$showError</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 177]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>If set to true all errors from the server are shown in the client in a  dialog. Curretly work only for grid and form edit.
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$SubgridCommand" id="$SubgridCommand"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$SubgridCommand</span>
+			 = <span class="var-default"> &quot;&quot;</span>			<span class="smalllinenumber">[line 290]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Set a sql command used for the simple subgrid
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$table" id="$table"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$table</span>
+			 = <span class="var-default"> &quot;&quot;</span>			<span class="smalllinenumber">[line 295]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>set a table to display a data to the grid
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$tmpvar" id="$tmpvar"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>&nbsp;&nbsp;
+			<span class="var-name">$tmpvar</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 118]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Temporary variable for internal use
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$userdata" id="$userdata"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><array></span>&nbsp;&nbsp;
+			<span class="var-name">$userdata</span>
+			 = <span class="var-default"> null</span>			<span class="smalllinenumber">[line 326]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Used to store the additional userdata which will be transported
+</strong></p>
+<span class="description"><p>to the grid when the request is made. Used in addRowData method</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$userdateformat" id="$userdateformat"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$userdateformat</span>
+			 = <span class="var-default"> 'd/m/Y'</span>			<span class="smalllinenumber">[line 100]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>The date format used by the user when a search is performed and CRUD operation
+</strong></p>
+<span class="description"><p>See setUserDate and getUserDate. Also this format is used to automatically convert the date  passed from grid to database. Used in CRUD operations and search</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$usertimeformat" id="$usertimeformat"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$usertimeformat</span>
+			 = <span class="var-default"> 'd/m/Y H:i:s'</span>			<span class="smalllinenumber">[line 108]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>The datetime format used by the user when a search is performed and CRUD operation
+</strong></p>
+<span class="description"><p>See setUserTime and getUserTime. Also this format is used to automatically convert the datetime  passed from grid to database. Used in CRUD operations and search</p></span>	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$version" id="$version"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>&nbsp;&nbsp;
+			<span class="var-name">$version</span>
+			 = <span class="var-default"> '4.1.1.0'</span>			<span class="smalllinenumber">[line 52]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Get te current version
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="var$xmlCDATA" id="$xmlCDATA"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>&nbsp;&nbsp;
+			<span class="var-name">$xmlCDATA</span>
+			 = <span class="var-default"> false</span>			<span class="smalllinenumber">[line 345]</span>
+		</span>
+	</div>
+
+	<p align="center" class="short-description"><strong>Defines if the xml otput should be enclosed in CDATA when xml output is enabled
+</strong></p>
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+	
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Class Overview</a>
+							| <a href="#sec-descendants">Descendants</a>
+																		| <a href="#sec-var-summary">Property Summary</a> | <a href="#sec-vars">Properties Detail</a>
+																	| <a href="#sec-method-summary">Method Summary</a> | <span class="disabled">Methods Detail</span>
+					</div>
+		<div class="info-box-body">
+			<a name='method_detail'></a>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">Constructor __construct</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 368]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>jqGrid __construct(
+[resource
+$db = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Constructor
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">resource</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$db:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> -  $db the database connection passed to the constructor</span>			</td></tr>
+				</table>
+
+	<br />
+	
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodaddUserData" id="addUserData"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">addUserData</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1878]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void addUserData(
+array
+$adata&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Add a custom data to the grid footer row if it is enabled.
+</strong></p>
+<span class="description"><p>Also can be used to transport additional data in userdata array to be  used later at client side.  The syntax is $grid-&gt;addUserData(array(&quot;Name1&quot;=&gt;&quot;Data1&quot;,...));  The method is executed after the sumarry rows are executed, so it can  overwrite some summary data which is palced on the footer.</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$adata:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodbuildSearch" id="buildSearch"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">buildSearch</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 673]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>mixed buildSearch(
+string
+$filter, [string
+$otype = 'str']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Build a search string from filter string posted from the grid
+</strong></p>
+<span class="description"><p>Usually use this functio separatley</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$filter:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$otype:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>- string or array depending on $otype param</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methoddebugout" id="debugout"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">debugout</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 153]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void debugout(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Prints all executed SQL queries to file or console
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqGrid/jqGrid.html#var$logtofile">jqGrid::$logtofile</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodexecute" id="execute"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">execute</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 409]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>boolean execute(
+string
+$sqlId, array
+$params, 
+&$sql, [boolean
+$limit = false], [integer
+$nrows = -1], [integer
+$offset = -1], [
+$order = ''], [
+$sort = ''], resource
+$sql&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Executes a prepared sql statement. Also if limit is set to true is used
+</strong></p>
+<span class="description"><p>to return limited set of records  Return true on success</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sqlId:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - sql to pe executed</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - array of values which are passed as parameters  to the sql</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">resource</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sql:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - pointer to the constructed sql</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$limit:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - if set to true we use a pagging mechanizm</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">integer</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$nrows:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - number of rows to return</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">integer</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$offset:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the offset from which the nrows should be returned</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">&$sql:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$order:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sort:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodexportToCsv" id="exportToCsv"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">exportToCsv</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1596]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string exportToCsv(
+[
+$summary = null], [
+$params = null], [
+$colmodel = null], [boolean
+$echo = true], [string
+$filename = 'exportdata.csv'], [string
+$sep = ';'], [string
+$sepreplace = ' ']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Public method to export a grid data to csv data.
+</strong></p>
+<span class="description"><p>Can use the ExportCommand. If this command is not set uses _setSQL to set the query.  The number of rows exported is limited from gSQLMaxRows variable</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - set which columns should be sumarized in order to be displayed to the grid  By default this parameter uses SQL SUM function: array(&quot;colmodelname&quot;=&gt;&quot;sqlname&quot;);  It can be set to use the other one this way  array(&quot;colmodelname&quot;=&gt;array(&quot;sqlname&quot;=&gt;&quot;AVG&quot;));  By default the first field correspond to the name of colModel the second to  the database name</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> parameter values passed to the sql array(value)</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$colmodel:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - different description for the headers</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$echo:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> determines if the result should be returned or echoed</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$filename:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the filename to which the sheet can be saved in case if $echo is true</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sep:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the separator for the csv data</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sepreplace:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - with what to replace the separator if in data</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqGrid/jqGrid.html#method_setSQL">jqGrid::_setSQL()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqGrid/jqGrid.html#methodrs2excel">jqGrid::rs2excel()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodexportToExcel" id="exportToExcel"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">exportToExcel</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1013]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string exportToExcel(
+[
+$summary = null], [
+$params = null], [
+$colmodel = null], [boolean
+$echo = true], [string
+$filename = 'exportdata.xml']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Export the recordset to excel xml file.
+</strong></p>
+<span class="description"><p>Can use the ExportCommand. If this command is not set uses _setSQL to set the query.  The number of rows exported is limited from gSQLMaxRows variable</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - set which columns should be sumarized in order to be displayed to the grid  By default this parameter uses SQL SUM function: array(&quot;colmodelname&quot;=&gt;&quot;sqlname&quot;);  It can be set to use the other one this way  array(&quot;colmodelname&quot;=&gt;array(&quot;sqlname&quot;=&gt;&quot;AVG&quot;));  By default the first field correspond to the name of colModel the second to  the database name</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> parameter values passed to the sql array(value)</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$colmodel:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - different description for the headers - see rs2excel</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$echo:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> determines if the result should be returned or echoed</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$filename:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the filename to which the sheet can be saved in case if $echo is true</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqGrid/jqGrid.html#method_setSQL">jqGrid::_setSQL()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodexportToPdf" id="exportToPdf"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">exportToPdf</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1339]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void exportToPdf(
+[
+$summary = null], [
+$params = null], [
+$colmodel = null], [string
+$filename = 'exportdata.pdf']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Export the recordset to pdf file.
+</strong></p>
+<span class="description"><p>Can use the ExportCommand. If this command is not set uses _setSQL to set the query.  The number of rows exported is limited from gSQLMaxRows variable</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - set which columns should be sumarized in order to be displayed to the grid  By default this parameter uses SQL SUM function: array(&quot;colmodelname&quot;=&gt;&quot;sqlname&quot;);  It can be set to use the other one this way  array(&quot;colmodelname&quot;=&gt;array(&quot;sqlname&quot;=&gt;&quot;AVG&quot;));  By default the first field correspond to the name of colModel the second to  the database name</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> parameter values passed to the sql array(value)</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$colmodel:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - different description for the headers - see rs2excel</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$filename:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the filename to which the sheet can be saved in case if $echo is true</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>See:</strong>&nbsp;&nbsp;</td><td><a href="../jqGrid/jqGrid.html#method_setSQL">jqGrid::_setSQL()</a></td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetDbDate" id="getDbDate"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getDbDate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 751]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string getDbDate(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the current date format used in the undelayed database
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetDbTime" id="getDbTime"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">getDbTime</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 767]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string getDbTime(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the current datetime format used in the undelayed database
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetGridParams" id="getGridParams"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getGridParams</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 785]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>array getGridParams(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the associative array which contain the parameters  that are sended from the grid to request, search, update delete data.
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetSqlElement" id="getSqlElement"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">getSqlElement</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 451]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>mixed getSqlElement(
+string
+$sqlId&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Read a xml file and the SelectCommand and return the sql string  Return string if the query is found false if not.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sqlId:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the string of type xmlfile.sqlId</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetStringForGroup" id="getStringForGroup"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getStringForGroup</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 538]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>array getStringForGroup(
+object
+$group, array
+$prm&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Recursivley build the sql query from a json object
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">object</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$group:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the object to parse</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$prm:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> parameters array</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>- first element is the where clause secon is the array of values to pass</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetUserDate" id="getUserDate"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">getUserDate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 719]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string getUserDate(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the current date format used from the client
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodgetUserTime" id="getUserTime"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">getUserTime</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 735]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string getUserTime(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the current datetime format used from the client
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodlogQuery" id="logQuery"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">logQuery</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 126]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void logQuery(
+string
+$sql, [array
+$data = null], [array
+$types = null], [
+$input = null], [
+$fld = null], [
+$primary = '']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Log query
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sql:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$data:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$types:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$input:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$fld:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$primary:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodparseSql" id="parseSql"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">parseSql</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 391]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string parseSql(
+string
+$sqlElement, array
+$params, [
+$bind = true]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Prepares a $sqlElement and binds a parameters $params
+</strong></p>
+<span class="description"><p>Return prepared sql statement</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sqlElement:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> sql to be prepared</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - parameters passed to the sql</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$bind:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodqueryForObject" id="queryForObject"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">queryForObject</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 521]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>object queryForObject(
+string
+$sqlId, array
+$params, [boolean
+$fetchAll = false]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the object from the query
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sqlId:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the sql to be queried</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - parameter values passed to the sql</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$fetchAll:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - if set to true fetch all records</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodqueryGrid" id="queryGrid"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">queryGrid</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 842]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>mixed queryGrid(
+[
+$summary = null], [
+$params = null], [boolen
+$echo = true]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the result of the query to jqGrid. Support searching
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - set which columns should be sumarized in order to be displayed to the grid  By default this parameter uses SQL SUM function: array(&quot;colmodelname&quot;=&gt;&quot;sqlname&quot;);  It can be set to use the other one this way  array(&quot;colmodelname&quot;=&gt;array(&quot;sqlname&quot;=&gt;&quot;AVG&quot;));  By default the first field correspond to the name of colModel the second to  the database name</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - parameter values passed to the sql</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolen</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$echo:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> if set to false return the records as object, otherwiese json encoded or xml string  depending on the dataType variable</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodquerySubGrid" id="querySubGrid"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">querySubGrid</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1616]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void querySubGrid(
+array
+$params, [boolean
+$echo = true]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Return the result of the query for the simple subgrid
+</strong></p>
+<span class="description"><p>The format depend of dataType variable</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> parameters passed to the query</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$echo:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> if set to false return object containing the data</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodrs2excel" id="rs2excel"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">rs2excel</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1689]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>string rs2excel(
+pdo
+$rs, [array
+$colmodel = false], [boolean
+$echo = true], [string
+$filename = 'exportdata.xls'], [array
+$summary = false]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>From a given recordset returns excel xml file. If the summary array is  defined add summary formula at last row.
+</strong></p>
+<span class="description"><p>Return well formated xml excel string</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$colmodel:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> diffrent descriptions for the headars, width, hidden cols  This array is actually a colModel array in jqGrid.  The array can look like  Array(       [0]=&gt;Array(&quot;label&quot;=&gt;&quot;Some label&quot;, &quot;width&quot;=&gt;100, &quot;hidden&quot;=&gt;true, &quot;name&quot;=&gt;&quot;client_id&quot;, &quot;formatter&quot;=&gt;&quot;select&quot;, editoptions=&gt;...),       [1]=&gt;Array(&quot;label&quot;=&gt;&quot;Other label&quot;, &quot;width&quot;=&gt;80, &quot;hidden&quot;=&gt;false, &quot;name&quot;=&gt;&quot;date&quot;,... ),       ...  )</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$echo:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> determines if the result should be send to browser or returned as string</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$filename:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> filename to which file can be saved</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - set which columns should be sumarized in order to be displayed to the grid  By default this parameter uses SQL SUM function: array(&quot;colmodelname&quot;=&gt;&quot;sqlname&quot;);  It can be set to use the other one this way  array(&quot;colmodelname&quot;=&gt;array(&quot;sqlname&quot;=&gt;&quot;AVG&quot;));  By default the first field correspond to the name of colModel the second to  the database name</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">pdo</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$rs:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> recordset $rs recordset from pdo execute command</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodrs2pdf" id="rs2pdf"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">rs2pdf</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1159]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>null rs2pdf(
+object
+$rs, pdf
+&$pdf, [array
+$colmodel = false], [
+$summary = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Convert a recordeset to pdf object
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">object</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$rs:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> the recorde set object from the query</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$colmodel:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> can be either manually created array see rs2excel or genereted  from setColModel methd.</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">pdf</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">&$pdf:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> created object $pdf</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodselectLimit" id="selectLimit"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">selectLimit</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 816]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>object selectLimit(
+[string
+$limsql = ''], [integer
+$nrows = -1], [integer
+$offset = -1], [
+$params = null], [
+$order = ''], [
+$sort = '']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Will select, getting rows from $offset (1-based), for $nrows.
+</strong></p>
+<span class="description"><p>This simulates the MySQL &quot;select * from table limit $offset,$nrows&quot; , and  the PostgreSQL &quot;select * from table limit $nrows offset $offset&quot;. Note that  MySQL and PostgreSQL parameter ordering is the opposite of the other.  eg. Also supports Microsoft SQL Server  SelectLimit('select * from table',3); will return rows 1 to 3 (1-based)  SelectLimit('select * from table',3,2); will return rows 3 to 5 (1-based)  Return object containing the limited record set</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$limsql:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - optional sql clause</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">integer</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$nrows:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> is the number of rows to get</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">integer</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$offset:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> is the row to start calculations from (1-based)</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> array of bind variables</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$order:&nbsp;</span></td>
+				<td>
+							</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sort:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsendErrorHeader" id="sendErrorHeader"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">sendErrorHeader</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 187]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void sendErrorHeader(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Function to simulate 500 Internal error so that it sends the error  to the client. It is activated only if $showError is true.
+</strong></p>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetDbDate" id="setDbDate"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setDbDate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 759]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setDbDate(
+string
+$newformat&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set a new  database date format using PHP convensions
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$newformat:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the new database format</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetDbTime" id="setDbTime"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setDbTime</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 775]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setDbTime(
+string
+$newformat&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set a new  database datetime format using PHP convensions
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$newformat:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the new database format</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetGridParams" id="setGridParams"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setGridParams</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 795]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setGridParams(
+array
+$_aparams&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set a grid parameters to identify the action from the grid  Note that these should be set in the grid - i.e the parameters from the grid  should equal to the GridParams.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$_aparams:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> set new parameter.</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetPdfOptions" id="setPdfOptions"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setPdfOptions</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1144]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setPdfOptions(
+array
+$apdf&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set options for PDF export.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$apdf:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetUserDate" id="setUserDate"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">setUserDate</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 727]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setUserDate(
+string
+$newformat&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set a new user date format using PHP convensions
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$newformat:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the new format</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="methodsetUserTime" id="setUserTime"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">setUserTime</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 743]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void setUserTime(
+string
+$newformat&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Set a new user datetime format using PHP convensions
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$newformat:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - the new format</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="method_buildSearch" id="_buildSearch"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">_buildSearch</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 627]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>array _buildSearch(
+[
+$prm = null], [
+$str_filter = '']&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Builds the search where clause when the user perform a search  Return arrray the first element is a strinng with the where clause,  the second element is array containing the value parameters passed to  the sql.
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$prm:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - parameters passed to the sql</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type"></span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$str_filter:&nbsp;</span></td>
+				<td>
+							</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="method_getcount" id="_getcount"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">_getcount</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 476]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>object _getcount(
+string
+$sql, [
+$params = null], [
+$sumcols = null]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Returns object which holds the total records in the query and optionally
+</strong></p>
+<span class="description"><p>the sum of the records determined in sumcols</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sql:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - string to be parsed</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - parameters passed to the sql query</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$sumcols:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> - array which holds the sum of the setted rows.  The array should be associative where the index corresponds to the names  of colModel in the grid, and the value correspond to the actual name in  the query</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="method_gridResponse" id="_gridResponse"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">_gridResponse</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1633]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>void _gridResponse(
+string
+$response&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Check in which format data should be returned to the grid based on dataType property
+</strong></p>
+<span class="description"><p>Add the appropriate headers and echo the result</p></span>
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">string</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$response:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> can be xml or json</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="method_rs" id="_rs"><!-- --></a>
+<div class="evenrow">
+
+<div class="method-header">
+	<span class="method-title">_rs</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 1033]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>recordset _rs(
+[array
+$params = null], [array
+$summary = null], [boolean
+$excel = false]&nbsp;
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Convert the query to record set and set the summary data if available
+</strong></p>
+
+			<strong>Parameters:</strong><br />
+			<table border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$params:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> parameters to the qurery</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">array</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$summary:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> summary option</span>			</td></tr>
+					<tr><td class="indent">
+				<span class="var-type">boolean</span>&nbsp;&nbsp;</td>
+				<td>
+				<span class="var-name">$excel:&nbsp;</span></td>
+				<td>
+				<span class="var-description"> excel</span>			</td></tr>
+				</table>
+
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Return:</strong>&nbsp;&nbsp;</td><td>object</td>
+  </tr>
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+<a name="method_setSQL" id="_setSQL"><!-- --></a>
+<div class="oddrow">
+
+<div class="method-header">
+	<span class="method-title">_setSQL</span>&nbsp;&nbsp;<span class="smalllinenumber">[line 696]</span>
+</div>
+<br />
+
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code-border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">&nbsp;
+		<code>mixed _setSQL(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br /></div>
+
+	<p align="center" class="short-description"><strong>Bulid the sql based on $readFromXML, $SelectCommand and $table variables
+</strong></p>
+<span class="description"><p>The logic is: first we look if readFromXML is set to true, then we look for  SelectCommand and at end if none of these we use the table varable  Return string or false if the sql found</p></span>
+	<br />
+	<strong>API Tags:</strong><br />
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="indent"><strong>Access:</strong>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+<br />
+
+
+		
+		<br />
+	<div class="top">[ <a href="#top">Top</a> ]</div>
+</div>
+		</div>
+	</div>
+
+
+        <div class="credit">
+		    <hr class="separator" />
+		    Documentation generated on Wed, 22 Jun 2011 14:57:48 +0300 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

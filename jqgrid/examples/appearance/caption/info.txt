@@ -1,0 +1,1 @@
+You can control a large number of appearance related options using the <b>setGridOption</b> property collection. In this example we take advantage of <b>Caption</b> to set the caption of the grid. Setting it to empty string will result in no caption at all.

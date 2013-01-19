@@ -1,0 +1,12 @@
+You can use the jQuery based client-side API of jqGrid.PHP to get/set selected rows on the client with javascript (no postback).
+
+First, obtain a jQuery reference to the grid's client-side object using:
+
+ Then, once you get the ID, you can perform a lot of operations against it, for example to select a row, just pass the row key
+ 
+ jQuery('#grid').jqGrid('setSelection','10259');
+ 
+ To get the selected row, you can use:
+ 
+ var selr = jQuery('#grid').jqGrid('getGridParam','selrow'); // returns null if no row is selected
+This code is putted using the setJSCode which add the code at end of the grid construction

@@ -1,0 +1,5 @@
+In this example we show that the datepicker and autocomplete can be used
+in the same time. Also the autocomplete is attached to ShipName field,
+while the datepicke to orderDate field.
+You can open edit and/or search form and use the components on these fields.
+Enjoy

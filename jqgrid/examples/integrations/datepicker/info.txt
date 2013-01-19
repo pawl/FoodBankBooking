@@ -1,0 +1,9 @@
+Another very usefull class is the Calender class, which can be used in any
+input field.
+We have created a method which integrates this class in jqGrid.
+You will need only to set the on which field the datepicker should be lunched.
+Note that the method automatically converts the user date set in jqGrid to
+the appropriate datepicker format.
+A various options are available.
+In this example Open the edit form and you will see the datepicker icon near to
+OrderDate.

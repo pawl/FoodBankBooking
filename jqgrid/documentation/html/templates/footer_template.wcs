@@ -1,0 +1,9 @@
+<hr />
+<div class="footer">
+	Last Updated: <%= TTOD(oHelp.oTopic.Updated) %> | 
+	&copy <%= oHelp.cProjCompany %>, <%= Year(Date()) %>
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

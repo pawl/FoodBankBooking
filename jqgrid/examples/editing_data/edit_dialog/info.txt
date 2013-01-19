@@ -1,0 +1,8 @@
+One of the ways to edit data is by using the Edit Dialog functionality. You can launch Edit Dialog by selecting a row and then clicking on the "Edit" button in the grid toolbar (bottom left in this example). For this, you need to have toolbar enabled.
+
+By default, columns are editable. To make them not editable, set the <b>editable</b> property of the respective column to false.
+
+You can customize almost any feature of the edit dialog via the <b>setNavOptions</b> for edit dialog (for example <b>Caption, SubmitButtonText,</b> etc)
+
+Please, take a look at the code in the PHP tab for additional details.
+

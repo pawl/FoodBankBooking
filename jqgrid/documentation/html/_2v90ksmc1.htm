@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="TOPIC" />
+	<title>Cell editing</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/TOPIC.gif">&nbsp;Cell editing
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">Cell Editing is another editing mode of jqGrid for PHP. It is quite easy to add the feature. In this case we just need to set the <b>cellEdit </b>option to <b>true</b>.<p>Sample code:<p><pre><div class="csharpcode">&lt;?php
+require_once <span class="codestring">'jq-config.php'</span>;
+<span class="codecomment">// include the jqGrid Class</span>
+require_once <span class="codestring">"php/jqGrid.php"</span>;
+<span class="codecomment">// include the driver class</span>
+require_once <span class="codestring">"php/jqGridPdo.php"</span>;
+<span class="codecomment">// Connection to the server</span>
+$conn = <span class="programcontrol">new</span> PDO(DB_DSN,DB_USER,DB_PASSWORD);
+<span class="codecomment">// Tell the db that we use utf-8</span>
+$conn-&gt;query(<span class="codestring">"SET NAMES utf8"</span>);
+
+<span class="codecomment">// Create the jqGrid instance</span>
+$grid = <span class="programcontrol">new</span> jqGridRender($conn);
+<span class="codecomment">// Write the SQL Query</span>
+$grid-&gt;SelectCommand = <span class="codestring">'SELECT OrderID, OrderDate, CustomerID, ShipName, Freight FROM orders'</span>;
+<span class="codecomment">// Set output format to json</span>
+$grid-&gt;dataType = <span class="codestring">'json'</span>;
+<span class="codecomment">// Let the grid create the model</span>
+$grid-&gt;setColModel();
+<span class="codecomment">// Set the url from where we obtain and edit data</span>
+$grid-&gt;setUrl(<span class="codestring">'grid.php'</span>);
+
+<span class="codecomment">//disable the editing of the first column</span>
+$grid-&gt;setColProperty(<span class="codestring">'OrderID'</span>, <span class="datatypes">array</span>(<span class="codestring">"editable"</span>=&gt;<span class="literals">false</span>)); 
+<span class="codecomment">// Set some grid options</span>
+$grid-&gt;setGridOptions(<span class="datatypes">array</span>(
+   <span class="codestring">"rowNum"</span>=&gt;10,
+   <span class="codestring">"rowList"</span>=&gt;<span class="datatypes">array</span>(10,20,30),
+   <span class="codestring">"sortname"</span>=&gt;<span class="codestring">"OrderID"</span>,
+   <span class="codestring">"cellEdit"</span>=&gt; <span class="literals">true</span>
+));
+$grid-&gt;renderGrid(<span class="codestring">'#grid'</span>,<span class="codestring">'#pager'</span>,<span class="literals">true</span>, <span class="literals">null</span>, <span class="literals">null</span>, <span class="literals">true</span>,<span class="literals">true</span>);
+$conn = <span class="literals">null</span>;
+?&gt;</div></pre><p>As can be seen you will just need to set <b>cellEdit</b> option to true.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 03/08/10 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>

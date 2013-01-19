@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<topictype value="HEADER" />
+	<title>Architecture and classes guide</title>
+	<link rel="stylesheet" type="text/css" href="templates/wwhelp.css">
+		  <script src="templates/jquery.min.js" type="text/javascript"></script>
+	<script src="templates/wwhelp.js" type="text/javascript"></script>
+	<script>
+		// fix up code examples to display tabs	
+			  $(function() { $("#example").codeExampleTabs(); });
+	</script>
+</head>
+<body>
+<div class="banner">
+  <div>
+	<span class="projectname">jqSuite php documentation</span>
+ </div>
+ <div class="topicname">
+	<img src="bmp/HEADER.gif">&nbsp;Architecture and classes guide
+ </div>
+</div>
+
+<div class="contentpane">
+
+<div class="contentbody" id="body">jqGrid for PHP is designed in a way that allows it to be integrated in any framework or architecture, without compromising any of its features. In order to achieve this, we have separated the component into three classes - each of them provides functionality that is convenient in different contexts. <p>In addition to that, each class inherits the properties of its base class, so that the base features will be available to you at any time.<p>Below is the list of classes:<p><a href="_2v20q5hpg.htm" >jqGrid Class</a><br><a href="_2v6108iau.htm" >jqGridEdit Class</a><br><a href="_2v70u6eg2.htm" >jqGridRender Class</a><p>Here is the hierarchy of the classes<p><pre><div class="csharpcode">jqGrid
+   |
+   --jqGridEdit
+      |
+      --jqGridRender</div></pre><p><b>jqGrid </b>is the base class and provides some of the functionality, <b>jqGridEdit </b>extends on that and provides editing capabilities, <b>jqGridRender </b>extends <b>jqGridEdit </b>and provides all grid features plus automatic generation of Javascript and HTML placeholders required by the grid. In this respect, <b>jqGridRender </b>is the most advanced class and requires the minimal amount of coding, however in certain situations you may find <b>jqGrid </b>and <b>jqGridEdit </b>more convenient to use based on the context.
+</div>
+
+
+</div><hr />
+<div class="footer">
+	Last Updated: 06/19/12 | 
+	&copy TriRand Ltd, 2012
+</div>
+<br class="clear" />
+<br />
+</body>
+</html>
